@@ -4,12 +4,15 @@
 <head>
     <meta charset="UTF-8" />
     <title>hello phaser!</title>
-    <script type="text/javascript">
-        var morphessure = {};
-    </script>    
-    <script type="text/javascript" src="http://localhost:2403/dpd.js"></script>
+    
     <script type="text/javascript" src="mithril.min.js"></script>
     <script type="text/javascript" src="phaser.min.js"></script>
+    <script type="text/javascript" src="http://localhost:2403/dpd.js"></script>    
+    <script type="text/javascript">
+        var _mp = {};
+    </script>
+    <script type="text/javascript" src="mapPlayer1.js"></script>
+    <script type="text/javascript" src="mapPlayer2.js"></script>    
     <script type="text/javascript" src="drawGameWord.js"></script>
 </head>
 
@@ -19,12 +22,12 @@
         // user mithril as simpe mvc http://lhorie.github.io/mithril/getting-started.html
         window.onload = function() {
 
-            morphessure.game = new Phaser.Game(800, 800, Phaser.AUTO, '', {
+            _mp.game = new Phaser.Game(800, 800, Phaser.AUTO, '', {
                 preload: function() {
-                    morphessure.preload();
+                    _mp.preload();
                 },
                 create: function() {
-                    morphessure.create();
+                    _mp.create();
                 }
             });
 

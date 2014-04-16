@@ -1,27 +1,47 @@
-morphessure.preload = function () {
-    morphessure.game.load.image('logo', 'phaser_50x50.png');
-    morphessure.game.load.image('player', 'player.png');
+_mp.preload = function () {
+    _mp.game.load.image('logo', 'phaser_50x50.png');
+    _mp.game.load.image('player', 'player.png');
+    
+    var ap1 = _mp.mapPlayer1.map;
+    for (a in ap1){
+        _mp.game.load.image(ap1[a].file, ap1[a].file);
+    }
 }
 
-morphessure.create = function () {
+_mp.create = function () {
 
-
-
-
-    var graphics = morphessure.game.add.graphics(0, 0);
+    var graphics = _mp.game.add.graphics(0, 0);
 
 
     // set a fill and line style
     //graphics.beginFill(0xFF3300);
     graphics.lineStyle(1, 0xffffff, 1);
     drawField(graphics);
-    drawTraps();
+    //drawTraps();
+    drawDynTraps();
     drawPlayer(0);
 
 }
 
+
+/**
+   * Lets listen to changes :D
+   * 
+   */
+  dpd.players.on('put', function(message) {
+    console.log(message);
+    if(message.playerId=="1"){
+      console.log("player 1 did something");
+    }
+      
+    if(message.playerId=="12"){
+      console.log("player 2 did something");
+    }
+  });
+
+
 function drawPlayer(playerId) {
-    morphessure.player1 = morphessure.game.add.sprite(75, 75, 'player');
+    _mp.player1 = _mp.game.add.sprite(375, 75, 'player');
     //logo.scale.setTo(1, 1); //Scale object
     //logo.inputEnabled = true;
     //logo.input.useHandCursor = true; //if you want a hand cursor
@@ -30,32 +50,75 @@ function drawPlayer(playerId) {
 
 
 /**
+* Draws traps from the config json file.
+*/
+function drawDynTraps(){
+    var up = true;
+    
+    var ap1 = _mp.mapPlayer1.map;
+    var rowSize = _mp.mapPlayer1.properties.rowSize;
+    var x = 75; //x start point
+    var y = 75; //y start point
+    
+    for (var m = 0; m < ap1.length; m++){        
+        
+        if(m != 0 && m % rowSize == 0){
+            y = y + 100;
+            x = 75;
+            up = !up;
+            if (!up) {
+                x = x + 50;
+            }
+            
+        }     
+        
+        x = x + 100;
+        
+        
+        var logo = _mp.game.add.sprite(x, y, ap1[m].file);
+        
+        //add click listeners
+        logo.inputEnabled = true;
+            logo.input.useHandCursor = true; //if you want a hand cursor
+            logo.events.onInputDown.add(function (sprite, pointer) {
+                _mp.game.add.tween(_mp.player1).to({
+                    x: sprite.x,
+                    y: sprite.y
+                }, 1000, Phaser.Easing.Linear.None, true, 0, 0, false);
+
+            }, this);
+    }
+    
+
+}
+
+/**
  * Draw the traps on the triange
  */
 function drawTraps() {
     var up = true;
     for (var m = 0; m < 7; m++) {
-        for (var n = 0; n < 7; n++) {
+        for (var n = 0; n < 6; n++) {
             var l = 75 + n * 100;
             var r = 75 + m * 100;
             if (!up) {
                 l = l + 50
             }
-            var logo = morphessure.game.add.sprite(l, r, 'logo');
+            var logo = _mp.game.add.sprite(l, r, 'logo');
             //logo.scale.setTo(1, 1); //Scale object
             logo.inputEnabled = true;
             logo.input.useHandCursor = true; //if you want a hand cursor
             logo.events.onInputDown.add(function (sprite, pointer) {
-                console.log(sprite, pointer);
+                //console.log(sprite, pointer);
 
-                morphessure.game.add.tween(morphessure.player1).to({
+                _mp.game.add.tween(_mp.player1).to({
                     x: sprite.x,
                     y: sprite.y
                 }, 1000, Phaser.Easing.Linear.None, true, 0, 0, false);
 
 
-                //morphessure.player1.x=sprite.x;
-                //morphessure.player1.y=sprite.y;
+                //_mp.player1.x=sprite.x;
+                //_mp.player1.y=sprite.y;
 
             }, this);
 
