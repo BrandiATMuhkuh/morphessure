@@ -1,0 +1,21 @@
+{
+	"type": "Collection",
+	"properties": {
+		"playerId": {
+			"name": "playerId",
+			"type": "number",
+			"typeLabel": "number",
+			"required": false,
+			"id": "playerId",
+			"order": 0
+		},
+		"graphNode": {
+			"name": "graphNode",
+			"type": "number",
+			"typeLabel": "number",
+			"required": false,
+			"id": "graphNode",
+			"order": 1
+		}
+	}
+}

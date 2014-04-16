@@ -1,0 +1,1 @@
+emit('players:put', this);
