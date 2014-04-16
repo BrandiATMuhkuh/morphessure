@@ -1,9 +1,19 @@
 _mp.preload = function () {
+    
+    //localPlayer
+    //Player one (1) is default
+    _mp.mapPlayer = _mp.mapPlayer1;
+    if(location.getParameter("player")!=null){
+        if(location.getParameter("player") == "2"){
+            _mp.mapPlayer = _mp.mapPlayer2;
+        }
+    }
+    
     _mp.game.load.image('logo', 'phaser_50x50.png');
     _mp.game.load.image('player', 'player.png');
-    
-    var ap1 = _mp.mapPlayer1.map;
-    for (a in ap1){
+
+    var ap1 = _mp.mapPlayer.map;
+    for (a in ap1) {
         _mp.game.load.image(ap1[a].file, ap1[a].file);
     }
 }
@@ -12,7 +22,7 @@ _mp.create = function () {
 
     var graphics = _mp.game.add.graphics(0, 0);
 
-    _mp.game.world.setBounds(0, 0, 1400, 1400);//
+    _mp.game.world.setBounds(0, 0, 1400, 1400); //
     // set a fill and line style
     //graphics.beginFill(0xFF3300);
     graphics.lineStyle(1, 0xffffff, 1);
@@ -25,68 +35,76 @@ _mp.create = function () {
 
 
 /**
-   * Lets listen to changes :D
-   * 
-   */
-  dpd.players.on('put', function(message) {
+ * Lets listen to changes :D
+ *
+ */
+dpd.players.on('put', function (message) {
     console.log(message);
-    if(message.playerId=="1"){
-      console.log("player 1 did something");
+    
+    if (message.id == _mp.mapPlayer.properties.dbId) {
+        console.log("i change something in db");
+    }else{
+        console.log("someone else changed something in db");
     }
-      
-    if(message.playerId=="12"){
-      console.log("player 2 did something");
-    }
-  });
+});
 
+/**
+* Changes the players position and tells it the server
+*/
+function changePlayerPosition(graphNode){
+    dpd.players.put(_mp.mapPlayer.properties.dbId, {"graphNode":graphNode}, function(result, err) {
+      if(err) return console.log(err);
+      console.log(result, result.id);
+    });
+}
 
 function drawPlayer(playerId) {
     _mp.player1 = _mp.game.add.sprite(275, 75, 'player');
-    _mp.game.camera.follow(_mp.player1);//camera will from now on follow the player
+    _mp.game.camera.follow(_mp.player1); //camera will from now on follow the player
 }
 
 
 /**
-* Draws traps from the config json file.
-*/
-function drawDynTraps(){
+ * Draws traps from the config json file.
+ */
+function drawDynTraps() {
     var up = true;
-    
-    var ap1 = _mp.mapPlayer1.map;
-    var rowSize = _mp.mapPlayer1.properties.rowSize;
+
+    var ap1 = _mp.mapPlayer.map;
+    var rowSize = _mp.mapPlayer.properties.rowSize;
     var xoff = -25;
     var x = xoff; //x start point
     var y = 75; //y start point
-    
-    for (var m = 0; m < ap1.length; m++){        
-        
-        if(m != 0 && m % rowSize == 0){
+
+    for (var m = 0; m < ap1.length; m++) {
+
+        if (m != 0 && m % rowSize == 0) {
             y = y + 100;
             x = xoff;
             up = !up;
             if (!up) {
                 x = x + 50;
             }
-            
-        }     
-        
+
+        }
+
         x = x + 100;
-        
-        
+
+
         var logo = _mp.game.add.sprite(x, y, ap1[m].file);
-        
+
         //add click listeners
         logo.inputEnabled = true;
-            logo.input.useHandCursor = true; //if you want a hand cursor
-            logo.events.onInputDown.add(function (sprite, pointer) {
-                _mp.game.add.tween(_mp.player1).to({
-                    x: sprite.x,
-                    y: sprite.y
-                }, 1000, Phaser.Easing.Linear.None, true, 0, 0, false);
+        logo.input.useHandCursor = true; //if you want a hand cursor
+        logo.events.onInputDown.add(function (sprite, pointer) {
+            _mp.game.add.tween(_mp.player1).to({
+                x: sprite.x,
+                y: sprite.y
+            }, 1000, Phaser.Easing.Linear.None, true, 0, 0, false);
 
-            }, this);
+        }, this);
     }
-    
+
 
 }
 

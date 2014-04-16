@@ -1,7 +1,8 @@
 _mp.mapPlayer1 = {
     properties: {
         rowSize: 6,
-        start: 3
+        start: 3,
+        dbId: "13ee59a5aaaa4802"
     },
     map: [
         {

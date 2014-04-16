@@ -23,7 +23,7 @@
 */
 
 /**
-* This will return an url or hash parameter
+* This function extends the global location object with a getPrameter function. 
 * The idea is from this Stackoverflow answer: http://stackoverflow.com/a/11582513
 */
 location.getParameter = function(name) {
