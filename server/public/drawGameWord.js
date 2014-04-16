@@ -43,19 +43,36 @@ dpd.players.on('put', function (message) {
     
     if (message.id == _mp.mapPlayer.properties.dbId) {
         console.log("i change something in db");
+        changePlayerPosition(message.graphNode);
+        
     }else{
         console.log("someone else changed something in db");
+        console.log("i change something in db");
+        changePlayerPosition(message.graphNode);
     }
 });
 
 /**
-* Changes the players position and tells it the server
+* Tells server what node player want to change to
 */
-function changePlayerPosition(graphNode){
+function dbChangePlayerPosition(graphNode){
     dpd.players.put(_mp.mapPlayer.properties.dbId, {"graphNode":graphNode}, function(result, err) {
       if(err) return console.log(err);
       console.log(result, result.id);
     });
+}
+
+
+/**
+* move player to graphNode
+*/
+function changePlayerPosition(graphNode){
+    console.log("Change to graph: ", graphNode);
+    
+    _mp.game.add.tween(_mp.player1).to({
+        x: _mp.mapPlayer.map[graphNode].x,
+        y: _mp.mapPlayer.map[graphNode].y
+    }, 1000, Phaser.Easing.Linear.None, true, 0, 0, false);
 }
 
 function drawPlayer(playerId) {
@@ -75,8 +92,8 @@ function drawDynTraps() {
     var xoff = -25;
     var x = xoff; //x start point
     var y = 75; //y start point
-
-    for (var m = 0; m < ap1.length; m++) {
+    var m = 0;
+    for (m = 0; m < ap1.length; m++) {
 
         if (m != 0 && m % rowSize == 0) {
             y = y + 100;
@@ -89,26 +106,43 @@ function drawDynTraps() {
         }
 
         x = x + 100;
-
+        
+        //add current coordinated to currentUser // for debugging and testing
+        ap1[m].x=x;
+        ap1[m].y=y;
 
         var logo = _mp.game.add.sprite(x, y, ap1[m].file);
 
         //add click listeners
         logo.inputEnabled = true;
         logo.input.useHandCursor = true; //if you want a hand cursor
-        logo.events.onInputDown.add(function (sprite, pointer) {
-            _mp.game.add.tween(_mp.player1).to({
-                x: sprite.x,
-                y: sprite.y
-            }, 1000, Phaser.Easing.Linear.None, true, 0, 0, false);
-
-        }, this);
+        
+    
+        
+        logo.events.onInputDown.add(function(k){
+            //This uses a closure funtion 
+            //see this stackoverflow entry
+            // http://stackoverflow.com/questions/3572480/please-explain-the-use-of-javascript-closures-in-loops/3572616#3572616
+            return function (sprite, pointer) {
+                //tell server what node current use stands on
+                //console.log(k);
+                dbChangePlayerPosition(k);
+                /*
+                _mp.game.add.tween(_mp.player1).to({
+                    x: sprite.x,
+                    y: sprite.y
+                }, 1000, Phaser.Easing.Linear.None, true, 0, 0, false);
+                */
+            }
+          }(m), this);
+        
     }
 
 
 }
 
 /**
+ * DEPRICATED
  * Draw the traps on the triange
  */
 function drawTraps() {
