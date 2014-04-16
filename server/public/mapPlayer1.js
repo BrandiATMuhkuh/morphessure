@@ -93,6 +93,96 @@ _mp.mapPlayer1 = {
             pos:17,
             file: "phaser_50x50.png",
             trap: true
+        },
+        {
+            pos: 18,
+            file: "noTrap.png",
+            trap: false
+        },
+        {
+            pos: 19,
+            file: "phaser_50x50.png",
+            trap: true
+        },
+        {
+            pos: 20,
+            file: "phaser_50x50.png",
+            trap: true
+        },
+        {
+            pos: 21,
+            file: "phaser_50x50.png",
+            trap: true
+        },
+        {
+            pos: 22,
+            file: "phaser_50x50.png",
+            trap: true
+        },
+        {
+            pos:23,
+            file: "phaser_50x50.png",
+            trap: true
+        },
+        {
+            pos: 18,
+            file: "noTrap.png",
+            trap: false
+        },
+        {
+            pos: 19,
+            file: "phaser_50x50.png",
+            trap: true
+        },
+        {
+            pos: 20,
+            file: "phaser_50x50.png",
+            trap: true
+        },
+        {
+            pos: 21,
+            file: "phaser_50x50.png",
+            trap: true
+        },
+        {
+            pos: 22,
+            file: "phaser_50x50.png",
+            trap: true
+        },
+        {
+            pos:23,
+            file: "phaser_50x50.png",
+            trap: true
+        },
+        {
+            pos: 18,
+            file: "noTrap.png",
+            trap: false
+        },
+        {
+            pos: 19,
+            file: "phaser_50x50.png",
+            trap: true
+        },
+        {
+            pos: 20,
+            file: "phaser_50x50.png",
+            trap: true
+        },
+        {
+            pos: 21,
+            file: "phaser_50x50.png",
+            trap: true
+        },
+        {
+            pos: 22,
+            file: "phaser_50x50.png",
+            trap: true
+        },
+        {
+            pos:23,
+            file: "phaser_50x50.png",
+            trap: true
         }
         
     ]

@@ -12,7 +12,7 @@ _mp.create = function () {
 
     var graphics = _mp.game.add.graphics(0, 0);
 
-
+    _mp.game.world.setBounds(0, 0, 1400, 1400);//
     // set a fill and line style
     //graphics.beginFill(0xFF3300);
     graphics.lineStyle(1, 0xffffff, 1);
@@ -41,11 +41,8 @@ _mp.create = function () {
 
 
 function drawPlayer(playerId) {
-    _mp.player1 = _mp.game.add.sprite(375, 75, 'player');
-    //logo.scale.setTo(1, 1); //Scale object
-    //logo.inputEnabled = true;
-    //logo.input.useHandCursor = true; //if you want a hand cursor
-    //logo.input.enableDrag(false, true);
+    _mp.player1 = _mp.game.add.sprite(275, 75, 'player');
+    _mp.game.camera.follow(_mp.player1);//camera will from now on follow the player
 }
 
 
@@ -57,14 +54,15 @@ function drawDynTraps(){
     
     var ap1 = _mp.mapPlayer1.map;
     var rowSize = _mp.mapPlayer1.properties.rowSize;
-    var x = 75; //x start point
+    var xoff = -25;
+    var x = xoff; //x start point
     var y = 75; //y start point
     
     for (var m = 0; m < ap1.length; m++){        
         
         if(m != 0 && m % rowSize == 0){
             y = y + 100;
-            x = 75;
+            x = xoff;
             up = !up;
             if (!up) {
                 x = x + 50;
@@ -135,11 +133,11 @@ function drawField(graphics) {
     // draw a shape
     //This creates a game field
     var up = true;
-    for (var i = 0; i < 8; i++) {
+    for (var i = 0; i < 50; i++) {
         var m = 100 * i;
 
 
-        for (var l = 0; l < 12; l++) {
+        for (var l = 0; l < 50; l++) {
             var n = 100 * l;
             if (up) {
                 n = n + 50
