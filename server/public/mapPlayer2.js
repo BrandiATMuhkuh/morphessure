@@ -1,4 +1,4 @@
-_mp.mapPlayer2 = {
+_mp[1] = {
     properties: {
         rowSize: 6,
         start: 3,

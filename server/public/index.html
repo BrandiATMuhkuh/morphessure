@@ -9,7 +9,7 @@
     <script type="text/javascript" src="phaser.min.js"></script>
     <script type="text/javascript" src="http://localhost:2403/dpd.js"></script>    
     <script type="text/javascript">
-        var _mp = {};
+        var _mp = [];
     </script>
     <script type="text/javascript" src="mapPlayer1.js"></script>
     <script type="text/javascript" src="mapPlayer2.js"></script>    
@@ -17,19 +17,44 @@
 </head>
 
 <body>
-
+    
+    <div id="player2Holder" style="height: 850px; width: 700px; border: 5px blue solid;"></div>
+    <div id="player1Holder" style="height: 850px; width: 700px; border: 5px green solid;"></div>
     <script type="text/javascript">
+        
+         //localPlayer
+        //Player one (1) is default
+        if(location.getParameter("player")!=null){
+            if(location.getParameter("player") == "2"){
+                //swap Players
+                temp = _mp[0];
+                _mp[0] = _mp[1];
+                _mp[1] = temp;
+            }
+        }
+        
         // user mithril as simpe mvc http://lhorie.github.io/mithril/getting-started.html
         window.onload = function() {
-
-            _mp.game = new Phaser.Game(800, 800, Phaser.AUTO, '', {
+            _mp[1].properties.game = new Phaser.Game(700, 850, Phaser.CANVAS, 'player2Holder',                                {
                 preload: function() {
-                    _mp.preload();
+                    preload(1);                    
                 },
                 create: function() {
-                    _mp.create();
+                    _mp[0].properties.game = new Phaser.Game(700, 850, Phaser.CANVAS, 'player1Holder', {
+                        preload: function() {
+                            preload(0);
+                        },
+                        create: function() {
+                            _mp[0].create();
+                        }
+                    });
                 }
             });
+            
+            
+            
+            
+            
 
         };
     </script>
