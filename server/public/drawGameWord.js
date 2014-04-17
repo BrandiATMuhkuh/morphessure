@@ -11,7 +11,7 @@ function preload(playerId) {
 
 }
 
-_mp[0].create = function () {
+function create() {
 
     //Player 1 map creation
     var graphics1 = _mp[0].properties.game.add.graphics(0, 0);
@@ -19,7 +19,7 @@ _mp[0].create = function () {
     graphics1.lineStyle(1, 0xffffff, 1);
     drawField(graphics1);
     //drawTraps();
-    drawDynTraps();
+    drawDynTraps(0);
     drawPlayer(0);
     
     //Player 2 map creation
@@ -27,7 +27,7 @@ _mp[0].create = function () {
     _mp[1].properties.game.world.setBounds(0, 0, 680, 1400);
     graphics2.lineStyle(1, 0xffffff, 1);
     drawField(graphics2);
-    
+    drawDynTraps(1);
     drawPlayer(1);
 }
 
@@ -41,20 +41,19 @@ dpd.players.on('put', function (message) {
     
     if (message.id == _mp[0].properties.dbId) {
         console.log("i change something in db");
-        changePlayerPosition(message.graphNode);
+        changePlayerPosition(message.graphNode,0);
         
     }else{
         console.log("someone else changed something in db");
-        console.log("i change something in db");
-        changePlayerPosition(message.graphNode);
+        changePlayerPosition(message.graphNode,1);
     }
 });
 
 /**
 * Tells server what node player want to change to
 */
-function dbChangePlayerPosition(graphNode){
-    dpd.players.put(_mp[0].properties.dbId, {"graphNode":graphNode}, function(result, err) {
+function dbChangePlayerPosition(graphNode,playerId){
+    dpd.players.put(_mp[playerId].properties.dbId, {"graphNode":graphNode}, function(result, err) {
       if(err) return console.log(err);
       console.log(result, result.id);
     });
@@ -64,12 +63,12 @@ function dbChangePlayerPosition(graphNode){
 /**
 * move player to graphNode
 */
-function changePlayerPosition(graphNode){
+function changePlayerPosition(graphNode,playerId){
     console.log("Change to graph: ", graphNode);
     
-    _mp[0].properties.game.add.tween(_mp[0].properties.player).to({
-        x: _mp[0].map[graphNode].x,
-        y: _mp[0].map[graphNode].y
+    _mp[playerId].properties.game.add.tween(_mp[playerId].properties.player).to({
+        x: _mp[playerId].map[graphNode].x,
+        y: _mp[playerId].map[graphNode].y
     }, 1000, Phaser.Easing.Linear.None, true, 0, 0, false);
 }
 
@@ -85,8 +84,8 @@ function drawPlayer(playerId) {
 function drawDynTraps(playerId) {
     var up = true;
 
-    var ap1 = _mp[0].map; 
-    var rowSize = _mp[0].properties.rowSize;
+    var ap1 = _mp[playerId].map; 
+    var rowSize = _mp[playerId].properties.rowSize;
     var xoff = -25;
     var x = xoff; //x start point
     var y = 75; //y start point
@@ -109,7 +108,7 @@ function drawDynTraps(playerId) {
         ap1[m].x=x;
         ap1[m].y=y;
 
-        var logo = _mp[0].properties.game.add.sprite(x, y, ap1[m].file);
+        var logo = _mp[playerId].properties.game.add.sprite(x, y, ap1[m].file);
 
         //add click listeners
         logo.inputEnabled = true;
@@ -117,14 +116,14 @@ function drawDynTraps(playerId) {
         
     
         
-        logo.events.onInputDown.add(function(k){
+        logo.events.onInputDown.add(function(k,playerId){
             //This uses a closure funtion 
             //see this stackoverflow entry
             // http://stackoverflow.com/questions/3572480/please-explain-the-use-of-javascript-closures-in-loops/3572616#3572616
             return function (sprite, pointer) {
                 //tell server what node current use stands on
                 //console.log(k);
-                dbChangePlayerPosition(k);
+                dbChangePlayerPosition(k,playerId);
                 /*
                 _mp.game1.add.tween(_mp.player1).to({
                     x: sprite.x,
@@ -132,7 +131,7 @@ function drawDynTraps(playerId) {
                 }, 1000, Phaser.Easing.Linear.None, true, 0, 0, false);
                 */
             }
-          }(m), this);
+          }(m,playerId), this);
         
     }
 
