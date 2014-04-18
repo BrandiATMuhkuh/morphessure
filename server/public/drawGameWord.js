@@ -78,13 +78,35 @@ function changePlayerPosition(graphNode, playerId) {
     
     //if player is 0 than draw surrounding sprites
     if(playerId==0){
-        var cA = [1,6,7,0,-1,-5,-6];
+            
         var mp = _mp[playerId].map;
+        console.log("myPost: ", graphNode);
+        var cA = [1,6,7,0,-1,-5,-6];    
+        if(mp[graphNode].odd==true){//check if odd or even row
+            console.log("odd");
+            cA = [1,5,6,0,-1,-6,-7]
+        }
         for(a in cA){
             var n = graphNode+cA[a];
-            
+            console.log("myPost: ", n);
             mp[n].sprite.kill();
             mp[n].sprite = _mp[playerId].properties.game.add.sprite(mp[n].x, mp[n].y, mp[n].file);
+            
+            //Add listener to sprites
+            mp[n].sprite.inputEnabled = true;
+            mp[n].sprite.input.useHandCursor = true; //if you want a hand cursor    
+
+            mp[n].sprite.events.onInputDown.add(function (k, playerId) {
+                //This uses a closure funtion 
+                //see this stackoverflow entry
+                // http://stackoverflow.com/questions/3572480/please-explain-the-use-of-javascript-closures-in-loops/3572616#3572616
+                return function (sprite, pointer) {
+                    //tell server what node current use stands on
+                    dbChangePlayerPosition(k, playerId);
+                    
+
+                }
+            }(n, playerId), this);
         }
         _mp[playerId].properties.player.bringToTop();
     }
@@ -125,7 +147,7 @@ function drawHiddenTraps(playerId){
         //add current coordinated to currentUser // for debugging and testing
         ap1[m].x = x;
         ap1[m].y = y;
-
+        ap1[m].odd = up;
         ap1[m].sprite = _mp[playerId].properties.game.add.sprite(ap1[m].x, ap1[m].y, "question");
         
     }
