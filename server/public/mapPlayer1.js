@@ -7,7 +7,7 @@ _mp[0] = {
     map: [
         {
             pos: 0,
-            file: "phaser_50x50.png",
+            file: "base_pack/Enemies/fishSwim1.png",
             trap: true
         },
         {

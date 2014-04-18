@@ -7,7 +7,7 @@ _mp[1] = {
     map: [
         {
             pos: 0,
-            file: "phaser_50x50.png",
+            file: "base_pack/Enemies/flyDead.png",
             trap: true
         },
         {
@@ -17,32 +17,32 @@ _mp[1] = {
         },
         {
             pos: 2,
-            file: "phaser_50x50.png",
+            file: "base_pack/Enemies/slimeWalk1.png",
             trap: true
         },
         {
             pos: 3,
-            file: "phaser_50x50.png",
+            file: "base_pack/Enemies/snailWalk1.png",
             trap: true
         },
         {
             pos: 4,
-            file: "phaser_50x50.png",
+            file: "base_pack/Enemies/blockerSad.png",
             trap: true
         },
         {
             pos: 5,
-            file: "phaser_50x50.png",
+            file: "base_pack/HUD/hud_gem_blue.png",
             trap: true
         },
         {
             pos: 6,
-            file: "phaser_50x50.png",
+            file: "base_pack/HUD/hud_keyBlue.png",
             trap: true
         },
         {
             pos: 7,
-            file: "phaser_50x50.png",
+            file: "base_pack/HUD/hud_keyRed_disabled.png",
             trap: true
         },
         {
@@ -52,12 +52,12 @@ _mp[1] = {
         },
         {
             pos: 9,
-            file: "phaser_50x50.png",
+            file: "base_pack/HUD/hud_keyRed_disabled.png",
             trap: true
         },
         {
             pos: 10,
-            file: "phaser_50x50.png",
+            file: "base_pack/HUD/hud_coins.png",
             trap: true
         },
         {

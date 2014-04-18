@@ -1,7 +1,9 @@
 function preload(playerId) {
 
-
-    _mp[playerId].properties.game.load.image('player', 'player.png');
+    
+    _mp[playerId].properties.game.load.atlasJSONHash('player', 'base_pack/Player/p1_walk/p1_walk.png', 'base_pack/Player/p1_walk/p1_walk.json');
+    
+    //_mp[playerId].properties.game.load.image('player', 'base_pack/Player/p1_front.png');
     _mp[playerId].properties.game.load.image('question', 'question.png');
 
     //Load Player one sprites
@@ -113,7 +115,13 @@ function changePlayerPosition(graphNode, playerId) {
 }
 
 function drawPlayer(playerId, position) {
+    
     _mp[playerId].properties.player = _mp[playerId].properties.game.add.sprite(_mp[playerId].map[position].x, _mp[playerId].map[position].y, 'player');
+    _mp[playerId].properties.player.animations.add('run');
+    _mp[playerId].properties.player.animations.play('run', 15, true);
+    _mp[playerId].properties.player.scale.x=0.6;
+    _mp[playerId].properties.player.scale.y=0.6;
+    _mp[playerId].properties.player.anchor.setTo(-0.1, 0.0);
     _mp[playerId].properties.game.camera.follow(_mp[playerId].properties.player); //camera will from now on follow the player
 }
 
