@@ -33,6 +33,7 @@ function create() {
     graphics2.lineStyle(1, 0xffffff, 1);
     drawField(graphics2);
     drawDynTraps(1);
+    drawClues(graphics2, 1)
     drawPlayer(1,8);
 }
 
@@ -294,5 +295,21 @@ function drawTriange(graphics, pos, up) {
         graphics.lineTo(pos[0], pos[1] + size);
         graphics.lineTo(pos[0] - size / 2, pos[1]);
         graphics.lineTo(pos[0] + size / 2, pos[1]);
+    }
+}
+
+/**
+* This will draw all clues
+*/
+function drawClues(graphics, playerId){
+    var ap1 = _mp[playerId].map;
+    graphics.lineStyle(2, 0x0000FF, 1); // width, color (0x0000FF), alpha (0 -> 1) // required settings
+    graphics.beginFill(0xFFFF0B, 1) // color (0xFFFF0B), alpha (0 -> 1) // required settings   
+    for (m = 0; m < ap1.length; m++) {
+        
+        if(!ap1[m].trap){
+            //graphics.moveTo(ap1[m].x, ap1[m].y);
+            graphics.drawCircle(ap1[m].x+25, ap1[m].y+25, 35);
+        }
     }
 }
