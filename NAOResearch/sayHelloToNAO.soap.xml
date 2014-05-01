@@ -7,10 +7,11 @@
 			<albroker:p>
 				<item xsi:type="Array">
 					<item xsi:type="xsd:string">
-					Very&#32;fine
+					Very&#32;not&#32;fine
 					</item>
 				</item>
 			</albroker:p>
+
 		</albroker:callNaoqi>
 	</SOAP-ENV:Body>
 </SOAP-ENV:Envelope>
