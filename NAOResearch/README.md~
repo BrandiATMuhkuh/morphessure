@@ -1,0 +1,4 @@
+NAO says "Very Fine" via XML and HTTP
+===========
+
+This is an example where I use SOAP to communicatio with the NAO. Sometime one does not find a library for the language one preferece. In this case an own implementation comens in handy. This is my first attempt to use SOAP to communication with the NAO. As a next step I want to create a JavaScript library for this purpose.

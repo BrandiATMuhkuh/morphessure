@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:albroker="urn:albroker" xmlns:al="urn:aldebaran">
+	<SOAP-ENV:Body>
+		<albroker:callNaoqi>
+		<albroker:mod>ALTextToSpeech</albroker:mod>
+		<albroker:meth>say</albroker:meth>
+			<albroker:p>
+				<item xsi:type="Array">
+					<item xsi:type="xsd:string">
+					Very&#32;fine
+					</item>
+				</item>
+			</albroker:p>
+		</albroker:callNaoqi>
+	</SOAP-ENV:Body>
+</SOAP-ENV:Envelope>
