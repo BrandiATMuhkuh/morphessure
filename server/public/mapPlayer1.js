@@ -19,7 +19,11 @@ _mp[1] = {
         {
             pos: 2,
             file: "base_pack/Enemies/slimeWalk1.png",
-            trap: false
+            trap: false,
+            next: 8, 
+            nophemism: "Mad Slimy",
+            dysphemism: "",
+            euphemism: ""
         },
         {
             pos: 3,
@@ -50,7 +54,10 @@ _mp[1] = {
             pos: 8,
             file: "base_pack/Items/bush.png",
             trap: false,
-            next: 14
+            next: 14,
+            nophemism: "Green Cloud",
+            dysphemism: "",
+            euphemism: ""
         },
         {
             pos: 9,
@@ -76,13 +83,19 @@ _mp[1] = {
             pos: 13,
             file: "base_pack/Items/coinBronze.png",
             trap: false,
-            next: 18
+            next: 18, 
+            nophemism: "Coin",
+            dysphemism: "",
+            euphemism: ""
         },
         {
             pos: 14,
             file: "base_pack/Items/flagBlue.png",
             trap: false,
-            next: 13
+            next: 13, 
+            nophemism: "Blue Flag",
+            dysphemism: "",
+            euphemism: ""
         },
         {
             pos: 15,
@@ -103,7 +116,10 @@ _mp[1] = {
             pos: 18,
             file: "base_pack/Items/cactus.png",
             trap: false,
-            next: 24
+            next: 24, 
+            nophemism: "Kaktus",
+            dysphemism: "",
+            euphemism: ""
         },
         {
             pos: 19,
@@ -134,7 +150,10 @@ _mp[1] = {
             pos: 24,
             file: "base_pack/Items/chain.png",
             trap: false,
-            next: 30
+            next: 30, 
+            nophemism: "Chain",
+            dysphemism: "",
+            euphemism: ""
         },
         {
             pos: 25,
@@ -164,7 +183,10 @@ _mp[1] = {
         {
             pos: 30,
             file: "base_pack/Items/gemRed.png",
-            trap: false
+            trap: false, 
+            nophemism: "Diamond",
+            dysphemism: "",
+            euphemism: ""
         },
         {
             pos: 31,

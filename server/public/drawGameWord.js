@@ -14,6 +14,8 @@ function preload(playerId) {
     
     _mp[0].properties.hintArea = document.getElementById("hintArea");
 
+    
+
 }
 
 function create() {
@@ -76,9 +78,29 @@ function dbChangePlayerPosition(graphNode, playerId) {
  */
 
 function showHints(graphNode, playerId){
+
+    var _0Pos = document.getElementById("0Pos");
+    var _0Current = document.getElementById("0Current");
+    var _0Next = document.getElementById("0Next");
+    var _1Pos = document.getElementById("1Pos");
+    var _1Current = document.getElementById("1Current");
+    var _1Next = document.getElementById("1Next");
+
+
+    
     if(_mp[0].properties.experimenter){        
-        _mp[0].properties.hintArea.innerHTML = "myNext: "+_mp[0].map[graphNode].next+" text: "
-        +_mp[0].map[_mp[0].map[graphNode].next].nophemism;
+        //_mp[0].properties.hintArea.innerHTML = "myNext: "+_mp[0].map[graphNode].next+" text: "
+        //+_mp[0].map[_mp[0].map[graphNode].next].nophemism;
+
+        if(playerId==0){
+            _0Pos.innerHTML = _mp[0].map[graphNode].pos;
+            _0Current.innerHTML = _mp[0].map[_mp[0].map[graphNode].pos].nophemism;
+            _0Next.innerHTML = _mp[0].map[_mp[0].map[graphNode].next].nophemism;
+        }else{
+            _1Pos.innerHTML = _mp[1].map[graphNode].pos;
+            _1Current.innerHTML = _mp[1].map[_mp[1].map[graphNode].pos].nophemism;
+            _1Next.innerHTML = _mp[1].map[_mp[1].map[graphNode].next].nophemism;
+        }
     }
 }
 
