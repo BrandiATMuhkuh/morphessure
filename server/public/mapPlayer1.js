@@ -2,7 +2,8 @@ _mp[0] = {
     properties: {
         rowSize: 6,
         start: 3,
-        dbId: "13ee59a5aaaa4802"
+        dbId: "13ee59a5aaaa4802",
+        experimenter: true
     },
     map: [
         {
@@ -17,8 +18,9 @@ _mp[0] = {
         },
         {
             pos: 2,
-            file: "noTrap.png",
-            trap: false
+            file: "base_pack/HUD/hud_0.png",
+            trap: false,
+            next: 8
         },
         {
             pos: 3,
@@ -47,8 +49,9 @@ _mp[0] = {
         },
         {
             pos: 8,
-            file: "noTrap.png",
-            trap: false
+            file: "base_pack/HUD/hud_1.png",
+            trap: false,
+            next: 14
         },
         {
             pos: 9,
@@ -72,13 +75,16 @@ _mp[0] = {
         },
         {
             pos: 13,
-            file: "noTrap.png",
-            trap: false
+            file: "base_pack/HUD/hud_2.png",
+            trap: false,
+            next: 18
         },
         {
             pos: 14,
-            file: "noTrap.png",
-            trap: false
+            file: "base_pack/HUD/hud_3.png",
+            trap: false,
+            next: 13, 
+            text: "Flag"
         },
         {
             pos: 15,
@@ -97,8 +103,9 @@ _mp[0] = {
         },
         {
             pos: 18,
-            file: "noTrap.png",
-            trap: false
+            file: "base_pack/HUD/hud_4.png",
+            trap: false,
+            next: 24
         },
         {
             pos: 19,
@@ -126,62 +133,63 @@ _mp[0] = {
             trap: true
         },
         {
-            pos: 18,
-            file: "noTrap.png",
+            pos: 24,
+            file: "base_pack/HUD/hud_5.png",
+            trap: false,
+            next: 30
+        },
+        {
+            pos: 25,
+            file: "phaser_50x50.png",
+            trap: true
+        },
+        {
+            pos: 26,
+            file: "phaser_50x50.png",
+            trap: true
+        },
+        {
+            pos: 27,
+            file: "phaser_50x50.png",
+            trap: true
+        },
+        {
+            pos: 28,
+            file: "phaser_50x50.png",
+            trap: true
+        },
+        {
+            pos:29,
+            file: "phaser_50x50.png",
+            trap: true
+        },
+        {
+            pos: 30,
+            file: "base_pack/HUD/hud_6.png",
             trap: false
         },
         {
-            pos: 19,
+            pos: 31,
             file: "phaser_50x50.png",
             trap: true
         },
         {
-            pos: 20,
+            pos: 32,
             file: "phaser_50x50.png",
             trap: true
         },
         {
-            pos: 21,
+            pos: 33,
             file: "phaser_50x50.png",
             trap: true
         },
         {
-            pos: 22,
+            pos: 34,
             file: "phaser_50x50.png",
             trap: true
         },
         {
-            pos:23,
-            file: "phaser_50x50.png",
-            trap: true
-        },
-        {
-            pos: 18,
-            file: "noTrap.png",
-            trap: false
-        },
-        {
-            pos: 19,
-            file: "phaser_50x50.png",
-            trap: true
-        },
-        {
-            pos: 20,
-            file: "phaser_50x50.png",
-            trap: true
-        },
-        {
-            pos: 21,
-            file: "phaser_50x50.png",
-            trap: true
-        },
-        {
-            pos: 22,
-            file: "phaser_50x50.png",
-            trap: true
-        },
-        {
-            pos:23,
+            pos:35,
             file: "phaser_50x50.png",
             trap: true
         }

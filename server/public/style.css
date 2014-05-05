@@ -1,0 +1,10 @@
+#hintArea {
+    position: absolute;
+    left: 720px;
+    top: 10px;
+    border: 1px black solid;
+    padding: 5px;
+    min-width: 300px;
+    min-height: 600px;
+    font-family: "Verdana";
+}

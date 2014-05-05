@@ -11,6 +11,8 @@ function preload(playerId) {
     for (a in ap1) {
         _mp[playerId].properties.game.load.image(ap1[a].file, ap1[a].file);
     }
+    
+    _mp[0].properties.hintArea = document.getElementById("hintArea");
 
 }
 
@@ -48,10 +50,12 @@ dpd.players.on('put', function (message) {
     if (message.id == _mp[0].properties.dbId) {
         console.log("i change something in db");
         changePlayerPosition(message.graphNode, 0);
+        showHints(message.graphNode, 0);
 
     } else {
         console.log("someone else changed something in db");
         changePlayerPosition(message.graphNode, 1);
+        showHints(message.graphNode, 1);
     }
 });
 
@@ -65,6 +69,16 @@ function dbChangePlayerPosition(graphNode, playerId) {
         if (err) return console.log(err);
         console.log(result, result.id);
     });
+}
+
+/**
+ * Writes a hint into the HintArea. 
+ */
+
+function showHints(graphNode, playerId){
+    if(_mp[0].properties.experimenter){        
+        _mp[0].properties.hintArea.innerHTML = "myNext: "+_mp[0].map[graphNode].next+" text: "+_mp[0].map[_mp[0].map[graphNode].next].text;
+    }
 }
 
 
@@ -158,6 +172,7 @@ function drawHiddenTraps(playerId){
         ap1[m].y = y;
         ap1[m].odd = up;
         ap1[m].sprite = _mp[playerId].properties.game.add.sprite(ap1[m].x, ap1[m].y, "question");
+        
         
     }
 }
