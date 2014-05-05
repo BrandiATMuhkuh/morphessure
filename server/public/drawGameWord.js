@@ -77,7 +77,8 @@ function dbChangePlayerPosition(graphNode, playerId) {
 
 function showHints(graphNode, playerId){
     if(_mp[0].properties.experimenter){        
-        _mp[0].properties.hintArea.innerHTML = "myNext: "+_mp[0].map[graphNode].next+" text: "+_mp[0].map[_mp[0].map[graphNode].next].text;
+        _mp[0].properties.hintArea.innerHTML = "myNext: "+_mp[0].map[graphNode].next+" text: "
+        +_mp[0].map[_mp[0].map[graphNode].next].nophemism;
     }
 }
 

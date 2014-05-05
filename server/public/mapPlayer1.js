@@ -1,66 +1,65 @@
-_mp[0] = {
+_mp[1] = {
     properties: {
         rowSize: 6,
         start: 3,
-        dbId: "13ee59a5aaaa4802",
-        experimenter: true
+        dbId: "b0a3fc56ecbd5865",
+        experimenter: false
     },
     map: [
         {
             pos: 0,
-            file: "base_pack/Enemies/fishSwim1.png",
+            file: "base_pack/Enemies/flyDead.png",
             trap: true
         },
         {
             pos: 1,
-            file: "phaser_50x50.png",
+            file: "base_pack/Items/bomb.png",
             trap: true
         },
         {
             pos: 2,
-            file: "base_pack/HUD/hud_0.png",
-            trap: false,
-            next: 8
+            file: "base_pack/Enemies/slimeWalk1.png",
+            trap: false
         },
         {
             pos: 3,
-            file: "phaser_50x50.png",
+            file: "base_pack/Enemies/snailWalk1.png",
             trap: true
         },
         {
             pos: 4,
-            file: "phaser_50x50.png",
+            file: "base_pack/Enemies/blockerSad.png",
             trap: true
         },
         {
             pos: 5,
-            file: "phaser_50x50.png",
+            file: "base_pack/HUD/hud_gem_blue.png",
             trap: true
         },
         {
             pos: 6,
-            file: "phaser_50x50.png",
+            file: "base_pack/HUD/hud_keyBlue.png",
             trap: true
         },
         {
             pos: 7,
-            file: "phaser_50x50.png",
+            file: "base_pack/HUD/hud_keyRed_disabled.png",
             trap: true
         },
         {
             pos: 8,
-            file: "base_pack/HUD/hud_1.png",
+            file: "base_pack/Items/bush.png",
             trap: false,
             next: 14
         },
         {
             pos: 9,
-            file: "phaser_50x50.png",
+            file: "base_pack/HUD/hud_keyRed_disabled.png",
             trap: true
         },
         {
             pos: 10,
-            file: "phaser_50x50.png",
+            file: "base_pack/HUD/hud_coins.png",
             trap: true
         },
         {
@@ -75,16 +74,15 @@ _mp[0] = {
         },
         {
             pos: 13,
-            file: "base_pack/HUD/hud_2.png",
+            file: "base_pack/Items/coinBronze.png",
             trap: false,
             next: 18
         },
         {
             pos: 14,
-            file: "base_pack/HUD/hud_3.png",
+            file: "base_pack/Items/flagBlue.png",
             trap: false,
-            next: 13, 
-            text: "Flag"
+            next: 13
         },
         {
             pos: 15,
@@ -103,7 +101,7 @@ _mp[0] = {
         },
         {
             pos: 18,
-            file: "base_pack/HUD/hud_4.png",
+            file: "base_pack/Items/cactus.png",
             trap: false,
             next: 24
         },
@@ -134,7 +132,7 @@ _mp[0] = {
         },
         {
             pos: 24,
-            file: "base_pack/HUD/hud_5.png",
+            file: "base_pack/Items/chain.png",
             trap: false,
             next: 30
         },
@@ -165,7 +163,7 @@ _mp[0] = {
         },
         {
             pos: 30,
-            file: "base_pack/HUD/hud_6.png",
+            file: "base_pack/Items/gemRed.png",
             trap: false
         },
         {

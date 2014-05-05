@@ -1,65 +1,72 @@
-_mp[1] = {
+_mp[0] = {
     properties: {
         rowSize: 6,
         start: 3,
-        dbId: "b0a3fc56ecbd5865",
-        experimenter: false
+        dbId: "13ee59a5aaaa4802",
+        experimenter: true
     },
     map: [
         {
             pos: 0,
-            file: "base_pack/Enemies/flyDead.png",
+            file: "base_pack/Enemies/fishSwim1.png",
             trap: true
         },
         {
             pos: 1,
-            file: "base_pack/Items/bomb.png",
+            file: "phaser_50x50.png",
             trap: true
         },
         {
             pos: 2,
-            file: "base_pack/Enemies/slimeWalk1.png",
-            trap: false
+            file: "base_pack/HUD/hud_0.png",
+            trap: false,
+            next: 8, 
+            nophemism: "Zero",
+            dysphemism: "",
+            euphemism: ""
         },
         {
             pos: 3,
-            file: "base_pack/Enemies/snailWalk1.png",
+            file: "phaser_50x50.png",
             trap: true
         },
         {
             pos: 4,
-            file: "base_pack/Enemies/blockerSad.png",
+            file: "phaser_50x50.png",
             trap: true
         },
         {
             pos: 5,
-            file: "base_pack/HUD/hud_gem_blue.png",
+            file: "phaser_50x50.png",
             trap: true
         },
         {
             pos: 6,
-            file: "base_pack/HUD/hud_keyBlue.png",
+            file: "phaser_50x50.png",
             trap: true
         },
         {
             pos: 7,
-            file: "base_pack/HUD/hud_keyRed_disabled.png",
+            file: "phaser_50x50.png",
             trap: true
         },
         {
             pos: 8,
-            file: "base_pack/Items/bush.png",
+            file: "base_pack/HUD/hud_1.png",
             trap: false,
-            next: 14
+            next: 14, 
+            nophemism: "One",
+            dysphemism: "",
+            euphemism: ""
         },
         {
             pos: 9,
-            file: "base_pack/HUD/hud_keyRed_disabled.png",
+            file: "phaser_50x50.png",
             trap: true
         },
         {
             pos: 10,
-            file: "base_pack/HUD/hud_coins.png",
+            file: "phaser_50x50.png",
             trap: true
         },
         {
@@ -74,15 +81,21 @@ _mp[1] = {
         },
         {
             pos: 13,
-            file: "base_pack/Items/coinBronze.png",
+            file: "base_pack/HUD/hud_2.png",
             trap: false,
-            next: 18
+            next: 18, 
+            nophemism: "Two",
+            dysphemism: "",
+            euphemism: ""
         },
         {
             pos: 14,
-            file: "base_pack/Items/flagBlue.png",
+            file: "base_pack/HUD/hud_3.png",
             trap: false,
-            next: 13
+            next: 13, 
+            nophemism: "Three",
+            dysphemism: "",
+            euphemism: ""
         },
         {
             pos: 15,
@@ -101,9 +114,12 @@ _mp[1] = {
         },
         {
             pos: 18,
-            file: "base_pack/Items/cactus.png",
+            file: "base_pack/HUD/hud_4.png",
             trap: false,
-            next: 24
+            next: 24, 
+            nophemism: "Four",
+            dysphemism: "",
+            euphemism: ""
         },
         {
             pos: 19,
@@ -132,9 +148,12 @@ _mp[1] = {
         },
         {
             pos: 24,
-            file: "base_pack/Items/chain.png",
+            file: "base_pack/HUD/hud_5.png",
             trap: false,
-            next: 30
+            next: 30, 
+            nophemism: "Five",
+            dysphemism: "",
+            euphemism: ""
         },
         {
             pos: 25,
@@ -163,8 +182,11 @@ _mp[1] = {
         },
         {
             pos: 30,
-            file: "base_pack/Items/gemRed.png",
-            trap: false
+            file: "base_pack/HUD/hud_6.png",
+            trap: false, 
+            nophemism: "Six",
+            dysphemism: "",
+            euphemism: ""
         },
         {
             pos: 31,
