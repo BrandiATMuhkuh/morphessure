@@ -12,4 +12,5 @@ class HelloWorld(object):
         return "Hello World!3 "+a+say
     
     index.exposed = True
+cherrypy.server.socket_host = '0.0.0.0'
 cherrypy.quickstart(HelloWorld())
