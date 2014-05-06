@@ -27,13 +27,13 @@
         <div>1 next: <span id="1Next">nAn</span></div>
 
         <div class="controller">
-            Said word: <br /><span>nAn</span>?<br />
-            <button type="button" id="NoButton">No</button>
-            <button type="button" id="YesButton">Yes</button>
+            Said word: <br /><span id="saidWord">nAn</span>?<br />
+            <button type="button" id="NoButton" onclick="noButton()">No</button>
+            <button type="button" id="YesButton" onclick="yesButton()">Yes</button>
         </div>
         <div class="controller">
-            Press next and robot will talk <br />
-            <button type="button" id="NextButton">Next</button>
+            Robot will say:<br /><span id="sayWord">nAn</span><br />
+            <button type="button" id="NextButton" onclick="nextButton()">Next</button>
         </div>
     </div>
     <div id="player2Holder" style="height: 850px; width: 700px; border: 5px blue solid;"></div>

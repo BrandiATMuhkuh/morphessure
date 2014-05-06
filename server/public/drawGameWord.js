@@ -1,3 +1,8 @@
+var g = {};
+g.saidWord = "";
+g.sayWord = "";
+
+
 function preload(playerId) {
 
     
@@ -13,9 +18,6 @@ function preload(playerId) {
     }
     
     _mp[0].properties.hintArea = document.getElementById("hintArea");
-
-    
-
 }
 
 function create() {
@@ -85,6 +87,8 @@ function showHints(graphNode, playerId){
     var _1Pos = document.getElementById("1Pos");
     var _1Current = document.getElementById("1Current");
     var _1Next = document.getElementById("1Next");
+    var _saidWord = document.getElementById("saidWord");
+    var _sayWord = document.getElementById("sayWord");
 
 
     
@@ -96,11 +100,16 @@ function showHints(graphNode, playerId){
             _0Pos.innerHTML = _mp[0].map[graphNode].pos;
             _0Current.innerHTML = _mp[0].map[_mp[0].map[graphNode].pos].nophemism;
             _0Next.innerHTML = _mp[0].map[_mp[0].map[graphNode].next].nophemism;
+            _saidWord.innerHTML = _mp[0].map[_mp[0].map[graphNode].next].nophemism;
+            g.saidWord = _mp[0].map[_mp[0].map[graphNode].next].nophemism;
         }else{
             _1Pos.innerHTML = _mp[1].map[graphNode].pos;
             _1Current.innerHTML = _mp[1].map[_mp[1].map[graphNode].pos].nophemism;
             _1Next.innerHTML = _mp[1].map[_mp[1].map[graphNode].next].nophemism;
+            _sayWord.innerHTML = _mp[1].map[_mp[1].map[graphNode].next].nophemism;
+            g.sayWord = _mp[1].map[_mp[1].map[graphNode].next].nophemism;
         }
+
     }
 }
 
@@ -350,4 +359,33 @@ function drawClues(graphics, playerId){
             graphics.drawCircle(ap1[m].x+25, ap1[m].y+25, 35);
         }
     }
+}
+
+
+/**
+ * When next button was pressed
+ * @return {[type]} [description]
+ */
+function nextButton(){
+    console.log("NextButton");
+    var xhr = new XMLHttpRequest();
+    var t = "Please move to the "+g.sayWord;
+    xhr.open('GET', 'http://hitl019-ubuntu:8080/index?say='+t);
+    xhr.send();
+}
+
+/**
+ * When NO button was pressed
+ * @return {[type]} [description]
+ */
+function noButton(){
+    console.log("noButton");
+}
+
+/**
+ * When YES button was pressed
+ * @return {[type]} [description]
+ */
+function yesButton(){
+    console.log("YesButton");
 }
