@@ -1,7 +1,7 @@
 _mp[0] = {
     properties: {
         rowSize: 6,
-        start: 3,
+        next: 3,
         dbId: "13ee59a5aaaa4802",
         experimenter: true
     },
@@ -19,7 +19,7 @@ _mp[0] = {
         {
             pos: 2,
             file: "base_pack/HUD/hud_0.png",
-            trap: false,
+            trap: true,
             next: 8, 
             nophemism: "Zero",
             dysphemism: "",

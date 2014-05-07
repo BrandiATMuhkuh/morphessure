@@ -1,7 +1,7 @@
 _mp[1] = {
     properties: {
         rowSize: 6,
-        start: 3,
+        next: 3,
         dbId: "b0a3fc56ecbd5865",
         experimenter: false
     },
@@ -19,7 +19,7 @@ _mp[1] = {
         {
             pos: 2,
             file: "base_pack/Enemies/slimeWalk1.png",
-            trap: false,
+            trap: true,
             next: 8, 
             nophemism: "Mad Slimy",
             dysphemism: "",

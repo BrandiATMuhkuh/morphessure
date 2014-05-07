@@ -97,6 +97,9 @@ function showHints(graphNode, playerId){
         //+_mp[0].map[_mp[0].map[graphNode].next].nophemism;
 
         if(playerId==0){
+
+            _mp[0].properties.next = _mp[0].map[graphNode].next;
+
             _0Pos.innerHTML = _mp[0].map[graphNode].pos;
             _0Current.innerHTML = _mp[0].map[_mp[0].map[graphNode].pos].nophemism;
             _0Next.innerHTML = _mp[0].map[_mp[0].map[graphNode].next].nophemism;
@@ -129,7 +132,7 @@ function changePlayerPosition(graphNode, playerId) {
     if(playerId==0){
             
         var mp = _mp[playerId].map;
-        console.log("myPost: ", graphNode);
+        //console.log("myPost: ", graphNode);
         var cA = [1,6,7,0,-1,-5,-6];    
         if(mp[graphNode].odd==true){//check if odd or even row
             console.log("odd");
@@ -137,7 +140,7 @@ function changePlayerPosition(graphNode, playerId) {
         }
         for(a in cA){
             var n = graphNode+cA[a];
-            console.log("myPost: ", n);
+            //console.log("myPost: ", n);
             mp[n].sprite.kill();
             mp[n].sprite = _mp[playerId].properties.game.add.sprite(mp[n].x, mp[n].y, mp[n].file);
             
@@ -363,13 +366,13 @@ function drawClues(graphics, playerId){
 
 
 /**
- * When next button was pressed
+ * When repeatButton button was pressed
  * @return {[type]} [description]
  */
-function nextButton(){
-    console.log("NextButton");
+function repeatButton(){
     var xhr = new XMLHttpRequest();
-    var t = "Please move to the "+g.sayWord;
+    var t = "Please move to the "+g.sayWord+"!";
+    console.log("Nao Says: "+t);
     xhr.open('GET', 'http://hitl019-ubuntu:8080/index?say='+t);
     xhr.send();
 }
@@ -379,7 +382,12 @@ function nextButton(){
  * @return {[type]} [description]
  */
 function noButton(){
-    console.log("noButton");
+    
+    var xhr = new XMLHttpRequest();
+    var t = "I don't understand!";
+    console.log("Nao Says: "+t);
+    xhr.open('GET', 'http://hitl019-ubuntu:8080/index?say='+t);
+    xhr.send();
 }
 
 /**
@@ -388,4 +396,11 @@ function noButton(){
  */
 function yesButton(){
     console.log("YesButton");
+
+    //record
+    
+
+    //Move to next pos
+    dbChangePlayerPosition(_mp[0].properties.next, 0);
+    setTimeout("repeatButton()", 3000);
 }
