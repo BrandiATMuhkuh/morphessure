@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8" />
+	<title>Master</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<script type="text/javascript" src="http://hitl019-ubuntu:2403/dpd.js"></script>
+	<script type="text/javascript">
+		dpd.socket.on('master:info', function (data) {
+			console.log("exper",data);
+		});
+
+
+		function startExperiment() {
+			console.log("start Experiment");
+			console.log("userId: "+document.getElementById("userId").value);
+			// Start the experiment by sending the users id to the deployd server
+			dpd.socket.emit('master:start', { "username": document.getElementById("userId").value });
+		}
+
+	</script>
+</head>
+<body>
+	<input type="text" name="name" id="userId">
+	<button type="button" id="RepeatButton" onclick="startExperiment()">Start Experiment</button>
+</body>
+</html>

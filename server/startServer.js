@@ -1,8 +1,8 @@
-var deployd = require('deployd')
-  , options = {port: 2403};
+var Script = require('deployd/lib/script');
+var deployd = require('deployd');
 
 var dpd = deployd({
-  port: process.env.PORT || 2403,
+  port: 2403,
   env: 'development',
   db: {
     host: '127.0.0.1',
@@ -11,6 +11,15 @@ var dpd = deployd({
   }
 });
 
+
 dpd.listen();
 
-//console.log("import data in the local db");
+dpd.sockets.on('connection', function (socket) {
+  socket.emit('master:info', { hello: 'world' });
+  socket.on('master:start', function (data) {
+    console.log(data);
+    socket.emit('master:info', { answer: 'yourData'+data.username });
+  });
+});
+
+//console.log(dpd.sockets);
