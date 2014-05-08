@@ -2,11 +2,11 @@ var deployd = require('deployd')
   , options = {port: 2403};
 
 var dpd = deployd({
-  port: process.env.PORT || 2503,
+  port: process.env.PORT || 2403,
   env: 'development',
   db: {
     host: '127.0.0.1',
-    port: 9515,
+    port: 12345,
     name: '-deployd'
   }
 });
