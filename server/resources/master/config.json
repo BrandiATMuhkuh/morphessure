@@ -1,3 +1,21 @@
 {
-	"type": "Collection"
+	"type": "Collection",
+	"properties": {
+		"command": {
+			"name": "command",
+			"type": "string",
+			"typeLabel": "string",
+			"required": true,
+			"id": "command",
+			"order": 0
+		},
+		"user": {
+			"name": "user",
+			"type": "number",
+			"typeLabel": "number",
+			"required": true,
+			"id": "user",
+			"order": 1
+		}
+	}
 }
