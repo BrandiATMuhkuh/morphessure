@@ -1,17 +1,18 @@
 var http = require('http');
 var deployd = require('deployd');
 var config = require('./config.json');
-
 var dpd = deployd(config.deployd);
+var globalSock;
 
 
 dpd.listen();
 
 dpd.sockets.on('connection', function (socket) {
-  socket.emit('master:info', { hello: 'world' });
-  socket.on('master:start', function (data) {
+	globalSock = socket;
+  globalSock.emit('master:info', { hello: 'world' });
+  globalSock.on('master:start', function (data) {
     console.log(data);
-    createUser("test");
+    createUser(data.username);
     //socket.emit('master:info', { answer: 'yourData'+data.username });
   });
 });
@@ -42,12 +43,40 @@ function createUser(userId){
 	  });
 
 	  res.on("end", function() {
-	    console.log("end: " + str);
+	    //console.log("end: " + str);
 	    var obj = JSON.parse( str );
-	    console.log(obj);
+	    //console.log(obj);
+	    findUser(obj, userId);
 	  });
 
 	}).on('error', function(e) {
 	  console.log("Got error: " + e.message);
 	});
+}
+
+
+function findUser(qualtricsObject, userId){
+	//console.log(qualtricsObject);
+	var foundobj=null;
+	for(key in qualtricsObject){
+		var o = qualtricsObject[key];
+		if(o.username==userId){
+			delete o.IPAddress;
+			delete o.Name;
+			delete o.ExternalDataReference;
+			delete o.EmailAddress;
+			delete o.Status;
+			
+			if (o.Finished==0){
+				globalSock.emit('master:info', { "error": 1, "text":"You did not finish the survey!" });
+				return;
+			}
+			delete o.Finished;
+			console.log(o);
+			return o;
+		}
+	}
+
+	
+	return null;
 }
