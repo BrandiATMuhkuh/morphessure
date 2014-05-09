@@ -11,6 +11,10 @@
     <script type="text/javascript" src="http://hitl019-ubuntu:2403/dpd.js"></script>    
     <script type="text/javascript">
         var _mp = [];
+        var _gp = {
+            "playerId":null,
+            "dbId":null
+        };
     </script>
     <script type="text/javascript" src="mapPlayer0.js"></script>
     <script type="text/javascript" src="mapPlayer1.js"></script>    
@@ -40,19 +44,40 @@
     <div id="player1Holder" style="height: 850px; width: 700px; border: 5px green solid;"></div>
     <script type="text/javascript">
         
-         //localPlayer
-        //Player one (1) is default
-        if(location.getParameter("player")!=null){
-            if(location.getParameter("player") == "1"){
+        
+        // user mithril as simpe mvc http://lhorie.github.io/mithril/getting-started.html
+        window.onload = function() {
+            //localPlayer
+            //Player one (1) is default
+            _gp.playerId = location.getParameter("player");
+            if(_gp.playerId!=null && (_gp.playerId == "0" || _gp.playerId == "1")){
+
+                dpd.players.get({"playerId":parseInt(_gp.playerId)}, function (result) {
+                  console.log("results", result["0"].id);
+                  _gp.dbId = result["0"].id;
+                  startPainting();
+                });
+
+                
+            }else{
+                alert("add player! e.g ?player=0");
+            }
+            
+        };
+
+        function startPainting(){
+            if(_gp.playerId == "1"){
                 //swap Players
                 temp = _mp[0];
                 _mp[0] = _mp[1];
                 _mp[1] = temp;
             }
-        }
-        // user mithril as simpe mvc http://lhorie.github.io/mithril/getting-started.html
-        window.onload = function() {
-            _mp[1].properties.game = new Phaser.Game(700, 850, Phaser.CANVAS, 'player2Holder',                                {
+
+            _mp[0].properties.dbId = _gp.dbId;
+
+
+
+            _mp[1].properties.game = new Phaser.Game(700, 850, Phaser.CANVAS, 'player2Holder',{
                 preload: function() {
                     preload(1);                    
                 },
@@ -67,13 +92,7 @@
                     });
                 }
             });
-            
-            
-            
-            
-            
-
-        };
+        }
     </script>
 
 </body>
