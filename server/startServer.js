@@ -1,18 +1,21 @@
 var http = require('http');
 var deployd = require('deployd');
 var config = require('./config.json');
+var internalClient = require('deployd/lib/internal-client');
 var dpd = deployd(config.deployd);
 var globalSock;
+var ic;
 
 
 dpd.listen();
 
 dpd.sockets.on('connection', function (socket) {
+	ic = internalClient.build(process.server);
 	globalSock = socket;
-  globalSock.emit('master:info', { hello: 'world' });
-  globalSock.on('master:start', function (data) {
-    console.log(data);
-    createUser(data.username);
+ 	globalSock.emit('master:info', { hello: 'world' });
+ 	globalSock.on('master:start', function (data) {
+		console.log(data);
+		createUser(data.username);
     //socket.emit('master:info', { answer: 'yourData'+data.username });
   });
 });
@@ -46,7 +49,11 @@ function createUser(userId){
 	    //console.log("end: " + str);
 	    var obj = JSON.parse( str );
 	    //console.log(obj);
-	    findUser(obj, userId);
+	    //findUser(obj, userId);
+	    ic.beforeexp.post({"username":userId, qualtrics: findUser(obj, userId)}, function(result, err) {
+		  if(err) return console.log(err);
+		  console.log(result, result.id);
+		});
 	  });
 
 	}).on('error', function(e) {
