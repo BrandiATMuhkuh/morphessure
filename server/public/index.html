@@ -55,7 +55,20 @@
                 dpd.players.get({"playerId":parseInt(_gp.playerId)}, function (result) {
                   console.log("results", result["0"].id);
                   _gp.dbId = result["0"].id;
-                  startPainting();
+                  
+
+                  if(location.getParameter("practice")!=null && parseInt(location.getParameter("practice"))==1){
+                    //load practice file
+                    dpd.experiment.get({"username":"practice"}, function (result) {
+                      console.log(result["0"]);
+                      startPainting(result["0"].player0,result["0"].player1);
+                    });
+
+                    
+                  }else{
+                    //load user file 
+                  }
+                  
                 });
 
                 
@@ -65,12 +78,16 @@
             
         };
 
-        function startPainting(){
+        function startPainting(p0,p1){
+
             if(_gp.playerId == "1"){
                 //swap Players
-                temp = _mp[0];
-                _mp[0] = _mp[1];
-                _mp[1] = temp;
+                //temp = _mp[0];
+                _mp[0] = p1;
+                _mp[1] = p0;
+            }else{
+                _mp[0] = p0;
+                _mp[1] = p1;
             }
 
             _mp[0].properties.dbId = _gp.dbId;

@@ -1,0 +1,29 @@
+{
+	"type": "Collection",
+	"properties": {
+		"username": {
+			"name": "username",
+			"type": "string",
+			"typeLabel": "string",
+			"required": true,
+			"id": "username",
+			"order": 0
+		},
+		"player0": {
+			"name": "player0",
+			"type": "object",
+			"typeLabel": "object",
+			"required": true,
+			"id": "player0",
+			"order": 1
+		},
+		"player1": {
+			"name": "player1",
+			"type": "object",
+			"typeLabel": "object",
+			"required": true,
+			"id": "player1",
+			"order": 2
+		}
+	}
+}
