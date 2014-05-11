@@ -6,11 +6,10 @@ _mp[0] = { "map" : [ { "file" : "base_pack/Enemies/fishSwim1.png",
         "pos" : 1,
         "trap" : true
       },
-      { "dysphemism" : "",
-        "euphemism" : "",
+      {         
         "file" : "base_pack/HUD/hud_0.png",
         "next" : 8,
-        "nophemism" : "Zero",
+        "say" : "Zero",
         "pos" : 2,
         "trap" : true
       },
@@ -34,11 +33,11 @@ _mp[0] = { "map" : [ { "file" : "base_pack/Enemies/fishSwim1.png",
         "pos" : 7,
         "trap" : true
       },
-      { "dysphemism" : "",
-        "euphemism" : "",
+      { 
+        
         "file" : "base_pack/HUD/hud_1.png",
         "next" : 14,
-        "nophemism" : "One",
+        "say" : "One",
         "pos" : 8,
         "trap" : false
       },
@@ -58,19 +57,19 @@ _mp[0] = { "map" : [ { "file" : "base_pack/Enemies/fishSwim1.png",
         "pos" : 12,
         "trap" : true
       },
-      { "dysphemism" : "",
-        "euphemism" : "",
+      { 
+        
         "file" : "base_pack/HUD/hud_2.png",
         "next" : 18,
-        "nophemism" : "Two",
+        "say" : "Two",
         "pos" : 13,
         "trap" : false
       },
-      { "dysphemism" : "",
-        "euphemism" : "",
+      { 
+        
         "file" : "base_pack/HUD/hud_3.png",
         "next" : 13,
-        "nophemism" : "Three",
+        "say" : "Three",
         "pos" : 14,
         "trap" : false
       },
@@ -86,11 +85,11 @@ _mp[0] = { "map" : [ { "file" : "base_pack/Enemies/fishSwim1.png",
         "pos" : 17,
         "trap" : true
       },
-      { "dysphemism" : "",
-        "euphemism" : "",
+      { 
+        
         "file" : "base_pack/HUD/hud_4.png",
         "next" : 24,
-        "nophemism" : "Four",
+        "say" : "Four",
         "pos" : 18,
         "trap" : false
       },
@@ -114,11 +113,11 @@ _mp[0] = { "map" : [ { "file" : "base_pack/Enemies/fishSwim1.png",
         "pos" : 23,
         "trap" : true
       },
-      { "dysphemism" : "",
-        "euphemism" : "",
+      { 
+        
         "file" : "base_pack/HUD/hud_5.png",
         "next" : 30,
-        "nophemism" : "Five",
+        "say" : "Five",
         "pos" : 24,
         "trap" : false
       },
@@ -142,10 +141,10 @@ _mp[0] = { "map" : [ { "file" : "base_pack/Enemies/fishSwim1.png",
         "pos" : 29,
         "trap" : true
       },
-      { "dysphemism" : "",
-        "euphemism" : "",
+      { 
+        
         "file" : "base_pack/HUD/hud_6.png",
-        "nophemism" : "Six",
+        "say" : "Six",
         "pos" : 30,
         "trap" : false
       },

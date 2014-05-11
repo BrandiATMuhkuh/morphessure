@@ -6,11 +6,11 @@ _mp[1] = { "map" : [ { "file" : "base_pack/Enemies/flyDead.png",
         "pos" : 1,
         "trap" : true
       },
-      { "dysphemism" : "",
-        "euphemism" : "",
+      { 
+        
         "file" : "base_pack/Enemies/slimeWalk1.png",
         "next" : 8,
-        "nophemism" : "Mad Slimy",
+        "say" : "Mad Slimy",
         "pos" : 2,
         "trap" : true
       },
@@ -34,11 +34,11 @@ _mp[1] = { "map" : [ { "file" : "base_pack/Enemies/flyDead.png",
         "pos" : 7,
         "trap" : true
       },
-      { "dysphemism" : "",
-        "euphemism" : "",
+      { 
+        
         "file" : "base_pack/Items/bush.png",
         "next" : 14,
-        "nophemism" : "Green Cloud",
+        "say" : "Green Cloud",
         "pos" : 8,
         "trap" : false
       },
@@ -58,19 +58,19 @@ _mp[1] = { "map" : [ { "file" : "base_pack/Enemies/flyDead.png",
         "pos" : 12,
         "trap" : true
       },
-      { "dysphemism" : "",
-        "euphemism" : "",
+      { 
+        
         "file" : "base_pack/Items/coinBronze.png",
         "next" : 18,
-        "nophemism" : "Coin",
+        "say" : "Coin",
         "pos" : 13,
         "trap" : false
       },
-      { "dysphemism" : "",
-        "euphemism" : "",
+      { 
+        
         "file" : "base_pack/Items/flagBlue.png",
         "next" : 13,
-        "nophemism" : "Blue Flag",
+        "say" : "Blue Flag",
         "pos" : 14,
         "trap" : false
       },
@@ -86,11 +86,11 @@ _mp[1] = { "map" : [ { "file" : "base_pack/Enemies/flyDead.png",
         "pos" : 17,
         "trap" : true
       },
-      { "dysphemism" : "",
-        "euphemism" : "",
+      { 
+        
         "file" : "base_pack/Items/cactus.png",
         "next" : 24,
-        "nophemism" : "Kaktus",
+        "say" : "Kaktus",
         "pos" : 18,
         "trap" : false
       },
@@ -114,11 +114,11 @@ _mp[1] = { "map" : [ { "file" : "base_pack/Enemies/flyDead.png",
         "pos" : 23,
         "trap" : true
       },
-      { "dysphemism" : "",
-        "euphemism" : "",
+      { 
+        
         "file" : "base_pack/Items/chain.png",
         "next" : 30,
-        "nophemism" : "Chain",
+        "say" : "Chain",
         "pos" : 24,
         "trap" : false
       },
@@ -142,10 +142,10 @@ _mp[1] = { "map" : [ { "file" : "base_pack/Enemies/flyDead.png",
         "pos" : 29,
         "trap" : true
       },
-      { "dysphemism" : "",
-        "euphemism" : "",
+      { 
+        
         "file" : "base_pack/Items/gemRed.png",
-        "nophemism" : "Diamond",
+        "say" : "Diamond",
         "pos" : 30,
         "trap" : false
       },

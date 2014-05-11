@@ -1,0 +1,37 @@
+{
+	"type": "Collection",
+	"properties": {
+		"qualtname": {
+			"name": "qualtname",
+			"type": "string",
+			"typeLabel": "string",
+			"required": true,
+			"id": "qualtname",
+			"order": 0
+		},
+		"dysphemism": {
+			"name": "dysphemism",
+			"type": "string",
+			"typeLabel": "string",
+			"required": true,
+			"id": "dysphemism",
+			"order": 1
+		},
+		"normalism": {
+			"name": "normalism",
+			"type": "string",
+			"typeLabel": "string",
+			"required": true,
+			"id": "normalism",
+			"order": 2
+		},
+		"euphemism": {
+			"name": "euphemism",
+			"type": "string",
+			"typeLabel": "string",
+			"required": true,
+			"id": "euphemism",
+			"order": 3
+		}
+	}
+}

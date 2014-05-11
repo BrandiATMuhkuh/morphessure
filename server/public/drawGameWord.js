@@ -94,23 +94,23 @@ function showHints(graphNode, playerId){
     
     if(_mp[0].properties.experimenter){        
         //_mp[0].properties.hintArea.innerHTML = "myNext: "+_mp[0].map[graphNode].next+" text: "
-        //+_mp[0].map[_mp[0].map[graphNode].next].nophemism;
+        //+_mp[0].map[_mp[0].map[graphNode].next].say;
 
         if(playerId==0){
 
             _mp[0].properties.next = _mp[0].map[graphNode].next;
 
             _0Pos.innerHTML = _mp[0].map[graphNode].pos;
-            _0Current.innerHTML = _mp[0].map[_mp[0].map[graphNode].pos].nophemism;
-            _0Next.innerHTML = _mp[0].map[_mp[0].map[graphNode].next].nophemism;
-            _saidWord.innerHTML = _mp[0].map[_mp[0].map[graphNode].next].nophemism;
-            g.saidWord = _mp[0].map[_mp[0].map[graphNode].next].nophemism;
+            _0Current.innerHTML = _mp[0].map[_mp[0].map[graphNode].pos].say;
+            _0Next.innerHTML = _mp[0].map[_mp[0].map[graphNode].next].say;
+            _saidWord.innerHTML = _mp[0].map[_mp[0].map[graphNode].next].say;
+            g.saidWord = _mp[0].map[_mp[0].map[graphNode].next].say;
         }else{
             _1Pos.innerHTML = _mp[1].map[graphNode].pos;
-            _1Current.innerHTML = _mp[1].map[_mp[1].map[graphNode].pos].nophemism;
-            _1Next.innerHTML = _mp[1].map[_mp[1].map[graphNode].next].nophemism;
-            _sayWord.innerHTML = _mp[1].map[_mp[1].map[graphNode].next].nophemism;
-            g.sayWord = _mp[1].map[_mp[1].map[graphNode].next].nophemism;
+            _1Current.innerHTML = _mp[1].map[_mp[1].map[graphNode].pos].say;
+            _1Next.innerHTML = _mp[1].map[_mp[1].map[graphNode].next].say;
+            _sayWord.innerHTML = _mp[1].map[_mp[1].map[graphNode].next].say;
+            g.sayWord = _mp[1].map[_mp[1].map[graphNode].next].say;
         }
 
     }
