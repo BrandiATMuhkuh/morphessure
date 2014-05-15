@@ -12,10 +12,18 @@
 
 
 		function startExperiment() {
+
 			console.log("start Experiment");
 			console.log("userId: "+document.getElementById("userId").value);
 			// Start the experiment by sending the users id to the deployd server
+			track(document.getElementById("userId").value, "info", {"function":"startExperiment"});
 			dpd.socket.emit('master:start', { "username": document.getElementById("userId").value });
+		}
+
+		function track(userId, msgtype, message){
+			console.log({"username":userId,"timestamp":new Date().getTime(),"msgtype":msgtype, "message":message, "client":true});
+
+			dpd.track.post({"username":userId,"timestamp":new Date().getTime(),"msgtype":msgtype, "message":message, "client":true}, function(result, err) {});
 		}
 
 	</script>

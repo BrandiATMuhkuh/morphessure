@@ -28,6 +28,7 @@ dpd.sockets.on('connection', function (socket) {
  */
 function createUser(userId){
 	console.log("createUser");
+	track(userId, "info", {"function":"startCreateUser"});
 
 	var _pars = new Array(
 		"API_SELECT=ControlPanel&Version=2.3",
@@ -38,6 +39,7 @@ function createUser(userId){
 		"SurveyID="+config.qualtrics.SurveyID,
 		"Labels=0");
 
+	track(userId, "info", {"function":"qualtricsRequest"});
 	http.get("http://canterbury.qualtrics.com/WRAPI/ControlPanel/api.php?"+_pars.join("&"), function(res) {
 	  console.log("Got response: " + res.statusCode);
 	  var str = '';
@@ -50,8 +52,17 @@ function createUser(userId){
 	    var obj = JSON.parse( str );
 	    //console.log(obj);
 	    var anData = anonUser(obj, userId);
+	    if(anData==null){
+	    	return null;
+	    }
+
+	    track(userId, "info", {"function":"storeBeforeExp"});
 	    ic.beforeexp.post({"username":userId, qualtrics: anData}, function(result, err) {
-		  if(err) return console.log(err);
+		  if(err) {
+		  	track(userId, "error", {"function":"beforeexp"});
+			globalSock.emit('master:info', { "error": 1, "function":"beforeexp", "text":"Something bad happened" });
+		  	return null;
+		  }
 		  console.log(result, result.id);
 		  getWordNames(userId, anData);
 
@@ -83,7 +94,8 @@ function anonUser(qualtricsObject, userId){
 			delete o.Status;
 			
 			if (o.Finished==0){
-				globalSock.emit('master:info', { "error": 1, "text":"You did not finish the survey!" });
+				track(userId, "error", {"function":"anonUser"});
+				globalSock.emit('master:info', { "error": 1, "function":"anonUser", "text":"You did not finish the survey!" });
 				return;
 			}
 			delete o.Finished;
@@ -104,8 +116,13 @@ function anonUser(qualtricsObject, userId){
  * @return {[type]}              [description]
  */
 function getWordNames(userId, qualtricData){	
+	track(userId, "info", {"function":"getWordNames"});
 	ic.wordnames.get(function (result, err) {
-		if(err) return console.log(err);
+		if(err) {
+			track(userId, "error", {"function":"getWordNames"});
+			globalSock.emit('master:info', { "error": 1, "function":"getWordNames", "text":"Something bad happened" });
+			return null;
+		}
 		console.log(result);
 
 		var words = {};
@@ -125,8 +142,13 @@ function getWordNames(userId, qualtricData){
 
 
 function getSceneAndReplaceWords(userId, sceneName, qualtricData, words){
-	ic.scenes.get({"sceneName": sceneName}, function (result) {
-	  //console.log("getSceneAndReplaceWords",result);
+	track(userId, "info", {"function":"getSceneAndReplaceWords"});
+	ic.scenes.get({"sceneName": sceneName}, function (result, err) {
+		if(err) {
+			track(userId, "error", {"function":"getSceneAndReplaceWords"});
+			globalSock.emit('master:info', { "error": 1, "function":"getSceneAndReplaceWords", "text":"Something bad happened" });
+			return null;
+		}
 
 	  //var r = result[0];
 
@@ -148,10 +170,16 @@ function getSceneAndReplaceWords(userId, sceneName, qualtricData, words){
 	  	}
 	  }
 
-	  //console.log("getSceneAndReplaceWords END", result);
-	  
+	//console.log("getSceneAndReplaceWords END", result);
+	
+	track(userId, "info", {"function":"postexperiment"});
 	ic.experiment.post({"username": userId, "player0": result[0].player0, "player1": result[0].player1}, function(result2, err) {
-		if(err) return console.log(err);
+		if(err) {
+			track(userId, "error", {"function":"postexperiment"});
+			globalSock.emit('master:info', { "error": 1, "function":"postexperiment", "text":"Something bad happened" });
+			return null;
+		}
+		//Start both clients to do the right nights
 		//console.log(result2, result2.id);
 	});
 
@@ -194,4 +222,9 @@ function qualtricsToWord(qtitle, qualtricData, words){
 	}
 
 	return ret;
+}
+
+function track(userId, msgtype, message){
+	console.log({"username":userId,"timestamp":new Date().getTime(),"msgtype":msgtype, "message":message, "client":false});
+	ic.track.post({"username":userId,"timestamp":new Date().getTime(),"msgtype":msgtype, "message":message, "client":false}, function(result, err) {});
 }
