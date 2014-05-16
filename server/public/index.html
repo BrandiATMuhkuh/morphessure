@@ -12,8 +12,7 @@
         var _mp = [];
         var _gp = {
             "playerId":null,
-            "dbId":null,
-            "levelname":null
+            "dbId":null
         };
     </script>
     <script type="text/javascript" src="mapPlayer0.js"></script>
@@ -44,31 +43,38 @@
     <div id="player1Holder" style="height: 850px; width: 700px; border: 5px green solid;"></div>
     <script type="text/javascript">
         
-        //save getParameter
-        _gp.playerId = location.getParameter("player");
-        if(_gp.playerId!=null && (_gp.playerId == "0" || _gp.playerId == "1")){
-
-        }else{
-            alert("add player! e.g ?player=0");
-        }
-
-
+        
         // user mithril as simpe mvc http://lhorie.github.io/mithril/getting-started.html
-        function startGame() {
+        window.onload = function() {
             //localPlayer
             //Player one (1) is default
-            dpd.players.get({"playerId":parseInt(_gp.playerId)}, function (result) {
-            console.log("results", result["0"].id);
-            _gp.dbId = result["0"].id;
-            
-            //load practice file
-            dpd.experiment.get({"username":_gp.levelname}, function (result) {
-              console.log(result["0"]);
-              startPainting(result["0"].player0,result["0"].player1);
-            });
+            _gp.playerId = location.getParameter("player");
+            if(_gp.playerId!=null && (_gp.playerId == "0" || _gp.playerId == "1")){
 
-              
-            });            
+                dpd.players.get({"playerId":parseInt(_gp.playerId)}, function (result) {
+                  console.log("results", result["0"].id);
+                  _gp.dbId = result["0"].id;
+                  
+
+                  if(location.getParameter("levelname")!=null){
+                    //load practice file
+                    dpd.experiment.get({"username":location.getParameter("levelname")}, function (result) {
+                      console.log(result["0"]);
+                      startPainting(result["0"].player0,result["0"].player1);
+                    });
+
+                    
+                  }else{
+                    //load user file 
+                  }
+                  
+                });
+
+                
+            }else{
+                alert("add player! e.g ?player=0");
+            }
+            
         };
 
         function startPainting(p0,p1){
@@ -110,14 +116,19 @@
         dpd.socket.on('client:start', function (data) {
             //dpd.socket.emit('client:start', { hello: 'world' });
             console.log("exper",data);
-            
+            /*
             if(data.client==_gp.playerId){
                 console.log("reset me", _gp.playerId);
-                _gp.levelname = data.levelname;
-                startGame();
-                //window.open("/index.html?player="+_gp.playerId+"&levelname="+data.levelname,'_top');
+                window.open("/index.html?player="+_gp.playerId+"&levelname="+data.levelname,'_top');
             }
-            
+            */
+        });
+
+        dpd.mastermind.on('put', function (message) {
+            console.log(message.command);
+            if(message.command.client==_gp.playerId){
+                window.open("/index.html?player="+_gp.playerId+"&levelname="+message.command.levelname,'_top');
+            }
         });
     </script>
 

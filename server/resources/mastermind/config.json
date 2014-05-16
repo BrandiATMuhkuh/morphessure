@@ -1,0 +1,13 @@
+{
+	"type": "Collection",
+	"properties": {
+		"command": {
+			"name": "command",
+			"type": "object",
+			"typeLabel": "object",
+			"required": true,
+			"id": "command",
+			"order": 0
+		}
+	}
+}

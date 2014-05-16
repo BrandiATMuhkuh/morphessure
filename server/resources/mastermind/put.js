@@ -1,0 +1,1 @@
+emit('mastermind:put', this);

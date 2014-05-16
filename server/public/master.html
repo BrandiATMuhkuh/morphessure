@@ -26,10 +26,18 @@
 			dpd.track.post({"username":userId,"timestamp":new Date().getTime(),"msgtype":msgtype, "message":message, "client":true}, function(result, err) {});
 		}
 
-		function startTest() {
+		function practiceRobot() {
 
-			track(document.getElementById("userId").value, "info", {"function":"startExperiment"});
-			dpd.socket.emit('master:startTest', null);
+			track(document.getElementById("userId").value, "info", {"function":"practiceRobot"});	
+			dpd.mastermind.put("87684b7424d23bee", {"command":{ "client": 0, "levelname":"practice" }}, function(result, err) {
+			});
+		}
+
+		function practiceHuman() {
+
+			track(document.getElementById("userId").value, "info", {"function":"practiceHuman"});	
+			dpd.mastermind.put("87684b7424d23bee", {"command":{ "client": 1, "levelname":"practice" }}, function(result, err) {
+			});
 		}
 
 	</script>
@@ -37,6 +45,7 @@
 <body>
 	<input type="text" name="name" id="userId" value="juhu11">
 	<button type="button" id="RepeatButton" onclick="startExperiment()">Start Experiment</button>
-	<button type="button" id="RepeatButton" onclick="startTest()">Start testround</button>
+	<button type="button" id="RepeatButton" onclick="practiceRobot()">pratice robot</button>
+	<button type="button" id="RepeatButton" onclick="practiceHuman()">pratice human</button>
 </body>
 </html>
