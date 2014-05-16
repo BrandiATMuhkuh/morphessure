@@ -6,8 +6,18 @@
 	<link rel="stylesheet" type="text/css" href="style.css">
 	<script type="text/javascript" src="http://hitl019-ubuntu:2403/dpd.js"></script>
 	<script type="text/javascript">
+		var _levelname = null;
 		dpd.socket.on('master:info', function (data) {
 			console.log("exper",data);
+		});
+
+		dpd.socket.on('master:userDone', function (data) {
+			console.log("exper",data);
+			_levelname = data.levelname;
+			if(_levelname!=null){
+				console.log("activate the other two buttons");
+				document.getElementById("experimentRobot").disabled=true;
+			}
 		});
 
 
@@ -40,6 +50,20 @@
 			});
 		}
 
+		function experimentRobot() {
+
+			track(document.getElementById("userId").value, "info", {"function":"experimentRobot"});	
+			dpd.mastermind.put("87684b7424d23bee", {"command":{ "client": 0, "levelname":_levelname }}, function(result, err) {
+			});
+		}
+
+		function experimentHuman() {
+
+			track(document.getElementById("userId").value, "info", {"function":"experimentHuman"});	
+			dpd.mastermind.put("87684b7424d23bee", {"command":{ "client": 1, "levelname":_levelname }}, function(result, err) {
+			});
+		}
+
 	</script>
 </head>
 <body>
@@ -47,7 +71,7 @@
 	<button type="button" class="blueButton" onclick="startExperiment()">Start Experiment</button>
 	<button type="button" class="blueButton" onclick="practiceRobot()">pratice robot</button>
 	<button type="button" class="blueButton" onclick="practiceHuman()">pratice human</button>
-	<button type="button" class="blueButton" onclick="experimentRobot()">experiment robot</button>
-	<button type="button" class="blueButton" onclick="experimentHuman()">experiment human</button>
+	<button type="button" id="experimentRobot" class="blueButton" onclick="experimentRobot()">exp robot</button>
+	<button type="button" class="blueButton" onclick="experimentHuman()">exp human</button>
 </body>
 </html>
