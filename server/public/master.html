@@ -26,10 +26,17 @@
 			dpd.track.post({"username":userId,"timestamp":new Date().getTime(),"msgtype":msgtype, "message":message, "client":true}, function(result, err) {});
 		}
 
+		function startTest() {
+
+			track(document.getElementById("userId").value, "info", {"function":"startExperiment"});
+			dpd.socket.emit('master:startTest', null);
+		}
+
 	</script>
 </head>
 <body>
 	<input type="text" name="name" id="userId" value="juhu11">
 	<button type="button" id="RepeatButton" onclick="startExperiment()">Start Experiment</button>
+	<button type="button" id="RepeatButton" onclick="startTest()">Start testround</button>
 </body>
 </html>

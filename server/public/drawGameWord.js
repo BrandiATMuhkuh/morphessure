@@ -18,6 +18,27 @@ function preload(playerId) {
     }
     
     _mp[0].properties.hintArea = document.getElementById("hintArea");
+
+
+    
+    /**
+     * Lets listen to changes :D
+     *
+     */
+    dpd.players.on('put', function (message) {
+        console.log(message);
+
+        if (message.id == _mp[0].properties.dbId) {
+            console.log("i change something in db");
+            changePlayerPosition(message.graphNode, 0);
+            showHints(message.graphNode, 0);
+
+        } else {
+            console.log("someone else changed something in db");
+            changePlayerPosition(message.graphNode, 1);
+            showHints(message.graphNode, 1);
+        }
+    });
 }
 
 function create() {
@@ -44,24 +65,6 @@ function create() {
 }
 
 
-/**
- * Lets listen to changes :D
- *
- */
-dpd.players.on('put', function (message) {
-    console.log(message);
-
-    if (message.id == _mp[0].properties.dbId) {
-        console.log("i change something in db");
-        changePlayerPosition(message.graphNode, 0);
-        showHints(message.graphNode, 0);
-
-    } else {
-        console.log("someone else changed something in db");
-        changePlayerPosition(message.graphNode, 1);
-        showHints(message.graphNode, 1);
-    }
-});
 
 /**
  * Tells server what node player want to change to
