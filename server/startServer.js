@@ -195,12 +195,14 @@ function getSceneAndReplaceWords(userId, sceneName, qualtricData, words){
 		//Start both clients to do the right nights
 		//console.log(result2, result2.id);
 		console.log("tell client 0 to reload");
+		/*
 		globalSock.emit('client:start', { "client": 0, "levelname":"practice" });
 		
 		setTimeout(function(){
 			console.log("tell client 1 to reload");
 			globalSock.emit('client:start', { "client": 1, "levelname":"practice" });
 		}, 3000);
+		*/
 	});
 
 	});

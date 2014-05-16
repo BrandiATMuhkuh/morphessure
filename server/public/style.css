@@ -20,7 +20,7 @@
 }
 
 
-#RepeatButton {
+.blueButton {
 	-moz-box-shadow:inset 0px 1px 0px 0px #97c4fe;
 	-webkit-box-shadow:inset 0px 1px 0px 0px #97c4fe;
 	box-shadow:inset 0px 1px 0px 0px #97c4fe;
@@ -56,19 +56,19 @@
 	text-shadow:1px 1px 0px #1570cd;
 }
 
-#RepeatButton:hover {
+.blueButton:hover {
 	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #1e62d0), color-stop(1, #3d94f6) );
 	background:-moz-linear-gradient( center top, #1e62d0 5%, #3d94f6 100% );
 	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#1e62d0', endColorstr='#3d94f6');
 	background-color:#1e62d0;
 }
 
-#RepeatButton:active {
+.blueButton:active {
 	position:relative;
 	top:1px;
 }
 
-#NoButton {
+.redButton {
 	-moz-box-shadow:inset 0px 1px 0px 0px #f5978e;
 	-webkit-box-shadow:inset 0px 1px 0px 0px #f5978e;
 	box-shadow:inset 0px 1px 0px 0px #f5978e;
@@ -103,17 +103,19 @@
 	text-align:center;
 	text-shadow:1px 1px 0px #810e05;
 }
-#NoButton:hover {
+.redButton:hover {
 	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #c62d1f), color-stop(1, #f24537) );
 	background:-moz-linear-gradient( center top, #c62d1f 5%, #f24537 100% );
 	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#c62d1f', endColorstr='#f24537');
 	background-color:#c62d1f;
-}#NoButton:active {
+}
+
+.redButton:active {
 	position:relative;
 	top:1px;
 }
 
-#YesButton {
+.greenButton {
 	-moz-box-shadow:inset 0px 1px 0px 0px #c1ed9c;
 	-webkit-box-shadow:inset 0px 1px 0px 0px #c1ed9c;
 	box-shadow:inset 0px 1px 0px 0px #c1ed9c;
@@ -148,14 +150,14 @@
 	text-align:center;
 	text-shadow:1px 1px 0px #689324;
 }
-#YesButton:hover {
+.greenButton:hover {
 	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #8cb82b), color-stop(1, #9dce2c) );
 	background:-moz-linear-gradient( center top, #8cb82b 5%, #9dce2c 100% );
 	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#8cb82b', endColorstr='#9dce2c');
 	background-color:#8cb82b;
 }
 
-#YesButton:active {
+.greenButton:active {
 	position:relative;
 	top:1px;
 }
