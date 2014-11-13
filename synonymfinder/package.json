@@ -1,0 +1,12 @@
+{
+  "name"         : "synonymfinder",
+  "version"      : "0.0.1",
+  "description"  : "find synonyms within a list of words",
+  "main"         : "synonym.js",
+  "author"       : "BrandiATMuhkuh",
+  "dependencies" : {
+    "csv"    : "latest",
+    "stream-transform"    : "latest",
+    "thesaurus"    : "latest"
+  }
+}
