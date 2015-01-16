@@ -6,7 +6,7 @@ var dpd = deployd(config.deployd);
 var globalSock;
 var ic;
 
-
+console.log("startServer.js");
 dpd.listen();
 
 dpd.sockets.on('connection', function (socket) {
