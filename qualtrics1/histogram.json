@@ -1,98 +1,99 @@
-belly --> {"pregnant woman":2,"tummy":2,"pregnant belly":1,"belly":2,"stomach":2,"pregnant":3,"baby":2,"gut":1,"bump":2,"fetus":1,"hapu":1,"fat":1}
-microbes --> {"a magnifier used to look at micropes":1,"cells":1,"antibody":1,"bacteria":5,"microorganism":1,"germs":4,"infection":1,"virus":2,"microbes":2,"bugs":3,"microorganisms":1,"contamination":1,"mo":1,"bugs?":1}
-RAM --> {"a harmonica":1,"piano":3,"circate board":1,"memory chip":1,"computer memory":1,"memory":2,"ram":2,"cpu":1,"harmonica":1,"keaboard":1,"?":1,"dongle":1,"memory card":1,"teeny tiny ant piano":1}
-socket --> {"a power point":1,"emoticon":2,"plug":3,"socket":3,"powerpoint":1,"power point":2,"face":3,"tv":1,"smiley (not smiling)":1,"sad":1,"nearly creeper face":1}
-laptop --> {"laptop":6,"portable dvd player":2,"computer":4,"labtop":1,"notebook":1}
-cup --> {"a cup":1,"cuppa":1,"coffee":3,"tea":2,"coffee cup":3,"cup":5,"mug":3,"tea cup":2,"teacup":1,"cup and saucer":1,"breakfast cup":1}
-violin --> {"a violin":1,"chello":2,"violin":7,"cello":4,"musical instrument":2,"bass":1,"mandolin":1,"viola":2,"instrument":1}
-eraser --> {"cellphone":1,"ipod":1,"no idea":1,"a toggle button?":1,"rubber":3,"eraser":3,"?":1}
-touchpad --> {"tablet":7,"ipad":4,"touchpad":1,"touchscreeen":1,"touch":1,"touchscreen":3,"phone":1,"touch screen":1}
-rave --> {"concert":4,"stadium":1,"cheering":2,"competition":1,"party":3,"crowd":3,"gig":1,"audience":2,"fans":1,"moshpit":1,"?":1}
-runners --> {"running":6,"exit":1,"team":2,"players":1,"runners":2,"sportmen":1}
-drink --> {"drinks":1,"cocktail":3,"glass":3,"drink":4,"straw":1,"juice":1,"refreshment":1}
-road --> {"road":5,"highway":2,"bridge":1,"street":2,"road markings":1,"ladder":1,"train tracks":1,"lane":1,"avenue":1}
-alligator --> {"crocodile":7,"alligator":5,"reptile":1}
-car --> {"car":7,"vehicle":3,"auto vehicle":1,"automobile":3,"old dunger":1,"hatchback":1}
-peach --> {"apple":7,"fruit":3,"peach":1,"red delicious":1,"granny smith":1,"mahana":1,"aporo":1}
-soldier --> {"armed":1,"army":2,"soldier":4,"assasin":1,"gunman":1,"murder":1,"solder":1,"war":1,"rifleman":2,"armed man":1,"fighter":1,"shooter":1,"militant":1,"criminal":1,"armed defender":1,"sniper":1,"killer":1}
-people --> {"group of people":1,"people":6,"crowd":3,"users":1,"line/ queue":1,"audience":2,"group":3,"team":1,"mob":1,"queue":1}
-baby --> {"baby":7,"toddler":2,"kid":2,"child":2,"crawling":1,"little one":1,"new borne":1,"infant":3,"crawl":1,"crawler":1,"sprog":1}
-sphere --> {"sphere":3,"circle":1,"at&t":1,"ball":2,"telecommunications logo?":1,"globe":2,"honey dipper":1,"balloon":1,"?":1}
-thief --> {"robber":5,"thief":5,"rubbery":1,"burglar":3,"heist":1,"money":1,"cash":1,"bank robber":1}
-flag --> {"flag":7,"sailing":1,"surrender":1,"pennant":1}
-barrels --> {"shield":1,"wtf":1,"beehive":1,"honey farm":1,"bee hive":1,"barrels":4,"40 gallon drum":1,"drum":1}
-cave --> {"rock":2,"cave":2,"hole in the rock":1,"i don't know!":1,"arch":2,"?":1}
-sink --> {"sink":6,"basin":3,"tap":1,"vanity":1,"drinking fountain":1,"baisin":1}
-knife --> {"knife":4,"dagger":3,"sword":1,"lipstick?":1,"broken sword":1}
-beach --> {"beach":3,"umbrella":3,"sun":1,"summer":2,"shore":1,"sun umbrella":2,"beach umbrella":1,"sun shade":1,"flood":1}
-beans --> {"coffee bean":1,"coffee":2,"coffee beans":3,"coffe beans":1,"beans":2,"legumes":1,"broad beans":1,"kidney?":1,"coffee?":1}
-dog --> {"dog":5,"mongrel":1,"running":1,"chasing":1,"kangaroo":2,"wallaby":1,"wolf":2,"canine":1,"hound":1}
-cattle --> {"cow":1,"livestock":1,"cattle":5,"cows":6,"dairy farm":1,"farm":1,"herd":2,"stock":1,"beef":1,"angus":1,"bulls":1}
-beetle --> {"ladybug":5,"insect":3,"bug":4,"ladybird":3,"lady bird":1}
-berries --> {"berries":4,"strawberry":4,"blackberry":1,"berry and strawberry":1,"berry":1,"berry fruit":1,"fruit":1,"raspberry":1,"summer fruit":1}
-bench --> {"bench":6,"seat":3,"park bench":4,"garden bench":1}
-tree --> {"tree":7,"wood":1}
-priest --> {"priest":6,"pastor":2,"christian":3,"believer":1,"follower":1,"religious":2,"necklace":1,"crcuifix":1,"cross":1,"minister":1,"nun":1,"god botherer":1}
-flower --> {"flower":7,"rafflesi":1,"lotus flower":1,"petals":1,"petunia":1,"flora":1}
-ship --> {"boat":5,"yatch":1,"ship":7,"sea":1,"ocean liner":1,"sea vessel":1,"sea travel":1,"cruiseliner":1,"tug boat":1,"ferry":1,"steamer":1}
-boot --> {"high top":1,"shoe":4,"boot":6,"gum boot":1,"footwear":1,"safety boot":1,"work boot":1,"doc martin":1}
-rocks --> {"rocks":4,"boulders":1,"a giant rock in the sea":1,"crags":1,"?":1,"rock":1,"boulder":1,"cliff":1}
-wine --> {"drinks":1,"champagne":1,"cheers":3,"wine glasses":1,"champaign":1,"glasses":1,"wine":3,"celebration":1,"champaigne":1,"toast":2,"alcohol":1,"booze":1,"drink":1,"party":1}
-snack --> {"tea":1,"smoko":1,"feed":1,"tea and croissant":1,"croissant and coffee":1,"breakfast":5,"break":1,"snack":1,"hangout":1,"french":1,"croissant":1,"i don't know what this is":1,"coffee and croissant":1}
-house --> {"house":7,"home":6,"home page":1,"hut":1,"cottage":1,"domicile":1,"habitat":1,"accommodation":1}
-bat --> {"bat":4,"baseball":2,"baseball ball":1,"baseball bat":3,"softball bat":1,"softball":1}
-canoe --> {"canoe":6,"kayak":7,"caneo":1,"rowing boat":1}
-church --> {"church":7,"cathedral":3,"christianity":1,"house of god":1}
-money --> {"money":6,"coin":1,"coins":6,"cash":2,"dollars":2,"bucks":1,"dollar coins":1,"gold coins":1}
-hen --> {"chicken":6,"rooster":6,"bird":2,"roster":1,"cock":1,"hen":2,"chook":1}
-city --> {"city":4,"skyscrapers":1,"town":1,"buildings":3,"sky scrapers":2,"high-rise buildings":1,"new york city":1,"houses":1,"metropolis":1,"cityscape":1,"skyscraper":1,"sky scraper":1}
-cook --> {"cook":6,"chef":6,"woman":1,"baker":1,"chief":1,"housewife":1}
-clothes --> {"clothes":7,"clothing":2,"shopping":1,"fashion":1,"outfit":1,"gear":1}
-couch --> {"sofa":5,"couch":6,"chair":2,"armchair":1,"easy chair":1,"arm chair":1}
-cross --> {"cross":5,"christianity":1,"christian symbol":1,"grave":1,"fire hydrant":1,"christian":1}
-woman --> {"woman":6,"girl":4,"chick":1,"lady":4,"a woman":1,"a professional woman":1,"female":1}
-plate --> {"plate":6,"plat":1,"dish":1,"dinner plate":1,"crockery":1}
-USB --> {"usb stick":6,"memory stick":2,"flash drive":3,"flash memory":1,"storage device":1,"usb drive":2,"thumb drive":1,"nerd stock":1,"pen drive":1}
-computer --> {"computer":4,"desktop":2,"pc":2,"tv":2,"television":1,"remote":2,"monitor":2,"teelvision":1,"remote control":1}
-Q60 --> {"phone":3,"mobile phone":2,"smartphone":2,"iphone":2,"cellphone":1,"mobile":1,"cell phone":1,"smart phone":2}
-nuke plant --> {"nuclear power plant":2,"nuclear power":1,"steam":1,"towers":1,"nuclear plant":1,"plant":1,"factory":1,"pollution":1,"chimneys":1,"smoke stack":1,"nuclear generator":1,"nuclear power station":1}
-door --> {"door":6,"open":1,"exit":2,"doorway":1,"entrance":1,"ajar":1,"open door":1}
-kids --> {"couple":1,"holding hands":1,"unisex":1,"kids":6,"children":5,"siblings":2,"babies":1,"little ones":1,"family":1}
-pigeon --> {"eagle":1,"bird":7,"hawk":1,"pigeon":3}
-pipe --> {"plumbing":4,"pipes":2,"plumber":1,"bend":1,"pipe":4,"joint":1,"a water pipe":1,"angle":1,"connector":1,"elbow bend":1}
-drugs --> {"pills":6,"meds":1,"drugs":4,"medicine":3,"pill":1,"tablets":1,"medication":1}
-king --> {"royal":2,"king":3,"queen":2,"electric chair":2,"death":1,"death sentence":1,"rule":1,"monarch":2,"throne":1,"ruler":1,"?":1}
-fireplace --> {"fireplace":1,"furnace":1,"fire":3,"bbq":2,"table":1,"fire place":2,"log burner":1,"?":2,"flammable":1,"hot":1,"barbecue":1}
-frog --> {"frog":5,"kermit":1,"monkey":1,"amphibian":2,"retile":1,"froggy":1,"toad":1,"teddy bear":1}
-bee --> {"bee":7,"honey":1,"honeybee":1,"wasp":1,"honey bee":2,"buzzy bee":1,"bumble bee":1,"insect":1}
-mouse --> {"rat":3,"mouse":7,"rodent":2,"gerbil":1,"hamster":1}
-marijuana --> {"weed":4,"leaf":3,"plant":1,"marijuana":2,"pot":2,"canabis":1,"cannibis":1,"dope":1}
-snake --> {"snake":6,"serpent":2,"viper":1,"cobra":1,"worm":1,"sperm":1,"asp":1,"adder":1,"reptile":1}
-rabbit --> {"rabbit":7,"bunny":5,"hare":3}
-jacket --> {"jacket":5,"leather jacket":2,"motorbike jacket":1,"motorcycle jacket":1,"uniform":1}
-cop --> {"policeman":5,"police officer":4,"head":1,"captain":2,"person":1,"sheriff":1,"cop":1,"pig":1,"security guard":1}
-doctor --> {"doctor":7,"gp":2,"specialist":1,"medical professional":1}
-referee --> {"referee":2,"winning ticket":1,"lottery ticket":1,"horse racing ticket":1,"a football referee":1,"penalty":1,"person":1,"icon":1,"ticket":1,"winner":1,"lotto":1,"chocolate wheel":1,"lucky number":1,"dance":1,"party":1,"elvis":1}
-gun --> {"gun":7,"pistol":3,"handgun":2,"firearm":1,"revolver":1,"weapon":1,"semi-automatic":1}
-cart --> {"trolley":6,"cart":1,"shopping trolley":1,"shopping cart":2,"shipping trolley":1}
-axe --> {"axe":6,"hatchet":2,"axes":1,"wood splitter":1}
-parking sp --> {"disabled parking":5,"accessible parking":1,"parking for disabled people":1,"handicapped parking":1,"parking":1,"diabled parking":1,"mobility park":1,"wheelchair park":1}
-cleaner --> {"cleaner":7,"janitor":2,"dustman":1,"caretaker":1}
-athlete --> {"soccer":5,"football player":1,"kick":2,"ball":2,"play":1,"soccer/football player":1,"football":2,"sportman":1,"footballer":1,"soccer player":1,"player":1,"athlete":1,"sportsman":1}
-shoe --> {"shoe":7,"loafer":1,"slip ons":1,"vans":1,"slip-on":1,"sneaker":1,"karate shoe":1,"slip on shoe":1,"boat shoe":1,"deck shoe":1,"slipper":1}
-floppy --> {"floppy disk":5,"save":3,"storage":2,"file space":1,"computer disk":1,"disk":2,"floppy disc":1,"3.5 inch disc":1,"disc":1,"floppy":1,"3.5\" floppy":1}
-router --> {"modem":3,"router":6,"wifi":2,"receiver":1,"wireless":2,"wireless router":1}
-branch --> {"plant":1,"flower":3,"flowers":1,"blossom":2,"no clue!":1,"branch":1,"weed":1,"tree":1,"fireworks":1}
-ocean --> {"scenery":1,"landscape":1,"beach":5,"summer":2,"sun":1,"sea":4,"shore":1,"heat":1,"day":1,"ocean":1,"sunny":1,"weather":1}
-artist --> {"painter":5,"artist":6,"painting":1}
-dunes --> {"no idea":1,"wtf":1,"sand dunes":2,"desert":2,"dunes":2,"hills":3,"mountains":2,"??":1,"sandhills":1}
-robot --> {"robot":7,"android":2,"machine":1,"droid":1,"metal mickey":1}
-recycling --> {"wheely bin":1,"rubbish bin":6,"recycling bin":1,"wheelie bin":4,"bin":2,"ribbish bin":1}
-moth --> {"bug":1,"butterfly":7,"insect":2,"moth":1,"monarch":1}
-man --> {"man":6,"bearded man":1,"guy":3,"ashton kutcher":1,"hipster":1,"a man":1,"beard":2,"male":2,"person":1,"whiskers":1}
-factory --> {"factory":6,"industry":1,"manufacturer":2,"pollution":1,"plant":1,"castle":1,"workshop":1}
-teacher --> {"teaching":1,"teacher":6,"lecturer":3,"tutor":1,"teach":1,"point":1,"presentation":1,"presenter":1,"instructor":1,"whiteboard":1,"pointer":1}
-programmer --> {"techie":1,"geek":2,"computer guy":2,"it worker":1,"sys admin":1,"a doctor":1,"scientist":1,"student":2,"computer scientist":2,"teacher":1,"researcher":1,"computer geek":1,"computer user":1,"office":1,"employee":1}
-videogame --> {"gaming":1,"pacman":4,"consoles":1,"game":1,"videogames":1,"mispack":1,"vido gams":1,"packman":1,"computer game":3,"arcade game":1,"console":1,"ghost":1,"nintendo":1,"playstation":1,"computer games":1}
-dirt --> {"dirt":4,"soil":2,"pile":1,"heap":1,"gravel":1,"construction":1,"digging":1,"danger":1,"falling rocks":1,"dirt pile":1,"clay":1,"sand":1}
-Q45 --> {"cement":4,"plaster":3,"concrete":2,"spatula":1,"pizza":1,"pizza slice":1,"grout":1,"mud":1,"filler":1,"bog":1,"mortar":1}
+{"belly":{"pregnant woman":2,"tummy":2,"pregnant belly":1,"belly":2,"stomach":2,"pregnant":3,"baby":2,"gut":1,"bump":2,"fetus":1,"hapu":1,"fat":1},
+"microbes":{"a magnifier used to look at micropes":1,"cells":1,"antibody":1,"bacteria":5,"microorganism":1,"germs":4,"infection":1,"virus":2,"microbes":2,"bugs":3,"microorganisms":1,"contamination":1,"mo":1,"bugs?":1},
+"RAM":{"a harmonica":1,"piano":3,"circate board":1,"memory chip":1,"computer memory":1,"memory":2,"ram":2,"cpu":1,"harmonica":1,"keaboard":1,"?":1,"dongle":1,"memory card":1,"teeny tiny ant piano":1},
+"socket":{"a power point":1,"emoticon":2,"plug":3,"socket":3,"powerpoint":1,"power point":2,"face":3,"tv":1,"smiley (not smiling)":1,"sad":1,"nearly creeper face":1},
+"laptop":{"laptop":6,"portable dvd player":2,"computer":4,"labtop":1,"notebook":1},
+"cup":{"a cup":1,"cuppa":1,"coffee":3,"tea":2,"coffee cup":3,"cup":5,"mug":3,"tea cup":2,"teacup":1,"cup and saucer":1,"breakfast cup":1},
+"violin":{"a violin":1,"chello":2,"violin":7,"cello":4,"musical instrument":2,"bass":1,"mandolin":1,"viola":2,"instrument":1},
+"eraser":{"cellphone":1,"ipod":1,"no idea":1,"a toggle button?":1,"rubber":3,"eraser":3,"?":1},
+"touchpad":{"tablet":7,"ipad":4,"touchpad":1,"touchscreeen":1,"touch":1,"touchscreen":3,"phone":1,"touch screen":1},
+"rave":{"concert":4,"stadium":1,"cheering":2,"competition":1,"party":3,"crowd":3,"gig":1,"audience":2,"fans":1,"moshpit":1,"?":1},
+"runners":{"running":6,"exit":1,"team":2,"players":1,"runners":2,"sportmen":1},
+"drink":{"drinks":1,"cocktail":3,"glass":3,"drink":4,"straw":1,"juice":1,"refreshment":1},
+"road":{"road":5,"highway":2,"bridge":1,"street":2,"road markings":1,"ladder":1,"train tracks":1,"lane":1,"avenue":1},
+"alligator":{"crocodile":7,"alligator":5,"reptile":1},
+"car":{"car":7,"vehicle":3,"auto vehicle":1,"automobile":3,"old dunger":1,"hatchback":1},
+"peach":{"apple":7,"fruit":3,"peach":1,"red delicious":1,"granny smith":1,"mahana":1,"aporo":1},
+"soldier":{"armed":1,"army":2,"soldier":4,"assasin":1,"gunman":1,"murder":1,"solder":1,"war":1,"rifleman":2,"armed man":1,"fighter":1,"shooter":1,"militant":1,"criminal":1,"armed defender":1,"sniper":1,"killer":1},
+"people":{"group of people":1,"people":6,"crowd":3,"users":1,"line/ queue":1,"audience":2,"group":3,"team":1,"mob":1,"queue":1},
+"baby":{"baby":7,"toddler":2,"kid":2,"child":2,"crawling":1,"little one":1,"new borne":1,"infant":3,"crawl":1,"crawler":1,"sprog":1},
+"sphere":{"sphere":3,"circle":1,"at&t":1,"ball":2,"telecommunications logo?":1,"globe":2,"honey dipper":1,"balloon":1,"?":1},
+"thief":{"robber":5,"thief":5,"rubbery":1,"burglar":3,"heist":1,"money":1,"cash":1,"bank robber":1},
+"flag":{"flag":7,"sailing":1,"surrender":1,"pennant":1},
+"barrels":{"shield":1,"wtf":1,"beehive":1,"honey farm":1,"bee hive":1,"barrels":4,"40 gallon drum":1,"drum":1},
+"cave":{"rock":2,"cave":2,"hole in the rock":1,"i don't know!":1,"arch":2,"?":1},
+"sink":{"sink":6,"basin":3,"tap":1,"vanity":1,"drinking fountain":1,"baisin":1},
+"knife":{"knife":4,"dagger":3,"sword":1,"lipstick?":1,"broken sword":1},
+"beach":{"beach":3,"umbrella":3,"sun":1,"summer":2,"shore":1,"sun umbrella":2,"beach umbrella":1,"sun shade":1,"flood":1},
+"beans":{"coffee bean":1,"coffee":2,"coffee beans":3,"coffe beans":1,"beans":2,"legumes":1,"broad beans":1,"kidney?":1,"coffee?":1},
+"dog":{"dog":5,"mongrel":1,"running":1,"chasing":1,"kangaroo":2,"wallaby":1,"wolf":2,"canine":1,"hound":1},
+"cattle":{"cow":1,"livestock":1,"cattle":5,"cows":6,"dairy farm":1,"farm":1,"herd":2,"stock":1,"beef":1,"angus":1,"bulls":1},
+"beetle":{"ladybug":5,"insect":3,"bug":4,"ladybird":3,"lady bird":1},
+"berries":{"berries":4,"strawberry":4,"blackberry":1,"berry and strawberry":1,"berry":1,"berry fruit":1,"fruit":1,"raspberry":1,"summer fruit":1},
+"bench":{"bench":6,"seat":3,"park bench":4,"garden bench":1},
+"tree":{"tree":7,"wood":1},
+"priest":{"priest":6,"pastor":2,"christian":3,"believer":1,"follower":1,"religious":2,"necklace":1,"crcuifix":1,"cross":1,"minister":1,"nun":1,"god botherer":1},
+"flower":{"flower":7,"rafflesi":1,"lotus flower":1,"petals":1,"petunia":1,"flora":1},
+"ship":{"boat":5,"yatch":1,"ship":7,"sea":1,"ocean liner":1,"sea vessel":1,"sea travel":1,"cruiseliner":1,"tug boat":1,"ferry":1,"steamer":1},
+"boot":{"high top":1,"shoe":4,"boot":6,"gum boot":1,"footwear":1,"safety boot":1,"work boot":1,"doc martin":1},
+"rocks":{"rocks":4,"boulders":1,"a giant rock in the sea":1,"crags":1,"?":1,"rock":1,"boulder":1,"cliff":1},
+"wine":{"drinks":1,"champagne":1,"cheers":3,"wine glasses":1,"champaign":1,"glasses":1,"wine":3,"celebration":1,"champaigne":1,"toast":2,"alcohol":1,"booze":1,"drink":1,"party":1},
+"snack":{"tea":1,"smoko":1,"feed":1,"tea and croissant":1,"croissant and coffee":1,"breakfast":5,"break":1,"snack":1,"hangout":1,"french":1,"croissant":1,"i don't know what this is":1,"coffee and croissant":1},
+"house":{"house":7,"home":6,"home page":1,"hut":1,"cottage":1,"domicile":1,"habitat":1,"accommodation":1},
+"bat":{"bat":4,"baseball":2,"baseball ball":1,"baseball bat":3,"softball bat":1,"softball":1},
+"canoe":{"canoe":6,"kayak":7,"caneo":1,"rowing boat":1},
+"church":{"church":7,"cathedral":3,"christianity":1,"house of god":1},
+"money":{"money":6,"coin":1,"coins":6,"cash":2,"dollars":2,"bucks":1,"dollar coins":1,"gold coins":1},
+"hen":{"chicken":6,"rooster":6,"bird":2,"roster":1,"cock":1,"hen":2,"chook":1},
+"city":{"city":4,"skyscrapers":1,"town":1,"buildings":3,"sky scrapers":2,"high-rise buildings":1,"new york city":1,"houses":1,"metropolis":1,"cityscape":1,"skyscraper":1,"sky scraper":1},
+"cook":{"cook":6,"chef":6,"woman":1,"baker":1,"chief":1,"housewife":1},
+"clothes":{"clothes":7,"clothing":2,"shopping":1,"fashion":1,"outfit":1,"gear":1},
+"couch":{"sofa":5,"couch":6,"chair":2,"armchair":1,"easy chair":1,"arm chair":1},
+"cross":{"cross":5,"christianity":1,"christian symbol":1,"grave":1,"fire hydrant":1,"christian":1},
+"woman":{"woman":6,"girl":4,"chick":1,"lady":4,"a woman":1,"a professional woman":1,"female":1},
+"plate":{"plate":6,"plat":1,"dish":1,"dinner plate":1,"crockery":1},
+"USB":{"usb stick":6,"memory stick":2,"flash drive":3,"flash memory":1,"storage device":1,"usb drive":2,"thumb drive":1,"nerd stock":1,"pen drive":1},
+"computer":{"computer":4,"desktop":2,"pc":2,"tv":2,"television":1,"remote":2,"monitor":2,"teelvision":1,"remote control":1},
+"Q60":{"phone":3,"mobile phone":2,"smartphone":2,"iphone":2,"cellphone":1,"mobile":1,"cell phone":1,"smart phone":2},
+"nuke plant":{"nuclear power plant":2,"nuclear power":1,"steam":1,"towers":1,"nuclear plant":1,"plant":1,"factory":1,"pollution":1,"chimneys":1,"smoke stack":1,"nuclear generator":1,"nuclear power station":1},
+"door":{"door":6,"open":1,"exit":2,"doorway":1,"entrance":1,"ajar":1,"open door":1},
+"kids":{"couple":1,"holding hands":1,"unisex":1,"kids":6,"children":5,"siblings":2,"babies":1,"little ones":1,"family":1},
+"pigeon":{"eagle":1,"bird":7,"hawk":1,"pigeon":3},
+"pipe":{"plumbing":4,"pipes":2,"plumber":1,"bend":1,"pipe":4,"joint":1,"a water pipe":1,"angle":1,"connector":1,"elbow bend":1},
+"drugs":{"pills":6,"meds":1,"drugs":4,"medicine":3,"pill":1,"tablets":1,"medication":1},
+"king":{"royal":2,"king":3,"queen":2,"electric chair":2,"death":1,"death sentence":1,"rule":1,"monarch":2,"throne":1,"ruler":1,"?":1},
+"fireplace":{"fireplace":1,"furnace":1,"fire":3,"bbq":2,"table":1,"fire place":2,"log burner":1,"?":2,"flammable":1,"hot":1,"barbecue":1},
+"frog":{"frog":5,"kermit":1,"monkey":1,"amphibian":2,"retile":1,"froggy":1,"toad":1,"teddy bear":1},
+"bee":{"bee":7,"honey":1,"honeybee":1,"wasp":1,"honey bee":2,"buzzy bee":1,"bumble bee":1,"insect":1},
+"mouse":{"rat":3,"mouse":7,"rodent":2,"gerbil":1,"hamster":1},
+"marijuana":{"weed":4,"leaf":3,"plant":1,"marijuana":2,"pot":2,"canabis":1,"cannibis":1,"dope":1},
+"snake":{"snake":6,"serpent":2,"viper":1,"cobra":1,"worm":1,"sperm":1,"asp":1,"adder":1,"reptile":1},
+"rabbit":{"rabbit":7,"bunny":5,"hare":3},
+"jacket":{"jacket":5,"leather jacket":2,"motorbike jacket":1,"motorcycle jacket":1,"uniform":1},
+"cop":{"policeman":5,"police officer":4,"head":1,"captain":2,"person":1,"sheriff":1,"cop":1,"pig":1,"security guard":1},
+"doctor":{"doctor":7,"gp":2,"specialist":1,"medical professional":1},
+"referee":{"referee":2,"winning ticket":1,"lottery ticket":1,"horse racing ticket":1,"a football referee":1,"penalty":1,"person":1,"icon":1,"ticket":1,"winner":1,"lotto":1,"chocolate wheel":1,"lucky number":1,"dance":1,"party":1,"elvis":1},
+"gun":{"gun":7,"pistol":3,"handgun":2,"firearm":1,"revolver":1,"weapon":1,"semi-automatic":1},
+"cart":{"trolley":6,"cart":1,"shopping trolley":1,"shopping cart":2,"shipping trolley":1},
+"axe":{"axe":6,"hatchet":2,"axes":1,"wood splitter":1},
+"parking sp":{"disabled parking":5,"accessible parking":1,"parking for disabled people":1,"handicapped parking":1,"parking":1,"diabled parking":1,"mobility park":1,"wheelchair park":1},
+"cleaner":{"cleaner":7,"janitor":2,"dustman":1,"caretaker":1},
+"athlete":{"soccer":5,"football player":1,"kick":2,"ball":2,"play":1,"soccer/football player":1,"football":2,"sportman":1,"footballer":1,"soccer player":1,"player":1,"athlete":1,"sportsman":1},
+"shoe":{"shoe":7,"loafer":1,"slip ons":1,"vans":1,"slip-on":1,"sneaker":1,"karate shoe":1,"slip on shoe":1,"boat shoe":1,"deck shoe":1,"slipper":1},
+"floppy":{"floppy disk":5,"save":3,"storage":2,"file space":1,"computer disk":1,"disk":2,"floppy disc":1,"3.5 inch disc":1,"disc":1,"floppy":1,"3.5\" floppy":1},
+"router":{"modem":3,"router":6,"wifi":2,"receiver":1,"wireless":2,"wireless router":1},
+"branch":{"plant":1,"flower":3,"flowers":1,"blossom":2,"no clue!":1,"branch":1,"weed":1,"tree":1,"fireworks":1},
+"ocean":{"scenery":1,"landscape":1,"beach":5,"summer":2,"sun":1,"sea":4,"shore":1,"heat":1,"day":1,"ocean":1,"sunny":1,"weather":1},
+"artist":{"painter":5,"artist":6,"painting":1},
+"dunes":{"no idea":1,"wtf":1,"sand dunes":2,"desert":2,"dunes":2,"hills":3,"mountains":2,"??":1,"sandhills":1},
+"robot":{"robot":7,"android":2,"machine":1,"droid":1,"metal mickey":1},
+"recycling":{"wheely bin":1,"rubbish bin":6,"recycling bin":1,"wheelie bin":4,"bin":2,"ribbish bin":1},
+"moth":{"bug":1,"butterfly":7,"insect":2,"moth":1,"monarch":1},
+"man":{"man":6,"bearded man":1,"guy":3,"ashton kutcher":1,"hipster":1,"a man":1,"beard":2,"male":2,"person":1,"whiskers":1},
+"factory":{"factory":6,"industry":1,"manufacturer":2,"pollution":1,"plant":1,"castle":1,"workshop":1},
+"teacher":{"teaching":1,"teacher":6,"lecturer":3,"tutor":1,"teach":1,"point":1,"presentation":1,"presenter":1,"instructor":1,"whiteboard":1,"pointer":1},
+"programmer":{"techie":1,"geek":2,"computer guy":2,"it worker":1,"sys admin":1,"a doctor":1,"scientist":1,"student":2,"computer scientist":2,"teacher":1,"researcher":1,"computer geek":1,"computer user":1,"office":1,"employee":1},
+"videogame":{"gaming":1,"pacman":4,"consoles":1,"game":1,"videogames":1,"mispack":1,"vido gams":1,"packman":1,"computer game":3,"arcade game":1,"console":1,"ghost":1,"nintendo":1,"playstation":1,"computer games":1},
+"dirt":{"dirt":4,"soil":2,"pile":1,"heap":1,"gravel":1,"construction":1,"digging":1,"danger":1,"falling rocks":1,"dirt pile":1,"clay":1,"sand":1},
+"Q45":{"cement":4,"plaster":3,"concrete":2,"spatula":1,"pizza":1,"pizza slice":1,"grout":1,"mud":1,"filler":1,"bog":1,"mortar":1},
+}

@@ -104,14 +104,15 @@ function saveFile(text){
 
 function sumListToEasyReadText(){
 	//JSON.stringify(sumListOfWords)
-	var text = '';
+	var text = '{';
 
 	for(a in sumListOfWords){
 		//console.log(JSON.stringify(sumListOfWords[a]));
-		text += a + " --> " + JSON.stringify(sumListOfWords[a]);
-		text += "\n";
+		text += '"'+ a +'"'+ ":" + JSON.stringify(sumListOfWords[a]);
+		text += ",\n";
 	}
 
+	text+="}";
 	return text;
 }
 
