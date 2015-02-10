@@ -11,13 +11,13 @@ rave --> {"concert":4,"stadium":1,"cheering":2,"competition":1,"party":3,"crowd"
 runners --> {"running":6,"exit":1,"team":2,"players":1,"runners":2,"sportmen":1}
 drink --> {"drinks":1,"cocktail":3,"glass":3,"drink":4,"straw":1,"juice":1,"refreshment":1}
 road --> {"road":5,"highway":2,"bridge":1,"street":2,"road markings":1,"ladder":1,"train tracks":1,"lane":1,"avenue":1}
-alligator --> {"undefined":48}
+alligator --> {"crocodile":7,"alligator":5,"reptile":1}
 car --> {"car":7,"vehicle":3,"auto vehicle":1,"automobile":3,"old dunger":1,"hatchback":1}
-peach --> {"undefined":8,"apple":7,"fruit":3,"peach":1,"red delicious":1,"granny smith":1,"mahana":1}
-soldier --> {"undefined":48}
+peach --> {"apple":7,"fruit":3,"peach":1,"red delicious":1,"granny smith":1,"mahana":1,"aporo":1}
+soldier --> {"armed":1,"army":2,"soldier":4,"assasin":1,"gunman":1,"murder":1,"solder":1,"war":1,"rifleman":2,"armed man":1,"fighter":1,"shooter":1,"militant":1,"criminal":1,"armed defender":1,"sniper":1,"killer":1}
 people --> {"group of people":1,"people":6,"crowd":3,"users":1,"line/ queue":1,"audience":2,"group":3,"team":1,"mob":1,"queue":1}
 baby --> {"baby":7,"toddler":2,"kid":2,"child":2,"crawling":1,"little one":1,"new borne":1,"infant":3,"crawl":1,"crawler":1,"sprog":1}
-sphere --> {"undefined":48}
+sphere --> {"sphere":3,"circle":1,"at&t":1,"ball":2,"telecommunications logo?":1,"globe":2,"honey dipper":1,"balloon":1,"?":1}
 thief --> {"robber":5,"thief":5,"rubbery":1,"burglar":3,"heist":1,"money":1,"cash":1,"bank robber":1}
 flag --> {"flag":7,"sailing":1,"surrender":1,"pennant":1}
 barrels --> {"shield":1,"wtf":1,"beehive":1,"honey farm":1,"bee hive":1,"barrels":4,"40 gallon drum":1,"drum":1}

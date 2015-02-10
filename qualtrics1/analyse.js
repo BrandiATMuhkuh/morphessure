@@ -58,29 +58,13 @@ function findWordHeadlines(){
 function fillListOfWords(){
 	for(w in listOfWords){
 		for(p in onlyData){
-			if(onlyData[p][w+"_1_TEXT"]!=""){
-				listOfWords[w].push((""+onlyData[p][w+"_1_TEXT"]).trim().toLowerCase());
+
+			for(i = 0; i < 20; i++){
+				if(onlyData[p][w+"_"+i+"_TEXT"]!="" && onlyData[p][w+"_"+i+"_TEXT"]!=undefined){
+					listOfWords[w].push((""+onlyData[p][w+"_"+i+"_TEXT"]).trim().toLowerCase());
+				}
 			}
 
-			if(onlyData[p][w+"_2_TEXT"]!=""){
-				listOfWords[w].push((""+onlyData[p][w+"_2_TEXT"]).trim().toLowerCase());
-			}
-
-			if(onlyData[p][w+"_3_TEXT"]!=""){
-				listOfWords[w].push((""+onlyData[p][w+"_3_TEXT"]).trim().toLowerCase());
-			}
-
-			if(onlyData[p][w+"_4_TEXT"]!=""){
-				listOfWords[w].push((""+onlyData[p][w+"_4_TEXT"]).trim().toLowerCase());
-			}
-
-			if(onlyData[p][w+"_5_TEXT"]!=""){
-				listOfWords[w].push((""+onlyData[p][w+"_5_TEXT"]).trim().toLowerCase());
-			}
-
-			if(onlyData[p][w+"_6_TEXT"]!=""){
-				listOfWords[w].push((""+onlyData[p][w+"_6_TEXT"]).trim().toLowerCase());
-			}
 		}
 	}
 }
