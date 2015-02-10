@@ -1,0 +1,1 @@
+~/opt/iojs-v1.1.0-linux-x64/bin/iojs --use_strict --harmony_classes analyse.js 
