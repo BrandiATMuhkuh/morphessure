@@ -92,8 +92,8 @@ function createOverAllSummary(){
 	}
 }
 
-function saveFile(text){
-	fs.writeFile("histogram.json", text, function(err) {
+function saveFile(text, fname){
+	fs.writeFile(fname, text, function(err) {
 	    if(err) {
 	        console.log(err);
 	    } else {
@@ -116,7 +116,71 @@ function sumListToEasyReadText(){
 	return text;
 }
 
+function convertToCsvAllInRow(){
+	var csvBody = "";
 
+	var maxRows = 0;
+	var name = "";
+
+	//find max lenght of csv file
+	for(a in sumListOfWords){
+		//console.log(a);
+		var count = 0;
+		for (b in sumListOfWords[a]){
+			//console.log("--", b, sumListOfWords[a][b]);
+			count = count + 1;
+		}
+
+		if (count >= maxRows){
+			maxRows = count;
+			name = a;
+		}
+	}
+
+	//console.log(name, maxRows);
+
+	//find max lenght of csv file
+	for(a in sumListOfWords){
+		//console.log(a);
+		var myText = ""+a+", ";
+		var count = 0;
+		for (b in sumListOfWords[a]){
+			//console.log("--", b, sumListOfWords[a][b]);
+			count = count + 1;
+			myText += b+", "+sumListOfWords[a][b]+", ";
+		}
+
+		for(i = count; i<maxRows; i = i + 1){
+			myText += ", ";
+		}
+		//console.log(myText);
+		csvBody += myText+"\n";
+	}
+
+	//console.log(csvBody);
+	return csvBody;
+	
+}
+
+function convertToCsvPerRow(){
+	var csvBody = "";
+
+	var maxRows = 0;
+	var name = "";
+
+	//find max lenght of csv file
+	for(a in sumListOfWords){
+		//console.log(a);
+		var count = 0;
+		for (b in sumListOfWords[a]){
+			csvBody += ""+a+", " +b +", " + sumListOfWords[a][b]+"\n";
+			//console.log(a, "--", b, sumListOfWords[a][b]);
+		}
+
+	}
+
+	return csvBody;
+}
 
 
 //console.log(con.length);
@@ -130,14 +194,17 @@ removeRequestion("V1", "R_3PyMEUjFHWeEaG4");
 removeRequestion("V1", "R_2tLDReBYQNZj2tr");
 removeRequestion("V1", "R_bHQMdgUZ5v2Y7Bf");
 
-console.log(onlyData.length);
+//console.log(onlyData.length);
 
 findWordHeadlines();
 fillListOfWords();
-console.log(listOfWords);
+//console.log(listOfWords);
 
 createOverAllSummary();
 console.log(sumListOfWords);
-saveFile(sumListToEasyReadText());
+
+saveFile(convertToCsvAllInRow(), "convertToCsvAllInRow.csv");
+saveFile(convertToCsvPerRow(), "convertToCsvPerRow.csv");
+//saveFile(sumListToEasyReadText());
 
 
