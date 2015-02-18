@@ -194,6 +194,13 @@ removeRequestion("V1", "R_3PyMEUjFHWeEaG4");
 removeRequestion("V1", "R_2tLDReBYQNZj2tr");
 removeRequestion("V1", "R_bHQMdgUZ5v2Y7Bf");
 
+//remove non english speakers
+removeRequestion("V1", "R_2t5mStMZ70Sy97m");
+removeRequestion("V1", "R_T6DPN7TosT9lWyl");
+removeRequestion("V1", "R_3rJpBBj1heOgwmS");
+removeRequestion("V1", "R_271oCLPmhnOq5Gx");
+removeRequestion("V1", "R_28zIBm78Mz0e0bD");
+
 //console.log(onlyData.length);
 
 findWordHeadlines();
