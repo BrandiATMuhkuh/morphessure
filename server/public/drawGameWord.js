@@ -70,6 +70,7 @@ function create() {
  * Tells server what node player want to change to
  */
 function dbChangePlayerPosition(graphNode, playerId) {
+    console.log("ChangePosition: "+graphNode+", "+playerId);
     dpd.players.put(_mp[playerId].properties.dbId, {
         "graphNode": graphNode
     }, function (result, err) {
