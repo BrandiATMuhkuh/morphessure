@@ -28,7 +28,7 @@ function removeRequestion(item, value){
 	if(found != null){
 		onlyData.splice(found,1);
 	}
-	
+
 }
 
 function findWordHeadlines(){
@@ -49,7 +49,7 @@ function findWordHeadlines(){
 			if (listOfWords[w] == undefined){
 				listOfWords[w] = [];
 				sumListOfWords[w] = {};
-			} 
+			}
 		}
 	}
 }
@@ -99,7 +99,7 @@ function saveFile(text, fname){
 	    } else {
 	        console.log("The file was saved!");
 	    }
-	}); 
+	});
 }
 
 function sumListToEasyReadText(){
@@ -159,7 +159,7 @@ function convertToCsvAllInRow(){
 
 	//console.log(csvBody);
 	return csvBody;
-	
+
 }
 
 function convertToCsvPerRow(){
@@ -213,5 +213,3 @@ console.log(sumListOfWords);
 saveFile(convertToCsvAllInRow(), "convertToCsvAllInRow.csv");
 saveFile(convertToCsvPerRow(), "convertToCsvPerRow.csv");
 //saveFile(sumListToEasyReadText());
-
-
