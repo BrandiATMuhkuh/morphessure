@@ -360,7 +360,29 @@ module.exports = function (grunt) {
         'imagemin',
         'svgmin'
       ]
+    },
+
+    "babel": {
+      options: {
+        sourceMap: true
+      },
+      dist: {
+        files: {
+          ".tmp/server/index.js": "server/index.js"
+        }
+      }
+    },
+
+    shell: {
+      options: {
+        stderr: false
+      },
+      target: {
+        command: "nodemon --exec babel-node --experimental --ignore='foo\\|bar\\|baz' -- server/index.js"
+      }
     }
+
+
   });
 
 
@@ -375,7 +397,7 @@ module.exports = function (grunt) {
     grunt.task.run([
       'clean:server',
       'wiredep',
-      'myserver',
+      'tbs',
       'concurrent:server',
       'autoprefixer',
       'connect:livereload',
@@ -425,9 +447,16 @@ module.exports = function (grunt) {
     'build'
   ]);
 
+  grunt.registerTask('tbs', [
+    'babel',
+    'myserver'
+  ]);
+
   grunt.registerTask('myserver', 'Start a custom web server.', function() {
     var done = this.async();
     grunt.log.writeln('Starting web server on port 1234.');
-    require('./server/index.js').listen(1234).on('close', done);;
+    require('./server/index.js').on('close', done);
   });
+
+  grunt.registerTask('babelNode', ['shell']);
 };
