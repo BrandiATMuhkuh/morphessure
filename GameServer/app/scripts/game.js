@@ -36,20 +36,6 @@ class Game {
     this.game.world.setBounds(0, 0, 2000, 4000);
 
     /**
-    //Create background images
-    for (var topLeft = 0; topLeft < 30; topLeft = topLeft +1){
-
-      var offSet = topLeft*107;
-
-      for(var rightOff = 0; rightOff < 30; rightOff = rightOff +1){
-        this.game.add.sprite(66*rightOff, offSet, Assets.tiles[Math.floor(Math.random()*Assets.tiles.length)]);
-      }
-
-      for(var rightOff = 0; rightOff < 30; rightOff = rightOff +1){
-        this.game.add.sprite(66*rightOff-65/2, offSet+53, Assets.tiles[Math.floor(Math.random()*Assets.tiles.length)]);
-      }
-    }
-
     //Add a hind
     this.game.add.sprite(0, 0, Assets.hint);
      */
@@ -57,7 +43,6 @@ class Game {
     //Load all Game worlds
     var playerNr = 0;
     for (var player in this.players){
-      console.log(player);
       this.players[player].renderWorld(playerNr, this.game, 8, 8);
       playerNr = playerNr + 1;
     }

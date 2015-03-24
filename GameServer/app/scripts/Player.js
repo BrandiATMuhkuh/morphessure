@@ -47,6 +47,15 @@ class Player{
     }
   }
 
+  renderHints(){
+
+  }
+
+  renderTraps(){
+
+
+  }
+
 }
 
 
