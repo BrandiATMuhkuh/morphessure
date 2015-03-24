@@ -18,7 +18,7 @@ class Game {
 
     //Load all tiles images in the cache
     for(var tile in Assets.tiles){
-      this.game.load.image(Assets.tiles[tile], 'assets/base_pack/Spritesheet/'+Assets.tiles[tile]);
+      this.game.load.image(Assets.tiles[tile], Assets.tilesPath+Assets.tiles[tile]);
     }
 
     //Load hints
@@ -48,7 +48,7 @@ class Game {
     //Load all Game worlds
     var playerNr = 0;
     for (var player in this.players){
-      this.players[player].renderWorld(playerNr, this.game, 8, 8);
+      this.players[player].renderWorld(playerNr, 8, 8);
       playerNr = playerNr + 1;
     }
 
@@ -81,6 +81,7 @@ class Game {
    */
   addPlayer(player){
     console.log("addPlayer: "+player.getName());
+    player.setGame(this.game);
     this.players[""+player.getName()]=player;
   }
 }
