@@ -16,13 +16,18 @@ class Game {
     // load preloader assets
 
 
-    //Load all images int the cache
+    //Load all tiles images in the cache
     for(var tile in Assets.tiles){
       this.game.load.image(Assets.tiles[tile], 'assets/base_pack/Spritesheet/'+Assets.tiles[tile]);
     }
 
     //Load hints
     this.game.load.image(Assets.hint, Assets.hintPath+Assets.hint);
+
+    //Load all taps images in the cache
+    for(var tile in Assets.traps){
+      this.game.load.image(Assets.traps[tile], Assets.trapsPath+Assets.traps[tile]+".png");
+    }
 
   }
 

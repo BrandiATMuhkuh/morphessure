@@ -31,7 +31,7 @@ Assets = {
   hintPath: 'assets/base_pack/Spritesheet/',
   hint: 'stoneRing.png',
 
-  trapsPath: 'assets/traps',
+  trapsPath: 'assets/traps/',
   traps:[
     'belly',
     'microbes',
@@ -112,7 +112,7 @@ Assets = {
     'gun',
     'cart',
     'axe',
-    'parking_sport',
+    'parking_spot',
     'cleaner',
     'athlete',
     'shoe',
