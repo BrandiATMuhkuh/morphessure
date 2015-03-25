@@ -124,7 +124,7 @@ class Player{
 
 
   dummyClickTest(){
-    console.log("dummyClickTest");
+    console.log("dummyClickTest"+ this.getName());
   }
 
   /**
@@ -146,10 +146,12 @@ class Player{
       //bind function does the trick:
       //http://stackoverflow.com/questions/20279484/how-to-access-the-correct-this-context-inside-a-callback
       //In the future i would like to use fat arrows =>
-      s.events.onInputDown.add((function (x){
-        console.log("I was clicked");
-        this.dummyClickTest();
-      }).bind(this));
+      s.events.onInputDown.add((function(hint){
+        return function(){
+          this.dummyClickTest();
+          this.movePlayer(this.hintList[hint][0], this.hintList[hint][1]);
+        }
+      }(hint)).bind(this));
     }
 
   }
@@ -186,7 +188,6 @@ class Player{
       this.addSprite(this.trapList[traps].position[0], this.trapList[traps].position[1], this.trapList[traps].name,48,48,10,10);
     }
 
-    console.log(this.grid);
   }
 
   /**
