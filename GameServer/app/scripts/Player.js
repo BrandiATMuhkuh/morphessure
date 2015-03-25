@@ -14,6 +14,8 @@ class Player{
     this.grid = [];
     this.game = null;
     this.position = 0;
+    this.trapList = null;
+    this.hintList = null;
   }
 
 
@@ -98,16 +100,46 @@ class Player{
    * This will render all hints on the map
    */
   renderHints(){
+    console.log("renderHints");
+    console.log(this.hintList);
+    for (var hint in this.hintList){
+      this.addSprite(this.hintList[hint], 'stoneRing.png');
+    }
+  }
 
+  /**
+   * Set all hints for this player
+   * @param hintList is a simple list numbers [1,2,5,7,9]
+   */
+  setHints(hintList){
+    this.hintList = hintList;
+  }
+
+  /**
+   * A list of game world traps and their position
+   * Element =
+   * {
+   *    position: 1,
+   *    name: "frog"
+   * }
+   * @param trapList
+   */
+  setTraps(trapList){
+    this.trapList = trapList;
   }
 
   /**
    * This will render all taps on the map
    */
   renderTraps(){
+    /*
     for (var traps in Assets.traps){
       //console.log(traps);
       this.addSprite(traps,Assets.traps[traps],48,48,10,10);
+    }*/
+
+    for (var traps in this.trapList){
+      this.addSprite(this.trapList[traps].position, this.trapList[traps].name,48,48,10,10);
     }
   }
 
