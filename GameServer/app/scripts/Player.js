@@ -13,6 +13,7 @@ class Player{
     this.name = name;
     this.grid = [];
     this.game = null;
+    this.position = 0;
   }
 
 
@@ -65,19 +66,61 @@ class Player{
    * @param game the phaser object
    * @param gridPosition Position in the grid (e.g 0,1,15,...)
    * @param name Name of the sprite
+   * @param width
+   * @param height
+   * @param xOff
+   * @param yOff
    */
-  addSprite(gridPosition, name){
-    this.game.add.sprite(this.grid[gridPosition].x,this.grid[gridPosition].y, name);
+  addSprite(gridPosition, name, width, height, xOff, yOff){
+
+    if(xOff === undefined){
+      xOff = 0;
+    }
+
+    if(yOff === undefined){
+      yOff = 0;
+    }
+
+    var s = this.game.add.sprite(this.grid[gridPosition].x+xOff,this.grid[gridPosition].y+yOff, name);
+
+    if(width != undefined){
+      s.width = width;
+    }
+
+    if(height != undefined){
+      s.height = height;
+    }
   }
 
 
+
+  /**
+   * This will render all hints on the map
+   */
   renderHints(){
 
   }
 
+  /**
+   * This will render all taps on the map
+   */
   renderTraps(){
+    for (var traps in Assets.traps){
+      //console.log(traps);
+      this.addSprite(traps,Assets.traps[traps],48,48,10,10);
+    }
+  }
 
+  /**
+   * This will move player to @position at it's own grid
+   * @param position next position for player
+   */
+  setPlayer(position){
+    this.position = position;
+  }
 
+  getPlayerPosition(){
+    return this.position;
   }
 
 }

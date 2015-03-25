@@ -45,10 +45,12 @@ class Game {
     this.game.add.sprite(0, 0, Assets.hint);
      */
 
-    //Load all Game worlds
+    //Load all Game worlds, hints, and traps
     var playerNr = 0;
     for (var player in this.players){
-      this.players[player].renderWorld(playerNr, 8, 8);
+      this.players[player].renderWorld(playerNr, 10, 10);
+      this.players[player].renderHints();
+      this.players[player].renderTraps();
       playerNr = playerNr + 1;
     }
 
