@@ -34,6 +34,7 @@ class Player{
 
   /**
    * This will create the world aka background of the players world
+   * I user this coordination system: http://www.redblobgames.com/grids/hexagons/
    * @param offSet is a multiplier number (e.g. 0,1,2,...)
    * @param leftRight Number of tiles from left to right
    * @param topDown Number of tiles from top to down
@@ -48,24 +49,33 @@ class Player{
 
       var fullOff = topLeft*107;
 
+      var iArr = [];
       for(var rightOff = 0; rightOff < topDown; rightOff = rightOff +1){
-        this.grid.push({x:66*rightOff+offSet,y:fullOff});
+        iArr.push({x:66*rightOff+offSet,y:fullOff});
+        //this.grid.push({x:66*rightOff+offSet,y:fullOff});
       }
+      this.grid.push(iArr);
 
+      iArr = [];
       for(var rightOff = 0; rightOff < topDown; rightOff = rightOff +1){
-        this.grid.push({x:66*rightOff-65/2+offSet,y:fullOff+53});
+        iArr.push({x:66*rightOff-65/2+offSet,y:fullOff+53});
       }
+      this.grid.push(iArr);
     }
+
 
     //Fill all grid elements with random tiles
-    for(var gridElement in this.grid){
-      this.addSprite(gridElement, Assets.tiles[Math.floor(Math.random()*Assets.tiles.length)]);
+    for (var topLeft = 0; topLeft < leftRight; topLeft = topLeft +1){
+      for(var rightOff = 0; rightOff < topDown; rightOff = rightOff +1){
+        this.addSprite(topLeft, rightOff, Assets.tiles[Math.floor(Math.random()*Assets.tiles.length)]);
+      }
+
     }
+
   }
 
   /**
    * This will add a sprite on the grid gridPosition
-   * @param game the phaser object
    * @param gridPosition Position in the grid (e.g 0,1,15,...)
    * @param name Name of the sprite
    * @param width
@@ -73,7 +83,7 @@ class Player{
    * @param xOff
    * @param yOff
    */
-  addSprite(gridPosition, name, width, height, xOff, yOff){
+  addSprite(xPos, yPos, name, width, height, xOff, yOff){
 
     if(xOff === undefined){
       xOff = 0;
@@ -83,7 +93,7 @@ class Player{
       yOff = 0;
     }
 
-    var s = this.game.add.sprite(this.grid[gridPosition].x+xOff,this.grid[gridPosition].y+yOff, name);
+    var s = this.game.add.sprite(this.grid[xPos][yPos].x+xOff,this.grid[xPos][yPos].y+yOff, name);
 
     if(width != undefined){
       s.width = width;
@@ -100,10 +110,8 @@ class Player{
    * This will render all hints on the map
    */
   renderHints(){
-    console.log("renderHints");
-    console.log(this.hintList);
     for (var hint in this.hintList){
-      this.addSprite(this.hintList[hint], 'stoneRing.png');
+      this.addSprite(this.hintList[hint][0],this.hintList[hint][1], 'stoneRing.png');
     }
   }
 
@@ -139,7 +147,7 @@ class Player{
     }*/
 
     for (var traps in this.trapList){
-      this.addSprite(this.trapList[traps].position, this.trapList[traps].name,48,48,10,10);
+      this.addSprite(this.trapList[traps].position[0], this.trapList[traps].position[1], this.trapList[traps].name,48,48,10,10);
     }
   }
 

@@ -18,41 +18,41 @@ window.onload = function () {
 
   var trapList1 = [
     {
-      position: 0,
+      position: [0,0],
       name: 'belly'
     },
     {
-      position: 1,
+      position: [1,1],
       name: 'thief'
     },
     {
-      position: 5,
+      position: [2,1],
       name: 'thief'
     },
     {
-      position: 11,
+      position: [2,2],
       name: 'flag'
     }
   ];
   var trapList2 = [
     {
-      position: 1,
-      name: 'belly'
+      position: [0,0],
+      name: 'alligator'
     },
     {
-      position: 11,
-      name: 'thief'
+      position: [1,1],
+      name: 'beans'
     },
     {
-      position: 21,
-      name: 'thief'
+      position: [2,1],
+      name: 'RAM'
     },
     {
-      position: 31,
-      name: 'flag'
+      position: [2,2],
+      name: 'beetle'
     }
   ];
-  var hintList1 = [0,11, 12];
+  var hintList1 = [[0,0],[1,1], [2,1]];
 
   var game = new Game(phaser);
   var p1 = new Player("Player1");

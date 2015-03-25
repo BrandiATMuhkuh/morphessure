@@ -49,7 +49,7 @@ class Game {
     var playerNr = 0;
     for (var player in this.players){
       this.players[player].renderWorld(playerNr, 10, 10);
-      //this.players[player].renderHints();
+      this.players[player].renderHints();
       this.players[player].renderTraps();
       playerNr = playerNr + 1;
     }
