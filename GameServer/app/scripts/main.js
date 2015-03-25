@@ -8,7 +8,7 @@ socket.on('news', function (data) {
 });*/
 
 
-var phaser = new Phaser.Game(800, 600, Phaser.CANVAS, 'morphessor');
+var phaser = new Phaser.Game(800, 600, Phaser.AUTO, 'morphessor');
 
 
 var trapList1 = [

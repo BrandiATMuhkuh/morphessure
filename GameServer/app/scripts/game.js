@@ -41,7 +41,7 @@ class Game {
     this.game.stage.backgroundColor = '#ca9a6c';
     console.log("game is created");
 
-    this.game.world.setBounds(0, 0, 2000, 1000);
+    this.game.world.setBounds(-100, -100, 2000, 1000);
 
     /**
     //Add a hind
