@@ -55,6 +55,7 @@ var p2 = new Player("Player2");
 p1.setTraps(trapList1);
 p1.setHints(hintList1);
 p2.setTraps(trapList2);
+p2.setHints(hintList1);
 game.addPlayer(p1);
 game.addPlayer(p2);
 

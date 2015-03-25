@@ -82,9 +82,9 @@ class Player{
     //Fill all grid elements with random tiles
     for (var topLeft = 0; topLeft < leftRight; topLeft = topLeft +1){
       for(var rightOff = 0; rightOff < topDown; rightOff = rightOff +1){
+        this.grid[topLeft][rightOff].tile =
         this.addSprite(topLeft, rightOff, Assets.tiles[Math.floor(Math.random()*Assets.tiles.length)]);
       }
-
     }
 
   }
@@ -123,14 +123,35 @@ class Player{
   }
 
 
+  dummyClickTest(){
+    console.log("dummyClickTest");
+  }
 
   /**
    * This will render all hints on the map
    */
   renderHints(){
     for (var hint in this.hintList){
-      this.addSprite(this.hintList[hint][0],this.hintList[hint][1], 'stoneRing.png');
+
+      var s = this.addSprite(this.hintList[hint][0],this.hintList[hint][1], 'stoneRing.png');
+      this.grid[this.hintList[hint][0]][this.hintList[hint][1]].hint = s;
+
+
+      //TODO This is temporarily to test click listener.
+      //The goal is to just have always one click listener active so noone can do anything wrong.
+      //TODO only the current player has click listeners, noone else
+      s.inputEnabled = true;
+      s.input.useHandCursor = true;
+
+      //bind function does the trick:
+      //http://stackoverflow.com/questions/20279484/how-to-access-the-correct-this-context-inside-a-callback
+      //In the future i would like to use fat arrows =>
+      s.events.onInputDown.add((function (x){
+        console.log("I was clicked");
+        this.dummyClickTest();
+      }).bind(this));
     }
+
   }
 
   /**
@@ -158,15 +179,14 @@ class Player{
    * This will render all taps on the map
    */
   renderTraps(){
-    /*
-    for (var traps in Assets.traps){
-      //console.log(traps);
-      this.addSprite(traps,Assets.traps[traps],48,48,10,10);
-    }*/
+
 
     for (var traps in this.trapList){
+      this.grid[this.trapList[traps].position[0]][this.trapList[traps].position[1]].trap =
       this.addSprite(this.trapList[traps].position[0], this.trapList[traps].position[1], this.trapList[traps].name,48,48,10,10);
     }
+
+    console.log(this.grid);
   }
 
   /**

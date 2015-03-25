@@ -1,5 +1,6 @@
 'use strict';
 
+
 var io = require('socket.io')();
 io.on('connection', function (socket) {
   socket.emit('news', { hello: 'world' });
@@ -11,12 +12,13 @@ io.listen(3000);
 
 
 for(var i=0;i<10;i++) {
-  console.log("Server is runningsdf");
+  console.log("Server is running");
 }
 
 /**
  * Create the DB connection and does db I/O
  */
+
 class Database {
 
   constructor (dbAddress, dbPort){

@@ -348,6 +348,7 @@ module.exports = function (grunt) {
     // Run some tasks in parallel to speed up build process
     concurrent: {
       server: [
+        //'nodemon',
         'sass:server',
         'copy:styles'
       ],
@@ -378,7 +379,35 @@ module.exports = function (grunt) {
         stderr: false
       },
       target: {
-        command: "nodemon --exec babel-node --experimental --ignore='foo\\|bar\\|baz' -- server/index.js"
+        command: "nodemon --harmony_classes --exec babel-node --experimental --ignore='foo\\|bar\\|baz' -- server/index.js"
+      }
+    },
+
+    nodemon: {
+      dev: {
+        script: 'server/index.js',
+        options: {
+          nodeArgs: ['--debug', '--harmony_classes'],
+          callback: function (nodemon) {
+            nodemon.on('log', function (event) {
+              console.log(event.colour);
+            });
+          },
+          env: {
+            PORT: '8181'
+          },
+          cwd: __dirname,
+          ignore: ['node_modules/**'],
+          ext: 'js,coffee',
+          watch: ['server'],
+          delay: 1000,
+          legacyWatch: true
+        }
+      },
+      exec: {
+        options: {
+          exec: 'less'
+        }
       }
     }
 
@@ -397,8 +426,8 @@ module.exports = function (grunt) {
     grunt.task.run([
       'clean:server',
       'wiredep',
-      'tbs',
       'concurrent:server',
+      //'nodemonServe',
       'autoprefixer',
       'connect:livereload',
 
@@ -450,6 +479,10 @@ module.exports = function (grunt) {
   grunt.registerTask('tbs', [
     'babel',
     'myserver'
+  ]);
+
+  grunt.registerTask('nodemonServe', [
+    'nodemon'
   ]);
 
   grunt.registerTask('myserver', 'Start a custom web server.', function() {
