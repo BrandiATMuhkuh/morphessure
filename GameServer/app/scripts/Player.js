@@ -13,20 +13,35 @@ class Player{
     this.name = name;
     this.grid = [];
     this.game = null;
-    this.position = 0;
+    this.position = [0,0]; //gid positions
     this.trapList = null;
     this.hintList = null;
+    this.isPlayer = false;
+    this.player = null;
   }
 
 
+  /**
+   * Gives back this players name
+   * @returns {*} name of current player
+   */
   getName(){
     return this.name;
   }
 
+  /**
+   * This will add the phaserGame object so in
+   * player can use it to manipulate objects
+   * @param phaserGame
+   */
   setGame(phaserGame){
     this.game = phaserGame;
   }
 
+  /**
+   * Return the phaser game object
+   * @returns {*} phaser game object
+   */
   getGame(){
     return this.game;
   }
@@ -82,6 +97,7 @@ class Player{
    * @param height
    * @param xOff
    * @param yOff
+   * @returns {*} return the sprite
    */
   addSprite(xPos, yPos, name, width, height, xOff, yOff){
 
@@ -102,6 +118,8 @@ class Player{
     if(height != undefined){
       s.height = height;
     }
+
+    return s;
   }
 
 
@@ -153,14 +171,39 @@ class Player{
 
   /**
    * This will move player to @position at it's own grid
-   * @param position next position for player
+   * grid position similar to http://www.redblobgames.com/grids/hexagons/
+   * @param x
+   * @param y
    */
-  setPlayer(position){
-    this.position = position;
+  movePlayer(x,y){
+    //this.position[0] = x;
+    //this.position.[1] = y;
+
+    this.game.add.tween(this.player).to({
+      x: this.grid[x][y].x,
+      y: this.grid[x][y].y
+    }, 1000, Phaser.Easing.Linear.None, true, 0, 0, false);
   }
 
+
+  /**
+   * Return current position of player on gird
+   * @returns {*}
+   */
   getPlayerPosition(){
     return this.position;
+  }
+
+  /**
+   * This will render the player on the board
+   */
+  renderPlayer(){
+    this.player = this.addSprite(0, 0, 'player', 48,48,0,0);
+    this.player.animations.add('run');
+    this.player.animations.play('run', 15, true);
+    this.player.anchor.setTo(-0.1, -0.1);
+    //this.game.camera.follow(this.player); //camera will from now on follow the player
+
   }
 
 }

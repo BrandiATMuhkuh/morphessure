@@ -29,6 +29,9 @@ class Game {
       this.game.load.image(Assets.traps[tile], Assets.trapsPath+Assets.traps[tile]+".png");
     }
 
+    //Load animated player
+    this.game.load.atlasJSONHash('player', 'assets/base_pack/Player/p1_walk/p1_walk.png', 'assets/base_pack/Player/p1_walk/p1_walk.json');
+
   }
 
   create(){
@@ -38,7 +41,7 @@ class Game {
     this.game.stage.backgroundColor = '#ca9a6c';
     console.log("game is created");
 
-    this.game.world.setBounds(0, 0, 2000, 4000);
+    this.game.world.setBounds(0, 0, 2000, 1000);
 
     /**
     //Add a hind
@@ -51,6 +54,7 @@ class Game {
       this.players[player].renderWorld(playerNr, 10, 10);
       this.players[player].renderHints();
       this.players[player].renderTraps();
+      this.players[player].renderPlayer();
       playerNr = playerNr + 1;
     }
 
