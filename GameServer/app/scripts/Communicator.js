@@ -16,6 +16,10 @@ class Communicator{
         this.serverMovePlayerFun[func](data);
       }
     }).bind(this));
+
+    this.socket.on("server:playerList", (function(data){
+      console.log("server:playerList", data);
+    }).bind(this));
   }
 
   setMaster(master){
@@ -23,6 +27,13 @@ class Communicator{
     console.log("setMaster");
   }
 
+  getSocket(){
+    return this.socket;
+  }
+
+  clientPlayerList(){
+    this.socket.emit("client:playerList");
+  }
 
   /**
    * Tell the server that player (name) is moving to position hintNr

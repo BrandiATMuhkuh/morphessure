@@ -14,6 +14,7 @@
     <!-- build:css(.tmp) styles/main.css -->
     <link rel="stylesheet" href="styles/main.css">
     <!-- endbuild -->
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.6.3/css/bootstrap-select.min.css">
   </head>
   <body>
     <!--[if lt IE 10]>
@@ -24,17 +25,21 @@
     <div class="container">
       <div class="header">
         <ul class="nav nav-pills pull-right">
-          <li class="active"><a href="#">Home</a></li>
-          <li><a href="#">About</a></li>
-          <li><a href="#">Contact</a></li>
+          <li class="active"><a href="#">Player</a></li>
+          <li><a href="#">Researcher</a></li>
         </ul>
         <h3 class="text-muted">yotest</h3>
       </div>
 
-      <div class="jumbotron">
-        <h1>'asdf, 'Allo!</h1>
-        <p class="lead">Always a pleasure scaffolding your apps.</p>
-        <p><a class="btn btn-lg btn-success" href="#">Splendid! <span class="glyphicon glyphicon-ok"></span></a></p>
+      <div class="row marketing">
+        <p class="lead">Add here username and select your player</p>
+        <select class="selectpicker">
+          <option>Player1</option>
+          <option>Player2</option>
+          <option>Player3</option>
+        </select>
+
+        <button type="button" class="btn btn-default">Select this player</button>
       </div>
 
       <div class="row marketing">
@@ -77,7 +82,7 @@
       r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
       ga('create','UA-XXXXX-X');ga('send','pageview');
     </script>
-
+        <script src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.6.3/js/bootstrap-select.min.js"></script>
         <script src="assets/Assets.js"></script>
         <script src="scripts/Communicator.js"></script>
         <script src="scripts/Player.js"></script>

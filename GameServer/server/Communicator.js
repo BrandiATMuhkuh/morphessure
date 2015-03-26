@@ -31,6 +31,11 @@ class Communicator{
       this.socket.emit("server:movePlayer", data);
     }).bind(this));
 
+    this.socket.on("client:playerList", (function(){
+      console.log("ask for player list");
+      this.socket.emit("server:playerList", this.master.players)
+    }).bind(this));
+
   }
 
 }
