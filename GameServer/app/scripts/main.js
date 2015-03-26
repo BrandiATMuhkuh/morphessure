@@ -55,15 +55,19 @@ phaser.state.add("Start",game);
 
 class UIMaster{
   constructor(){
-
-  }
-
-  start(){
     //Get players
     $("#selectPlayerButton").on("click", function(){
-      console.log("pressed button");
+      console.log("pressed button",$('#listOfPlayers').find(":selected").text());
+      var sText = $('#listOfPlayers').find(":selected").text();
+      if(sText !== "notSelected"){
+        console.log("you selected player: "+sText)
+        comm.clientSignOn(sText);
+      }else{
+        alert("Please select a player");
+      }
     })
   }
+
 
   drawPlayerDropDown(playerList){
     console.log("drawPlayerDropDown",playerList);

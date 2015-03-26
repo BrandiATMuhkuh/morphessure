@@ -43,6 +43,10 @@ class Communicator{
     this.serverPlayerList.push(resFunc)
   }
 
+  clientSignOn(playerName){
+    this.socket.emit("client:signOn", playerName);
+  }
+
   /**
    * Tell the server that player (name) is moving to position hintNr
    * @param name

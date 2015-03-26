@@ -36,6 +36,10 @@ class Communicator{
       this.socket.emit("server:playerList", this.master.players)
     }).bind(this));
 
+    this.socket.on("client:signOn", (function(playerName){
+
+      this.master.logIn(playerName);
+    }).bind(this));
   }
 
 }

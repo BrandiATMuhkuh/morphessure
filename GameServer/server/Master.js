@@ -13,16 +13,29 @@ class Master{
         pNumber: 153,
         name: "player1",
         realName: "Brandy",
-        type: "human"
+        type: "human",
+        isLoggedOn: false
       },
 
       {
         pNumber: -1,
         name: "player2",
         realName: "Nao",
-        type: "robot"
+        type: "robot",
+        isLoggedOn: false
       }
     ];
+  }
+
+  logIn(playerName){
+
+    for(var player in this.players){
+      if(this.players[player].name === playerName){
+        this.players[player].isLoggedOn = true;
+      }
+    }
+
+    console.log("logIn", playerName, this.players);
   }
 }
 
