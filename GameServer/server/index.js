@@ -1,10 +1,10 @@
-'use strict';
-var communicator = require('./Communicator.js');
-
-console.log('Start Server');
 /**
  * Create the DB connection and does db I/O
  */
+'use strict';
+var master = require('./Master.js');
+
+console.log('Start Server');
 
 class Database {
 

@@ -7,11 +7,20 @@ class Communicator{
 
   constructor(){
     this.socket = io('//'+window.location.hostname+':3000');
+    this.serverMovePlayerFun = [];
 
-    this.socket.on('news', function (data) {
-      console.log(data);
-      //socket.emit('my other event', { my: 'data' });
-    });
+    //Receive commands from server
+    this.socket.on("server:movePlayer",(function(data){
+      console.log("server:movePlayer",data);
+      for (var func in this.serverMovePlayerFun){
+        this.serverMovePlayerFun[func](data);
+      }
+    }).bind(this));
+  }
+
+  setMaster(master){
+    this.master = master;
+    console.log("setMaster");
   }
 
 
@@ -20,8 +29,12 @@ class Communicator{
    * @param name
    * @param hintNr
    */
-  movePlayer(name, hintNr){
-    this.socket.emit("movePlayer", {name:name, hintNr:hintNr});
+  clientMovePlayer(name, hintNr){
+    this.socket.emit("client:movePlayer", {name:name, hintNr:hintNr});
+  }
+
+  addServerMovePlayer(resFunc){
+    this.serverMovePlayerFun.push(resFunc);
   }
 
 }

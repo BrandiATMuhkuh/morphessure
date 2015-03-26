@@ -32,6 +32,10 @@ class Game {
     //Load animated player
     this.game.load.atlasJSONHash('player', 'assets/base_pack/Player/p1_walk/p1_walk.png', 'assets/base_pack/Player/p1_walk/p1_walk.json');
 
+
+    //Receive commands from server
+    comm.setMaster(this);
+
   }
 
   create(){

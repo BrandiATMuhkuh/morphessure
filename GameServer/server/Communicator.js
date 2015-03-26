@@ -14,25 +14,22 @@ class Communicator{
       console.log("someone just connected to me");
       this.socket = socket;
       this.start();
-      /*
-      socket.emit('news', { hello: 'world' });
-      socket.on('my other event', function (data) {
-        console.log(data);
-      });*/
     }).bind(this));
-
-
-
-
     io.listen(3000);
+  }
+
+  setMaster(master){
+    this.master = master;
+    console.log("setMaster");
   }
 
   start(){
     console.log("start");
 
-    this.socket.on("movePlayer", function(data){
-      console.log("movePlayer", data);
-    });
+    this.socket.on("client:movePlayer", (function(data){
+      console.log("client:movePlayer", data);
+      this.socket.emit("server:movePlayer", data);
+    }).bind(this));
 
   }
 

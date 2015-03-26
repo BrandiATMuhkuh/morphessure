@@ -18,6 +18,14 @@ class Player{
     this.hintList = null;
     this.isPlayer = false;
     this.player = null;
+
+
+    //Add server listeners
+    //add a server move player listener
+    comm.addServerMovePlayer((function(data){
+      this.serverMovePlayer(data);
+    }).bind(this));
+
 }
 
 
@@ -124,9 +132,6 @@ class Player{
   }
 
 
-  dummyClickTest(){
-    console.log("dummyClickTest"+ this.getName());
-  }
 
   /**
    * This will render all hints on the map
@@ -149,8 +154,7 @@ class Player{
       //In the future i would like to use fat arrows =>
       s.events.onInputDown.add((function(hint){
         return function(){
-          this.dummyClickTest();
-          this.movePlayer(this.hintList[hint][0], this.hintList[hint][1]);
+          comm.clientMovePlayer(this.getName(), hint);
         }
       }(hint)).bind(this));
     }
@@ -197,14 +201,21 @@ class Player{
    * @param x
    * @param y
    */
-  movePlayer(x,y){
-    //this.position[0] = x;
-    //this.position.[1] = y;
+  clientMovePlayer(x,y){
+    this.position[0] = x;
+    this.position[1] = y;
 
     this.game.add.tween(this.player).to({
       x: this.grid[x][y].x,
       y: this.grid[x][y].y
     }, 1000, Phaser.Easing.Linear.None, true, 0, 0, false);
+  }
+
+  serverMovePlayer(data){
+    if(data.name == this.getName()){
+      this.clientMovePlayer(this.hintList[data.hintNr][0],this.hintList[data.hintNr][1]);
+
+    }
   }
 
 
