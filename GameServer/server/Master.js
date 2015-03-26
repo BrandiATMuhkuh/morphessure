@@ -23,6 +23,14 @@ class Master{
         realName: "Nao",
         type: "robot",
         isLoggedOn: false
+      },
+
+      {
+        pNumber: 0,
+        name: "Researcher",
+        realName: "Researcher",
+        type: "researcher",
+        isLoggedOn: false
       }
     ];
   }

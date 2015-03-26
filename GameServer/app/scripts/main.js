@@ -76,16 +76,40 @@ class UIMaster{
       listOfPlayers.append(new Option(playerList[player].name, playerList[player].name, false, false));
     }
     listOfPlayers.selectpicker('refresh');
+
+
+
+  }
+
+  drawResearcherPlayerList(playerList){
+    //Upload researcher player list
+    var resPlayerList = $('#resPlayerList');
+    resPlayerList.empty();
+    for(var player in playerList) {
+      var text = '<li class="list-group-item">';
+      if (playerList[player].isLoggedOn === true) {
+        text += '<span class="label label-success">Offline</span> ';
+      }else{
+        text += '<span class="label label-danger">Offline</span> ';
+      }
+      text += playerList[player].name+'</span></li>';
+      resPlayerList.append(text);
+    }
   }
 }
 
 class Main{
 
   constructor(){
+    this.isPlayerListDrawn = false;
     this.uiMaster = new UIMaster();
     //loads player list
     comm.addServerPlayerList((function(data){
-      this.uiMaster.drawPlayerDropDown(data);
+      if(this.isPlayerListDrawn === false){
+        this.uiMaster.drawPlayerDropDown(data);
+        this.isPlayerListDrawn = true;
+      }
+      this.uiMaster.drawResearcherPlayerList(data);
     }).bind(this));
     comm.clientPlayerList();//request player list
   }

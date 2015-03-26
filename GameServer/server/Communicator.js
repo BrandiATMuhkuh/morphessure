@@ -42,8 +42,8 @@ class Communicator{
     }).bind(this));
 
     this.socket.on("client:signOn", (function(playerName){
-
       this.master.logIn(playerName);
+      this.io.emit("server:playerList", this.master.players); //will send message to the connector
     }).bind(this));
   }
 
