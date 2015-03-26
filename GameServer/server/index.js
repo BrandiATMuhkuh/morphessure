@@ -1,20 +1,7 @@
 'use strict';
+var communicator = require('./Communicator.js');
 
-
-var io = require('socket.io')();
-io.on('connection', function (socket) {
-  socket.emit('news', { hello: 'world' });
-  socket.on('my other event', function (data) {
-    console.log(data);
-  });
-});
-io.listen(3000);
-
-
-for(var i=0;i<10;i++) {
-  console.log("Server is running");
-}
-
+console.log('Start Server');
 /**
  * Create the DB connection and does db I/O
  */
@@ -32,7 +19,7 @@ class Database {
 
 }
 
-var myDb = new Database("12343", 163);
-console.log(myDb.getScene(15));
+//var myDb = new Database("12343", 163);
+//console.log(myDb.getScene(15));
 
 //module.exports  = io;

@@ -18,7 +18,7 @@ class Player{
     this.hintList = null;
     this.isPlayer = false;
     this.player = null;
-  }
+}
 
 
   /**
@@ -80,10 +80,10 @@ class Player{
 
 
     //Fill all grid elements with random tiles
-    for (var topLeft = 0; topLeft < leftRight; topLeft = topLeft +1){
-      for(var rightOff = 0; rightOff < topDown; rightOff = rightOff +1){
-        this.grid[topLeft][rightOff].tile =
-        this.addSprite(topLeft, rightOff, Assets.tiles[Math.floor(Math.random()*Assets.tiles.length)]);
+    for (var xPos = 0; xPos < leftRight; xPos = xPos +1){
+      for(var yPos = 0; yPos < topDown; yPos = yPos +1){
+        this.grid[xPos][yPos].tile =
+        this.addSprite(xPos, yPos, Assets.tiles[Math.floor(Math.random()*Assets.tiles.length)]);
       }
     }
 
@@ -91,7 +91,8 @@ class Player{
 
   /**
    * This will add a sprite on the grid gridPosition
-   * @param gridPosition Position in the grid (e.g 0,1,15,...)
+   * @param xPos Position in the grid
+   * @param yPos Position in the grid
    * @param name Name of the sprite
    * @param width
    * @param height
