@@ -90,7 +90,7 @@ class Game {
    * @param player
    */
   addPlayer(player){
-    console.log("addPlayer: "+player.getName());
+    //console.log("addPlayer: "+player.getName());
     player.setGame(this.game);
     this.players[""+player.getName()]=player;
   }

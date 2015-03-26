@@ -8,6 +8,7 @@ class Communicator{
   constructor(){
     this.socket = io('//'+window.location.hostname+':3000');
     this.serverMovePlayerFun = [];
+    this.serverPlayerList = [];
 
     //Receive commands from server
     this.socket.on("server:movePlayer",(function(data){
@@ -19,6 +20,9 @@ class Communicator{
 
     this.socket.on("server:playerList", (function(data){
       console.log("server:playerList", data);
+      for (var func in this.serverPlayerList){
+        this.serverPlayerList[func](data);
+      }
     }).bind(this));
   }
 
@@ -33,6 +37,10 @@ class Communicator{
 
   clientPlayerList(){
     this.socket.emit("client:playerList");
+  }
+
+  addServerPlayerList(resFunc){
+    this.serverPlayerList.push(resFunc)
   }
 
   /**

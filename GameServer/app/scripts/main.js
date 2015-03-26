@@ -53,8 +53,48 @@ game.addPlayer(p2);
 
 phaser.state.add("Start",game);
 
+class UIMaster{
+  constructor(){
+
+  }
+
+  start(){
+    //Get players
+    $("#selectPlayerButton").on("click", function(){
+      console.log("pressed button");
+    })
+  }
+
+  drawPlayerDropDown(playerList){
+    console.log("drawPlayerDropDown",playerList);
+    var listOfPlayers = $('#listOfPlayers');
+    for(var player in playerList){
+      listOfPlayers.append(new Option(playerList[player].name, playerList[player].name, false, false));
+    }
+    listOfPlayers.selectpicker('refresh');
+  }
+}
+
+class Main{
+
+  constructor(){
+    this.uiMaster = new UIMaster();
+    //loads player list
+    comm.addServerPlayerList((function(data){
+      this.uiMaster.drawPlayerDropDown(data);
+    }).bind(this));
+    comm.clientPlayerList();//request player list
+  }
+
+}
+
+
+
+
+
 
 //global variables
 window.onload = function () {
   phaser.state.start("Start");
+  const main = new Main();
 };
