@@ -23,6 +23,11 @@ class UIMaster{
   }
 
 
+  /**
+   * This will fill the the list of all players
+   * the user has to select what his player name is.
+   * @param playerList list of all players
+   */
   drawPlayerDropDown(playerList){
     console.log("drawPlayerDropDown",playerList);
     var listOfPlayers = $('#listOfPlayers');
@@ -30,11 +35,14 @@ class UIMaster{
       listOfPlayers.append(new Option(playerList[player].name, playerList[player].name, false, false));
     }
     listOfPlayers.selectpicker('refresh');
-
-
-
   }
 
+  /**
+   * This will fill the list of players logged in
+   * on the server.
+   * It will also indicate if a player changes from offline to online
+   * @param playerList list of all players
+   */
   drawResearcherPlayerList(playerList){
     //Upload researcher player list
     var resPlayerList = $('#resPlayerList');

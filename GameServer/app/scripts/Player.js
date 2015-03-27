@@ -188,7 +188,6 @@ class Player{
    */
   renderTraps(){
 
-
     for (var traps in this.trapList){
       this.grid[this.trapList[traps].position[0]][this.trapList[traps].position[1]].trap =
       this.addSprite(this.trapList[traps].position[0], this.trapList[traps].position[1], this.trapList[traps].name,48,48,10,10);
@@ -212,6 +211,12 @@ class Player{
     }, 1000, Phaser.Easing.Linear.None, true, 0, 0, false);
   }
 
+  /**
+   * Server tells client to move position
+   * this will only be executed if the player
+   * is the same as the server says
+   * @param data
+   */
   serverMovePlayer(data){
     if(data.name == this.getName()){
       this.clientMovePlayer(this.hintList[data.hintNr][0],this.hintList[data.hintNr][1]);

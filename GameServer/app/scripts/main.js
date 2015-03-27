@@ -54,12 +54,16 @@ game.addPlayer(p2);
 phaser.state.add("Start",game);
 
 
-
+/**
+ * The Main class controls UIMaster and Game.
+ * This is the master controller for all the page
+ */
 class Main{
 
   constructor(){
     this.isPlayerListDrawn = false;
     this.uiMaster = new UIMaster();
+
     //loads player list
     comm.addServerPlayerList((function(data){
       if(this.isPlayerListDrawn === false){
@@ -68,6 +72,7 @@ class Main{
       }
       this.uiMaster.drawResearcherPlayerList(data);
     }).bind(this));
+
     comm.clientPlayerList();//request player list
   }
 

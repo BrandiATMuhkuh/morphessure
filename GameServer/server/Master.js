@@ -38,6 +38,10 @@ class Master{
     ];
   }
 
+  /**
+   * Tell server what player has logged in
+   * @param playerName
+   */
   logIn(playerName){
 
     for(var player in this.players){
