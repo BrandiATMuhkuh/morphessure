@@ -6,6 +6,7 @@ var master = require('./Master.js');
 
 console.log('Start Server');
 
+/*
 class Database {
 
   constructor (dbAddress, dbPort){
@@ -17,7 +18,7 @@ class Database {
     return sceneNr
   }
 
-}
+}*/
 
 //var myDb = new Database("12343", 163);
 //console.log(myDb.getScene(15));

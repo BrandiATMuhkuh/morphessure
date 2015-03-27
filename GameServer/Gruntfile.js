@@ -409,6 +409,15 @@ module.exports = function (grunt) {
           exec: 'less'
         }
       }
+    },
+
+    jsdoc : {
+      dist : {
+        src: ['server/**/*.js', 'app/**/*.js'],
+        options: {
+          destination: 'doc'
+        }
+      }
     }
 
 

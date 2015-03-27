@@ -3,6 +3,9 @@
  */
 'use strict';
 
+/**
+ * This class will handle all the logic for the game
+ */
 class Master{
 
   constructor(){
