@@ -38,6 +38,34 @@ class UIMaster{
   }
 
   /**
+   * This will generate the game with all players,
+   * hints, and Traps.
+   * The researcher is stored as player and not identified
+   * as such.
+   * @param playerList list of all players
+   */
+  generateGame(playerList){
+    console.log("generateGame", playerList);
+    var game = new Game(phaser);
+
+    for(var player in playerList){
+      //check if player should be displayed or not.
+      //eg. the researcher should not be displayed and had pNumber -1
+      //Positive pNumbers are participants
+      //Negative pNumber are robots/actors
+      if(playerList[player] !== 0){
+        var p = new Player(playerList[player].name);
+        p.setTraps(playerList[player].trapList);
+        p.setHints(playerList[player].hintList);
+        game.addPlayer(p);
+      }
+    }
+
+    phaser.state.add("Start",game); //add a game level
+    phaser.state.start("Start"); //start a game
+  }
+
+  /**
    * This will fill the list of players logged in
    * on the server.
    * It will also indicate if a player changes from offline to online
