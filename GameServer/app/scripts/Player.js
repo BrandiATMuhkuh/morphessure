@@ -18,7 +18,7 @@ class Player{
     this.hintList = null;
     this.isPlayer = false;
     this.player = null;
-    this.myTurn = false; //If true this player can move otherwise it is deactivated
+    this.isPlaying = false; //If true this player can move otherwise it is deactivated
 
 
     //Add server listeners

@@ -12,6 +12,10 @@ class Game {
     this.players = [];//This will contain all players
   }
 
+  /**
+   * All the stuff that needs to be loaded before we can start playing.
+   * Mainly assets
+   */
   preload(){
     // load preloader assets
 
@@ -38,6 +42,9 @@ class Game {
 
   }
 
+  /**
+   * Create the game itself. E.g. the game world and players and so on
+   */
   create(){
     // setup game environment
     // scale, input etc..
@@ -65,6 +72,9 @@ class Game {
     this.cursors = this.game.input.keyboard.createCursorKeys();
   }
 
+  /**
+   * This method runs in a loop and updates whatever should happen
+   */
   update(){
     if (this.cursors.up.isDown)
     {

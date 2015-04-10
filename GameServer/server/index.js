@@ -12,6 +12,8 @@ var config = {
       realName: "Brandy",
       type: "human",
       isLoggedOn: false,
+      position: [0,0],
+      isPlaying: true,
       trapList : [
         {
           position: [0,0],
@@ -39,6 +41,8 @@ var config = {
       realName: "Nao",
       type: "robot",
       isLoggedOn: false,
+      position: [0,0],
+      isPlaying: false,
       trapList : [
         {
           position: [0,0],

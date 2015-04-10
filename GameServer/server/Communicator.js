@@ -50,8 +50,7 @@ class Communicator{
      * on a object
      */
     this.socket.on("client:movePlayer", (function(data){
-      console.log("client:movePlayer", data);
-      this.io.emit("server:movePlayer", data); //Will send a broadcast to everyone
+      this.master.clientMovePlayer(data);
     }).bind(this));
 
     /**
@@ -71,6 +70,16 @@ class Communicator{
     }).bind(this));
   }
 
+
+  /**
+   * Send a broadcast to all player and tells them that a player has moved
+   * @param moveTo new Position of player X
+   */
+  serverMovePlayer(moveTo){
+    this.io.emit("server:movePlayer", moveTo); //Will send a broadcast to everyone
+  }
 }
+
+
 
 module.exports  = Communicator;
