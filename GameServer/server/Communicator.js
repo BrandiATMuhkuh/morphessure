@@ -73,4 +73,4 @@ class Communicator{
 
 }
 
-module.exports  = new Communicator();
+module.exports  = Communicator;
