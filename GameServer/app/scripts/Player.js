@@ -144,22 +144,39 @@ class Player{
       this.grid[this.hintList[hint][0]][this.hintList[hint][1]].hint = s;
 
 
-      //TODO This is temporarily to test click listener.
       //The goal is to just have always one click listener active so noone can do anything wrong.
-      //TODO only the current player has click listeners, noone else
       s.inputEnabled = true;
-      s.input.useHandCursor = true;
 
       //bind function does the trick:
       //http://stackoverflow.com/questions/20279484/how-to-access-the-correct-this-context-inside-a-callback
       //In the future i would like to use fat arrows =>
       s.events.onInputDown.add((function(hint){
         return function(){
+          this.setIsPlaying(false); //Deactivate the movement of the current player
           comm.clientMovePlayer(this.getName(), hint);
         }
       }(hint)).bind(this));
+      s.inputEnable = false;
     }
 
+    //TODO This is a temporarily turn on. This will later be activated by the Researcher
+    this.setIsPlaying(true);
+
+  }
+
+
+  /**
+   * This will activate or deactivate the click listeners
+   * @param playing
+   */
+  setIsPlaying(playing){
+    for (var hint in this.hintList) {
+      var _hint = this.grid[this.hintList[hint][0]][this.hintList[hint][1]].hint;
+      console.log(_hint);
+      if(_hint !== undefined){
+        _hint.inputEnabled = playing;
+      }
+    }
   }
 
   /**
@@ -220,7 +237,6 @@ class Player{
   serverMovePlayer(data){
     if(data.name == this.getName()){
       this.clientMovePlayer(this.hintList[data.hintNr][0],this.hintList[data.hintNr][1]);
-
     }
   }
 

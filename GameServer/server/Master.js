@@ -42,8 +42,18 @@ class Master{
 
     //update players on the server
     this.updatePlayerPosition(moveTo.name, moveTo.hintNr);
-
     this.communicator.serverMovePlayer(moveTo);
+    this.whoIsNext(moveTo);
+  }
+
+  /**
+   * This method will determine who is next.
+   * This is easy with 2 players but a bit more complex
+   * if we have a bigger network and the network is not random
+   * @param whoMoved contains the player who just moved.
+   */
+  whoIsNext(whoMoved){
+
   }
 
 
