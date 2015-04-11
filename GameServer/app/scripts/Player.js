@@ -219,6 +219,7 @@ class Player{
    * @param y
    */
   clientMovePlayer(x,y){
+    this.setIsPlaying(false);//Turn of players ability to move
     this.position[0] = x;
     this.position[1] = y;
 

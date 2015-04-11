@@ -10,6 +10,14 @@ class Game {
     this.cursors = null;
     this.tileArray = null;
     this.players = [];//This will contain all players
+
+
+
+    //Add server listeners
+    //add a server whos is next listener
+    comm.addServerWhoIsNext((function(data){
+      this.serverWhoIsNext(data.next);
+    }).bind(this));
   }
 
   /**
@@ -54,10 +62,6 @@ class Game {
 
     this.game.world.setBounds(-100, -100, 2000, 1000);
 
-    /**
-    //Add a hind
-    this.game.add.sprite(0, 0, Assets.hint);
-     */
 
     //Load all Game worlds, hints, and traps
     var playerNr = 0;
@@ -103,6 +107,24 @@ class Game {
     //console.log("addPlayer: "+player.getName());
     player.setGame(this.game);
     this.players[""+player.getName()]=player;
+  }
+
+  /**
+   * Set player x as next player
+   * Moves attention to player x
+   *
+   * @param nextPlayer who is next player
+   */
+  serverWhoIsNext(nextPlayer){
+    console.log("serverWhoIsNext", nextPlayer);
+
+    //Find next player and activate it
+    for(var player in this.players){
+      if(this.players[player].name === nextPlayer){
+        this.players[player].setIsPlaying(true);
+        break; //stops loop since player was found
+      }
+    }
   }
 }
 
