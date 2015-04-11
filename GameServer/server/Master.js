@@ -53,7 +53,18 @@ class Master{
    * @param whoMoved contains the player who just moved.
    */
   whoIsNext(whoMoved){
+      var next = null;
 
+    //TODO This is a temporarily change who is next for 2 players
+    //this will each between player 1 and 2 all the time
+    if(whoMoved.name==="player1"){
+      next = "player2";
+    }else{
+      next = "player1";
+    }
+
+
+    this.communicator.serverWhoIsNext(next);
   }
 
 

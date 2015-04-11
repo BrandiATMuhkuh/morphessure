@@ -78,6 +78,18 @@ class Communicator{
   serverMovePlayer(moveTo){
     this.io.emit("server:movePlayer", moveTo); //Will send a broadcast to everyone
   }
+
+  /**
+   * Send a broadcast who is next. Maybe also what is the next correct answer
+   * @param nextPlayer the player who is next
+   */
+  serverWhoIsNext(nextPlayer){
+    var _next = {
+      next: nextPlayer
+    };
+
+    this.io.emit("server:whoIsNext", _next); //Will send a broadcast to everyone
+  }
 }
 
 

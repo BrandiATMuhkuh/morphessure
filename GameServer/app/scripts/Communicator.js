@@ -13,6 +13,7 @@ class Communicator{
     this.socket = io('//'+window.location.hostname+':3000');
     this.serverMovePlayerFun = [];
     this.serverPlayerList = [];
+    this.serverWhoIsNext = [];
 
     /**
      * server says a player has moved
@@ -31,6 +32,16 @@ class Communicator{
       console.log("server:playerList", data);
       for (var func in this.serverPlayerList){
         this.serverPlayerList[func](data);
+      }
+    }).bind(this));
+
+    /**
+     * server says what player is next plus extra options
+     */
+    this.socket.on("server:whoIsNext", (function(data){
+      console.log("server:whoIsNext", data);
+      for (var func in this.serverWhoIsNext){
+        this.serverWhoIsNext[func](data);
       }
     }).bind(this));
   }
@@ -97,6 +108,16 @@ class Communicator{
    */
   addServerMovePlayer(resFunc){
     this.serverMovePlayerFun.push(resFunc);
+  }
+
+  /**
+   * Server sends who is next player
+   * And undefined number of function can listen to
+   * this even.
+   * @param resFunc function that want to listen who is the next player
+   */
+  addServerWhoIsNext(resFunc){
+    this.serverWhoIsNext.push(resFunc);
   }
 
 }

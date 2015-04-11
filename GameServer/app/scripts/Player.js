@@ -172,7 +172,7 @@ class Player{
   setIsPlaying(playing){
     for (var hint in this.hintList) {
       var _hint = this.grid[this.hintList[hint][0]][this.hintList[hint][1]].hint;
-      console.log(_hint);
+      //console.log(_hint);
       if(_hint !== undefined){
         _hint.inputEnabled = playing;
       }
