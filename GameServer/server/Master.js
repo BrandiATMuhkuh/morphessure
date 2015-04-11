@@ -43,7 +43,12 @@ class Master{
     //update players on the server
     this.updatePlayerPosition(moveTo.name, moveTo.hintNr);
     this.communicator.serverMovePlayer(moveTo);
-    this.whoIsNext(moveTo);
+
+    //Wait a bit so the player can see that his/her character moved
+    //before the camera will move
+    setTimeout(function() {
+      this.whoIsNext(moveTo);
+    }.bind(this), 3000);
   }
 
   /**

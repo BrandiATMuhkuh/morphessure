@@ -118,12 +118,26 @@ class Game {
   serverWhoIsNext(nextPlayer){
     console.log("serverWhoIsNext", nextPlayer);
 
+    var _currPlayer = null;
+
     //Find next player and activate it
     for(var player in this.players){
       if(this.players[player].name === nextPlayer){
-        this.players[player].setIsPlaying(true);
+        _currPlayer = this.players[player];
         break; //stops loop since player was found
       }
+    }
+
+    //do things with the map and the player if player is not null
+    if(_currPlayer !== null){
+      _currPlayer.setIsPlaying(true); //Set the player to playing mode
+
+      //Set camera to current player position
+      this.game.add.tween(this.game.camera).to({
+        x: _currPlayer.player.x - 100,
+        y: _currPlayer.player.y - 100
+      }, 1000, Phaser.Easing.Linear.None, true, 0, 0, false);
+
     }
   }
 }
