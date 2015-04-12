@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 <html class="no-js">
   <head>
     <meta charset="utf-8">
@@ -15,46 +15,6 @@
     <link rel="stylesheet" href="styles/main.css">
     <!-- endbuild -->
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.6.3/css/bootstrap-select.min.css">
-  </head>
-  <body>
-    <!--[if lt IE 10]>
-      <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
-    <![endif]-->
-
-
-    <div class="container">
-      <div class="header">
-        <ul class="nav nav-pills pull-right">
-          <li class="active"><a href="#">Player</a></li>
-          <li><a href="#">Researcher</a></li>
-        </ul>
-        <h3 class="text-muted">yotest</h3>
-      </div>
-
-      <div class="row marketing">
-        <p class="lead">Add here username and select your player</p>
-        <select class="selectpicker" id="listOfPlayers">
-          <option value="notSelected">notSelected</option>
-        </select>
-
-        <button id="selectPlayerButton" type="button" class="btn btn-default">Select this player</button>
-      </div>
-
-      <div class="row marketing" id="researcher">
-        <p class="lead">Researcher</p>
-        <ul class="list-group" id="resPlayerList">
-        </ul>
-      </div>
-
-      <div class="row marketing">
-        <div id="morphessor"></div>
-      </div>
-
-      <div class="footer">
-        <p><span class="glyphicon glyphicon-heart"></span> from the Yeoman team</p>
-      </div>
-
-    </div>
 
 
     <!-- build:js(.) scripts/vendor.js -->
@@ -74,9 +34,10 @@
     <script src="bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/popover.js"></script>
     <script src="bower_components/phaser-official/build/phaser.js"></script>
     <script src="bower_components/socket.io-client/socket.io.js"></script>
+    <script src="bower_components/webcomponentsjs/webcomponents.js"></script>
+    <script src="bower_components/polymer/polymer.js"></script>
     <!-- endbower -->
     <!-- endbuild -->
-
 
     <script src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.6.3/js/bootstrap-select.min.js"></script>
     <script src="assets/Assets.js"></script>
@@ -84,7 +45,101 @@
     <script src="scripts/Player.js"></script>
     <script src="scripts/game.js"></script>
     <script src="scripts/UIMaster.js"></script>
-    <!-- build:js({app,.tmp}) scripts/main.js -->
+
+
+    <script type="text/javascript">
+      $(document).ready(function(){
+        $("#myTab li:eq(0) a").tab('show');
+      });
+    </script>
+
+  </head>
+  <body>
+    <!--[if lt IE 10]>
+      <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
+
+
+    <div class="container">
+      <div class="header">
+        <ul class="nav  nav-pills pull-right" id="myTab">
+          <li><a data-toggle="tab" href="#sectionA">Wizard</a></li>
+          <li><a data-toggle="tab" href="#sectionB">Researcher</a></li>
+        </ul>
+        <h3 class="text-muted">yotest</h3>
+      </div>
+
+      <div class="tab-content">
+        <div id="sectionA" class="tab-pane fade in active">
+
+          <div class="row marketing" id="multi-part-should-say">
+            <p class="lead">Participant should say: </p>
+            <span class="whatHeSays">Money Transporter</span>
+            <div>
+              <button type="submit" class="btn btn-success">YES</button>
+              <button type="submit" class="btn btn-danger">NO</button>
+            </div>
+          </div>
+
+          <div class="row marketing" id="multi-wizard-says">
+            <p class="lead">Wizard says: </p>
+            <span class="whatHeSays">Beens</span>
+          </div>
+
+          <div class="row marketing" id="singe-part-said">
+            <p class="lead">What did participant say: </p>
+            <button type="submit" class="btn btn-warning">Money Transporter</button>
+            <button type="submit" class="btn btn-warning">Robberer</button>
+            <button type="submit" class="btn btn-warning">Camper</button>
+            <button type="submit" class="btn btn-warning">Rich Man</button>
+
+          </div>
+        </div>
+
+        <div id="sectionB" class="tab-pane fade">
+          <div class="row marketing">
+            <p class="lead">Add here username and select your player</p>
+            <select class="selectpicker" id="listOfPlayers">
+              <option value="notSelected">notSelected</option>
+            </select>
+
+            <button id="selectPlayerButton" type="button" class="btn btn-default">Select this player</button>
+          </div>
+
+          <div class="row marketing" id="researcher">
+            <p class="lead">Researcher</p>
+            <ul class="list-group" id="resPlayerList"></ul>
+          </div>
+
+        </div>
+
+
+      </div>
+
+
+
+
+
+      <div class="row marketing">
+        <div id="morphessor"></div>
+      </div>
+
+      <div class="footer">
+        <p><span class="glyphicon glyphicon-heart"></span> from the Yeoman team</p>
+      </div>
+
+
+
+    </div>
+
+
+
+
+
+
+
+
+      <!-- build:js({app,.tmp}) scripts/main.js -->
     <script src="scripts/main.js"></script>
     <!-- endbuild -->
 

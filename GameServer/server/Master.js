@@ -83,7 +83,7 @@ class Master{
   getPlayer(playerName){
     for(var player in this.players){
       if(this.players[player].name===playerName){
-        return this.players[player];
+        return this.players[player];;
       }
     }
 
