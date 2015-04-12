@@ -12,7 +12,7 @@ var config = {
       realName: "Brandy",
       type: "human",
       isLoggedOn: false,
-      position: [0,0],
+      position: 0,
       isPlaying: true,
       trapList : [
         {
@@ -41,7 +41,7 @@ var config = {
       realName: "Nao",
       type: "robot",
       isLoggedOn: false,
-      position: [0,0],
+      position: 0,
       isPlaying: false,
       trapList : [
         {

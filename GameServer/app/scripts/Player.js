@@ -16,6 +16,7 @@ class Player{
     this.position = [0,0]; //gid positions
     this.trapList = null;
     this.hintList = null;
+    this.hintNr = 0;
     this.isPlayer = false;
     this.player = null;
     this.isPlaying = false; //If true this player can move otherwise it is deactivated
@@ -237,6 +238,7 @@ class Player{
    */
   serverMovePlayer(data){
     if(data.name == this.getName()){
+      this.hintNr = data.hintNr; //This will save the current hint
       this.clientMovePlayer(this.hintList[data.hintNr][0],this.hintList[data.hintNr][1]);
     }
   }

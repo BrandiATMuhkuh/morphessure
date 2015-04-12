@@ -68,8 +68,43 @@ class Master{
       next = "player1";
     }
 
+    var player = this.getPlayer(next);
+    console.log("hint", this.getTrapAtPosition(player, player.position+1));
+
 
     this.communicator.serverWhoIsNext(next);
+  }
+
+  /**
+   * Finds and return player that has @playerName
+   * @param playerName the name of the player you want to find
+   * @returns {*} return found player or NULL
+   */
+  getPlayer(playerName){
+    for(var player in this.players){
+      if(this.players[player].name===playerName){
+        return this.players[player];
+      }
+    }
+
+    return null;
+  }
+
+  /**
+   * This will return the trap at position x. Normally used to find next trap.
+   * @param player the player with the trap list
+   * @param position the position of the trap
+   * @returns {*} turns the found trap or NULL
+   */
+  getTrapAtPosition(player, position){
+      for(var trap in player.trapList){
+        if(player.hintList[position] !== undefined &&
+          player.trapList[trap].position[0] === player.hintList[position][0] &&
+          player.trapList[trap].position[1] === player.hintList[position][1]){
+          return player.trapList[trap];
+        }
+      }
+    return null;
   }
 
 
@@ -81,7 +116,7 @@ class Master{
   updatePlayerPosition(playerName, hintNr){
     for(var player in this.players){
       if(this.players[player].name===playerName){
-        this.players[player].position = this.players[player].hintList[hintNr];
+        this.players[player].position = parseInt(hintNr);
       }
     }
   }
