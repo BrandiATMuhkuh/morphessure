@@ -20,6 +20,50 @@ class UIMaster{
         alert("Please select a player");
       }
     })
+
+
+
+    this.displayMultiPartShouldSay(true);
+    this.displayMultiWizardSays(true);
+    this.displaySingePartSaid(true);
+
+  }
+
+  /**
+   * display what other player should say
+   * @param display activate the show area
+   */
+  displayMultiPartShouldSay(display){
+    if(display){
+      $("#multi-part-should-say").css("display","inline");
+    }else{
+      $("#multi-part-should-say").css("display","none");
+    }
+  }
+
+  /**
+   * display what the wizard should say
+   * @param display activate the wizards show area
+   */
+  displayMultiWizardSays(display){
+    if(display){
+      $("#multi-wizard-says").css("display","inline");
+    }else{
+      $("#multi-wizard-says").css("display","none");
+    }
+  }
+
+  /**
+   * Display the single players possible answers
+   * @param display activate the multible answer part
+   */
+  displaySingePartSaid(display) {
+    if(display){
+      $("#singe-part-said").css("display","inline");
+    }else{
+      $("#singe-part-said").css("display","none");
+    }
+
   }
 
 
