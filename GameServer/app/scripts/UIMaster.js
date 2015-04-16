@@ -19,45 +19,82 @@ class UIMaster{
       }else{
         alert("Please select a player");
       }
-    })
+    });
+
+    comm.addServerWhoIsNext((function(data){
+      this.changeWizardDisplay(data.next, data.hint);
+    }).bind(this));
 
 
 
     this.displayMultiPartShouldSay(true);
     this.displayMultiWizardSays(true);
-    this.displaySingePartSaid(true);
+    //this.displaySingePartSaid(true);
 
   }
+
+   changeWizardDisplay(nextPlayer, hint){
+
+
+     //get name of current player
+     var _currPlayer = "player1";
+     console.log("changeWizardDisplay", _currPlayer, nextPlayer, hint);
+
+
+     if(nextPlayer === _currPlayer){
+       this.displayMultiPartShouldSay(true, hint);
+       this.displayMultiWizardSays(false);
+     }else{
+       this.displayMultiPartShouldSay(false);
+       this.displayMultiWizardSays(true, hint);
+     }
+   }
 
   /**
    * display what other player should say
    * @param display activate the show area
+   * @param say the word that should be said by the other player (if NULL the game is at the end)
    */
-  displayMultiPartShouldSay(display){
+  displayMultiPartShouldSay(display, say){
     if(display){
       $("#multi-part-should-say").css("display","inline");
     }else{
       $("#multi-part-should-say").css("display","none");
     }
+
+    if(say !== null && say !== undefined){
+      $("#multi-part-should-say-word").text(say);
+    }else{
+      $("#multi-part-should-say-word").text("NO DATA SO FAR");
+    }
+
   }
 
   /**
    * display what the wizard should say
    * @param display activate the wizards show area
+   * @param say the word that should be said by the wizard (if NULL game is at the end)
    */
-  displayMultiWizardSays(display){
+  displayMultiWizardSays(display,say){
     if(display){
       $("#multi-wizard-says").css("display","inline");
     }else{
       $("#multi-wizard-says").css("display","none");
+    }
+
+    if(say !== null && say !== undefined){
+      $("#multi-wizard-says-word").text(say);
+    }else{
+      $("#multi-wizard-says-word").text("NO DATA SO FAR");
     }
   }
 
   /**
    * Display the single players possible answers
    * @param display activate the multible answer part
+   * @param sayings array of possible answers (ranked by most likely) (if NULL game is at the end)
    */
-  displaySingePartSaid(display) {
+  displaySingePartSaid(display, sayings) {
     if(display){
       $("#singe-part-said").css("display","inline");
     }else{

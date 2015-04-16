@@ -69,10 +69,8 @@ class Master{
     }
 
     var player = this.getPlayer(next);
-    console.log("hint", this.getTrapAtPosition(player, player.position+1));
 
-
-    this.communicator.serverWhoIsNext(next);
+    this.communicator.serverWhoIsNext(next, this.getTrapAtPosition(player, player.position+1));
   }
 
   /**
@@ -101,7 +99,7 @@ class Master{
         if(player.hintList[position] !== undefined &&
           player.trapList[trap].position[0] === player.hintList[position][0] &&
           player.trapList[trap].position[1] === player.hintList[position][1]){
-          return player.trapList[trap];
+          return player.trapList[trap].name;
         }
       }
     return null;
