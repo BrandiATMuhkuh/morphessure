@@ -76,8 +76,8 @@
             <p class="lead">Participant should say: </p>
             <span class="whatHeSays" id="multi-part-should-say-word">Money Transporter</span>
             <div>
-              <button type="submit" class="btn btn-success">YES</button>
-              <button type="submit" class="btn btn-danger">NO</button>
+              <button type="submit" class="btn btn-success" id="part-correct-answer">I'll go to the cup!</button>
+              <button type="submit" class="btn btn-danger" id="part-wrong-answer">Did you mean cup?</button>
             </div>
           </div>
 
@@ -88,10 +88,12 @@
 
           <div class="row marketing" id="singe-part-said">
             <p class="lead">What did participant say: </p>
-            <button type="submit" class="btn btn-warning">Money Transporter</button>
-            <button type="submit" class="btn btn-warning">Robberer</button>
-            <button type="submit" class="btn btn-warning">Camper</button>
-            <button type="submit" class="btn btn-warning">Rich Man</button>
+            <div class="list-group" id="singe-part-said-list">
+              <a class="list-group-item singe-part-said-item">Money Transporter</a>
+              <a class="list-group-item singe-part-said-item">Robberer</a>
+              <a class="list-group-item singe-part-said-item">Camper</a>
+              <a class="list-group-item singe-part-said-item">Rich Man</a>
+            </div>
           </div>
         </div>
 

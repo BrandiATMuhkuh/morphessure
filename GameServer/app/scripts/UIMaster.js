@@ -25,30 +25,55 @@ class UIMaster{
       this.changeWizardDisplay(data.next, data.hint);
     }).bind(this));
 
+    $( "#part-correct-answer" ).click(function() {
+      console.log( "part-correct-answer" );
+    });
 
+    $( "#part-wrong-answer" ).click(function() {
+      console.log( "part-wrong-answer" );
+    });
+
+    $("body").on('click','.singe-part-said-item',function(){
+      console.log($(this).text());
+
+      this.populateSingePartSaid(["hallo","your"]);
+    }.bind(this));
 
     this.displayMultiPartShouldSay(true);
     this.displayMultiWizardSays(true);
-    //this.displaySingePartSaid(true);
+    this.displaySingePartSaid(true);
 
   }
 
-   changeWizardDisplay(nextPlayer, hint){
+  /**
+   * This will clear and than repopulate the single part said list with new words
+   * @param wordList a list of words
+   */
+  populateSingePartSaid(wordList){
+    $("#singe-part-said-list").empty();
+
+    for(var word in wordList){
+      $("#singe-part-said-list").append('<a class="list-group-item singe-part-said-item">'+
+      wordList[word]
+      +'</a>');
+    }
+
+  }
+
+  changeWizardDisplay(nextPlayer, hint){
+    //get name of current player
+    var _currPlayer = "player1";
+    console.log("changeWizardDisplay", _currPlayer, nextPlayer, hint);
 
 
-     //get name of current player
-     var _currPlayer = "player1";
-     console.log("changeWizardDisplay", _currPlayer, nextPlayer, hint);
-
-
-     if(nextPlayer === _currPlayer){
-       this.displayMultiPartShouldSay(true, hint);
-       this.displayMultiWizardSays(false);
-     }else{
-       this.displayMultiPartShouldSay(false);
-       this.displayMultiWizardSays(true, hint);
-     }
-   }
+    if(nextPlayer === _currPlayer){
+      this.displayMultiPartShouldSay(true, hint);
+      this.displayMultiWizardSays(false);
+    }else{
+      this.displayMultiPartShouldSay(false);
+      this.displayMultiWizardSays(true, hint);
+    }
+  }
 
   /**
    * display what other player should say
