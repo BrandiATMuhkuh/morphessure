@@ -1,6 +1,9 @@
 'use strict';
 
-var phaser = new Phaser.Game(800, 600, Phaser.WEBGL, 'morphessor');
+const phaser = new Phaser.Game(800, 600, Phaser.WEBGL, 'morphessor');
+const localPlayer = {
+  name: null
+};
 
 /**
  * The Main class controls UIMaster and Game.

@@ -14,12 +14,18 @@ class UIMaster{
     $("#selectPlayerButton").on("click", function(){
       var sText = $('#listOfPlayers').find(":selected").text();
       if(sText !== "notSelected"){
-        //console.log("you selected player: "+sText)
+        localPlayer.name = sText;
         comm.clientSignOn(sText);
       }else{
         alert("Please select a player");
       }
     });
+
+    //Check if playername is in URL
+    if(localPlayer.name = location.getParameter("playerName")){
+      console.log(localPlayer);
+      comm.clientSignOn(localPlayer.name);
+    }
 
     comm.addServerWhoIsNext((function(data){
       this.changeWizardDisplay(data.next, data.hint);
@@ -41,7 +47,7 @@ class UIMaster{
 
     this.displayMultiPartShouldSay(true);
     this.displayMultiWizardSays(true);
-    this.displaySingePartSaid(true);
+    //this.displaySingePartSaid(true);
 
   }
 
@@ -63,10 +69,10 @@ class UIMaster{
   changeWizardDisplay(nextPlayer, hint){
     //get name of current player
     var _currPlayer = "player1";
-    console.log("changeWizardDisplay", _currPlayer, nextPlayer, hint);
+    console.log("changeWizardDisplay", localPlayer.name, nextPlayer, hint);
 
 
-    if(nextPlayer === _currPlayer){
+    if(nextPlayer !== _currPlayer){
       this.displayMultiPartShouldSay(true, hint);
       this.displayMultiWizardSays(false);
     }else{

@@ -39,6 +39,7 @@
     <!-- endbower -->
     <!-- endbuild -->
 
+    <script type="text/javascript" src="https://raw.githack.com/BrandiATMuhkuh/morphessure/master/server/public/prototypeExtention.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.6.3/js/bootstrap-select.min.js"></script>
     <script src="assets/Assets.js"></script>
     <script src="scripts/Communicator.js"></script>
@@ -73,21 +74,22 @@
         <div id="sectionA" class="tab-pane fade in active">
 
           <div class="row marketing" id="multi-part-should-say">
-            <p class="lead">Participant should say: </p>
-            <span class="whatHeSays" id="multi-part-should-say-word">Money Transporter</span>
-            <div>
-              <button type="submit" class="btn btn-success" id="part-correct-answer">I'll go to the cup!</button>
+            <p style="font-size:25px;">Participant should say: <span class="whatHeSays" id="multi-part-should-say-word">Money Transporter</span> </p>
+
+            <div class="WoZStyle">
+              You say
+              <button type="submit" class="btn btn-success" id="part-correct-answer">OK. I'll go to the cup!</button>
               <button type="submit" class="btn btn-danger" id="part-wrong-answer">Did you mean cup?</button>
             </div>
           </div>
 
-          <div class="row marketing" id="multi-wizard-says">
-            <p class="lead">Wizard says: </p>
-            <span class="whatHeSays" id="multi-wizard-says-word">Beens</span>
+          <div class="row marketing" id="multi-wizard-says" >
+            <p class="WoZStyle">Wizard says: <span class="whatHeSays" id="multi-wizard-says-word">Beens</span></p>
+
           </div>
 
           <div class="row marketing" id="singe-part-said">
-            <p class="lead">What did participant say: </p>
+            <p class="WoZStyle">What did participant say? </p>
             <div class="list-group" id="singe-part-said-list">
               <a class="list-group-item singe-part-said-item">Money Transporter</a>
               <a class="list-group-item singe-part-said-item">Robberer</a>
