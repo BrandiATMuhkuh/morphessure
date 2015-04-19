@@ -32,7 +32,13 @@ var config = {
           name: 'flag'
         }
       ],
-      hintList : [[0,0],[1,1], [2,1]]
+      hintList : [[0,0],[1,1], [2,1]],
+      hintWord : [
+        ['Belly','Stomach','Fat Man'],
+        ['Thief','Robberer','Money Transporter'],
+        ['Cup',"Mug"]
+      ]
+
     },
 
     {
@@ -61,7 +67,12 @@ var config = {
           name: 'beetle'
         }
       ],
-      hintList : [[0,0],[1,1], [2,1]]
+      hintList : [[0,0],[1,1], [2,1]],
+      hintWord : [
+        ['Alligator', "Crocogile", "Reptile"],
+        ['Beans', 'Seed', 'Start'],
+        ['RAM', 'Piano', 'Memory']
+      ]
     },
 
     {

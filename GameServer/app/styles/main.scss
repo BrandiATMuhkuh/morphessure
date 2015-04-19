@@ -111,3 +111,37 @@ body {
 .WoZStyle{
   font-size:25px;
 }
+
+.list-group-item.correct {
+  background-color: green;
+  color: white;
+  cursor:pointer;
+}
+
+.list-group-item.correct:hover {
+  background-color: lightgrey;
+  color:green;
+}
+
+.list-group-item.wrong {
+  background-color: red;
+  color: white;
+  cursor:pointer;
+}
+
+.list-group-item.wrong:hover {
+  background-color: lightgrey;
+  color:red;
+}
+
+.list-group-item.new {
+  background-color: orange;
+  color: white;
+  cursor:pointer;
+}
+.list-group-item.new:hover {
+  background-color: lightgrey;
+  color:orange;
+}
+
+

@@ -82,12 +82,13 @@ class Communicator{
   /**
    * Send a broadcast who is next. Maybe also what is the next correct answer
    * @param nextPlayer the player who is next
-   * @param correctAnswer this includes the correct next answer
+   * @param wizSays the word the wizard should use
    */
-  serverWhoIsNext(nextPlayer, correctAnswer){
+  serverWhoIsNext(nextPlayer, wizSays, partDict){
     var _next = {
       next: nextPlayer,
-      hint: correctAnswer
+      wizSays: wizSays,
+      partDict: partDict
     };
 
     console.log("serverWhoIsNext", _next);

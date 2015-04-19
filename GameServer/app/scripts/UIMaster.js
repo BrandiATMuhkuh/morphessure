@@ -8,7 +8,7 @@
  */
 class UIMaster{
   constructor(){
-
+    this.whoIsNextData = null;
 
     //Get players
     $("#selectPlayerButton").on("click", function(){
@@ -28,16 +28,19 @@ class UIMaster{
     }
 
     comm.addServerWhoIsNext((function(data){
-      this.changeWizardDisplay(data.next, data.hint);
+      this.whoIsNextData = data;
+      this.changeWizardDisplay(data.next, data.wizSays, data.partDict);
     }).bind(this));
 
     $( "#part-correct-answer" ).click(function() {
       console.log( "part-correct-answer" );
     });
 
-    $( "#part-wrong-answer" ).click(function() {
-      console.log( "part-wrong-answer" );
-    });
+    $("body").on('click','.multi-part-should-say-item',function(e,t){
+      console.log(e.toElement.innerText);
+
+    }.bind(this));
+
 
     $("body").on('click','.singe-part-said-item',function(){
       console.log($(this).text());
@@ -66,18 +69,18 @@ class UIMaster{
 
   }
 
-  changeWizardDisplay(nextPlayer, hint){
+  changeWizardDisplay(nextPlayer, wizSays, partDict){
     //get name of current player
-    var _currPlayer = "player1";
-    console.log("changeWizardDisplay", localPlayer.name, nextPlayer, hint);
+
+    console.log("changeWizardDisplay", localPlayer.name, nextPlayer, wizSays);
 
 
-    if(nextPlayer !== _currPlayer){
-      this.displayMultiPartShouldSay(true, hint);
+    if(nextPlayer !== localPlayer.name){
+      this.displayMultiPartShouldSay(true, wizSays);
       this.displayMultiWizardSays(false);
     }else{
       this.displayMultiPartShouldSay(false);
-      this.displayMultiWizardSays(true, hint);
+      this.displayMultiWizardSays(true, wizSays);
     }
   }
 

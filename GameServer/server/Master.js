@@ -70,7 +70,12 @@ class Master{
 
     var player = this.getPlayer(next);
 
-    this.communicator.serverWhoIsNext(next, this.getTrapAtPosition(player, player.position+1));
+    var _nextDict = this.getDictAtPosition(player, player.position+1);
+    if(_nextDict != null){
+      this.communicator.serverWhoIsNext(next, _nextDict[0],_nextDict);
+    }else{
+      console.log("game is over")
+    }
   }
 
   /**
@@ -81,7 +86,7 @@ class Master{
   getPlayer(playerName){
     for(var player in this.players){
       if(this.players[player].name===playerName){
-        return this.players[player];;
+        return this.players[player];
       }
     }
 
@@ -89,20 +94,20 @@ class Master{
   }
 
   /**
-   * This will return the trap at position x. Normally used to find next trap.
+   * This will return the dictionary at position x. Normally used to find next trap.
+   * Position 0 is always the correct answer
    * @param player the player with the trap list
    * @param position the position of the trap
    * @returns {*} turns the found trap or NULL
    */
-  getTrapAtPosition(player, position){
-      for(var trap in player.trapList){
-        if(player.hintList[position] !== undefined &&
-          player.trapList[trap].position[0] === player.hintList[position][0] &&
-          player.trapList[trap].position[1] === player.hintList[position][1]){
-          return player.trapList[trap].name;
-        }
-      }
+  getDictAtPosition(player, position){
+
+    if(player.hintWord[position]){
+      return player.hintWord[position];
+    }
+
     return null;
+
   }
 
 
