@@ -37,8 +37,7 @@ class UIMaster{
     });
 
     $("body").on('click','.multi-part-should-say-item',function(e,t){
-      console.log(e.toElement.innerText);
-
+      this.checkIfCorrectAnswer(e.toElement.innerText, this.whoIsNextData.partDict);
     }.bind(this));
 
 
@@ -66,9 +65,58 @@ class UIMaster{
       wordList[word]
       +'</a>');
     }
-
   }
 
+
+  checkIfCorrectAnswer(answer, dict){
+    console.log("checkIfCorrectAnswer", answer, dict);
+
+    var found = dict.indexOf(answer);
+    if(found === -1 || answer === 'OTHER'){
+      console.log("this is a new element");
+    }else if(found === 0){
+      console.log("the correct element");
+    }else{
+      console.log("the wrong element");
+    }
+  }
+
+  /**
+   * This will clear and than repopulate what the participant should and could say.
+   * The first element is the correct answer, the last is any other answer, and
+   * the middle items are wrong answers
+   * @param wordList list of possible answers. First one is the correct answer
+   */
+  popluatePartSaid(wordList){
+    $("#multi-part-should-say-list").empty();
+
+    var _type = "correct";
+
+    for(var word in wordList){
+      word = parseInt(word); //This is important otherwise word is a character
+      if(word == 0){
+        _type = "correct";
+      }else{
+        _type = "wrong";
+      }
+
+      $("#multi-part-should-say-list").append('<a class="list-group-item multi-part-should-say-item '+_type+' ">'+
+      wordList[word]
+      +'</a>');
+    }
+
+    _type = 'new';
+    $("#multi-part-should-say-list").append('<a class="list-group-item multi-part-should-say-item '+_type+' ">'+
+    "OTHER"
+    +'</a>');
+  }
+
+  /**
+   * This will start the switch process between what participant should say, the wizard should say
+   * @param nextPlayer who is the next player
+   * @param wizSays the word the wizard should say when its his/her turn
+   * @param partDict the dictionary the participan can say. The frist word is the correct one
+   */
   changeWizardDisplay(nextPlayer, wizSays, partDict){
     //get name of current player
 
@@ -76,7 +124,7 @@ class UIMaster{
 
 
     if(nextPlayer !== localPlayer.name){
-      this.displayMultiPartShouldSay(true, wizSays);
+      this.displayMultiPartShouldSay(true, wizSays, partDict);
       this.displayMultiWizardSays(false);
     }else{
       this.displayMultiPartShouldSay(false);
@@ -87,21 +135,17 @@ class UIMaster{
   /**
    * display what other player should say
    * @param display activate the show area
-   * @param say the word that should be said by the other player (if NULL the game is at the end)
+   * @param wizSays the word that should be said by the other player (if NULL the game is at the end)
    */
-  displayMultiPartShouldSay(display, say){
+  displayMultiPartShouldSay(display, wizSays, partDict){
     if(display){
       $("#multi-part-should-say").css("display","inline");
     }else{
       $("#multi-part-should-say").css("display","none");
     }
 
-    if(say !== null && say !== undefined){
-      $("#multi-part-should-say-word").text(say);
-    }else{
-      $("#multi-part-should-say-word").text("NO DATA SO FAR");
-    }
-
+    //Populate list with dictionary
+    this.popluatePartSaid(partDict);
   }
 
   /**
