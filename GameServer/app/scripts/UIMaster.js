@@ -69,7 +69,7 @@ class UIMaster{
 
 
   checkIfCorrectAnswer(answer, dict){
-    console.log("checkIfCorrectAnswer", answer, dict);
+    console.log("checkIfCorrectAnswer", answer, dict, localPlayer.name);
 
     var found = dict.indexOf(answer);
     if(found === -1 || answer === 'OTHER'){
@@ -123,7 +123,7 @@ class UIMaster{
     console.log("changeWizardDisplay", localPlayer.name, nextPlayer, wizSays);
 
 
-    if(nextPlayer !== localPlayer.name){
+    if(nextPlayer === localPlayer.name){
       this.displayMultiPartShouldSay(true, wizSays, partDict);
       this.displayMultiWizardSays(false);
     }else{
