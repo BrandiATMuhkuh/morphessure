@@ -3,6 +3,7 @@
  */
 'use strict';
 var Communicator = require('./Communicator.js')
+var Network = require('./Network.js')
 /**
  * This class will handle all the logic for the game
  */
@@ -14,6 +15,7 @@ class Master{
    */
   constructor(configFiles){
     this.communicator = new Communicator();
+    this.network = new Network();
     this.communicator.setMaster(this);
     this.players = configFiles.players;
   }
@@ -58,17 +60,21 @@ class Master{
    * @param whoMoved contains the player who just moved.
    */
   whoIsNext(whoMoved){
-    var receiver = null;
-    var transmitter = null;
+    var next = this.network.getNext();
+    var receiver = next.receiver;
+    var transmitter = next.transmitter;
 
     //TODO This is a temporarily change who is next for 2 players
     //this will each between player 1 and 2 all the time
+    /*
     transmitter = whoMoved.name;
     if(whoMoved.name==="player1"){
       receiver = "player2";
     }else{
       receiver = "player1";
-    }
+    }*/
+
+
 
     var player = this.getPlayer(receiver);
 
