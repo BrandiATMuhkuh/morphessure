@@ -124,15 +124,17 @@ class Communicator{
    * This will send the server what @playerName said.
    * if it was correct, What the answer was and what's in
    * the dictionary.
-   * @param playerName name of the players who said something
+   * @param transmitter name of the players who said something
+   * @param receiver name of the player who received the command
    * @param correctness was the answer correct (-1 could not be found, 0 is correct, 1 is wrong)
    * @param answer what was the actual answer
    * @param dictionary the dictionary in which we look in.
    */
-  clientMultiPartSaid(playerName, correctness, answer, dictionary){
+  clientMultiPartSaid(transmitter, receiver, correctness, answer, dictionary){
     this.socket.emit("client:multiPartSaid", {
-      playerName:playerName,
-      correctness:correctness,
+      transmitter: transmitter,
+      receiver: receiver,
+      correctness: correctness,
       answer:answer,
       dictionary:dictionary});
   }

@@ -91,7 +91,7 @@ class UIMaster{
       calcAnswer = 1;
     }
 
-    comm.clientMultiPartSaid(this.whoIsNextData.receiver, calcAnswer, answer, dict);
+    comm.clientMultiPartSaid(this.whoIsNextData.transmitter, this.whoIsNextData.receiver, calcAnswer, answer, dict);
   }
 
   /**
@@ -125,17 +125,11 @@ class UIMaster{
   }
 
   /**
-   * This will start the switch process between what participant should say, the wizard should say
-   * @param nextPlayer who is the next player
-   * @param wizSays the word the wizard should say when its his/her turn
-   * @param partDict the dictionary the participan can say. The frist word is the correct one
-   */
-  /**
-   *
-   * @param transmitter
-   * @param receiver
-   * @param transmitterSays
-   * @param receiverDict
+   * This will start the switch process between what participant (transmitter) should say, the wizard (receiver) should say
+   * @param transmitter the person who gives the command
+   * @param receiver the person who receives the command
+   * @param transmitterSays what the transmitter should say when it's his/her turn
+   * @param receiverDict what the receiver should/cound say
    */
   changeWizardDisplay(transmitter, receiver, transmitterSays, receiverDict){
     //get name of current player
@@ -144,11 +138,11 @@ class UIMaster{
 
 
     if(receiver === localPlayer.name){
-      this.displayMultiPartShouldSay(true, transmitterSays, receiverDict);
+      this.displayMultiPartShouldSay(true, transmitter, receiver, transmitterSays, receiverDict);
       this.displayMultiWizardSays(false);
     }else{
       this.displayMultiPartShouldSay(false);
-      this.displayMultiWizardSays(true, transmitterSays);
+      this.displayMultiWizardSays(true, transmitter, receiver, transmitterSays);
     }
   }
 
@@ -157,7 +151,16 @@ class UIMaster{
    * @param display activate the show area
    * @param wizSays the word that should be said by the other player (if NULL the game is at the end)
    */
-  displayMultiPartShouldSay(display, wizSays, partDict){
+  displayMultiPartShouldSay(display, transmitter, receiver, wizSays, partDict){
+
+    $("#multi-part-should-say-transmitter").text(transmitter);
+    var rText = receiver;
+    if(receiver === localPlayer.name){
+      rText = rText + ' (YOU)'
+    }
+    $("#multi-part-should-say-receiver").text(rText);
+
+
     if(display){
       $("#multi-part-should-say").css("display","inline");
     }else{
@@ -173,7 +176,16 @@ class UIMaster{
    * @param display activate the wizards show area
    * @param say the word that should be said by the wizard (if NULL game is at the end)
    */
-  displayMultiWizardSays(display,say){
+  displayMultiWizardSays(display, transmitter, receiver, say){
+
+
+    $("#multi-wizard-says-receiver").text(receiver);
+    var tText = transmitter;
+    if(transmitter === localPlayer.name){
+      tText = tText + ' (YOU)'
+    }
+    $("#multi-wizard-says-transmitter").text(tText);
+
     if(display){
       $("#multi-wizard-says").css("display","inline");
     }else{
