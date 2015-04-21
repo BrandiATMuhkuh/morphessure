@@ -37,44 +37,34 @@ class Master{
 
   /**
    * Client tells server where it wants to move
-   * @param moveTo
+   * @param name name of person who want to move
+   * @param hintNr where to move
    */
-  clientMovePlayer(moveTo){
-    console.log("client:movePlayer", moveTo);
+  clientMovePlayer(name, hintNr){
+    console.log("client:movePlayer", name, hintNr);
 
     //update players on the server
-    this.updatePlayerPosition(moveTo.name, moveTo.hintNr);
-    this.communicator.serverMovePlayer(moveTo);
+    this.updatePlayerPosition(name, hintNr);
+    this.communicator.serverMovePlayer(name, hintNr);
 
     //Wait a bit so the player can see that his/her character moved
     //before the camera will move
+    this.tellClientswhoIsNext();
+    /*
     setTimeout(function() {
-      this.whoIsNext(moveTo);
-    }.bind(this), 3000);
+      this.tellClientswhoIsNext();
+    }.bind(this), 3000);*/
   }
 
   /**
    * This method will determine who is next.
    * This is easy with 2 players but a bit more complex
    * if we have a bigger network and the network is not random
-   * @param whoMoved contains the player who just moved.
    */
-  whoIsNext(whoMoved){
+  tellClientswhoIsNext(){
     var next = this.network.getNext();
     var receiver = next.receiver;
     var transmitter = next.transmitter;
-
-    //TODO This is a temporarily change who is next for 2 players
-    //this will each between player 1 and 2 all the time
-    /*
-    transmitter = whoMoved.name;
-    if(whoMoved.name==="player1"){
-      receiver = "player2";
-    }else{
-      receiver = "player1";
-    }*/
-
-
 
     var player = this.getPlayer(receiver);
 
@@ -131,6 +121,33 @@ class Master{
       }
     }
   }
+
+  /**
+   * This is the answer the wizard (receiver) got from the participant (receiver)
+   * @param transmitter name of the players who said something
+   * @param receiver name of the player who received the command
+   * @param correctness was the answer correct (-1 could not be found, 0 is correct, 1 is wrong)
+   * @param answer what was the actual answer
+   * @param dictionary the dictionary in which we look in.
+   */
+  clientMultiParticipantSaid(transmitter, receiver, correctness, answer, dictionary){
+    console.log("clientMultiParticipantSaid", transmitter, receiver, correctness, answer, dictionary);
+
+
+    if(correctness === 0){ // 0 is correct
+
+      var player = this.getPlayer(receiver);
+      console.log(player);
+      this.clientMovePlayer(player.name, player.position+1);
+
+    }else if(correctness === 1){ // 1 is wrong
+
+    }else{// -1 could not be found
+
+    }
+
+  }
+
 
 }
 

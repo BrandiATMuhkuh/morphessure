@@ -50,7 +50,7 @@ class Communicator{
      * on a object
      */
     this.socket.on("client:movePlayer", (function(data){
-      this.master.clientMovePlayer(data);
+      this.master.clientMovePlayer(data.name, data.hintNr);
     }).bind(this));
 
     /**
@@ -73,17 +73,18 @@ class Communicator{
      * Listens to what the participant said (The wizard selected) and if it was correct
      */
     this.socket.on("client:multiPartSaid", (function(data){
-      console.log("client:multiPartSaid", data);
+      this.master.clientMultiParticipantSaid(data.transmitter, data.receiver, data.correctness, data.answer, data.dictionary);
     }).bind(this));
   }
 
 
   /**
    * Send a broadcast to all player and tells them that a player has moved
-   * @param moveTo new Position of player X
+   * @param name who moves
+   * @param hintNr where it moves
    */
-  serverMovePlayer(moveTo){
-    this.io.emit("server:movePlayer", moveTo); //Will send a broadcast to everyone
+  serverMovePlayer(name, hintNr){
+    this.io.emit("server:movePlayer", {name : name, hintNr : hintNr}); //Will send a broadcast to everyone
   }
 
 
