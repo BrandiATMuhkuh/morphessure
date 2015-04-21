@@ -120,6 +120,23 @@ class Communicator{
     this.serverWhoIsNext.push(resFunc);
   }
 
+  /**
+   * This will send the server what @playerName said.
+   * if it was correct, What the answer was and what's in
+   * the dictionary.
+   * @param playerName name of the players who said something
+   * @param correctness was the answer correct (-1 could not be found, 0 is correct, 1 is wrong)
+   * @param answer what was the actual answer
+   * @param dictionary the dictionary in which we look in.
+   */
+  clientMultiPartSaid(playerName, correctness, answer, dictionary){
+    this.socket.emit("client:multiPartSaid", {
+      playerName:playerName,
+      correctness:correctness,
+      answer:answer,
+      dictionary:dictionary});
+  }
+
 }
 
 const comm = new Communicator();

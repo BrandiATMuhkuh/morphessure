@@ -58,21 +58,23 @@ class Master{
    * @param whoMoved contains the player who just moved.
    */
   whoIsNext(whoMoved){
-      var next = null;
+    var receiver = null;
+    var transmitter = null;
 
     //TODO This is a temporarily change who is next for 2 players
     //this will each between player 1 and 2 all the time
+    transmitter = whoMoved.name;
     if(whoMoved.name==="player1"){
-      next = "player2";
+      receiver = "player2";
     }else{
-      next = "player1";
+      receiver = "player1";
     }
 
-    var player = this.getPlayer(next);
+    var player = this.getPlayer(receiver);
 
     var _nextDict = this.getDictAtPosition(player, player.position+1);
     if(_nextDict != null){
-      this.communicator.serverWhoIsNext(next, _nextDict[0],_nextDict);
+      this.communicator.serverWhoIsNext(transmitter, receiver, _nextDict[0],_nextDict);
     }else{
       console.log("game is over")
     }

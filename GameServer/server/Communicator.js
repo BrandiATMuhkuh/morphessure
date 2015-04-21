@@ -68,6 +68,13 @@ class Communicator{
       this.master.logIn(playerName);
       this.io.emit("server:playerList", this.master.players); //will send message to the connector
     }).bind(this));
+
+    /**
+     * Listens to what the participant said (The wizard selected) and if it was correct
+     */
+    this.socket.on("client:multiPartSaid", (function(data){
+      console.log("client:multiPartSaid", data);
+    }).bind(this));
   }
 
 
@@ -79,16 +86,20 @@ class Communicator{
     this.io.emit("server:movePlayer", moveTo); //Will send a broadcast to everyone
   }
 
+
   /**
-   * Send a broadcast who is next. Maybe also what is the next correct answer
-   * @param nextPlayer the player who is next
-   * @param wizSays the word the wizard should use
+   * Send a broadcast who (transmitter) will talk to whom(receiver)
+   * @param transmitter the person who will give the command
+   * @param receiver the person who will receive the command
+   * @param transmitterSays what the
+   * @param receiverDict
    */
-  serverWhoIsNext(nextPlayer, wizSays, partDict){
+  serverWhoIsNext(transmitter, receiver, transmitterSays, receiverDict){
     var _next = {
-      next: nextPlayer,
-      wizSays: wizSays,
-      partDict: partDict
+      transmitter: transmitter,
+      receiver: receiver,
+      transmitterSays: transmitterSays,
+      receiverDict: receiverDict
     };
 
     console.log("serverWhoIsNext", _next);

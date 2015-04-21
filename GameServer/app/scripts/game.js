@@ -16,7 +16,7 @@ class Game {
     //Add server listeners
     //add a server whos is next listener to move the camera
     comm.addServerWhoIsNext((function(data){
-      this.serverWhoIsNext(data.next);
+      this.serverWhoIsNext(data.receiver);
     }).bind(this));
   }
 

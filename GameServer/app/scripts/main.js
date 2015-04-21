@@ -2,7 +2,7 @@
 
 const phaser = new Phaser.Game(800, 600, Phaser.WEBGL, 'morphessor');
 const localPlayer = {
-  name: null
+  name: "Player2"
 };
 
 /**

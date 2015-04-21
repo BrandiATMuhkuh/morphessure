@@ -22,14 +22,16 @@ class UIMaster{
     });
 
     //Check if playername is in URL
-    if(localPlayer.name = location.getParameter("playerName")){
+    if(location.getParameter("playerName") !== null){
+      localPlayer.name = location.getParameter("playerName");
       console.log(localPlayer);
-      comm.clientSignOn(localPlayer.name);
     }
+
+    comm.clientSignOn(localPlayer.name);
 
     comm.addServerWhoIsNext((function(data){
       this.whoIsNextData = data;
-      this.changeWizardDisplay(data.next, data.wizSays, data.partDict);
+      this.changeWizardDisplay(data.transmitter, data.receiver, data.transmitterSays, data.receiverDict);
     }).bind(this));
 
     $( "#part-correct-answer" ).click(function() {
@@ -37,7 +39,7 @@ class UIMaster{
     });
 
     $("body").on('click','.multi-part-should-say-item',function(e,t){
-      this.checkIfCorrectAnswer(e.toElement.innerText, this.whoIsNextData.partDict);
+      this.checkIfCorrectAnswer(e.toElement.innerText, this.whoIsNextData.receiverDict);
     }.bind(this));
 
 
@@ -68,17 +70,28 @@ class UIMaster{
   }
 
 
+  /**
+   * Checks if what the participant said is what he/she should have said.
+   * @param answer the answer the person gave
+   * @param dict the dictionary in which we try to find this answer
+   */
   checkIfCorrectAnswer(answer, dict){
-    console.log("checkIfCorrectAnswer", answer, dict, localPlayer.name);
+    console.log("checkIfCorrectAnswer", answer, dict, this.whoIsNextData.receiver);
 
     var found = dict.indexOf(answer);
+    var calcAnswer = 0;
     if(found === -1 || answer === 'OTHER'){
       console.log("this is a new element");
+      calcAnswer = -1;
     }else if(found === 0){
       console.log("the correct element");
+      calcAnswer = 0
     }else{
       console.log("the wrong element");
+      calcAnswer = 1;
     }
+
+    comm.clientMultiPartSaid(this.whoIsNextData.receiver, calcAnswer, answer, dict);
   }
 
   /**
@@ -117,18 +130,25 @@ class UIMaster{
    * @param wizSays the word the wizard should say when its his/her turn
    * @param partDict the dictionary the participan can say. The frist word is the correct one
    */
-  changeWizardDisplay(nextPlayer, wizSays, partDict){
+  /**
+   *
+   * @param transmitter
+   * @param receiver
+   * @param transmitterSays
+   * @param receiverDict
+   */
+  changeWizardDisplay(transmitter, receiver, transmitterSays, receiverDict){
     //get name of current player
 
-    console.log("changeWizardDisplay", localPlayer.name, nextPlayer, wizSays);
+    console.log("changeWizardDisplay", localPlayer.name, transmitter, receiver, transmitterSays);
 
 
-    if(nextPlayer === localPlayer.name){
-      this.displayMultiPartShouldSay(true, wizSays, partDict);
+    if(receiver === localPlayer.name){
+      this.displayMultiPartShouldSay(true, transmitterSays, receiverDict);
       this.displayMultiWizardSays(false);
     }else{
       this.displayMultiPartShouldSay(false);
-      this.displayMultiWizardSays(true, wizSays);
+      this.displayMultiWizardSays(true, transmitterSays);
     }
   }
 
