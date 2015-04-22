@@ -64,8 +64,8 @@
     <div class="container">
       <div class="header">
         <ul class="nav  nav-pills pull-right" id="myTab">
-          <li><a data-toggle="tab" href="#sectionA">Wizard</a></li>
           <li><a data-toggle="tab" href="#sectionB">Researcher</a></li>
+          <li><a data-toggle="tab" href="#sectionA">Wizard</a></li>
         </ul>
         <h3 class="text-muted">5 +10</h3>
       </div>
@@ -112,20 +112,15 @@
 
           <div class="row marketing">
             <p class="lead">Load and start levels</p>
-            <select class="selectpicker">
+            <select class="selectpicker" id="levelName">
               <option value="notSelected">tutorial</option>
               <option value="notSelected">singlePlayer</option>
               <option value="notSelected">multiPlayerTutorial</option>
               <option value="notSelected">multiPlayer</option>
               <option value="notSelected">singePlayer</option>
             </select>
-            <button type="button" class="btn btn-default">Load Level</button>
-
-            <br />
-            <select class="selectpicker">
-              <option value="notSelected">notSelected</option>
-            </select>
-            <button type="button" class="btn btn-default">Select this player</button>
+            <button type="button" class="btn btn-default" id="loadAndStart">Load and start Level</button>
+            <button type="button" class="btn btn-default">Generate Multi player mode</button>
           </div>
 
           <div class="row marketing" id="researcher">

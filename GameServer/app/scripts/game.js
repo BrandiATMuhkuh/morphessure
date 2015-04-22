@@ -51,6 +51,20 @@ class Game {
   }
 
   /**
+   * This will destroy the object and close all references.
+   * This is needed otherwhise the garbage collector will not
+   * collect his garbage
+   */
+  onShutDownCallback(){
+    console.log("I'm shut down");
+    this.game = {};
+    this.cursors = null;
+    this.tileArray = null;
+    this.players = [];//This will contain all players
+    delete this;
+  }
+
+  /**
    * Create the game itself. E.g. the game world and players and so on
    */
   create(){

@@ -135,7 +135,8 @@ var config = {
       type: "researcher",
       isLoggedOn: false,
       trapList : [],
-      hintList : []
+      hintList : [],
+      hintWord : []
     }
   ]
 }

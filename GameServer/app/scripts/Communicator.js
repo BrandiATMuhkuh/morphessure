@@ -92,6 +92,20 @@ class Communicator{
   }
 
   /**
+   * Will return a level (
+   *  tutorial,
+   *  singlePlayer,
+   *  multiPlayerTutorial,
+   *  multiPlayer,
+   *  singePlayer)
+   * @param resFunc return function for the level
+   * @param level name of the level tutorial, singlePlayer, multiPlayerTutorial, multiPlayer, singePlayer
+   */
+  getServerLevel(resFunc, level){
+    this.socket.emit("client:getLevel",resFunc, level);
+  }
+
+  /**
    * Tell server this player has signed on
    * @param playerName name of the player
    */

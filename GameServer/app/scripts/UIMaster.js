@@ -9,6 +9,7 @@
 class UIMaster{
   constructor(){
     this.whoIsNextData = null;
+    this.currentGame = null;
 
     //Get players
     $("#selectPlayerButton").on("click", function(){
@@ -33,6 +34,14 @@ class UIMaster{
       this.whoIsNextData = data;
       this.changeWizardDisplay(data.transmitter, data.receiver, data.transmitterSays, data.receiverDict);
     }).bind(this));
+
+    //load Level Button
+    $( "#loadAndStart" ).click(function() {
+      let sText = $('#levelName').find(":selected").text();
+      console.log( "loadAndStart", sText);
+      this.loadAndStartLevel(sText);
+    }.bind(this));
+
 
     $( "#part-correct-answer" ).click(function() {
       console.log( "part-correct-answer" );
@@ -69,6 +78,11 @@ class UIMaster{
     }
   }
 
+
+  loadAndStartLevel(levelName){
+    this.generateGame(myData, levelName);
+    this.startGame(levelName);
+  }
 
   /**
    * Checks if what the participant said is what he/she should have said.
@@ -237,7 +251,11 @@ class UIMaster{
    */
   generateGame(playerList, levelName){
     console.log("generateGame", playerList);
-    var game = new Game(phaser);
+    if(this.currentGame !== null){
+      this.currentGame.onShutDownCallback();
+    }
+
+    this.currentGame = new Game(phaser);
 
     for(var player in playerList){
       //check if player should be displayed or not.
@@ -248,15 +266,16 @@ class UIMaster{
         var p = new Player(playerList[player].name);
         p.setTraps(playerList[player].trapList);
         p.setHints(playerList[player].hintList);
-        game.addPlayer(p);
+        this.currentGame.addPlayer(p);
       }
     }
 
-    phaser.state.add(levelName,game); //add a game level
+    phaser.state.add(levelName,this.currentGame); //add a game level
 
   }
 
   startGame(levelName){
+    this.levelName = levelName;
     phaser.state.start(levelName); //start a game
   }
 
