@@ -30,13 +30,39 @@ var config = {
         {
           position: [2,2],
           name: 'flag'
+        },
+        {
+          position: [2,3],
+          name: 'flag'
+        },
+        {
+          position: [2,4],
+          name: 'flag'
+        },
+        {
+          position: [2,5],
+          name: 'flag'
+        },
+        {
+          position: [2,6],
+          name: 'flag'
+        },
+        {
+          position: [2,7],
+          name: 'flag'
         }
       ],
-      hintList : [[0,0],[1,1], [2,1]],
+      hintList : [[0,0],[1,1], [2,1], [2,2], [2,3], [2,4], [2,5], [2,6], [2,7]],
       hintWord : [
         ['Belly','Stomach','Fat Man'],
         ['Thief','Robberer','Money Transporter'],
-        ['Cup',"Mug"]
+        ['Cup',"Mug"],
+        ['Flag', 'Sign', 'Golfflag'],
+        ['Flag', 'Sign', 'Golfflag'],
+        ['Flag', 'Sign', 'Golfflag'],
+        ['Flag', 'Sign', 'Golfflag'],
+        ['Flag', 'Sign', 'Golfflag'],
+        ['Flag', 'Sign', 'Golfflag']
       ]
 
     },
@@ -65,13 +91,39 @@ var config = {
         {
           position: [2,2],
           name: 'beetle'
+        },
+        {
+          position: [2,3],
+          name: 'flag'
+        },
+        {
+          position: [2,4],
+          name: 'flag'
+        },
+        {
+          position: [2,5],
+          name: 'flag'
+        },
+        {
+          position: [2,6],
+          name: 'flag'
+        },
+        {
+          position: [2,7],
+          name: 'flag'
         }
       ],
-      hintList : [[0,0],[1,1], [2,1]],
+      hintList : [[0,0],[1,1], [2,1],[2,2], [2,3], [2,4], [2,5], [2,6], [2,7]],
       hintWord : [
         ['Alligator', "Crocogile", "Reptile"],
         ['Beans', 'Seed', 'Start'],
-        ['RAM', 'Piano', 'Memory']
+        ['RAM', 'Piano', 'Memory'],
+        ['Beetle', 'Sign', 'Golfflag'],
+        ['Flag', 'Sign', 'Golfflag'],
+        ['Flag', 'Sign', 'Golfflag'],
+        ['Flag', 'Sign', 'Golfflag'],
+        ['Flag', 'Sign', 'Golfflag'],
+        ['Flag', 'Sign', 'Golfflag']
       ]
     },
 
