@@ -5,6 +5,9 @@ const localPlayer = {
   name: "Player2"
 };
 
+let main;
+let myData;
+
 /**
  * The Main class controls UIMaster and Game.
  * This is the master controller for all the page
@@ -12,18 +15,19 @@ const localPlayer = {
 class Main{
 
   constructor(){
-    this.isPlayerListDrawn = false;
     this.uiMaster = new UIMaster();
 
     //loads player list, trapList and hintList exactly ONE TIME!
-    comm.addServerPlayerList((function(data){
-      if(this.isPlayerListDrawn === false){
-        console.groupCollapsed("Load player related things");
-        this.uiMaster.drawPlayerDropDown(data);
-        this.uiMaster.generateGame(data);
-        console.groupEnd();
-        this.isPlayerListDrawn = true;
-      }
+    comm.getServerPlayerList((function(data){
+      console.log("Go IN ONCE");
+
+      console.groupCollapsed("Load player related things");
+      myData = data;
+      this.uiMaster.drawPlayerDropDown(data);
+      this.uiMaster.generateGame(data,'level1');
+      this.uiMaster.startGame('level1');
+      console.groupEnd();
+
       this.uiMaster.drawResearcherPlayerList(data);
     }).bind(this));
 
@@ -34,5 +38,5 @@ class Main{
 
 //global variables
 window.onload = function () {
-  const main = new Main();
+  main = new Main();
 };

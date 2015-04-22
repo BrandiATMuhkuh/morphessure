@@ -235,7 +235,7 @@ class UIMaster{
    * as such.
    * @param playerList list of all players
    */
-  generateGame(playerList){
+  generateGame(playerList, levelName){
     console.log("generateGame", playerList);
     var game = new Game(phaser);
 
@@ -252,8 +252,12 @@ class UIMaster{
       }
     }
 
-    phaser.state.add("Start",game); //add a game level
-    phaser.state.start("Start"); //start a game
+    phaser.state.add(levelName,game); //add a game level
+
+  }
+
+  startGame(levelName){
+    phaser.state.start(levelName); //start a game
   }
 
   /**

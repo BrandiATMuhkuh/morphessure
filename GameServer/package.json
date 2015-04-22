@@ -34,7 +34,8 @@
     "load-grunt-tasks": "^0.4.0",
     "node-inspector": "latest",
     "socket.io": "latest",
-    "time-grunt": "^0.4.0"
+    "time-grunt": "^0.4.0",
+    "feathers" : "latest"
   },
   "engines": {
     "node": ">=0.11.15"

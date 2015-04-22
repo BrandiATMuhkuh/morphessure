@@ -84,6 +84,14 @@ class Communicator{
   }
 
   /**
+   * Request the server for the player list
+   * @param resFunc function that want get the player list
+   */
+  getServerPlayerList(resFunc){
+    this.socket.emit("client:getPlayerList",resFunc);
+  }
+
+  /**
    * Tell server this player has signed on
    * @param playerName name of the player
    */

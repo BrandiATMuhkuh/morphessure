@@ -13,12 +13,13 @@ class Communicator{
   constructor(){
     console.log("start Communicator");
 
+    //this.feathers = require('feathers');
+    //this.feathersApp = this.feathers();
     this.io = require('socket.io')();
     this.io.on('connection', (function (socket) {
       console.log("someone just connected to me", socket.id);
       this.socket = socket;
       this.start();
-
 
     }).bind(this));
     this.io.listen(3000);
@@ -62,6 +63,15 @@ class Communicator{
     }).bind(this));
 
     /**
+     * The client is asking for the current player list. This function will return the data directly
+     * It is an abuse of socket.io and represent a REST call.
+     */
+    this.socket.on("client:getPlayerList", (function(fd){
+      console.log("ask for player list");
+      fd(this.master.players);
+    }).bind(this));
+
+    /**
      * A client is logging in
      */
     this.socket.on("client:signOn", (function(playerName){
@@ -75,6 +85,22 @@ class Communicator{
     this.socket.on("client:multiPartSaid", (function(data){
       this.master.clientMultiParticipantSaid(data.transmitter, data.receiver, data.correctness, data.answer, data.dictionary);
     }).bind(this));
+
+    /*
+    var todoService = {
+      get: function(id, params, callback) {
+        // Call back with no error and the Todo object
+        callback(null, {
+          id: id,
+          text: 'You have to do ' + id + '!'
+        });
+      }
+    };
+
+    this.feathersApp.configure(this.feathers.rest())
+      .use('/todos', todoService)
+      .listen(4000);
+      */
   }
 
 
