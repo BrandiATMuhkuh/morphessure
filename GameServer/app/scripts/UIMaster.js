@@ -35,11 +35,17 @@ class UIMaster{
       this.changeWizardDisplay(data.transmitter, data.receiver, data.transmitterSays, data.receiverDict);
     }).bind(this));
 
+    comm.addServerLevelChange((function(data){
+      this.generateGame(data.playerList, data.levelName);
+      this.startGame(data.levelName);
+    }).bind(this));
+
+
     //load Level Button
     $( "#loadAndStart" ).click(function() {
       let sText = $('#levelName').find(":selected").text();
       console.log( "loadAndStart", sText);
-      this.loadAndStartLevel(sText);
+      comm.clientChangeLevel(sText);
     }.bind(this));
 
 
@@ -80,8 +86,13 @@ class UIMaster{
 
 
   loadAndStartLevel(levelName){
-    this.generateGame(myData, levelName);
-    this.startGame(levelName);
+
+    comm.getServerLevel(levelName, function(data){
+      this.generateGame(data, levelName);
+      this.startGame(levelName);
+    }.bind(this));
+
+
   }
 
   /**

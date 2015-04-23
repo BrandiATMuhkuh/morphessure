@@ -38,6 +38,16 @@ class Network {
     return this.current;
   }
 
+  /**
+   * This will resent the network. Later this will be
+   * replaced with the network we defined.
+   */
+  resetNetwork(){
+    this.network = [];
+    this.position = 0;
+    this.current = null;
+  }
+
 
   /**
    * This is only used for test purposes and creates a simple p1 to p2, and p2 to p1 network

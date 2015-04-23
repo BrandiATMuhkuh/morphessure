@@ -14,6 +14,7 @@ class Communicator{
     this.serverMovePlayerFun = [];
     this.serverPlayerList = [];
     this.serverWhoIsNext = [];
+    this.serverLevelChange = [];
 
     /**
      * server says a player has moved
@@ -42,6 +43,17 @@ class Communicator{
       console.log("server:whoIsNext", data);
       for (var func in this.serverWhoIsNext){
         this.serverWhoIsNext[func](data);
+      }
+    }).bind(this));
+
+
+    /**
+     * server says what level is next
+     */
+    this.socket.on("server:levelChange", (function(data){
+      console.log("server:levelChange", data);
+      for (var func in this.serverLevelChange){
+        this.serverLevelChange[func](data);
       }
     }).bind(this));
   }
@@ -92,17 +104,25 @@ class Communicator{
   }
 
   /**
-   * Will return a level (
+   * Tell server that we change the level
+   * level name (
    *  tutorial,
    *  singlePlayer,
    *  multiPlayerTutorial,
    *  multiPlayer,
    *  singePlayer)
-   * @param resFunc return function for the level
-   * @param level name of the level tutorial, singlePlayer, multiPlayerTutorial, multiPlayer, singePlayer
+   * @param level name of level
    */
-  getServerLevel(resFunc, level){
-    this.socket.emit("client:getLevel",resFunc, level);
+  clientChangeLevel(level){
+    this.socket.emit("client:changeLevel",level);
+  }
+
+  /**
+   * Listen if we change the level
+   * @param resFunc
+   */
+  addServerLevelChange(resFunc){
+    this.serverLevelChange.push(resFunc);
   }
 
   /**

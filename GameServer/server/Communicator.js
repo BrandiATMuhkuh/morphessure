@@ -13,8 +13,6 @@ class Communicator{
   constructor(){
     console.log("start Communicator");
 
-    //this.feathers = require('feathers');
-    //this.feathersApp = this.feathers();
     this.io = require('socket.io')();
     this.io.on('connection', (function (socket) {
       console.log("someone just connected to me", socket.id);
@@ -72,6 +70,13 @@ class Communicator{
     }).bind(this));
 
     /**
+     * Client asks for new level
+     */
+    this.socket.on("client:changeLevel", (function(level){
+      this.master.serverGetLevel(level);
+    }).bind(this));
+
+    /**
      * A client is logging in
      */
     this.socket.on("client:signOn", (function(playerName){
@@ -86,21 +91,11 @@ class Communicator{
       this.master.clientMultiParticipantSaid(data.transmitter, data.receiver, data.correctness, data.answer, data.dictionary);
     }).bind(this));
 
-    /*
-    var todoService = {
-      get: function(id, params, callback) {
-        // Call back with no error and the Todo object
-        callback(null, {
-          id: id,
-          text: 'You have to do ' + id + '!'
-        });
-      }
-    };
+  }
 
-    this.feathersApp.configure(this.feathers.rest())
-      .use('/todos', todoService)
-      .listen(4000);
-      */
+
+  serverLevelChange(playerList, levelName){
+    this.io.emit("server:levelChange", {playerList : playerList, levelName : levelName}); //Will send a broadcast to everyone
   }
 
 

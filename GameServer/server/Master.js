@@ -18,6 +18,7 @@ class Master{
     this.network = new Network();
     this.communicator.setMaster(this);
     this.players = configFiles.players;
+    this.levels = configFiles.levels;
   }
 
   /**
@@ -146,6 +147,32 @@ class Master{
 
     }
 
+  }
+
+  /**
+   * This function will return via callback a level
+   * @param resFunc
+   */
+  serverGetLevel(level){
+    console.log("please give me my level", level);
+    this.network.resetNetwork();
+    //Reset players position and who is playing
+    //leave logged in
+
+    //replace players lists
+    var clevel = this.levels[level];
+    for(let ole in clevel){
+      console.log(clevel[ole].playerName);
+      let playerLevel = clevel[ole];
+      let p = this.getPlayer(playerLevel.playerName);
+      p.position = 1;
+      p.trapList = playerLevel.trapList;
+      p.hintList = playerLevel.hintList;
+      p.hintWord = playerLevel.hintWord;
+    }
+
+    this.communicator.serverLevelChange(this.players, level);
+    //resFunc(this.players);
   }
 
 
