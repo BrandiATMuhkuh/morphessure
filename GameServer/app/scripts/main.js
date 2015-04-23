@@ -23,8 +23,6 @@ class Main{
       console.groupCollapsed("Load player related things");
       myData = data;
       this.uiMaster.drawPlayerDropDown(data);
-      //this.uiMaster.generateGame(data,'level1');
-      //this.uiMaster.startGame('level1');
       console.groupEnd();
 
       this.uiMaster.drawResearcherPlayerList(data);

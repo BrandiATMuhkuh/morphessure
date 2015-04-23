@@ -68,6 +68,7 @@ class UIMaster{
     this.displayMultiWizardSays(true);
     //this.displaySingePartSaid(true);
 
+    this.showSplashScreen();
   }
 
   /**
@@ -285,6 +286,24 @@ class UIMaster{
 
   }
 
+  /**
+   * This will create a simple splash screen.
+   */
+  showSplashScreen(){
+    phaser.state.add("splash",{
+      create: function() {
+      var style = { font: "65px Arial", fill: "#ff0044", align: "center" };
+      var text = phaser.add.text(phaser.world.centerX, phaser.world.centerY, "- HELLO -\nWe start soon\nJust a second!", style);
+      text.anchor.set(0.5);
+      }
+    });
+    phaser.state.start("splash");
+  }
+
+  /**
+   * Start a level
+   * @param levelName the level we want to start
+   */
   startGame(levelName){
     this.levelName = levelName;
     phaser.state.start(levelName); //start a game
