@@ -40,6 +40,14 @@ class UIMaster{
       this.startGame(data.levelName);
     }).bind(this));
 
+    /**
+     * Listen to any change on the player list
+     * and redraw the player status
+     */
+    comm.addServerPlayerList((function(data){
+      this.drawResearcherPlayerList(data);
+    }).bind(this));
+
 
     //load Level Button
     $( "#loadAndStart" ).click(function() {
@@ -322,7 +330,7 @@ class UIMaster{
     for(var player in playerList) {
       var text = '<li class="list-group-item">';
       if (playerList[player].isLoggedOn === true) {
-        text += '<span class="label label-success">Offline</span> ';
+        text += '<span class="label label-success">Online</span> ';
       }else{
         text += '<span class="label label-danger">Offline</span> ';
       }

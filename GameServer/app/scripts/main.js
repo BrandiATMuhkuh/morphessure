@@ -24,9 +24,9 @@ class Main{
       myData = data;
       this.uiMaster.drawPlayerDropDown(data);
       console.groupEnd();
-
-      this.uiMaster.drawResearcherPlayerList(data);
     }).bind(this));
+
+
 
     comm.clientPlayerList();//request player list
   }
