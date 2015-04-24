@@ -274,7 +274,7 @@ class UIMaster{
       //eg. the researcher should not be displayed and had pNumber -1
       //Positive pNumbers are participants
       //Negative pNumber are robots/actors
-      if(playerList[player] !== 0){
+      if(parseInt(playerList[player].pNumber) !== 0){
         var p = new Player(playerList[player].name);
         p.setTraps(playerList[player].trapList);
         p.setHints(playerList[player].hintList);
