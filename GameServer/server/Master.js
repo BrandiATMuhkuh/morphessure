@@ -2,6 +2,7 @@
  * Created by jbr134 on 26/03/15.
  */
 'use strict';
+var DB = require('./DB.js');
 var Communicator = require('./Communicator.js')
 var Network = require('./Network.js')
 /**
@@ -14,11 +15,14 @@ class Master{
    * @param configFiles
    */
   constructor(configFiles){
+    this.db = new DB(this);
     this.communicator = new Communicator();
     this.network = new Network();
     this.communicator.setMaster(this);
-    this.players = configFiles.players;
+    this.players = [];
     this.levels = configFiles.levels;
+
+    this.db.populatePlayers();
   }
 
   /**
@@ -159,6 +163,11 @@ class Master{
     //Reset players position and who is playing
     //leave logged in
 
+    this.db.getLevel(level, "OneRobotOneHumanNoMirror", function(data){
+      console.log("yead level data", data);
+    });
+
+    /*
     //replace players lists
     var clevel = this.levels[level];
     for(let ole in clevel){
@@ -173,6 +182,7 @@ class Master{
 
     this.communicator.serverLevelChange(this.players, level);
     //resFunc(this.players);
+    */
   }
 
 

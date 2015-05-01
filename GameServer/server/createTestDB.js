@@ -113,7 +113,7 @@ var dictionary = [
 
 var participants = [
   new Participant("Juergen", "player2", "OneRobotOneHumanNoMirror", 123)
-];
+];find
 
 
 //empty all data

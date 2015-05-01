@@ -81,5 +81,16 @@ DbClasses.Condition = class Condition {
   }
 };
 
+DbClasses.Log = class Log {
+  constructor(pId, conditionId, condition, transmitter, receiver, word, correct){
+    this.pId = pId;
+    this.conditionId = conditionId;
+    this.condition = condition;
+    this.transmitter = transmitter;
+    this.receiver = receiver;
+    this.word = word;
+    this.correct = correct;
+  }
+};
 
 module.exports = DbClasses;
