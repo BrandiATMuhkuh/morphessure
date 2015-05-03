@@ -42,6 +42,8 @@ class DB {
         //console.log("balc",a);
         console.log("1");
 
+
+
         async.waterfall([
           function(callback) {
             c_trapList.find({"level":levelName, "playerName":a.name, "condition":condition}).toArray(function(aerr, adocs){
@@ -74,6 +76,7 @@ class DB {
             });
           }
         ], function (err, traps, hints) {
+          //console.log(traps, hints);
           // result now equals 'done'
           //console.log("waterfall Result", traps, hints);
         });

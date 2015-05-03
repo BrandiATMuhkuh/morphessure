@@ -2,6 +2,7 @@
  * This documents is purely create to create a test db.
  */
 'use strict';
+var Join = require('mongo-join').Join;
 var assert = require('assert');
 var Engine = require('tingodb')();
 var DbClasses = require('./DbClasses.js');
@@ -12,6 +13,7 @@ var Trap = DbClasses.Trap;
 var Player = DbClasses.Player;
 var Condition = DbClasses.Condition;
 var db = new Engine.Db('database', {});
+var async = require('async');
 
 //Define Collections
 var c_players = db.collection('c_players');
@@ -95,12 +97,12 @@ var hintList = [
 
 var dictionary = [
   new DictEntry("Alligator", 1.2, 3.2, 'alligator'),
-  new DictEntry("Crocodile", 1.2, 3.2, 'alligator'),
-  new DictEntry("Reptile", 1.2, 3.2, 'alligator'),
-  new DictEntry("beans", 1.2, 3.2, 'beans'),
-  new DictEntry("Seed", 1.2, 3.2, 'beans'),
-  new DictEntry("Start", 1.2, 3.2, 'beans'),
-  new DictEntry("RAM", 1.2, 3.2, 'RAM'),
+  new DictEntry("Crocodile", 1.3, 3.2, 'alligator'),
+  new DictEntry("Reptile", 1.4, 3.2, 'alligator'),
+  new DictEntry("beans", 1.5, 3.2, 'beans'),
+  new DictEntry("Seed", 1.6, 3.2, 'beans'),
+  new DictEntry("Start", 1.7, 3.2, 'beans'),
+  new DictEntry("RAM", 1.9, 3.2, 'RAM'),
   new DictEntry("Piano", 1.2, 3.2, 'RAM'),
   new DictEntry("Memory", 1.2, 3.2, 'RAM'),
   new DictEntry("Beetle", 1.2, 3.2, 'beetle'),
@@ -113,7 +115,7 @@ var dictionary = [
 
 var participants = [
   new Participant("Juergen", "player2", "OneRobotOneHumanNoMirror", 123)
-];find
+];
 
 
 //empty all data
@@ -132,8 +134,115 @@ c_dictionary.insert(dictionary);
 c_participants.insert(participants);
 
 //test
-c_players.find({}).toArray(function(err, docs) {
-  console.log(docs.length);
+
+var levelName = 'tutorial';
+var condition = 'OneRobotOneHumanNoMirror';
+
+c_players.find().toArray(function(err, docs) {
+  //console.log(docs);
+  docs.forEach(function(a){
+    //console.log("balc",a);
+    //console.log("1");
+
+
+
+    async.waterfall([
+      function(callback) {
+        c_trapList.find({"level":levelName, "playerName":a.name, "condition":condition}).toArray(function(aerr, adocs){
+          //console.log(adocs.length);
+          if(adocs.length > 0){
+            //a.trapList = adocs[0].traps;
+            callback(null, adocs[0].traps);
+          }else{
+            callback(null, null);
+          }
+          //a.trapList = adocs.traps;
+          //console.log(a);
+          //console.log("2");
+        });
+      },
+      function(traps, callback) {
+        c_hintList.find({"level":levelName, "playerName":a.name, "condition":condition}).toArray(function(aerr, adocs){
+          //console.log(adocs.length);
+          if(adocs.length > 0){
+            //a.hintList = adocs[0].hints;
+            callback(null, traps, adocs[0].hints);
+          }else{
+            callback(null, null, null);
+          }
+          //a.trapList = adocs.traps;
+          //console.log(a);
+          //console.log("3");
+
+          //console.log(a);
+        });
+      },
+      function(traps, hints, callback){
+
+
+
+        c_dictionary.find({}).sort({wordValance:1})
+          .toArray(function(err, hintWords){
+
+            //console.log(hintWords);
+            var hintWordsObj = {};
+            for(let hint in hintWords){
+              //console.log(hintWords[hint]);
+
+              if(hintWordsObj[hintWords[hint].refWord] === undefined){
+                hintWordsObj[hintWords[hint].refWord] = [];
+              }
+              hintWordsObj[hintWords[hint].refWord].push(hintWords[hint].name);
+            }
+
+
+            //console.log(hintWordsObj);
+            callback(null, traps, hints, hintWordsObj);
+          });
+
+
+
+
+
+      }
+    ], function (err, traps, hints, hintWords) {
+      //console.log(hintWords, hints);
+
+      var myWordList = [];
+
+      if(hints !== null){
+        for(let hint in hints){
+          //console.log(traps, hints[hint]);
+          //console.log(getTrapNameAtPost(traps, hints[hint]));
+          myWordList.push(hintWords[getTrapNameAtPost(traps, hints[hint])]);
+        }
+      }
+
+      // result now equals 'done'
+      console.log(myWordList);
+      //console.log("waterfall Result", traps, hints);
+    });
+
+  });
 });
+
+
+function getTrapNameAtPost(trapList, pos){
+  //console.log(trapList, pos);
+
+  for(let trap in trapList){
+    //console.log(trapList[trap].position, pos);
+    if(trapList[trap].position[0] === pos[0] && trapList[trap].position[1] === pos[1]){
+      return trapList[trap].name;
+    }
+  }
+
+  return null;
+}
+
+
+
+
+
 
 
