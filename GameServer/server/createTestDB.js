@@ -110,7 +110,32 @@ var dictionary = [
   new DictEntry("Flag", 1.2, 3.2, 'flag'),
   new DictEntry("Golfflag", 1.2, 3.2, 'flag'),
   new DictEntry("ocean", 1.2, 3.2, 'ocean'),
-  new DictEntry("majijuana", 1.2, 3.2, 'majijuana')
+  new DictEntry("majijuana", 1.2, 3.2, 'majijuana'),
+
+  new DictEntry("programmer", 1.2, 3.2, 'programmer'),
+  new DictEntry("cattle", 1.2, 3.2, 'cattle'),
+  new DictEntry("snack", 1.2, 3.2, 'snack'),
+  new DictEntry("sphere", 1.2, 3.2, 'sphere'),
+  new DictEntry("computer", 1.2, 3.2, 'computer'),
+  new DictEntry("USB", 1.2, 3.2, 'USB'),
+  new DictEntry("marijuana", 1.2, 3.2, 'marijuana'),
+  new DictEntry("referee", 1.2, 3.2, 'referee'),
+  new DictEntry("mouse", 1.2, 3.2, 'mouse'),
+  new DictEntry("man", 1.2, 3.2, 'man'),
+  new DictEntry("man", 1.2, 3.2, 'beetle'),
+  new DictEntry("referee", 1.2, 3.2, 'referee'),
+  new DictEntry("fireplace", 1.2, 3.2, 'fireplace'),
+  new DictEntry("moth", 1.2, 3.2, 'moth'),
+  new DictEntry("pipe", 1.2, 3.2, 'pipe'),
+  new DictEntry("teacher", 1.2, 3.2, 'teacher'),
+  new DictEntry("belly", 1.2, 3.2, 'belly'),
+  new DictEntry("thief", 1.2, 3.2, 'thief'),
+  new DictEntry("cup", 1.2, 3.2, 'cup'),
+  new DictEntry("dunes", 1.2, 3.2, 'dunes'),
+  new DictEntry("doctor", 1.2, 3.2, 'doctor'),
+  new DictEntry("teacher", 1.2, 3.2, 'teacher'),
+  new DictEntry("drugs", 1.2, 3.2, 'drugs')
+
 ];
 
 var participants = [
@@ -138,91 +163,6 @@ c_participants.insert(participants);
 var levelName = 'tutorial';
 var condition = 'OneRobotOneHumanNoMirror';
 
-c_players.find().toArray(function(err, docs) {
-  //console.log(docs);
-  docs.forEach(function(a){
-    async.waterfall([
-      function(callback) {
-        c_trapList.find({"level":levelName, "playerName":a.name, "condition":condition}).toArray(function(aerr, adocs){
-          //console.log(adocs.length);
-          if(adocs.length > 0){
-            //a.trapList = adocs[0].traps;
-            callback(null, adocs[0].traps);
-          }else{
-            callback(null, null);
-          }
-        });
-      },
-      function(traps, callback) {
-        c_hintList.find({"level":levelName, "playerName":a.name, "condition":condition}).toArray(function(aerr, adocs){
-          //console.log(adocs.length);
-          if(adocs.length > 0){
-            //a.hintList = adocs[0].hints;
-            callback(null, traps, adocs[0].hints);
-          }else{
-            callback(null, null, null);
-          }
-          //a.trapList = adocs.traps;
-          //console.log(a);
-          //console.log("3");
-
-          //console.log(a);
-        });
-      },
-      function(traps, hints, callback){
-
-
-
-        c_dictionary.find({}).sort({wordValance:1})
-          .toArray(function(err, hintWords){
-
-            //console.log(hintWords);
-            var hintWordsObj = {};
-            for(let hint in hintWords){
-              //console.log(hintWords[hint]);
-
-              if(hintWordsObj[hintWords[hint].refWord] === undefined){
-                hintWordsObj[hintWords[hint].refWord] = [];
-              }
-              hintWordsObj[hintWords[hint].refWord].push(hintWords[hint].name);
-            }
-
-
-            //console.log(hintWordsObj);
-            callback(null, traps, hints, hintWordsObj);
-          });
-      }
-    ], function (err, traps, hints, hintWords) {
-      //console.log(hintWords, hints);
-
-      var myWordList = [];
-
-      if(hints !== null){
-        for(let hint in hints){
-          myWordList.push(hintWords[getTrapNameAtPost(traps, hints[hint])]);
-        }
-      }
-
-      // result now equals 'done'
-      console.log(myWordList);
-    });
-
-  });
-});
-
-
-function getTrapNameAtPost(trapList, pos){
-  //console.log(trapList, pos);
-
-  for(let trap in trapList){
-    //console.log(trapList[trap].position, pos);
-    if(trapList[trap].position[0] === pos[0] && trapList[trap].position[1] === pos[1]){
-      return trapList[trap].name;
-    }
-  }
-
-  return null;
-}
 
 
 

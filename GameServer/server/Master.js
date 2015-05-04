@@ -20,7 +20,7 @@ class Master{
     this.network = new Network();
     this.communicator.setMaster(this);
     this.players = [];
-    this.levels = configFiles.levels;
+    //this.levels = configFiles.levels;
 
     this.db.populatePlayers();
   }
