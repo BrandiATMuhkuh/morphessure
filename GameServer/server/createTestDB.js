@@ -141,11 +141,6 @@ var condition = 'OneRobotOneHumanNoMirror';
 c_players.find().toArray(function(err, docs) {
   //console.log(docs);
   docs.forEach(function(a){
-    //console.log("balc",a);
-    //console.log("1");
-
-
-
     async.waterfall([
       function(callback) {
         c_trapList.find({"level":levelName, "playerName":a.name, "condition":condition}).toArray(function(aerr, adocs){
@@ -156,9 +151,6 @@ c_players.find().toArray(function(err, docs) {
           }else{
             callback(null, null);
           }
-          //a.trapList = adocs.traps;
-          //console.log(a);
-          //console.log("2");
         });
       },
       function(traps, callback) {
@@ -199,11 +191,6 @@ c_players.find().toArray(function(err, docs) {
             //console.log(hintWordsObj);
             callback(null, traps, hints, hintWordsObj);
           });
-
-
-
-
-
       }
     ], function (err, traps, hints, hintWords) {
       //console.log(hintWords, hints);
@@ -212,15 +199,12 @@ c_players.find().toArray(function(err, docs) {
 
       if(hints !== null){
         for(let hint in hints){
-          //console.log(traps, hints[hint]);
-          //console.log(getTrapNameAtPost(traps, hints[hint]));
           myWordList.push(hintWords[getTrapNameAtPost(traps, hints[hint])]);
         }
       }
 
       // result now equals 'done'
       console.log(myWordList);
-      //console.log("waterfall Result", traps, hints);
     });
 
   });

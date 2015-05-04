@@ -274,22 +274,3 @@ var config = {
 new Master(config);
 
 console.log('Start Server');
-
-/*
-class Database {
-
-  constructor (dbAddress, dbPort){
-    console.log(dbAddress + " " + dbPort);
-  }
-
-  getScene(sceneNr){
-
-    return sceneNr
-  }
-
-}*/
-
-//var myDb = new Database("12343", 163);
-//console.log(myDb.getScene(15));
-
-//module.exports  = io;

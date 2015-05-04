@@ -163,26 +163,27 @@ class Master{
     //Reset players position and who is playing
     //leave logged in
 
+
     this.db.getLevel(level, "OneRobotOneHumanNoMirror", function(data){
-      console.log("yead level data", data);
-    });
+      console.log("here is some callback");
 
-    /*
-    //replace players lists
-    var clevel = this.levels[level];
-    for(let ole in clevel){
-      console.log(clevel[ole].playerName);
-      let playerLevel = clevel[ole];
-      let p = this.getPlayer(playerLevel.playerName);
-      p.position = 1;
-      p.trapList = playerLevel.trapList;
-      p.hintList = playerLevel.hintList;
-      p.hintWord = playerLevel.hintWord;
-    }
+      for(let pl in data){
+        console.log(pl);
+        let p = this.getPlayer(pl);
+        p.position = 1;
+        p.trapList = data[pl].trapList;
+        p.hintList = data[pl].hintList;
+        p.hintWord = data[pl].hintWord;
+      }
 
-    this.communicator.serverLevelChange(this.players, level);
-    //resFunc(this.players);
-    */
+      this.communicator.serverLevelChange(this.players, level);
+
+    }.bind(this));
+
+
+
+
+
   }
 
 

@@ -35,14 +35,17 @@ class DB {
 
   getLevel(levelName, condition, callback){
 
+    var myMaster = this.master;
+    var levelsWithPlayer = {};
+    var cascation = 0;
 
     c_players.find().toArray(function(err, docs) {
       //console.log(docs);
       docs.forEach(function(a){
-        //console.log("balc",a);
-        console.log("1");
 
-
+        //create player Object for return
+        levelsWithPlayer[a.name] = {trapList:[], hintList:[], hintWord:[]};
+        cascation = cascation +1;
 
         async.waterfall([
           function(callback) {
@@ -54,9 +57,6 @@ class DB {
               }else{
                 callback(null, null);
               }
-              //a.trapList = adocs.traps;
-              //console.log(a);
-              console.log("2");
             });
           },
           function(traps, callback) {
@@ -70,15 +70,56 @@ class DB {
               }
               //a.trapList = adocs.traps;
               //console.log(a);
-              console.log("3");
+              //console.log("3");
 
               //console.log(a);
             });
+          },
+          function(traps, hints, callback){
+            c_dictionary.find({}).sort({wordValance:1})
+              .toArray(function(err, hintWords){
+
+                //console.log(hintWords);
+                var hintWordsObj = {};
+                for(let hint in hintWords){
+                  //console.log(hintWords[hint]);
+
+                  if(hintWordsObj[hintWords[hint].refWord] === undefined){
+                    hintWordsObj[hintWords[hint].refWord] = [];
+                  }
+                  hintWordsObj[hintWords[hint].refWord].push(hintWords[hint].name);
+                }
+
+
+                //console.log(hintWordsObj);
+                callback(null, traps, hints, hintWordsObj);
+              });
           }
-        ], function (err, traps, hints) {
-          //console.log(traps, hints);
+        ], function (err, traps, hints, hintWords) {
+          //console.log(hintWords, hints);
+
+          var myWordList = [];
+
+          if(hints !== null){
+            for(let hint in hints){
+              myWordList.push(hintWords[getTrapNameAtPost(traps, hints[hint])]);
+            }
+          }
+
           // result now equals 'done'
-          //console.log("waterfall Result", traps, hints);
+          //var myPlayer = myMaster.getPlayer(a.name);
+          levelsWithPlayer[a.name].trapList = traps;
+          levelsWithPlayer[a.name].hintList = hints;
+          levelsWithPlayer[a.name].hintWord = myWordList;
+          //console.log(myPlayer);
+
+          cascation = cascation - 1;
+          if(cascation === 0){
+            //console.log("Cast start", levelsWithPlayer);
+            callback(levelsWithPlayer);
+          }
+
+
         });
 
       });
@@ -87,18 +128,18 @@ class DB {
 
 
 
-
-    c_players.find({"name":"player1"}, function(err, item) {
-      //console.log(item);
-    });
-
-    /*
-    c_players.count({"name":"player1"},function(a,b){
-      console.log(a,b);
-    });
-    */
-
   }
+}
+
+function getTrapNameAtPost(trapList, pos){
+
+  for(let trap in trapList){
+    if(trapList[trap].position[0] === pos[0] && trapList[trap].position[1] === pos[1]){
+      return trapList[trap].name;
+    }
+  }
+
+  return null;
 }
 
 module.exports  = DB;
