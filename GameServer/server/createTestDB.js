@@ -134,7 +134,8 @@ var dictionary = [
   new DictEntry("dunes", 1.2, 3.2, 'dunes'),
   new DictEntry("doctor", 1.2, 3.2, 'doctor'),
   new DictEntry("teacher", 1.2, 3.2, 'teacher'),
-  new DictEntry("drugs", 1.2, 3.2, 'drugs')
+  new DictEntry("drugs", 1.2, 3.2, 'drugs'),
+  new DictEntry("pigeon", 1.2, 3.2, 'pigeon')
 
 ];
 
