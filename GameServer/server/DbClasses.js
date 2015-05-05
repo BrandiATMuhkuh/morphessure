@@ -60,8 +60,8 @@ DbClasses.Trap = class Trap {
 };
 
 DbClasses.Player = class Player {
-  constructor(pNumber, name, type){
-      this.pNumber = pNumber;
+  constructor(pId, name, type){
+      this.pId = pId;
       this.name = name;
       this.type = type;
       this.isLoggedOn = false;

@@ -5,6 +5,10 @@
 var DB = require('./DB.js');
 var Communicator = require('./Communicator.js')
 var Network = require('./Network.js')
+var DbClasses = require('./DbClasses.js');
+var LogPlayerSay = DbClasses.LogPlayerSay;
+var LogPlayerMoves = DbClasses.LogPlayerMoves;
+var Condition = DbClasses.Condition;
 /**
  * This class will handle all the logic for the game
  */
@@ -50,6 +54,21 @@ class Master{
 
     //update players on the server
     this.updatePlayerPosition(name, hintNr);
+
+    var condition = new Condition(1, "OneRobotOneHumanNoMirror", "the robot will play without any special extras. eg. no gazing, mirroroing, ...");
+    var player = this.getPlayer(name);
+
+    this.db.saveLog(new LogPlayerMoves(
+      player.pId,
+      condition.conditionId,
+      condition.condition,
+      player.name,
+      hintNr,
+      [-1,-1], //check this later
+      "symbolName"
+      ));
+
+
     this.communicator.serverMovePlayer(name, hintNr);
 
     //Wait a bit so the player can see that his/her character moved

@@ -16,6 +16,7 @@ var c_trapList = db.collection("c_trapList");
 var c_hintList = db.collection("c_hintList");
 var c_dictionary = db.collection("c_dictionary");
 var c_participants = db.collection("c_participants");
+var c_logs = db.collection("c_logs");
 
 class DB {
   constructor(master){
@@ -128,7 +129,22 @@ class DB {
 
 
 
+
   }
+
+  /**
+   * This will save a log in the DB db.
+   * @param log needes to be DbClasses.Log object
+   */
+  saveLog(log) {
+    if (!(log instanceof DbClasses.LogPlayerSay)
+      && !(log instanceof DbClasses.LogPlayerMoves)) {
+      return null;
+    }
+
+    c_logs.insert(log);
+  }
+
 }
 
 function getTrapNameAtPost(trapList, pos){
