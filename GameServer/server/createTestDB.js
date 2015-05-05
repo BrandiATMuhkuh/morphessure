@@ -12,6 +12,8 @@ var Hint = DbClasses.Hint;
 var Trap = DbClasses.Trap;
 var Player = DbClasses.Player;
 var Condition = DbClasses.Condition;
+var LogPlayerSay = DbClasses.LogPlayerSay;
+var LogPlayerMoves = DbClasses.LogPlayerMoves;
 var db = new Engine.Db('database', {});
 var async = require('async');
 
@@ -22,6 +24,7 @@ var c_trapList = db.collection("c_trapList");
 var c_hintList = db.collection("c_hintList");
 var c_dictionary = db.collection("c_dictionary");
 var c_participants = db.collection("c_participants");
+var c_logs = db.collection("c_logs");
 
 
 var conditions = [
@@ -144,12 +147,18 @@ var participants = [
 ];
 
 
+var logs = [
+  new LogPlayerSay(123, 12, "OneRobotOneHumanNoMirror", "player1", 'player2', "help", 1),
+  new LogPlayerMoves(123, 12, "OneRobotOneHumanNoMirror", "player1", 2, [1,3], "cup")
+];
+
 //empty all data
 c_players.remove({});
 c_conditions.remove({});
 c_trapList.remove({});
 c_dictionary.remove({});
 c_participants.remove({});
+c_logs.remove({});
 
 //Store new data
 c_players.insert(players);
@@ -158,6 +167,7 @@ c_hintList.insert(hintList)
 c_conditions.insert(conditions);
 c_dictionary.insert(dictionary);
 c_participants.insert(participants);
+c_logs.insert(logs);
 
 //test
 

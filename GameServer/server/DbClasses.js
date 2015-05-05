@@ -81,15 +81,37 @@ DbClasses.Condition = class Condition {
   }
 };
 
-DbClasses.Log = class Log {
-  constructor(pId, conditionId, condition, transmitter, receiver, word, correct){
+class Log {
+  constructor(type, pId, conditionId, condition, transmitter){
+    var date = new Date();
+    this.time = date.getTime();
+    this.ISOTime = date.toISOString();
+    this.type = type;
     this.pId = pId;
     this.conditionId = conditionId;
     this.condition = condition;
     this.transmitter = transmitter;
+  }
+};
+
+
+DbClasses.LogPlayerSay = class LogPlayerSay extends Log {
+  constructor(pId, conditionId, condition, transmitter, receiver, word, correct){
+    super('LogPlayerSay', pId, conditionId, condition, transmitter);
+
     this.receiver = receiver;
     this.word = word;
     this.correct = correct;
+  }
+};
+
+DbClasses.LogPlayerMoves = class LogPlayerMoves extends Log {
+  constructor(pId, conditionId, condition, transmitter, relativePosition, absolutePosition, symbolName){
+    super('LogPlayerMoves', pId, conditionId, condition, transmitter);
+
+    this.relativePosition = relativePosition;
+    this.absolutePosition = absolutePosition;
+    this.symbolName = symbolName;
   }
 };
 
