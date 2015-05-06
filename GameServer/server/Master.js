@@ -9,6 +9,8 @@ var DbClasses = require('./DbClasses.js');
 var LogPlayerSay = DbClasses.LogPlayerSay;
 var LogPlayerMoves = DbClasses.LogPlayerMoves;
 var Condition = DbClasses.Condition;
+var condition = new Condition(1, "OneRobotOneHumanNoMirror", "the robot will play without any special extras. eg. no gazing, mirroroing, ...");
+
 /**
  * This class will handle all the logic for the game
  */
@@ -55,7 +57,6 @@ class Master{
     //update players on the server
     this.updatePlayerPosition(name, hintNr);
 
-    var condition = new Condition(1, "OneRobotOneHumanNoMirror", "the robot will play without any special extras. eg. no gazing, mirroroing, ...");
     var player = this.getPlayer(name);
 
     this.db.saveLog(new LogPlayerMoves(
@@ -156,6 +157,17 @@ class Master{
    */
   clientMultiParticipantSaid(transmitter, receiver, correctness, answer, dictionary){
     console.log("clientMultiParticipantSaid", transmitter, receiver, correctness, answer, dictionary);
+
+    var player = this.getPlayer(transmitter);
+    this.db.saveLog(new LogPlayerSay(
+      player.pId,
+      condition.conditionId,
+      condition.condition,
+      player.name,
+      receiver,
+      answer,
+      correctness
+    ));
 
 
     if(correctness === 0){ // 0 is correct
