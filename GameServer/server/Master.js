@@ -6,7 +6,8 @@ var DB = require('./DB.js');
 var Communicator = require('./Communicator.js')
 var Network = require('./Network.js')
 var DbClasses = require('./DbClasses.js');
-var LogPlayerSay = DbClasses.LogPlayerSay;
+var LogPlayerSaid = DbClasses.LogPlayerSaid;
+var LogPlayerShouldSay = DbClasses.LogPlayerShouldSay;
 var LogPlayerMoves = DbClasses.LogPlayerMoves;
 var Condition = DbClasses.Condition;
 var condition = new Condition(1, "OneRobotOneHumanNoMirror", "the robot will play without any special extras. eg. no gazing, mirroroing, ...");
@@ -95,6 +96,19 @@ class Master{
 
     var _nextDict = this.getDictAtPosition(player, player.position+1);
     if(_nextDict != null){
+      console.log(transmitter, receiver, _nextDict[0],_nextDict);
+
+      var player = this.getPlayer(transmitter);
+      this.db.saveLog(new LogPlayerShouldSay(
+        player.pId,
+        condition.conditionId,
+        condition.condition,
+        player.name,
+        receiver,
+        _nextDict[0]
+      ));
+
+
       this.communicator.serverWhoIsNext(transmitter, receiver, _nextDict[0],_nextDict);
     }else{
       console.log("game is over")
@@ -159,7 +173,7 @@ class Master{
     console.log("clientMultiParticipantSaid", transmitter, receiver, correctness, answer, dictionary);
 
     var player = this.getPlayer(transmitter);
-    this.db.saveLog(new LogPlayerSay(
+    this.db.saveLog(new LogPlayerSaid(
       player.pId,
       condition.conditionId,
       condition.condition,
@@ -199,7 +213,7 @@ class Master{
       console.log("here is some callback");
 
       for(let pl in data){
-        console.log(pl);
+        //console.log(pl);
         let p = this.getPlayer(pl);
         p.position = 1;
         p.trapList = data[pl].trapList;

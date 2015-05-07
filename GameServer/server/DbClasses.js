@@ -95,13 +95,22 @@ class Log {
 };
 
 
-DbClasses.LogPlayerSay = class LogPlayerSay extends Log {
+DbClasses.LogPlayerSaid = class LogPlayerSay extends Log {
   constructor(pId, conditionId, condition, transmitter, receiver, word, correct){
-    super('LogPlayerSay', pId, conditionId, condition, transmitter);
+    super('LogPlayerSaid', pId, conditionId, condition, transmitter);
 
     this.receiver = receiver;
     this.word = word;
     this.correct = correct;
+  }
+};
+
+DbClasses.LogPlayerShouldSay = class LogPlayerShouldSay extends Log {
+  constructor(pId, conditionId, condition, transmitter, receiver, word){
+    super('LogPlayerShouldSay', pId, conditionId, condition, transmitter);
+
+    this.receiver = receiver;
+    this.word = word;
   }
 };
 

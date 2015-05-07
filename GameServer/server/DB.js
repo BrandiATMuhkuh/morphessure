@@ -137,10 +137,11 @@ class DB {
    * @param log needes to be DbClasses.Log object
    */
   saveLog(log) {
+    /*
     if (!(log instanceof DbClasses.LogPlayerSay)
       && !(log instanceof DbClasses.LogPlayerMoves)) {
       return null;
-    }
+    }*/
 
     c_logs.insert(log);
   }
