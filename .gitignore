@@ -26,5 +26,5 @@ node_modules
 server/config.json
 
 server/data/journal/*
-
+GameServer/database/*
 *~
