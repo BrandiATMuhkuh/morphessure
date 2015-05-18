@@ -1,0 +1,9 @@
+1) baseline: a baseline for the whole population
+
+2) mainBefore: before game start
+3) tutorial
+4) single session
+5) multi player tutorial
+6) multi player
+7) second single session
+8) mainAfter: after the game
