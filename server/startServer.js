@@ -13,12 +13,12 @@ dpd.sockets.on('connection', function (socket) {
 	ic = internalClient.build(process.server);
 	globalSock = socket;
  	globalSock.emit('master:info', { hello: 'world' });
- 	
+
  	globalSock.on('master:startTest', function (data) {
 		console.log('master:startTest');
 		console.log("tell client 0 to reload");
 		globalSock.emit('client:start', { "client": 0, "levelname":"practice" });
-		
+
 		setTimeout(function(){
 			console.log("tell client 1 to reload");
 			globalSock.emit('client:start', { "client": 1, "levelname":"practice" });
@@ -30,7 +30,7 @@ dpd.sockets.on('connection', function (socket) {
 		createUser(data.username);
   	});
 
-  	
+
 });
 
 
@@ -105,7 +105,7 @@ function anonUser(qualtricsObject, userId){
 			delete o.ExternalDataReference;
 			delete o.EmailAddress;
 			delete o.Status;
-			
+
 			if (o.Finished==0){
 				track(userId, "error", {"function":"anonUser"});
 				globalSock.emit('master:info', { "error": 1, "function":"anonUser", "text":"You did not finish the survey!" });
@@ -117,7 +117,7 @@ function anonUser(qualtricsObject, userId){
 		}
 	}
 
-	
+
 	return null;
 }
 
@@ -128,7 +128,7 @@ function anonUser(qualtricsObject, userId){
  * @param  {[type]} qualtricData [description]
  * @return {[type]}              [description]
  */
-function getWordNames(userId, qualtricData){	
+function getWordNames(userId, qualtricData){
 	track(userId, "info", {"function":"getWordNames"});
 	ic.wordnames.get(function (result, err) {
 		if(err) {
@@ -145,11 +145,11 @@ function getWordNames(userId, qualtricData){
 				"normalism" : result[a].normalism,
 				"dysphemism" : result[a].dysphemism
 			};
-		}	
+		}
 
 		console.log(words);
 		getSceneAndReplaceWords(userId, "practice", qualtricData, words);
-		
+
 	});
 }
 
@@ -168,14 +168,14 @@ function getSceneAndReplaceWords(userId, sceneName, qualtricData, words){
 
 	  var player0map = result[0].player0.map;
 	  //console.log(player0map);
-	  
+
 	  for(a in player0map){
 	  	if(player0map[a].qname){
 	  		player0map[a].say = qualtricsToWord(player0map[a].qname, qualtricData, words);
 	  	}
 	  }
 
-	  
+
 	  player0map = result[0].player1.map;
 	  for(a in player0map){
 	  	if(player0map[a].qname){
@@ -184,7 +184,7 @@ function getSceneAndReplaceWords(userId, sceneName, qualtricData, words){
 	  }
 
 	//console.log("getSceneAndReplaceWords END", result);
-	
+
 	track(userId, "info", {"function":"postexperiment"});
 	ic.experiment.post({"username": userId, "player0": result[0].player0, "player1": result[0].player1}, function(result2, err) {
 		if(err) {
@@ -198,7 +198,7 @@ function getSceneAndReplaceWords(userId, sceneName, qualtricData, words){
 		globalSock.emit('master:userDone', { "levelname":userId});
 		/*
 		globalSock.emit('client:start', { "client": 0, "levelname":"practice" });
-		
+
 		setTimeout(function(){
 			console.log("tell client 1 to reload");
 			globalSock.emit('client:start', { "client": 1, "levelname":"practice" });
@@ -210,7 +210,7 @@ function getSceneAndReplaceWords(userId, sceneName, qualtricData, words){
 }
 
 function qualtricsToWord(qtitle, qualtricData, words){
-	
+
 	var qname = parseInt(qualtricData[""+qname+"_name"]);
 	var qtext = "1";//qualtricData[""+qname+"_like"];
 	var qFt = qname+""+qtext;

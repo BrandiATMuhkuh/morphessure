@@ -1,0 +1,6 @@
+{
+  "name": "baseline",
+  "dependencies": {
+    "sqlite3": "^3.0.8"
+  }
+}

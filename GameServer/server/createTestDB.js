@@ -163,7 +163,7 @@ c_logs.remove({});
 //Store new data
 c_players.insert(players);
 c_trapList.insert(trapList);
-c_hintList.insert(hintList)
+c_hintList.insert(hintList);
 c_conditions.insert(conditions);
 c_dictionary.insert(dictionary);
 c_participants.insert(participants);
