@@ -28,3 +28,4 @@ server/config.json
 server/data/journal/*
 GameServer/database/*
 *~
+.Rproj.user

@@ -9,7 +9,7 @@ var exists = fs.existsSync(file);
 Select *, sum/co AS v from (select wordId, valance, image, SUM(valance) AS sum, COUNT(wordId) AS co from valance GROUP BY wordId)
 
 //Select all object with sum and words
-Select *, sum/co AS v from (select wordId, valance, image, SUM(valance) AS sum, COUNT(wordId) AS co from valance GROUP BY wordId) LEFT JOIN synonyms ON wordId=qualRef
+select *, sumVal*1.0/counts as sVal from (Select ref, sum(valance) as sumVal, count(ref) as counts from valance LEFT JOIN synonyms ON wordId=qualRef where word = 1  GROUP BY ref);
 */
 
 
