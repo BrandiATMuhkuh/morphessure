@@ -41,14 +41,17 @@ fs.readFile( __dirname + '/baseline.qsf', function (err, data) {
   var imgCount = 1;
 
 
-  db.each("select * from synonyms LEFT JOIN wordToImage ON LOWER(synonyms.ref) = LOWER(wordToImage.imgword)", function(err, row) {
-      //console.log(row.ref + ": " + row.name + ": "+ row.word);
+  var qaulLink = db.prepare("UPDATE synonyms SET qualRef = ? WHERE ROWID = ?");
+  db.each("select *, synonyms.ROWID AS id from synonyms LEFT JOIN wordToImage ON LOWER(synonyms.ref) = LOWER(wordToImage.imgword)", function(err, row) {
+      console.log(row.id);
 
       if(row.word === 1){
         for(var c in choices){
           choices[c][""+synCount] = {
             "Display" : row.name
           };
+
+          qaulLink.run("Q5_1_"+synCount, row.id);
         }
 
         orders.push(synCount);
@@ -64,6 +67,8 @@ fs.readFile( __dirname + '/baseline.qsf', function (err, data) {
           if(row.img === null){
             console.log(row.name, row.ref);
           }
+
+          qaulLink.run("Q2_1_"+imgCount, row.id);
           //console.log(row.img);
         }
 
@@ -77,7 +82,7 @@ fs.readFile( __dirname + '/baseline.qsf', function (err, data) {
   }, function (){
 
     //console.log("done", choices);
-
+    qaulLink.finalize();
     fs.writeFile("baseline_gen.qsf", JSON.stringify(survey), function(err) {
     if(err) {
         return console.log(err);

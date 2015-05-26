@@ -55,20 +55,49 @@ function addResponse(data){
   stmt.finalize();
 
   var valanceStmt = db.prepare("INSERT OR REPLACE INTO valance (userId, wordId, valance, image) VALUES (?, ?, ?, ?)");
-  for(var resp in data){
+  var tipiStmt = db.prepare("INSERT OR REPLACE INTO TIPI (id, extroversion, agreeableness, conscientiousness, emotionalStability, openness) VALUES (?, ?, ?, ?, ?, ?)");
 
+  var tipiData = {};
+
+  for(var resp in data){
+    console.log(resp);
     if(resp.includes('Q2_1')){
       console.log(resp);
-      valanceStmt.run(data.id, resp, data[resp], 1);
+      //valanceStmt.run(data.id, resp, data[resp], 1);
     }
 
     if(resp.includes('Q5_1')){
       console.log(resp);
-      valanceStmt.run(data.id, resp, data[resp], 0);
+      //valanceStmt.run(data.id, resp, data[resp], 0);
+    }
+
+    //TIPI Calc
+    if(resp.includes('Q4_1') ||
+    resp.includes('Q4_2') ||
+    resp.includes('Q4_3') ||
+    resp.includes('Q4_4') ||
+    resp.includes('Q4_5') ||
+    resp.includes('Q4_6') ||
+    resp.includes('Q4_7') ||
+    resp.includes('Q4_8') ||
+    resp.includes('Q4_9') ||
+    resp.includes('Q4_10')){
+      console.log(resp);
+      tipiData[resp] = data[resp];
     }
   }
 
+
+  tipiStmt.run(
+    data.id,
+    (tipiData['Q4_1']+tipiData['Q4_6'])/2,
+    (tipiData['Q4_2']+tipiData['Q4_7'])/2,
+    (tipiData['Q4_3']+tipiData['Q4_8'])/2,
+    (tipiData['Q4_4']+tipiData['Q4_9'])/2,
+    (tipiData['Q4_5']+tipiData['Q4_10'])/2);
+
   valanceStmt.finalize();
+  tipiStmt.finalize();
 
 
 
@@ -76,7 +105,7 @@ function addResponse(data){
 }
 
 
-
+console.log("http://canterbury.qualtrics.com/WRAPI/ControlPanel/api.php?"+_pars.join("&"));
 http.get("http://canterbury.qualtrics.com/WRAPI/ControlPanel/api.php?"+_pars.join("&"), function(res) {
   console.log("Got response: " + res.statusCode);
   var str = '';
