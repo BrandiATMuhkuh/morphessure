@@ -1,6 +1,9 @@
 #Libraries
 library(RSQLite) #to user sql in r
 library(data.table)
+library(plyr)
+library(ggplot2)
+library(gridExtra)
 
 sqlite <- dbDriver("SQLite")
 con <- dbConnect(sqlite,"baseline.db")
@@ -30,6 +33,18 @@ calcViaR = function(){
 }
 
 calcViaDB();
-calcViaR();
+calR = calcViaR();
 
 
+dotchart(calR$sVal,labels=calR$ref,cex=.8,
+         main="Words", 
+         xlab="Valance")
+
+
+calR$ref <-factor(calR$ref, levels=calR[order(calR$sVal), "ref"])
+
+x <-ggplot(calR, aes(y=ref, x=sVal)) + 
+  geom_point(stat="identity")
+
+
+grid.arrange(x)
