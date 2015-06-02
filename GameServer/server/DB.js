@@ -159,4 +159,4 @@ function getTrapNameAtPost(trapList, pos){
   return null;
 }
 
-module.exports  = DB;
+module.exports = DB;

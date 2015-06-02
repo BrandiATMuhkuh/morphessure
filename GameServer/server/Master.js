@@ -21,15 +21,16 @@ class Master{
    * The constructor needs a configFile with all players and the game world, plus words used
    * @param configFiles
    */
-  constructor(configFiles){
+  constructor(configFiles, pName){
+    this.pName = pName;
     this.db = new DB(this);
     this.communicator = new Communicator();
-    this.network = new Network();
+    this.network = new Network(configFiles.networks);
     this.communicator.setMaster(this);
-    this.players = [];
-    //this.levels = configFiles.levels;
+    this.players = configFiles.players;
+    this.levels = configFiles.levels;
 
-    this.db.populatePlayers();
+    //this.db.populatePlayers();
   }
 
   /**
@@ -204,11 +205,28 @@ class Master{
    */
   serverGetLevel(level){
     console.log("please give me my level", level);
-    this.network.resetNetwork();
+    this.network.resetNetwork(level);
     //Reset players position and who is playing
     //leave logged in
 
 
+
+    //replace players lists
+    var clevel = this.levels[level];
+    for(let ole in clevel){
+      console.log(clevel[ole].playerName);
+      let playerLevel = clevel[ole];
+      let p = this.getPlayer(playerLevel.playerName);
+      p.position = 1;
+      p.trapList = playerLevel.trapList;
+      p.hintList = playerLevel.hintList;
+      p.hintWord = playerLevel.hintWord;
+    }
+
+    this.communicator.serverLevelChange(this.players, level);
+
+
+    /*
     this.db.getLevel(level, "OneRobotOneHumanNoMirror", function(data){
       console.log("here is some callback");
 
@@ -223,7 +241,7 @@ class Master{
 
       this.communicator.serverLevelChange(this.players, level);
 
-    }.bind(this));
+    }.bind(this));*/
 
 
 

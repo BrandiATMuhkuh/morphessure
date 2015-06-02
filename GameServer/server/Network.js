@@ -8,10 +8,10 @@
  */
 class Network {
 
-  constructor(){
-    this.network = [];
+  constructor(networks){
     this.position = 0;
-    this.current = null;
+    this.networks = networks;
+    this.levelName = null;
   }
 
   /**
@@ -21,53 +21,27 @@ class Network {
    */
   getNext(){
 
-    if(this.network.length === 0){
-      this.generateNetwork();
-    }
+    var next = {
+      transmitter: this.networks[this.levelName][this.position].transmitter,
+        receiver: this.networks[this.levelName][this.position].receiver
+    };
 
-    var oldPost = this.position;
-    this.position = this.position + 1;
-    return this.network[oldPost];
+    this.position = this.networks[this.levelName][this.position].next;
+
+    return next;
+
   }
 
-  /**
-   * returns current nework node. E.g. {transmitter: player1, receiver: player2}
-   * @returns {return the current object}
-   */
-  getCurrent(){
-    return this.current;
-  }
 
   /**
    * This will resent the network. Later this will be
    * replaced with the network we defined.
+   * @param levelName the current level object
+   * @param hintLengh the lengh of all hints
    */
-  resetNetwork(){
-    this.network = [];
+  resetNetwork(levelName, hintLengh){
     this.position = 0;
-    this.current = null;
-  }
-
-
-  /**
-   * This is only used for test purposes and creates a simple p1 to p2, and p2 to p1 network
-   */
-  generateNetwork(){
-    for(var i = 0; i<20; i = i +1){
-      var next = {
-        transmitter: "player1",
-        receiver: "player2"
-      };
-
-      if(i % 2 === 0){
-        next = {
-          transmitter: "player2",
-          receiver: "player1"
-        };
-      }
-
-      this.network.push(next);
-    }
+    this.levelName = levelName;
   }
 }
 
