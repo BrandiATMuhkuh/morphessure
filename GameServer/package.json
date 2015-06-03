@@ -50,6 +50,7 @@
     "mongo-join": "^1.0.0",
     "mongoose": "^4.0.2",
     "promise": "^7.0.1",
+    "sqlite3": "^3.0.8",
     "tingodb": "^0.3.4",
     "tungus": "0.0.4"
   }

@@ -8,6 +8,11 @@ var Engine = require('tingodb')();
 var DbClasses = require('./DbClasses.js');
 var async = require('async');
 var db = new Engine.Db('database', {});
+var sqlite3 = require("sqlite3").verbose();
+var fs = require("fs");
+var file = "database/logging.sqlite";
+var exists = fs.existsSync(file);
+var sqlite = new sqlite3.Database(file);
 
 //Define Collections
 var c_players = db.collection('c_players');
@@ -21,6 +26,9 @@ var c_logs = db.collection("c_logs");
 class DB {
   constructor(master){
     this.master = master;
+
+
+
   }
 
   populatePlayers(){
@@ -144,6 +152,13 @@ class DB {
     }*/
 
     c_logs.insert(log);
+
+
+    var stmt = sqlite.prepare("INSERT INTO `Log`(`timestamp`, `ISOTime`, `type`,`pId`,`condition`,`transmitter`,`receiver`,`word`,`correct`,`relativePosition`,`absolutePosition`,`symbolName`) VALUES (?,?,?,?,?,?,?,?,?,?,?,?);");
+    console.log("SQLITE LOG",log);
+    stmt.run(log.time, log.ISOTime, log.type, log.pId, log.condition, log.transmitter, log.receiver, log.word, log.correct, log.relativePosition, log.absolutePosition, log.symbolName);
+    stmt.finalize();
+
   }
 
 }
