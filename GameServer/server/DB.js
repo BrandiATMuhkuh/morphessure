@@ -26,9 +26,6 @@ var c_logs = db.collection("c_logs");
 class DB {
   constructor(master){
     this.master = master;
-
-
-
   }
 
   populatePlayers(){
@@ -154,9 +151,9 @@ class DB {
     c_logs.insert(log);
 
 
-    var stmt = sqlite.prepare("INSERT INTO `Log`(`timestamp`, `ISOTime`, `type`,`pId`,`condition`,`transmitter`,`receiver`,`word`,`correct`,`relativePosition`,`absolutePosition`,`symbolName`) VALUES (?,?,?,?,?,?,?,?,?,?,?,?);");
-    console.log("SQLITE LOG",log);
-    stmt.run(log.time, log.ISOTime, log.type, log.pId, log.condition, log.transmitter, log.receiver, log.word, log.correct, log.relativePosition, log.absolutePosition, log.symbolName);
+    var stmt = sqlite.prepare("INSERT INTO `Log`(`timestamp`, `ISOTime`, `type`,`pId`,`condition`, `level`, `transmitter`,`receiver`,`word`,`correct`,`relativePosition`,`absolutePosition`,`symbolName`) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?);");
+    //console.log("SQLITE LOG",log);
+    stmt.run(log.time, log.ISOTime, log.type, this.master.pId, log.condition, this.master.currentLevel, log.transmitter, log.receiver, log.word, log.correct, log.relativePosition, log.absolutePosition, log.symbolName);
     stmt.finalize();
 
   }

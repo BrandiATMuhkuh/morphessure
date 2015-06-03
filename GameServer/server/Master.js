@@ -3,6 +3,7 @@
  */
 'use strict';
 var DB = require('./DB.js');
+var ConditionDictionaryGenerator = require('./ConditionDictionaryGenerator.js');
 var Communicator = require('./Communicator.js')
 var Network = require('./Network.js')
 var DbClasses = require('./DbClasses.js');
@@ -21,14 +22,15 @@ class Master{
    * The constructor needs a configFile with all players and the game world, plus words used
    * @param configFiles
    */
-  constructor(configFiles, pName){
-    this.pName = pName;
+  constructor(configFiles, pId){
+    this.pId = pId;
     this.db = new DB(this);
     this.communicator = new Communicator();
     this.network = new Network(configFiles.networks);
     this.communicator.setMaster(this);
     this.players = configFiles.players;
     this.levels = configFiles.levels;
+    this.currentLevel = null;
 
     //this.db.populatePlayers();
   }
@@ -62,9 +64,10 @@ class Master{
     var player = this.getPlayer(name);
 
     this.db.saveLog(new LogPlayerMoves(
-      player.pId,
+      this.pId,
       condition.conditionId,
       condition.condition,
+      this.currentLevel,
       player.name,
       hintNr,
       [-1,-1], //check this later
@@ -99,12 +102,13 @@ class Master{
     if(_nextDict != null){
       console.log(transmitter, receiver, _nextDict[0],_nextDict);
 
-      var player = this.getPlayer(transmitter);
+      var tplayer = this.getPlayer(transmitter);
       this.db.saveLog(new LogPlayerShouldSay(
-        player.pId,
+        this.pId,
         condition.conditionId,
         condition.condition,
-        player.name,
+        this.currentLevel,
+        tplayer.name,
         receiver,
         _nextDict[0]
       ));
@@ -175,9 +179,10 @@ class Master{
 
     var player = this.getPlayer(transmitter);
     this.db.saveLog(new LogPlayerSaid(
-      player.pId,
+      this.pId,
       condition.conditionId,
       condition.condition,
+      this.currentLevel,
       player.name,
       receiver,
       answer,
@@ -188,7 +193,6 @@ class Master{
     if(correctness === 0){ // 0 is correct
 
       var player = this.getPlayer(receiver);
-      console.log(player);
       this.clientMovePlayer(player.name, player.position+1);
 
     }else if(correctness === 1){ // 1 is wrong
@@ -205,14 +209,15 @@ class Master{
    */
   serverGetLevel(level){
     console.log("please give me my level", level);
-    this.network.resetNetwork(level);
+    this.currentLevel = level;
+    this.network.resetNetwork(this.currentLevel);
     //Reset players position and who is playing
     //leave logged in
 
 
 
     //replace players lists
-    var clevel = this.levels[level];
+    var clevel = this.levels[this.currentLevel];
     for(let ole in clevel){
       console.log(clevel[ole].playerName);
       let playerLevel = clevel[ole];
@@ -223,32 +228,18 @@ class Master{
       p.hintWord = playerLevel.hintWord;
     }
 
-    this.communicator.serverLevelChange(this.players, level);
-
-
-    /*
-    this.db.getLevel(level, "OneRobotOneHumanNoMirror", function(data){
-      console.log("here is some callback");
-
-      for(let pl in data){
-        //console.log(pl);
-        let p = this.getPlayer(pl);
-        p.position = 1;
-        p.trapList = data[pl].trapList;
-        p.hintList = data[pl].hintList;
-        p.hintWord = data[pl].hintWord;
-      }
-
-      this.communicator.serverLevelChange(this.players, level);
-
-    }.bind(this));*/
-
-
-
-
+    this.communicator.serverLevelChange(this.players, this.currentLevel);
 
   }
 
+
+  clientGenerateMultiPlayerConditionDictionary(){
+    console.log("clientGenerateMultiPlayerConditionDictionary");
+    new ConditionDictionaryGenerator();
+
+    //After generation is done. load the level
+    this.serverGetLevel("multiPlayer");
+  }
 
 }
 

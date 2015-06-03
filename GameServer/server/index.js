@@ -21,34 +21,26 @@ class NodeArgs{
       }
     }
 
-    return null;
+    return 1;
   }
 
-  pNumber(){
+  pId(){
 
     for(let i=0; i < this.args.length; i = i +1){
-      if(this.args[i] === "--pnumber"){
+      if(this.args[i] === "--pId"){
         return process.argv[i+1];
       }
     }
 
-    return null;
+    return "111";
   }
 }
 let nodeArgs = new NodeArgs(process.argv);
 
 
-var config = require("./conditions/condition1.js");
-var pName = "111";
-if(nodeArgs.getCondition() !== null){
-  config = require("./conditions/condition"+nodeArgs.getCondition()+".js");
-}
+var config = config = require("./conditions/condition"+nodeArgs.getCondition()+".js");
+var pId = nodeArgs.pId();
 
-if(nodeArgs.pNumber() !== null){
-  pName = nodeArgs.pNumber();
-}
-
-
-new Master(config, pName);
+new Master(config, pId);
 
 console.log('Start Server');

@@ -56,6 +56,11 @@ class UIMaster{
       comm.clientChangeLevel(sText);
     }.bind(this));
 
+    //Generate Multi Player Condition button clicked
+    $('#generaetMultiPlayerCondition').click(function(){
+      comm.clientGenerateMultiPlayerConditionDictionary();
+    }.bind(this));
+
 
     $( "#part-correct-answer" ).click(function() {
       console.log( "part-correct-answer" );

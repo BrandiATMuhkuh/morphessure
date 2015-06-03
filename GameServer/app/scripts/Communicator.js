@@ -142,6 +142,10 @@ class Communicator{
     this.socket.emit("client:movePlayer", {name:name, hintNr:hintNr});
   }
 
+  clientGenerateMultiPlayerConditionDictionary(){
+    this.socket.emit("client:generateMultiPlayerConditionDictionary");
+  }
+
   /**
    * Server sends player movement in case it changed
    * And undefined number of function can listen to

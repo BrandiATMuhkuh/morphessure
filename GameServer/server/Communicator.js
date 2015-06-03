@@ -91,6 +91,14 @@ class Communicator{
       this.master.clientMultiParticipantSaid(data.transmitter, data.receiver, data.correctness, data.answer, data.dictionary);
     }).bind(this));
 
+
+    /**
+     * Listens to the client when to generate a multiPlayerCondition
+     */
+    this.socket.on("client:generateMultiPlayerConditionDictionary", (function(data){
+      this.master.clientGenerateMultiPlayerConditionDictionary();
+    }).bind(this));
+
   }
 
 

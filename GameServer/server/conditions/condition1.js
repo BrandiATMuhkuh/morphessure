@@ -51,6 +51,10 @@ module.exports = {
     singlePlayer:[
       {next: 1, transmitter: "player1", receiver: "player2"},
       {next: 0, transmitter: "player2", receiver: "player1"}
+    ],
+    multiPlayer:[
+      {next: 1, transmitter: "player1", receiver: "player2"},
+      {next: 0, transmitter: "player2", receiver: "player1"}
     ]
   },
 
@@ -165,6 +169,116 @@ module.exports = {
       }
     ],
     singlePlayer : [
+      {
+        playerName : "player1",
+        trapList : [
+          {
+            position: [0,0],
+            name: 'cattle'
+          },
+          {
+            position: [1,1],
+            name: 'snack'
+          },
+          {
+            position: [2,1],
+            name: 'sphere'
+          },
+          {
+            position: [2,2],
+            name: 'computer'
+          },
+          {
+            position: [2,3],
+            name: 'USB'
+          },
+          {
+            position: [2,4],
+            name: 'marijuana'
+          },
+          {
+            position: [2,5],
+            name: 'referee'
+          },
+          {
+            position: [2,6],
+            name: 'mouse'
+          },
+          {
+            position: [2,7],
+            name: 'man'
+          }
+        ],
+        hintList : [[0,0],[1,1], [2,1], [2,2], [2,3], [2,4], [2,5], [2,6], [2,7]],
+        hintWord : [
+          ['cattle','Stomach','Fat Man'],
+          ['snack','Robberer','Money Transporter'],
+          ['sphere',"Mug"],
+          ['computer', 'Sign', 'Golfflag'],
+          ['usb', 'Sign', 'Golfflag'],
+          ['marijuana', 'Sign', 'Golfflag'],
+          ['referee', 'Sign', 'Golfflag'],
+          ['mouse', 'Sign', 'Golfflag'],
+          ['man', 'Sign', 'Golfflag']
+        ]
+      },
+
+      {
+        playerName : "player2",
+        trapList : [
+          {
+            position: [0,0],
+            name: 'alligator'
+          },
+          {
+            position: [1,1],
+            name: 'beans'
+          },
+          {
+            position: [2,1],
+            name: 'RAM'
+          },
+          {
+            position: [2,2],
+            name: 'beetle'
+          },
+          {
+            position: [2,3],
+            name: 'pigeon'
+          },
+          {
+            position: [2,4],
+            name: 'flag'
+          },
+          {
+            position: [2,5],
+            name: 'ocean'
+          },
+          {
+            position: [2,6],
+            name: 'programmer'
+          },
+          {
+            position: [2,7],
+            name: 'marijuana'
+          }
+        ],
+        hintList : [[0,0],[1,1], [2,1],[2,2], [2,3], [2,4], [2,5], [2,6], [2,7]],
+        hintWord : [
+          ['Alligator', "Crocogile", "Reptile"],
+          ['Beans', 'Seed', 'Start'],
+          ['RAM', 'Piano', 'Memory'],
+          ['Beetle', 'Sign', 'Golfflag'],
+          ['pigion', 'Sign', 'Golfflag'],
+          ['Flag', 'Sign', 'Golfflag'],
+          ['ocean', 'Sign', 'Golfflag'],
+          ['programmer', 'Sign', 'Golfflag'],
+          ['majijuana', 'Sign', 'Golfflag']
+        ]
+      }
+    ],
+
+    multiPlayer : [
       {
         playerName : "player1",
         trapList : [

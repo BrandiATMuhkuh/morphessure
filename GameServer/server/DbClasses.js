@@ -82,7 +82,7 @@ DbClasses.Condition = class Condition {
 };
 
 class Log {
-  constructor(type, pId, conditionId, condition, transmitter){
+  constructor(type, pId, conditionId, condition, level, transmitter){
     var date = new Date();
     this.time = date.getTime();
     this.ISOTime = date.toISOString();
@@ -90,14 +90,15 @@ class Log {
     this.pId = pId;
     this.conditionId = conditionId;
     this.condition = condition;
+    this.level = level;
     this.transmitter = transmitter;
   }
 };
 
 
 DbClasses.LogPlayerSaid = class LogPlayerSay extends Log {
-  constructor(pId, conditionId, condition, transmitter, receiver, word, correct){
-    super('LogPlayerSaid', pId, conditionId, condition, transmitter);
+  constructor(pId, conditionId, condition, level, transmitter, receiver, word, correct){
+    super('LogPlayerSaid', pId, conditionId, condition, level, transmitter);
 
     this.receiver = receiver;
     this.word = word;
@@ -106,8 +107,8 @@ DbClasses.LogPlayerSaid = class LogPlayerSay extends Log {
 };
 
 DbClasses.LogPlayerShouldSay = class LogPlayerShouldSay extends Log {
-  constructor(pId, conditionId, condition, transmitter, receiver, word){
-    super('LogPlayerShouldSay', pId, conditionId, condition, transmitter);
+  constructor(pId, conditionId, condition, level, transmitter, receiver, word){
+    super('LogPlayerShouldSay', pId, conditionId, condition, level, transmitter);
 
     this.receiver = receiver;
     this.word = word;
@@ -115,8 +116,8 @@ DbClasses.LogPlayerShouldSay = class LogPlayerShouldSay extends Log {
 };
 
 DbClasses.LogPlayerMoves = class LogPlayerMoves extends Log {
-  constructor(pId, conditionId, condition, transmitter, relativePosition, absolutePosition, symbolName){
-    super('LogPlayerMoves', pId, conditionId, condition, transmitter);
+  constructor(pId, conditionId, condition, level, transmitter, relativePosition, absolutePosition, symbolName){
+    super('LogPlayerMoves', pId, conditionId, condition, level, transmitter);
 
     this.relativePosition = relativePosition;
     this.absolutePosition = absolutePosition;
