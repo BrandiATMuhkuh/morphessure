@@ -26,7 +26,7 @@ class ConditionDictionaryGenerator{
       _self
         ._createDictionary(123)
         .then(function(result){
-          return _self._saveFile(123, "testasdf");
+          return _self._saveFile(123, result);
         })
         .then(function(result){
           resolve(result);
@@ -41,7 +41,34 @@ class ConditionDictionaryGenerator{
   _createDictionary(pId){
     return new Promise(function(resolve, reject){
       console.log("_createDictionary");
-      resolve("_createDictionary "+pId);
+
+      var possibleOjb = {
+        player1: [
+          ['Belly','Stomach','Fat Man'],
+          ['Thief','Robberer','Money Transporter'],
+          ['Cup',"Mug"],
+          ['marijuana', 'Sign', 'Golfflag'],
+          ['pipe', 'Sign', 'Golfflag'],
+          ['dunes', 'Sign', 'Golfflag'],
+          ['doctor', 'Sign', 'Golfflag'],
+          ['teacher', 'Sign', 'Golfflag'],
+          ['drugs', 'Sign', 'Golfflag']
+        ],
+
+        player2:[
+          ['Alligator', "Crocogile", "Reptile"],
+          ['Beans', 'Seed', 'Start'],
+          ['RAM', 'Piano', 'Memory'],
+          ['Beetle', 'Sign', 'Golfflag'],
+          ['refeeree', 'Sign', 'Golfflag'],
+          ['fireplace', 'Sign', 'Golfflag'],
+          ['moth', 'Sign', 'Golfflag'],
+          ['pipe', 'Sign', 'Golfflag'],
+          ['teacher', 'Sign', 'Golfflag']
+        ]
+      };
+
+      resolve(possibleOjb);
     });
   }
 
@@ -49,7 +76,7 @@ class ConditionDictionaryGenerator{
     return new Promise(function(resolve, reject){
       console.log("_saveFile", pId, obj);
       var fs = require('fs');
-      fs.writeFile("server/GeneratedDictionaries/condition1_pId_"+pId+".json", "Hey there!", function(err) {
+      fs.writeFile("server/GeneratedDictionaries/condition1_pId_"+pId+".json", JSON.stringify(obj, null, '\t'), function(err) {
         if(err) {
           return console.log(err);
           reject(err);
