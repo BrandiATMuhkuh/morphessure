@@ -235,10 +235,14 @@ class Master{
 
   clientGenerateMultiPlayerConditionDictionary(){
     console.log("clientGenerateMultiPlayerConditionDictionary");
-    new ConditionDictionaryGenerator();
+    new ConditionDictionaryGenerator(this).generate().then(function(response){
+      console.log("clientGenerateMultiPlayerConditionDictionaryPROMIS", response);
+    }).catch(function(response){
+      console.error(response);
+    });
 
     //After generation is done. load the level
-    this.serverGetLevel("multiPlayer");
+    //this.serverGetLevel("multiPlayer");
   }
 
 }

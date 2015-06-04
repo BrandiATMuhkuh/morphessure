@@ -11,7 +11,6 @@ var db = new Engine.Db('database', {});
 var sqlite3 = require("sqlite3").verbose();
 var fs = require("fs");
 var file = "database/logging.sqlite";
-var exists = fs.existsSync(file);
 var sqlite = new sqlite3.Database(file);
 
 //Define Collections
