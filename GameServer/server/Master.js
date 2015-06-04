@@ -237,6 +237,9 @@ class Master{
     console.log("clientGenerateMultiPlayerConditionDictionary");
     new ConditionDictionaryGenerator(this).generate().then(function(response){
       console.log("clientGenerateMultiPlayerConditionDictionaryPROMIS", response);
+
+      //take the
+
     }).catch(function(response){
       console.error(response);
     });
