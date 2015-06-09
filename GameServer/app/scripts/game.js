@@ -35,6 +35,7 @@ class Game {
 
     //Load hints
     this.game.load.image(Assets.hint, Assets.hintPath+Assets.hint);
+    this.game.load.image(Assets.nohint, Assets.hintPath+Assets.nohint);
 
     //Load all taps images in the cache
     for(var tile in Assets.traps){
@@ -80,8 +81,9 @@ class Game {
     //Load all Game worlds, hints, and traps
     var playerNr = 0;
     for (var player in this.players){
+      console.log("game world player: ", player, localPlayer.name);
       this.players[player].renderWorld(playerNr, 10, 10);
-      this.players[player].renderHints();
+      this.players[player].renderHints(player == localPlayer.name);
       this.players[player].renderTraps();
       this.players[player].renderPlayer();
       playerNr = playerNr + 1;
@@ -155,5 +157,3 @@ class Game {
     }
   }
 }
-
-

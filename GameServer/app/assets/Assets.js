@@ -30,6 +30,7 @@ Assets = {
 
   hintPath: 'assets/base_pack/Spritesheet/',
   hint: 'stoneRingYellow.png',
+  nohint: 'stoneRingNo.png',
 
   trapsPath: 'assets/traps/',
   traps:[

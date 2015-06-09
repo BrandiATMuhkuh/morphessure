@@ -155,95 +155,91 @@ module.exports = {
           },
           {
             position: [3,0],
-            name: 'beans'
+            name: 'couch'
           },
           {
             position: [3,1],
-            name: 'RAM'
+            name: 'cross'
           },
           {
             position: [3,2],
-            name: 'beetle'
+            name: 'cup'
           },
           {
             position: [3,3],
-            name: 'referee'
+            name: 'dirt'
           },
           {
             position: [3,4],
-            name: 'fireplace'
+            name: 'doctor'
           },
           {
             position: [3,5],
-            name: 'moth'
+            name: 'dog'
           },
           {
             position: [3,6],
-            name: 'pipe'
+            name: 'door'
           },
           {
             position: [3,7],
-            name: 'teacher'
-          },
-          {
-            position: [3,0],
-            name: 'beans'
+            name: 'drink'
           },
           {
             position: [1,0],
-            name: 'RAM'
+            name: 'factory'
           },
           {
             position: [1,2],
-            name: 'beetle'
+            name: 'athlete'
           },
           {
             position: [1,3],
-            name: 'referee'
+            name: 'axe'
           },
           {
             position: [1,4],
-            name: 'fireplace'
+            name: 'baby'
           },
           {
             position: [1,5],
-            name: 'moth'
+            name: 'barrels'
           },
           {
             position: [1,6],
-            name: 'pipe'
+            name: 'bat'
           },
           {
             position: [1,7],
-            name: 'teacher'
+            name: 'cup'
           },
           {
             position: [0,1],
-            name: 'RAM'
+            name: 'boot'
           },
           {
             position: [0,2],
-            name: 'beetle'
+            name: 'branch'
           },
           {
             position: [0,3],
-            name: 'referee'
+            name: 'canoe'
           },
           {
             position: [0,4],
-            name: 'fireplace'
+            name: 'car'
           },
           {
             position: [0,5],
-            name: 'moth'
+            name: 'cart'
           },
           {
             position: [0,6],
-            name: 'pipe'
+            name: 'cattle'
           },
           {
             position: [0,7],
-            name: 'teacher'
+            name: 'clothes'
           }
         ],
         hintList : [[0,0],[1,1], [2,1],[2,2], [2,3], [2,4], [2,5], [2,6], [2,7]],

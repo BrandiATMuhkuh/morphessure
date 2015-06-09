@@ -138,10 +138,15 @@ class Player{
   /**
    * This will render all hints on the map
    */
-  renderHints(){
+  renderHints(isCurrentPlayer){
     for (var hint in this.hintList){
 
-      var s = this.addSprite(this.hintList[hint][0],this.hintList[hint][1], 'stoneRingYellow.png');
+      var hintImg = 'stoneRingYellow.png';
+      if(isCurrentPlayer){
+        hintImg = 'stoneRingNo.png';
+      }
+
+      var s = this.addSprite(this.hintList[hint][0],this.hintList[hint][1], hintImg);
       this.grid[this.hintList[hint][0]][this.hintList[hint][1]].hint = s;
 
 
