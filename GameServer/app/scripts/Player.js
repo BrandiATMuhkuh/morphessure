@@ -141,7 +141,7 @@ class Player{
   renderHints(){
     for (var hint in this.hintList){
 
-      var s = this.addSprite(this.hintList[hint][0],this.hintList[hint][1], 'stoneRing.png');
+      var s = this.addSprite(this.hintList[hint][0],this.hintList[hint][1], 'stoneRingYellow.png');
       this.grid[this.hintList[hint][0]][this.hintList[hint][1]].hint = s;
 
 

@@ -152,6 +152,98 @@ module.exports = {
           {
             position: [2,7],
             name: 'teacher'
+          },
+          {
+            position: [3,0],
+            name: 'beans'
+          },
+          {
+            position: [3,1],
+            name: 'RAM'
+          },
+          {
+            position: [3,2],
+            name: 'beetle'
+          },
+          {
+            position: [3,3],
+            name: 'referee'
+          },
+          {
+            position: [3,4],
+            name: 'fireplace'
+          },
+          {
+            position: [3,5],
+            name: 'moth'
+          },
+          {
+            position: [3,6],
+            name: 'pipe'
+          },
+          {
+            position: [3,7],
+            name: 'teacher'
+          },
+          {
+            position: [3,0],
+            name: 'beans'
+          },
+          {
+            position: [1,0],
+            name: 'RAM'
+          },
+          {
+            position: [1,2],
+            name: 'beetle'
+          },
+          {
+            position: [1,3],
+            name: 'referee'
+          },
+          {
+            position: [1,4],
+            name: 'fireplace'
+          },
+          {
+            position: [1,5],
+            name: 'moth'
+          },
+          {
+            position: [1,6],
+            name: 'pipe'
+          },
+          {
+            position: [1,7],
+            name: 'teacher'
+          },
+          {
+            position: [0,1],
+            name: 'RAM'
+          },
+          {
+            position: [0,2],
+            name: 'beetle'
+          },
+          {
+            position: [0,3],
+            name: 'referee'
+          },
+          {
+            position: [0,4],
+            name: 'fireplace'
+          },
+          {
+            position: [0,5],
+            name: 'moth'
+          },
+          {
+            position: [0,6],
+            name: 'pipe'
+          },
+          {
+            position: [0,7],
+            name: 'teacher'
           }
         ],
         hintList : [[0,0],[1,1], [2,1],[2,2], [2,3], [2,4], [2,5], [2,6], [2,7]],
@@ -390,4 +482,3 @@ module.exports = {
 
   }
 };
-

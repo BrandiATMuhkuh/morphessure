@@ -29,7 +29,7 @@ Assets = {
     'tileWater_shadow.png'],
 
   hintPath: 'assets/base_pack/Spritesheet/',
-  hint: 'stoneRing.png',
+  hint: 'stoneRingYellow.png',
 
   trapsPath: 'assets/traps/',
   traps:[
