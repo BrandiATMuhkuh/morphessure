@@ -7,6 +7,7 @@ var ConditionDictionaryGenerator = require('./ConditionDictionaryGenerator.js');
 var Communicator = require('./Communicator.js')
 var Network = require('./Network.js')
 var DbClasses = require('./DbClasses.js');
+var NaoComm = require('./NaoComm.js');
 var LogPlayerSaid = DbClasses.LogPlayerSaid;
 var LogPlayerShouldSay = DbClasses.LogPlayerShouldSay;
 var LogPlayerMoves = DbClasses.LogPlayerMoves;
@@ -31,6 +32,7 @@ class Master{
     this.players = configFiles.players;
     this.levels = configFiles.levels;
     this.currentLevel = null;
+    this.naoComm = new NaoComm();
 
     //this.db.populatePlayers();
   }
@@ -79,11 +81,11 @@ class Master{
 
     //Wait a bit so the player can see that his/her character moved
     //before the camera will move
-    this.tellClientswhoIsNext();
-    /*
+    //this.tellClientswhoIsNext();
+
     setTimeout(function() {
       this.tellClientswhoIsNext();
-    }.bind(this), 3000);*/
+    }.bind(this), 3000);
   }
 
   /**
@@ -100,7 +102,7 @@ class Master{
 
     var _nextDict = this.getDictAtPosition(player, player.position+1);
     if(_nextDict != null){
-      console.log(transmitter, receiver, _nextDict[0],_nextDict);
+      //console.log(transmitter, receiver, _nextDict[0],_nextDict);
 
       var tplayer = this.getPlayer(transmitter);
       this.db.saveLog(new LogPlayerShouldSay(
@@ -115,6 +117,18 @@ class Master{
 
 
       this.communicator.serverWhoIsNext(transmitter, receiver, _nextDict[0],_nextDict);
+      //If it's the player2's turn, the robot will automatically say the word
+      if(transmitter == "player2"){
+        console.log("time for robot to say who is next");
+        setTimeout(function() {
+          this.naoComm.say("Go to the "+_nextDict[0]+"!");
+          //this.tellClientswhoIsNext();
+          //clientMultiParticipantSaid(transmitter, receiver, correctness, answer, dictionary)
+        }.bind(this), 3000);
+      }
+      console.log("next: ", transmitter, receiver);
+
+
     }else{
       console.log("game is over")
     }

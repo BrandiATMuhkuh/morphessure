@@ -132,7 +132,7 @@ class Communicator{
       receiverDict: receiverDict
     };
 
-    console.log("serverWhoIsNext", _next);
+    //console.log("serverWhoIsNext", _next);
     this.io.emit("server:whoIsNext", _next); //Will send a broadcast to everyone
   }
 }
