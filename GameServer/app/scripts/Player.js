@@ -66,7 +66,7 @@ class Player{
    */
   renderWorld(offSet, leftRight, topDown){
 
-    offSet = offSet * leftRight * 66;
+    offSet = offSet * topDown * 66;
     //offSet=offSet;
 
     //Create background images

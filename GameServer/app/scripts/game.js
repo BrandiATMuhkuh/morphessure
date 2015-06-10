@@ -75,14 +75,14 @@ class Game {
     this.game.stage.backgroundColor = '#ca9a6c';
     console.log("game is created");
 
-    this.game.world.setBounds(-100, -100, 2000, 1000);
+    this.game.world.setBounds(-100, -100, 2000, 6000);
 
 
     //Load all Game worlds, hints, and traps
     var playerNr = 0;
     for (var player in this.players){
       console.log("game world player: ", player, localPlayer.name);
-      this.players[player].renderWorld(playerNr, 10, 10);
+      this.players[player].renderWorld(playerNr, 80, 10);
       this.players[player].renderHints(player == localPlayer.name);
       this.players[player].renderTraps();
       this.players[player].renderPlayer();
