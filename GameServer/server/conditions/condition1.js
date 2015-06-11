@@ -28,7 +28,8 @@ module.exports = {
       isPlaying: false,
       trapList : [],
       hintList : [],
-      hintWord : []
+      hintWord : [],
+      acknowledgeWord: "Sweet. I'll go to the ?word?!"
     },
 
 

@@ -209,7 +209,7 @@ class Master{
       var player = this.getPlayer(receiver);
       if(player.type === "robot"){
         //Say what you do.
-        this.naoComm.say("Ok. I'll go to the "+answer+"!");
+        this.naoComm.say(player.acknowledgeWord.replace("?word?", answer));
         setTimeout(function() {
           this.clientMovePlayer(player.name, player.position+1);
         }.bind(this), 1500);
