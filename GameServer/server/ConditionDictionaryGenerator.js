@@ -1,7 +1,7 @@
 /**
  * Created by jbr134 on 3/06/15.
  */
-'use strict';
+"use strict";
 var sqlite3 = require("sqlite3").verbose();
 var fs = require("fs");
 var file = "database/logging.sqlite";
@@ -24,9 +24,9 @@ class ConditionDictionaryGenerator{
     var _self = this;
     var promise = new Promise(function(resolve, reject) {
       _self
-        ._createDictionary(123)
+        ._createDictionary(_self.master.pId)
         .then(function(result){
-          return _self._saveFile(123, result);
+          return _self._saveFile(_self.master.pId, result);
         })
         .then(function(result){
           resolve(result);
@@ -38,33 +38,40 @@ class ConditionDictionaryGenerator{
 
   }
 
+  /**
+   * Creates the the new dictionary depending on the users behfior
+   * @param pId the current player Id
+   * @returns {Promise} return a promise with the dict when finished
+   * @private
+   */
   _createDictionary(pId){
     return new Promise(function(resolve, reject){
       console.log("_createDictionary");
 
+      //TODO do real calculation here
       var possibleOjb = {
         player1: [
-          ['Belly','Stomach','Fat Man'],
-          ['Thief','Robberer','Money Transporter'],
-          ['Cup',"Mug"],
-          ['marijuana', 'Sign', 'Golfflag'],
-          ['pipe', 'Sign', 'Golfflag'],
-          ['dunes', 'Sign', 'Golfflag'],
-          ['doctor', 'Sign', 'Golfflag'],
-          ['teacher', 'Sign', 'Golfflag'],
-          ['drugs', 'Sign', 'Golfflag']
+          ["Belly","Stomach","Fat Man"],
+          ["Thief","Robberer","Money Transporter"],
+          ["Cup","Mug"],
+          ["marijuana", "Sign", "Golfflag"],
+          ["pipe", "Sign", "Golfflag"],
+          ["dunes", "Sign", "Golfflag"],
+          ["doctor", "Sign", "Golfflag"],
+          ["teacher", "Sign", "Golfflag"],
+          ["drugs", "Sign", "Golfflag"]
         ],
 
         player2:[
-          ['Alligator', "Crocogile", "Reptile"],
-          ['Beans', 'Seed', 'Start'],
-          ['RAM', 'Piano', 'Memory'],
-          ['Beetle', 'Sign', 'Golfflag'],
-          ['refeeree', 'Sign', 'Golfflag'],
-          ['fireplace', 'Sign', 'Golfflag'],
-          ['moth', 'Sign', 'Golfflag'],
-          ['pipe', 'Sign', 'Golfflag'],
-          ['teacher', 'Sign', 'Golfflag']
+          ["Alligator", "Crocogile", "Reptile"],
+          ["Beans", "Seed", "Start"],
+          ["RAM", "Piano", "Memory"],
+          ["Beetle", "Sign", "Golfflag"],
+          ["refeeree", "Sign", "Golfflag"],
+          ["fireplace", "Sign", "Golfflag"],
+          ["moth", "Sign", "Golfflag"],
+          ["pipe", "Sign", "Golfflag"],
+          ["teacher", "Sign", "Golfflag"]
         ]
       };
 
@@ -75,8 +82,8 @@ class ConditionDictionaryGenerator{
   _saveFile(pId, obj){
     return new Promise(function(resolve, reject){
       console.log("_saveFile", pId, obj);
-      var fs = require('fs');
-      fs.writeFile("server/GeneratedDictionaries/condition1_pId_"+pId+".json", JSON.stringify(obj, null, '\t'), function(err) {
+      var fs = require("fs");
+      fs.writeFile("server/GeneratedDictionaries/condition1_pId_"+pId+".json", JSON.stringify(obj, null, "\t"), function(err) {
         if(err) {
           return console.log(err);
           reject(err);

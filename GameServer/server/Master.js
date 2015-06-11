@@ -118,13 +118,13 @@ class Master{
 
       this.communicator.serverWhoIsNext(transmitter, receiver, _nextDict[0],_nextDict);
       //If it's the player2's turn, the robot will automatically say the word
-      if(transmitter == "player2"){
+      if(tplayer.type == "robot" ){
         console.log("time for robot to say who is next");
         setTimeout(function() {
           this.naoComm.say("Go to the "+_nextDict[0]+"!");
           //this.tellClientswhoIsNext();
           //clientMultiParticipantSaid(transmitter, receiver, correctness, answer, dictionary)
-        }.bind(this), 3000);
+        }.bind(this), 1500);
       }
       console.log("next: ", transmitter, receiver);
 
@@ -207,7 +207,16 @@ class Master{
     if(correctness === 0){ // 0 is correct
 
       var player = this.getPlayer(receiver);
-      this.clientMovePlayer(player.name, player.position+1);
+      if(player.type === "robot"){
+        //Say what you do.
+        this.naoComm.say("Ok. I'll go to the "+answer+"!");
+        setTimeout(function() {
+          this.clientMovePlayer(player.name, player.position+1);
+        }.bind(this), 1500);
+      }else{
+        this.clientMovePlayer(player.name, player.position+1);
+      }
+
 
     }else if(correctness === 1){ // 1 is wrong
 
