@@ -22,6 +22,12 @@ class UIMaster{
       }
     });
 
+    $("#repeadButton").on("click", function(){
+      console.log("Repeate previouse item again. ");
+      comm.clientRepeatWord();
+    });
+
+
     //Check if playername is in URL
     if(location.getParameter("playerName") !== null){
       localPlayer.name = location.getParameter("playerName");
@@ -344,5 +350,3 @@ class UIMaster{
     }
   }
 }
-
-

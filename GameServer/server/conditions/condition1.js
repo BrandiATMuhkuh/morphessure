@@ -46,7 +46,8 @@ module.exports = {
 
   networks: {
     tutorial:[
-        {next: 0, transmitter: "player1", receiver: "player2"}
+      {next: 1, transmitter: "player1", receiver: "player2"},
+      {next: 0, transmitter: "player2", receiver: "player1"}
       ],
     singlePlayer:[
       {next: 0, transmitter: "player1", receiver: "player2"}

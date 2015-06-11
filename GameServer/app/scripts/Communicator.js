@@ -85,6 +85,13 @@ class Communicator{
   }
 
   /**
+  * tell the server to repeat what it just said!
+  */
+  clientRepeatWord(){
+    this.socket.emit("client:repeatWord");
+  }
+
+  /**
    * Server sends player list in case it changed or
    * was required.
    * And undefined number of function can listen to

@@ -44,6 +44,15 @@ class Communicator{
     console.log("start");
 
     /**
+    * Client x tells server to repeat the word it just said
+    */
+    this.socket.on("client:repeatWord", (function(data){
+      console.log("repeat Word");
+      this.master.naoComm.repeat();
+    }).bind(this));
+
+
+    /**
      * Client x tells server it wants to move
      * This practically means the client clicked
      * on a object
