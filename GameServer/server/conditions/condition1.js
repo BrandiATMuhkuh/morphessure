@@ -45,23 +45,13 @@ module.exports = {
     }
   ],
 
-  networks: {
-    tutorial:[
-      {next: 1, transmitter: "player1", receiver: "player2"},
-      {next: 0, transmitter: "player2", receiver: "player1"}
-      ],
-    singlePlayer:[
-      {next: 1, transmitter: "player1", receiver: "player2"},
-      {next: 0, transmitter: "player2", receiver: "player1"}
-    ],
-    multiPlayer:[
-      {next: 1, transmitter: "player1", receiver: "player2"},
-      {next: 0, transmitter: "player2", receiver: "player1"}
-    ]
-  },
 
   levels : {
     tutorial : {
+      network: [
+        {next: 1, transmitter: "player1", receiver: "player2"},
+        {next: 0, transmitter: "player2", receiver: "player1"}
+      ],
       fields : [
       {
         playerName : "player1",
@@ -11301,6 +11291,10 @@ module.exports = {
       }
     ] },
     singlePlayer : {
+      network: [
+        {next: 1, transmitter: "player1", receiver: "player2"},
+        {next: 0, transmitter: "player2", receiver: "player1"}
+      ],
       fields: [
       {
         playerName : "player1",
@@ -11412,6 +11406,10 @@ module.exports = {
     ] },
 
     multiPlayer : {
+      network: [
+        {next: 1, transmitter: "player1", receiver: "player2"},
+        {next: 0, transmitter: "player2", receiver: "player1"}
+      ],
       fields : [
       {
         playerName : "player1",

@@ -22,11 +22,11 @@ class Network {
   getNext(){
 
     var next = {
-      transmitter: this.networks[this.levelName][this.position].transmitter,
-        receiver: this.networks[this.levelName][this.position].receiver
+      transmitter: this.networks[this.levelName].network[this.position].transmitter,
+        receiver: this.networks[this.levelName].network[this.position].receiver
     };
 
-    this.position = this.networks[this.levelName][this.position].next;
+    this.position = this.networks[this.levelName].network[this.position].next;
 
     return next;
 

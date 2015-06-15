@@ -28,10 +28,12 @@ class Master{
     this.pId = pId;
     this.db = new DB(this);
     this.communicator = new Communicator();
-    this.network = new Network(configFiles.networks);
     this.communicator.setMaster(this);
-    this.players = configFiles.players;
-    this.levels = configFiles.levels;
+    this.settings = configFiles;
+
+    this.players = this.settings.players;
+    this.levels = this.settings.levels;
+    this.network = new Network(this.levels);
     this.currentLevel = null;
     this.naoComm = new NaoComm();
 
