@@ -207,7 +207,8 @@ class Master{
     ));
 
 
-    if(correctness === 0){ // 0 is correct
+
+    if(correctness === 0 || this.levels[this.currentLevel].type === "single"){ // 0 is correct
 
       var player = this.getPlayer(receiver);
       if(player.type === "robot"){

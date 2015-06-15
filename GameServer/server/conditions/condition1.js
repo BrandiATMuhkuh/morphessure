@@ -52,6 +52,7 @@ module.exports = {
 
   levels : {
     tutorial : {
+      type: "single",
       network: [
         {next: 1, transmitter: "player1", receiver: "player2"},
         {next: 0, transmitter: "player2", receiver: "player1"}
