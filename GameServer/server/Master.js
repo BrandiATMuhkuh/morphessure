@@ -22,6 +22,7 @@ class Master{
   /**
    * The constructor needs a configFile with all players and the game world, plus words used
    * @param configFiles
+   * @param pId
    */
   constructor(configFiles, pId){
     this.pId = pId;
@@ -240,7 +241,7 @@ class Master{
 
 
     //replace players lists
-    var clevel = this.levels[this.currentLevel];
+    var clevel = this.levels[this.currentLevel].fields;
     for(let ole in clevel){
       console.log(clevel[ole].playerName);
       let playerLevel = clevel[ole];

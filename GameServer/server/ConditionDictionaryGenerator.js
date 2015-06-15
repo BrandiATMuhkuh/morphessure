@@ -18,9 +18,6 @@ class ConditionDictionaryGenerator{
    * @returns {Promise} the Promise when done or failed
    */
   generate(){
-
-
-
     var _self = this;
     var promise = new Promise(function(resolve, reject) {
       _self

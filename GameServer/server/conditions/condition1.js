@@ -61,7 +61,8 @@ module.exports = {
   },
 
   levels : {
-    tutorial : [
+    tutorial : {
+      fields : [
       {
         playerName : "player1",
         trapList: [
@@ -11298,8 +11299,9 @@ module.exports = {
           ['teacher', 'Sign', 'Golfflag']
         ]
       }
-    ],
-    singlePlayer : [
+    ] },
+    singlePlayer : {
+      fields: [
       {
         playerName : "player1",
         trapList : [
@@ -11407,9 +11409,10 @@ module.exports = {
           ['majijuana', 'Sign', 'Golfflag']
         ]
       }
-    ],
+    ] },
 
-    multiPlayer : [
+    multiPlayer : {
+      fields : [
       {
         playerName : "player1",
         trapList : [
@@ -11517,7 +11520,7 @@ module.exports = {
           ['majijuana', 'Sign', 'Golfflag']
         ]
       }
-    ]
+    ] }
 
   }
 };
