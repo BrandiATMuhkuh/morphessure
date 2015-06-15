@@ -29,7 +29,11 @@ module.exports = {
       trapList : [],
       hintList : [],
       hintWord : [],
-      acknowledgeWord: "Sweet. I'll go to the ?word?!"
+      talk:{
+        acknowledge: "Sweet. I'll go to the ?word?!",
+        goTo: "Go to the ?word?!"
+      }
+
     },
 
 
