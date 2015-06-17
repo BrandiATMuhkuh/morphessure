@@ -50,7 +50,7 @@
 
     <script type="text/javascript">
       $(document).ready(function(){
-        $("#myTab li:eq(0) a").tab('show');
+        //$("#myTab li:eq(0) a").tab('show');
       });
     </script>
 
@@ -60,18 +60,88 @@
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
 
+    <style>
 
-    <div class="container">
-      <div class="header">
-        <ul class="nav  nav-pills pull-right" id="myTab">
-          <li><a data-toggle="tab" href="#sectionB">Researcher</a></li>
-          <li><a data-toggle="tab" href="#sectionA">Wizard</a></li>
-        </ul>
-        <h3 class="text-muted">Gret experiment</h3>
+      .boxStyle{
+        margin: 5px;
+
+        padding: 10px;
+        box-shadow: 0 3px 10px rgba(0,0,0,0.16);
+        border: 1px solid #EFEFEF;
+        background-color: #FFFFFF;
+
+      }
+
+      #mainDiv{
+        width:100%;
+        background-color:  green;
+        margin: 0 auto;
+
+      }
+
+      #gameDiv{
+        width:830px;
+        display: inline-block;
+        float: left;
+      }
+      #resDiv{
+        width:25%;
+        display: inline-block;
+        float:left;
+
+      }
+
+      #wizDiv{
+        width:25%;
+        display: inline-block;
+        float:left;
+
+      }
+
+
+
+    </style>
+
+    <div id="mainDiv">
+
+
+
+      <div id="resDiv" class="boxStyle">
+
+          <div class="row marketing">
+            <p class="lead">Add here username and select your player</p>
+            <select class="selectpicker" id="listOfPlayers">
+              <option value="notSelected">notSelected</option>
+            </select>
+            <button id="selectPlayerButton" type="button" class="btn btn-default">Select this player</button>
+          </div>
+
+          <div class="row marketing">
+            <p class="lead">Load and start levels</p>
+            <select class="selectpicker" id="levelName">
+              <option value="notSelected">tutorial</option>
+              <option value="notSelected">singlePlayer</option>
+              <option value="notSelected">multiPlayerTutorial</option>
+              <option value="notSelected">multiPlayer</option>
+              <option value="notSelected">singePlayer</option>
+            </select>
+            <button type="button" class="btn btn-default" id="loadAndStart">Load and start Level</button>
+            <button type="button" class="btn btn-default" id="generaetMultiPlayerCondition">Generate Multi player condtion</button>
+          </div>
+
+          <div class="row marketing" id="researcher">
+            <p class="lead">Researcher</p>
+            <ul class="list-group" id="resPlayerList"></ul>
+          </div>
+
+
+      </div>
+      <div id="gameDiv" class="boxStyle">
+        <div id="morphessor"></div>
       </div>
 
-      <div class="tab-content">
-        <div id="sectionA" class="tab-pane fade in active">
+
+      <div id="wizDiv" class="boxStyle">
 
 
           <div class="row marketing" id="multi-part-should-say">
@@ -101,55 +171,12 @@
               <a class="list-group-item singe-part-said-item">Rich Man</a>
             </div>
           </div>
-        </div>
-
-        <div id="sectionB" class="tab-pane fade">
-          <div class="row marketing">
-            <p class="lead">Add here username and select your player</p>
-            <select class="selectpicker" id="listOfPlayers">
-              <option value="notSelected">notSelected</option>
-            </select>
-            <button id="selectPlayerButton" type="button" class="btn btn-default">Select this player</button>
-          </div>
-
-          <div class="row marketing">
-            <p class="lead">Load and start levels</p>
-            <select class="selectpicker" id="levelName">
-              <option value="notSelected">tutorial</option>
-              <option value="notSelected">singlePlayer</option>
-              <option value="notSelected">multiPlayerTutorial</option>
-              <option value="notSelected">multiPlayer</option>
-              <option value="notSelected">singePlayer</option>
-            </select>
-            <button type="button" class="btn btn-default" id="loadAndStart">Load and start Level</button>
-            <button type="button" class="btn btn-default" id="generaetMultiPlayerCondition">Generate Multi player condtion</button>
-          </div>
-
-          <div class="row marketing" id="researcher">
-            <p class="lead">Researcher</p>
-            <ul class="list-group" id="resPlayerList"></ul>
-          </div>
-
-        </div>
-
 
       </div>
-
-
-
-
-
-      <div class="row marketing">
-        <div id="morphessor"></div>
-      </div>
-
-      <div class="footer">
-        <p><span class="glyphicon glyphicon-heart"></span> from the Yeoman team</p>
-      </div>
-
-
 
     </div>
+
+
 
 
 
