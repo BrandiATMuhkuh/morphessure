@@ -10,13 +10,17 @@ class Game {
     this.cursors = null;
     this.tileArray = null;
     this.players = [];//This will contain all players
-
+    this.myTurnText = "YOUR TURN";
 
 
     //Add server listeners
     //add a server whos is next listener to move the camera
     comm.addServerWhoIsNext((function(data){
       this.serverWhoIsNext(data.receiver);
+
+      //If this player is receiver change your turn display
+      this.myTurn(localPlayer.name === data.receiver);
+
     }).bind(this));
   }
 
@@ -89,7 +93,34 @@ class Game {
       playerNr = playerNr + 1;
     }
 
+    //Background for text to indicate who is next
+    // set a fill and line style
+    this.myTurnGraphics = this.game.add.graphics(0, 0);
+    this.myTurnGraphics.beginFill(0x00CC00);
+    this.myTurnGraphics.moveTo(0,0);
+    this.myTurnGraphics.lineTo(this.game.world.game.width, 0);
+    this.myTurnGraphics.lineTo(this.game.world.game.width, 100);
+    this.myTurnGraphics.lineTo(0, 100);
+    this.myTurnGraphics.endFill();
+    this.myTurnGraphics.visible = false;
+
+    this.notmyTurnGraphics = this.game.add.graphics(0, 0);
+    this.notmyTurnGraphics.beginFill(0xFF0000);
+    this.notmyTurnGraphics.moveTo(0,0);
+    this.notmyTurnGraphics.lineTo(this.game.world.game.width, 0);
+    this.notmyTurnGraphics.lineTo(this.game.world.game.width, 100);
+    this.notmyTurnGraphics.lineTo(0, 100);
+    this.notmyTurnGraphics.endFill();
+    this.notmyTurnGraphics.visible = false;
+
+    //Next to indicate who is next
+    var style = { font: "65px Arial", fill: "black", align: "center"};
+    this.text = this.game.add.text(this.game.camera.x, 200, "please wait", style);
+    this.text.anchor.set(0.5);
+    this.text.visible = false;
+
     this.cursors = this.game.input.keyboard.createCursorKeys();
+
   }
 
   /**
@@ -113,6 +144,18 @@ class Game {
     {
       this.game.camera.x += 4;
     }
+
+
+    this.text.x = this.game.camera.x+(this.game.world.game.width/2);
+    this.text.y = this.game.camera.y+this.game.world.game.height-50;
+    this.text.text = this.myTurnText;
+    this.text.visible = true;
+    this.myTurnGraphics.x = this.game.camera.x;
+    this.myTurnGraphics.y = this.game.camera.y + this.game.world.game.height-100;
+    this.notmyTurnGraphics.x = this.game.camera.x;
+    this.notmyTurnGraphics.y = this.game.camera.y + this.game.world.game.height-100;
+
+
   }
 
   /**
@@ -154,6 +197,22 @@ class Game {
         y: _currPlayer.player.y - 100
       }, 1000, Phaser.Easing.Linear.None, true, 0, 0, false);
 
+    }
+  }
+
+  /**
+   * Set the background color and text do indicate that person is playering
+   * @param yes
+   */
+  myTurn(yes){
+    if(yes === true){
+      this.myTurnGraphics.visible=true;
+      this.notmyTurnGraphics.visible=!this.myTurnGraphics.visible;
+      this.myTurnText = "YOU MOVE";
+    }else{
+      this.myTurnGraphics.visible=false;
+      this.notmyTurnGraphics.visible=!this.myTurnGraphics.visible;
+      this.myTurnText = "YOU TALK";
     }
   }
 }
