@@ -11,6 +11,8 @@ class UIMaster{
     this.whoIsNextData = null;
     this.currentGame = null;
 
+
+
     //Get players
     $("#selectPlayerButton").on("click", function(){
       var sText = $('#listOfPlayers').find(":selected").text();
@@ -87,6 +89,22 @@ class UIMaster{
     this.displayMultiWizardSays(true);
     //this.displaySingePartSaid(true);
 
+
+
+    //use url parameters to turn on or off the wizard or researcher
+    if(location.getParameter("displayWizard") === "true"){
+      this.displayWizard(true);
+    }else{
+      this.displayWizard(false);
+    }
+
+    if(location.getParameter("displayResearcher") === "true"){
+      this.displayResearcher(true);
+    }else{
+      this.displayResearcher(false);
+    }
+
+
     this.showSplashScreen();
   }
 
@@ -104,6 +122,33 @@ class UIMaster{
     }
   }
 
+  /**
+   * This will turn on/off the wizard view
+   * @param display true/false to display
+   */
+  displayWizard(display){
+    if(display){
+      document.querySelector("#wizDiv").style.visibility = "visible";
+    }
+    else{
+      document.querySelector("#wizDiv").style.visibility = "hidden";
+    }
+
+  }
+
+  /**
+   * This will turn on/off the researchers view
+   * @param display true/false to display
+   */
+  displayResearcher(display){
+    if(display){
+      document.querySelector("#resDiv").style.visibility = "visible";
+    }
+    else{
+      document.querySelector("#resDiv").style.visibility = "hidden";
+    }
+
+  }
 
   loadAndStartLevel(levelName){
 
@@ -111,7 +156,6 @@ class UIMaster{
       this.generateGame(data, levelName);
       this.startGame(levelName);
     }.bind(this));
-
 
   }
 
