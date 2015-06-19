@@ -54,8 +54,7 @@ module.exports = {
     tutorial : {
       type: "single",
       network: [
-        {next: 1, transmitter: "player1", receiver: "player2"},
-        {next: 0, transmitter: "player2", receiver: "player1"}
+        {next: 0, transmitter: "player1", receiver: "player2"}
       ],
       fields : [
       {
@@ -11283,15 +11282,17 @@ module.exports = {
         ],
         hintList : [[0,0],[1,1], [2,1],[2,2], [2,3], [2,4], [2,5], [2,6], [2,7]],
         hintWord : [
-          ['Alligator', "Crocogile", "Reptile"],
-          ['Beans', 'Seed', 'Start'],
-          ['RAM', 'Piano', 'Memory'],
-          ['Beetle', 'Sign', 'Golfflag'],
-          ['refeeree', 'Sign', 'Golfflag'],
-          ['fireplace', 'Sign', 'Golfflag'],
-          ['moth', 'Sign', 'Golfflag'],
-          ['pipe', 'Sign', 'Golfflag'],
-          ['teacher', 'Sign', 'Golfflag']
+          ['Cloth', "Crocogile", "Reptile"],
+          ['Bird', 'Seed', 'Start'],
+          ['Bench', 'Piano', 'Memory'],
+          ['Man', 'Sign', 'Golfflag'],
+          ['Cross', 'Sign', 'Golfflag'],
+          ['Disabled', 'Parking', 'Golfflag'],
+          ['Street', 'Sign', 'Golfflag'],
+          ['church', 'Sign', 'Golfflag'],
+          ['Referee', 'Sign', 'Golfflag'],
+          ['Tablet', 'Sign', 'Golfflag'],
+          ['Mouse', 'Sign', 'Golfflag']
         ]
       }
     ] },
