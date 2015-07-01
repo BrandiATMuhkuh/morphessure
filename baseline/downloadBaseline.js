@@ -62,13 +62,13 @@ function addResponse(data){
   for(var resp in data){
     console.log(resp);
     if(resp.includes('Q2_1')){
-      console.log(resp);
-      //valanceStmt.run(data.id, resp, data[resp], 1);
+      console.log(data.id, resp, data[resp], 1);
+      valanceStmt.run(data.id, resp, data[resp], 1);
     }
 
     if(resp.includes('Q5_1')){
-      console.log(resp);
-      //valanceStmt.run(data.id, resp, data[resp], 0);
+      console.log(data.id, resp, data[resp], 0);
+      valanceStmt.run(data.id, resp, data[resp], 0);
     }
 
     //TIPI Calc

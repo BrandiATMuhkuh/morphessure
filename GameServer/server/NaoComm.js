@@ -3,10 +3,13 @@
 */
 'use strict';
 var request = require('request');
+var net = require('net');
 module.exports = class NaoComm {
 
-  constructor(){
+  constructor(address, port){
     this.lastRequest = "Nothing to say";
+    this.address = (typeof address === 'undefined')? "localhost":address;
+    this.port = (typeof port === 'undefined')? 50016:port;
   }
 
   say(text){
@@ -14,15 +17,17 @@ module.exports = class NaoComm {
 
     this.lastRequest = text;
 
-    request('http://localhost:5000/say',
-            {
-              method: "POST",
-              json: true,
-              body: {say: ""+text}
-            },
-            function(err, res, body) {
-      // `body` is a js object if request was successful
+    var client = new net.Socket();
+    client.connect(this.port, this.address, function() {
+      console.log('Connected');
+      client.write('say='+text);
     });
+
+    client.on('close', function() {
+      console.log('Connection closed');
+    });
+
+
   }
 
   /**
