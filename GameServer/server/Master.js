@@ -35,7 +35,7 @@ class Master{
     this.levels = this.settings.levels;
     this.network = new Network(this.levels);
     this.currentLevel = null;
-    this.naoComm = new NaoComm();
+    this.naoComm = new NaoComm("cookie.local");
 
     //this.db.populatePlayers();
   }
@@ -88,7 +88,7 @@ class Master{
 
     setTimeout(function() {
       this.tellClientswhoIsNext();
-    }.bind(this), 3000);
+    }.bind(this), 1500);
   }
 
   /**

@@ -11402,11 +11402,11 @@ module.exports = {
           ['Beans', 'Seed', 'Start'],
           ['RAM', 'Piano', 'Memory'],
           ['Beetle', 'Sign', 'Golfflag'],
-          ['pigion', 'Sign', 'Golfflag'],
+          ['pigeon', 'Sign', 'Golfflag'],
           ['Flag', 'Sign', 'Golfflag'],
           ['ocean', 'Sign', 'Golfflag'],
           ['programmer', 'Sign', 'Golfflag'],
-          ['majijuana', 'Sign', 'Golfflag']
+          ['marijuana', 'Sign', 'Golfflag']
         ]
       }
     ] },
@@ -11517,11 +11517,11 @@ module.exports = {
           ['Beans', 'Seed', 'Start'],
           ['RAM', 'Piano', 'Memory'],
           ['Beetle', 'Sign', 'Golfflag'],
-          ['pigion', 'Sign', 'Golfflag'],
+          ['pigeon', 'Sign', 'Golfflag'],
           ['Flag', 'Sign', 'Golfflag'],
           ['ocean', 'Sign', 'Golfflag'],
           ['programmer', 'Sign', 'Golfflag'],
-          ['majijuana', 'Sign', 'Golfflag']
+          ['marijuana', 'Sign', 'Golfflag']
         ]
       }
     ] }

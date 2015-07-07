@@ -27,7 +27,6 @@ module.exports = class NaoComm {
       console.log('Connection closed');
     });
 
-
   }
 
   /**

@@ -102,7 +102,7 @@ class MyClass(GeneratedClass):
                             <Output name="lookUp" type="2" type_size="1" nature="2" inner="0" tooltip="" id="5" />
                             <Output name="say" type="3" type_size="1" nature="2" inner="0" tooltip="" id="6" />
                         </Box>
-                        <Box name="Say Text" id="4" localization="8" tooltip="Say the text received on its input." x="415" y="299">
+                        <Box name="Say Text" id="4" localization="8" tooltip="Say the text received on its input." x="372" y="245">
                             <bitmap>media/images/box/interaction/say.png</bitmap>
                             <script language="4">
                                 <content>
