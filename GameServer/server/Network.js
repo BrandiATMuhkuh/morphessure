@@ -21,6 +21,11 @@ class Network {
    */
   getNext(){
 
+    if(this.levelName === null){
+      console.log("the level is null. Please select a level first");
+      return null;
+    }
+
     var next = {
       transmitter: this.networks[this.levelName].network[this.position].transmitter,
         receiver: this.networks[this.levelName].network[this.position].receiver

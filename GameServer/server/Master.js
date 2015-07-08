@@ -98,6 +98,9 @@ class Master{
    */
   tellClientswhoIsNext(){
     var next = this.network.getNext();
+    if(next === null){
+      return;
+    }
     var receiver = next.receiver;
     var transmitter = next.transmitter;
 

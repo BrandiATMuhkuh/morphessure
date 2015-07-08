@@ -18,12 +18,17 @@ module.exports = class NaoComm {
     this.lastRequest = text;
 
     var client = new net.Socket();
-    client.connect(this.port, this.address, function() {
-      console.log('Connected');
-      client.write('say='+text);
+    client.on('error', function(e){
+      console.error("I could not connect to NAO. I guess the behavior is not running or NAO is not durned on!");
+
     });
 
-    client.on('close', function() {
+    client.connect(this.port, this.address, function () {
+      console.log('Connected');
+      //client.write('say=' + text);
+    });
+
+    client.on('close', function () {
       console.log('Connection closed');
     });
 
