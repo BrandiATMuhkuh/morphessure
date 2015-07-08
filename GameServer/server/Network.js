@@ -18,6 +18,7 @@ class Network {
    * Returns who talkes to whom next
    * @returns {*} received a class which contains
    * a transmitter and a receiver {tranmitter;xxx, receiver: xxx}
+   * @return null if the levelName is null and no network could be created
    */
   getNext(){
 
