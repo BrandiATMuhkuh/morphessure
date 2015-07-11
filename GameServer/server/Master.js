@@ -23,9 +23,13 @@ class Master{
    * The constructor needs a configFile with all players and the game world, plus words used
    * @param configFiles
    * @param pId
+   * @param robotAddress
+   * @param robotPort
    */
-  constructor(configFiles, pId){
+  constructor(configFiles, pId, robotAddress, robotPort){
     this.pId = pId;
+    this.robotAddress = robotAddress;
+    this.robotPort = robotPort;
     this.db = new DB(this);
     this.communicator = new Communicator();
     this.communicator.setMaster(this);
@@ -35,7 +39,7 @@ class Master{
     this.levels = this.settings.levels;
     this.network = new Network(this.levels);
     this.currentLevel = null;
-    this.naoComm = new NaoComm("cookie.local");
+    this.naoComm = new NaoComm(this.robotAddress, this.robotPort);
 
     //this.db.populatePlayers();
   }

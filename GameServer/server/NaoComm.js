@@ -25,7 +25,7 @@ module.exports = class NaoComm {
 
     client.connect(this.port, this.address, function () {
       console.log('Connected');
-      //client.write('say=' + text);
+      client.write('say=' + text);
     });
 
     client.on('close', function () {

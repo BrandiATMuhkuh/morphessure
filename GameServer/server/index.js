@@ -24,23 +24,53 @@ class NodeArgs{
     return 1;
   }
 
-  pId(){
+  /**\
+   * return the participants Id. This is mainly used to log what participant said
+   * @returns {*}
+   */
+  getpId(){
 
     for(let i=0; i < this.args.length; i = i +1){
       if(this.args[i] === "--pId"){
         return process.argv[i+1];
       }
     }
-
     return "111";
+  }
+
+  /**
+   *
+   * @returns {*}
+   */
+  getRobotAddress(){
+    for(let i=0; i < this.args.length; i = i +1){
+      if(this.args[i] === "--robotAddress"){
+        return process.argv[i+1];
+      }
+    }
+    return "cookie.canterbury.ac.nz"
+    return undefined;
+  }
+
+  /**
+   *
+   * @returns {*}
+   */
+  getRobotPort(){
+    for(let i=0; i < this.args.length; i = i +1){
+      if(this.args[i] === "--robotPort"){
+        return process.argv[i+1];
+      }
+    }
+    return undefined;
   }
 }
 let nodeArgs = new NodeArgs(process.argv);
 
 
 var config = config = require("./conditions/condition"+nodeArgs.getCondition()+".js");
-var pId = nodeArgs.pId();
+var pId = nodeArgs.getpId();
 
-new Master(config, pId);
+new Master(config, pId, nodeArgs.getRobotAddress(), nodeArgs.getRobotPort());
 
 console.log('Start Server');
