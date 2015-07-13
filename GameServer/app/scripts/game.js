@@ -105,7 +105,7 @@ class Game {
     this.myTurnGraphics.visible = false;
 
     this.notmyTurnGraphics = this.game.add.graphics(0, 0);
-    this.notmyTurnGraphics.beginFill(0xFF0000);
+    this.notmyTurnGraphics.beginFill(0x0099FF);
     this.notmyTurnGraphics.moveTo(0,0);
     this.notmyTurnGraphics.lineTo(this.game.world.game.width, 0);
     this.notmyTurnGraphics.lineTo(this.game.world.game.width, 100);
@@ -208,11 +208,11 @@ class Game {
     if(yes === true){
       this.myTurnGraphics.visible=true;
       this.notmyTurnGraphics.visible=!this.myTurnGraphics.visible;
-      this.myTurnText = "YOU MOVE";
+      this.myTurnText = "MOVE";
     }else{
       this.myTurnGraphics.visible=false;
       this.notmyTurnGraphics.visible=!this.myTurnGraphics.visible;
-      this.myTurnText = "YOU TALK";
+      this.myTurnText = "TALK";
     }
   }
 }
