@@ -92,7 +92,7 @@ class Master{
 
     setTimeout(function() {
       this.tellClientswhoIsNext();
-    }.bind(this), 1500);
+    }.bind(this), 300);
   }
 
   /**
@@ -134,7 +134,7 @@ class Master{
           this.naoComm.say(tplayer.talk.goTo.replace("?word?", _nextDict[0]));
           //this.tellClientswhoIsNext();
           //clientMultiParticipantSaid(transmitter, receiver, correctness, answer, dictionary)
-        }.bind(this), 1500);
+        }.bind(this), 300);
       }
       console.log("next: ", transmitter, receiver);
 
@@ -190,6 +190,27 @@ class Master{
     }
   }
 
+
+  /**
+   * Will return a random object from an array
+   * @param inputArray random object. NUll if array is null
+   */
+  selectRandomArrayObject(inputArray){
+
+    if(inputArray === undefined || inputArray === null || inputArray.length <= 0){
+      return null
+    }
+    /**
+     * Returns a random integer between min (inclusive) and max (inclusive)
+     * Using Math.round() will give you a non-uniform distribution!
+     * Source: http://stackoverflow.com/questions/1527803/generating-random-numbers-in-javascript-in-a-specific-range
+     */
+    return inputArray[Math.floor(Math.random() * (inputArray.length))];
+
+
+
+  }
+
   /**
    * This is the answer the wizard (receiver) got from the participant (receiver)
    * @param transmitter name of the players who said something
@@ -220,10 +241,10 @@ class Master{
       var player = this.getPlayer(receiver);
       if(player.type === "robot"){
         //Say what you do.
-        this.naoComm.say(player.talk.acknowledge.replace("?word?", answer));
+        this.naoComm.say(this.selectRandomArrayObject(player.talk.acknowledge).replace("?word?", answer));
         setTimeout(function() {
           this.clientMovePlayer(player.name, player.position+1);
-        }.bind(this), 1500);
+        }.bind(this), 1000);
       }else{
         this.clientMovePlayer(player.name, player.position+1);
       }

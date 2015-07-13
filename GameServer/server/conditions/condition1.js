@@ -30,7 +30,11 @@ module.exports = {
       hintList : [],
       hintWord : [],
       talk:{
-        acknowledge: "Sweet. I'll go to the ?word?!",
+        acknowledge: [
+          "Ok, I go to the ?word?!",
+          "The ?word? it is!",
+          "Ok"
+        ],
         goTo: "Go to the ?word?!"
       }
 

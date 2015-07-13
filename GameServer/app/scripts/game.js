@@ -195,7 +195,7 @@ class Game {
       this.game.add.tween(this.game.camera).to({
         x: _currPlayer.player.x - 100,
         y: _currPlayer.player.y - 100
-      }, 1000, Phaser.Easing.Linear.None, true, 0, 0, false);
+      }, 300, Phaser.Easing.Quadratic.InOut, true, 0, 0, false);
 
     }
   }

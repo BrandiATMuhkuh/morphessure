@@ -232,7 +232,7 @@ class Player{
     this.game.add.tween(this.player).to({
       x: this.grid[x][y].x,
       y: this.grid[x][y].y
-    }, 1000, Phaser.Easing.Linear.None, true, 0, 0, false);
+    }, 100, Phaser.Easing.Linear.None, true, 0, 0, false);
   }
 
   /**
