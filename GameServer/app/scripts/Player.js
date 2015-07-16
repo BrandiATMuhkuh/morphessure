@@ -179,6 +179,7 @@ class Player{
     for (var hint in this.hintList) {
       var _hint = this.grid[this.hintList[hint][0]][this.hintList[hint][1]].hint;
       //console.log(_hint);
+      //TODO activate only next possible option
       if(_hint !== undefined){
         _hint.inputEnabled = playing;
       }

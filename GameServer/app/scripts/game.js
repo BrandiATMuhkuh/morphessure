@@ -129,6 +129,7 @@ class Game {
    * This method runs in a loop and updates whatever should happen
    */
   update(){
+    /* //User keys to move the map
     if (this.cursors.up.isDown)
     {
       this.game.camera.y -= 4;
@@ -146,7 +147,7 @@ class Game {
     {
       this.game.camera.x += 4;
     }
-
+    */
 
     this.text.x = this.game.camera.x+(this.game.world.game.width/2);
     this.text.y = this.game.camera.y+this.game.world.game.height-50;
@@ -181,6 +182,11 @@ class Game {
 
     var _currPlayer = null;
 
+    //Deactivate all Players before activating only the current playing
+    for(var player in this.players){
+      this.players[player].setIsPlaying(false);
+    }
+
     //Find next player and activate it
     for(var player in this.players){
       if(this.players[player].name === nextPlayer){
@@ -191,7 +197,10 @@ class Game {
 
     //do things with the map and the player if player is not null
     if(_currPlayer !== null){
-      _currPlayer.setIsPlaying(true); //Set the player to playing mode
+      if(localPlayer.name === _currPlayer.name){
+        _currPlayer.setIsPlaying(true); //Set the player to playing mode
+      }
+
 
       //Set camera to current player position
       this.game.add.tween(this.game.camera).to({
