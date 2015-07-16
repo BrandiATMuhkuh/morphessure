@@ -30,7 +30,7 @@ class Communicator{
      * server says someone logged in or out
      */
     this.socket.on("server:playerList", (function(data){
-      console.log("server:playerList", data);
+      //console.log("server:playerList", data);
       for (var func in this.serverPlayerList){
         this.serverPlayerList[func](data);
       }
