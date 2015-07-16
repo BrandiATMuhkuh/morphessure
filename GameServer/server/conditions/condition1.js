@@ -35,7 +35,9 @@ module.exports = {
           "The ?word? it is!",
           "Ok"
         ],
-        goTo: "Go to the ?word?!"
+        goTo: "Go to the ?word?!",
+        handMovement: true,
+        lookUpDown: true
       }
 
     },

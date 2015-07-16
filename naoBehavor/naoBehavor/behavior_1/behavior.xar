@@ -14,7 +14,7 @@
         <Timeline enable="0">
             <BehaviorLayer name="behavior_layer1">
                 <BehaviorKeyframe name="keyframe1" index="1">
-                    <Diagram scale="42.0448">
+                    <Diagram scale="84.0896">
                         <Box name="socket" id="2" localization="8" tooltip="" x="159" y="169">
                             <bitmap>media/images/box/box-python-script.png</bitmap>
                             <script language="4">
@@ -423,7 +423,7 @@ class MyClass(GeneratedClass):
                             <Parameter name="Left leg" inherits_from_parent="0" content_type="0" value="0" default_value="1" tooltip="Do we want to modify the left leg stiffness?" id="7" />
                             <Parameter name="Right leg" inherits_from_parent="0" content_type="0" value="0" default_value="1" tooltip="Do we want to modify the right leg stiffness?" id="8" />
                             <Parameter name="Motors stiffness (%)" inherits_from_parent="0" content_type="1" value="46" default_value="100" min="0" max="100" tooltip="Stiffness value the motors are set to." id="9" />
-                            <Parameter name="Duration (s)" inherits_from_parent="0" content_type="2" value="1" default_value="1" min="0.02" max="10" tooltip="How much time to go to the max/min stiffness in seconds." id="10" />
+                            <Parameter name="Duration (s)" inherits_from_parent="0" content_type="2" value="0.02" default_value="1" min="0.02" max="10" tooltip="How much time to go to the max/min stiffness in seconds." id="10" />
                         </Box>
                         <Box name="Set Stiffness" id="7" localization="8" tooltip="Stiffen the motors selected in parameters." x="479" y="164">
                             <bitmap>media/images/box/movement/stiffness.png</bitmap>
@@ -474,9 +474,9 @@ class MyClass(GeneratedClass):
                             <Parameter name="Left leg" inherits_from_parent="0" content_type="0" value="0" default_value="1" tooltip="Do we want to modify the left leg stiffness?" id="7" />
                             <Parameter name="Right leg" inherits_from_parent="0" content_type="0" value="0" default_value="1" tooltip="Do we want to modify the right leg stiffness?" id="8" />
                             <Parameter name="Motors stiffness (%)" inherits_from_parent="0" content_type="1" value="46" default_value="100" min="0" max="100" tooltip="Stiffness value the motors are set to." id="9" />
-                            <Parameter name="Duration (s)" inherits_from_parent="0" content_type="2" value="1" default_value="1" min="0.02" max="10" tooltip="How much time to go to the max/min stiffness in seconds." id="10" />
+                            <Parameter name="Duration (s)" inherits_from_parent="0" content_type="2" value="0.02" default_value="1" min="0.02" max="10" tooltip="How much time to go to the max/min stiffness in seconds." id="10" />
                         </Box>
-                        <Box name="Set Stiffness" id="8" localization="8" tooltip="Stiffen the motors selected in parameters." x="739" y="74">
+                        <Box name="Set Stiffness" id="8" localization="8" tooltip="Stiffen the motors selected in parameters." x="920" y="76">
                             <bitmap>media/images/box/movement/stiffness.png</bitmap>
                             <script language="4">
                                 <content>
@@ -1431,7 +1431,7 @@ class MyClass(GeneratedClass):
                             <Parameter name="Left leg" inherits_from_parent="0" content_type="0" value="0" default_value="1" tooltip="Do we want to modify the left leg stiffness?" id="7" />
                             <Parameter name="Right leg" inherits_from_parent="0" content_type="0" value="0" default_value="1" tooltip="Do we want to modify the right leg stiffness?" id="8" />
                             <Parameter name="Motors stiffness (%)" inherits_from_parent="0" content_type="1" value="20" default_value="100" min="0" max="100" tooltip="Stiffness value the motors are set to." id="9" />
-                            <Parameter name="Duration (s)" inherits_from_parent="0" content_type="2" value="1" default_value="1" min="0.02" max="10" tooltip="How much time to go to the max/min stiffness in seconds." id="10" />
+                            <Parameter name="Duration (s)" inherits_from_parent="0" content_type="2" value="0.02" default_value="1" min="0.02" max="10" tooltip="How much time to go to the max/min stiffness in seconds." id="10" />
                         </Box>
                         <Box name="Init sit Position" id="23" localization="8" tooltip="This box is empty (contains a single motion layer with no motor position&#x0A;defined in it) and should be used to create any animation you would like." x="493" y="668">
                             <bitmap>media/images/box/movement/move.png</bitmap>
@@ -1451,10 +1451,10 @@ class MyClass(GeneratedClass):
                                     </BehaviorKeyframe>
                                 </BehaviorLayer>
                                 <ActuatorList model="nao">
-                                    <ActuatorCurve name="value" actuator="HeadPitch" recordable="0" mute="1" unit="0">
+                                    <ActuatorCurve name="value" actuator="HeadPitch" recordable="0" mute="0" unit="0">
                                         <Key frame="15" value="-19.1628" />
                                     </ActuatorCurve>
-                                    <ActuatorCurve name="value" actuator="HeadYaw" recordable="0" mute="1" unit="0">
+                                    <ActuatorCurve name="value" actuator="HeadYaw" recordable="0" mute="0" unit="0">
                                         <Key frame="15" value="-4.83644" />
                                     </ActuatorCurve>
                                     <ActuatorCurve name="value" actuator="LAnklePitch" recordable="0" mute="0" unit="0">
@@ -2094,8 +2094,6 @@ class MyClass(GeneratedClass):
                         <Link inputowner="4" indexofinput="2" outputowner="2" indexofoutput="6" />
                         <Link inputowner="9" indexofinput="2" outputowner="6" indexofoutput="3" />
                         <Link inputowner="3" indexofinput="2" outputowner="7" indexofoutput="3" />
-                        <Link inputowner="8" indexofinput="2" outputowner="9" indexofoutput="4" />
-                        <Link inputowner="8" indexofinput="2" outputowner="3" indexofoutput="4" />
                         <Link inputowner="2" indexofinput="2" outputowner="0" indexofoutput="2" />
                         <Link inputowner="5" indexofinput="2" outputowner="2" indexofoutput="5" />
                         <Link inputowner="6" indexofinput="2" outputowner="5" indexofoutput="3" />
@@ -2128,6 +2126,8 @@ class MyClass(GeneratedClass):
                         <Link inputowner="33" indexofinput="2" outputowner="23" indexofoutput="4" />
                         <Link inputowner="22" indexofinput="2" outputowner="2" indexofoutput="8" />
                         <Link inputowner="32" indexofinput="2" outputowner="2" indexofoutput="9" />
+                        <Link inputowner="8" indexofinput="2" outputowner="3" indexofoutput="4" />
+                        <Link inputowner="8" indexofinput="2" outputowner="9" indexofoutput="4" />
                     </Diagram>
                 </BehaviorKeyframe>
             </BehaviorLayer>

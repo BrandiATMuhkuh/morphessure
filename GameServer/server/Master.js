@@ -135,7 +135,12 @@ class Master{
       if(tplayer.type == "robot" ){
         console.log("time for robot to say who is next");
         setTimeout(function() {
-          this.naoComm.start().say(tplayer.talk.goTo.replace("?word?", _nextDict[0])).send();
+          this.naoComm.start();
+          if(tplayer.talk.lookUpDown){
+            this.naoComm.lookUp(true);
+          }
+          this.naoComm.say(tplayer.talk.goTo.replace("?word?", _nextDict[0]));
+          this.naoComm.finish().send();
           //this.naoComm.say(tplayer.talk.goTo.replace("?word?", _nextDict[0]));
           //this.tellClientswhoIsNext();
           //clientMultiParticipantSaid(transmitter, receiver, correctness, answer, dictionary)
@@ -246,7 +251,17 @@ class Master{
       var player = this.getPlayer(receiver);
       if(player.type === "robot"){
         //Say what you do.
-        this.naoComm.start().say(this.selectRandomArrayObject(player.talk.acknowledge).replace("?word?", answer)).send();
+        this.naoComm.start();
+        if(player.talk.lookUpDown){
+          this.naoComm.lookUp(false);
+        }
+
+        if(player.talk.handMovement){
+          this.naoComm.moveHand();
+        }
+
+        this.naoComm.say(this.selectRandomArrayObject(player.talk.acknowledge).replace("?word?", answer));
+        this.naoComm.finish().send();
 
         setTimeout(function() {
           this.clientMovePlayer(player.name, player.position+1);
@@ -270,6 +285,7 @@ class Master{
    */
   serverGetLevel(level){
     console.log("please give me my level", level);
+    this.naoComm.start().initSit().finish().send();
     if(this.currentLevel !== level){
       this.lastMoves = [];
       this.lastMoves.push({name:"player1", hintNr:"1"});
@@ -281,7 +297,12 @@ class Master{
     //Reset players position and who is playing
     //leave logged in
 
-
+    //if level is a single player level turn the robot silent
+    if(this.levels[this.currentLevel].type === "single"){
+      this.naoComm.start().volume(0).finish().send();
+    }else{
+      this.naoComm.start().volume(50).finish().send();
+    }
 
     //replace players lists
     var clevel = this.levels[this.currentLevel].fields;

@@ -10,6 +10,8 @@ module.exports = class NaoComm {
     this.address = (typeof address === 'undefined')? "localhost":address;
     this.port = (typeof port === 'undefined')? 50016:port;
     this.sendCommand = 'say=' + "Nothing to say" + '&';
+    this.isClosed = true;
+    this.sendCommands = [];
   }
 
   /**
@@ -27,7 +29,7 @@ module.exports = class NaoComm {
    * @param up true/false
    */
   lookUp(up){
-    this.sendCommand = this.sendCommand + 'lookUp=' + up + '&'
+    this.sendCommand = this.sendCommand + 'lookUp=' + up + '&';
     console.log("Robot look:", up);
     return this;
   }
@@ -37,7 +39,7 @@ module.exports = class NaoComm {
    * @param vol 0-100
    */
   volume(vol){
-    this.sendCommand = this.sendCommand + 'volume=' + vol + '&'
+    this.sendCommand = this.sendCommand + 'volume=' + vol + '&';
     console.log("Robot volume:", vol);
     return this;
   }
@@ -47,7 +49,7 @@ module.exports = class NaoComm {
    * will move robots hand randomly
    */
   moveHand(){
-    this.sendCommand = this.sendCommand + 'moveHand=' + true + '&'
+    this.sendCommand = this.sendCommand + 'moveHand=' + true + '&';
     console.log("Robot moves hand");
     return this;
   }
@@ -56,8 +58,8 @@ module.exports = class NaoComm {
    * Robot initialices sit position
    */
   initSit(){
-    this.sendCommand = this.sendCommand + 'initSit=' + true + '&'
-    console.log("Robot inits sitting");
+    this.sendCommand = this.sendCommand + 'initSit=' + true + '&';
+    console.log("Robot initSit");
     return this;
   }
 
@@ -66,26 +68,42 @@ module.exports = class NaoComm {
     return this;
   }
 
+  finish(){
+    this.sendCommands.unshift(""+this.sendCommand);
+    return this;
+  }
+
   send(){
-    var client = new net.Socket();
-    client.on('error', function(e){
-      console.error("I could not connect to NAO. I guess the behavior is not running or NAO is not durned on!");
-    });
 
-    client.connect(this.port, this.address, function () {
-      console.log('Connected');
-      client.write(this.sendCommand);
-    }.bind(this));
+    console.log("nao send", this.isClosed, this.sendCommands.length);
 
-    client.on('close', function () {
-      console.log('Connection closed');
-    });
+    if(this.isClosed && this.sendCommands.length > 0){
+      this.isClosed = false;
+      var client = new net.Socket();
+      client.on('error', function(e){
+        console.error("I could not connect to NAO. I guess the behavior is not running or NAO is not durned on!");
+      });
+
+      client.connect(this.port, this.address, function () {
+        console.log('Connected');
+
+        client.write(this.sendCommands.pop());
+      }.bind(this));
+
+      client.on('close', function () {
+        this.isClosed = true;
+        console.log('Connection closed');
+        this.send();
+      }.bind(this));
+    }
+
   }
 
   /**
   * Repeats the last thing nao said
   */
   repeat(){
+    this.sendCommands.unshift(""+this.sendCommand);
     this.send();
   }
 }
