@@ -135,7 +135,8 @@ class Master{
       if(tplayer.type == "robot" ){
         console.log("time for robot to say who is next");
         setTimeout(function() {
-          this.naoComm.say(tplayer.talk.goTo.replace("?word?", _nextDict[0]));
+          this.naoComm.start().say(tplayer.talk.goTo.replace("?word?", _nextDict[0])).send();
+          //this.naoComm.say(tplayer.talk.goTo.replace("?word?", _nextDict[0]));
           //this.tellClientswhoIsNext();
           //clientMultiParticipantSaid(transmitter, receiver, correctness, answer, dictionary)
         }.bind(this), 300);
@@ -245,7 +246,8 @@ class Master{
       var player = this.getPlayer(receiver);
       if(player.type === "robot"){
         //Say what you do.
-        this.naoComm.say(this.selectRandomArrayObject(player.talk.acknowledge).replace("?word?", answer));
+        this.naoComm.start().say(this.selectRandomArrayObject(player.talk.acknowledge).replace("?word?", answer)).send();
+
         setTimeout(function() {
           this.clientMovePlayer(player.name, player.position+1);
         }.bind(this), 1000);

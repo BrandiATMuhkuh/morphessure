@@ -48,7 +48,7 @@ class NodeArgs{
         return process.argv[i+1];
       }
     }
-    return "cookie.canterbury.ac.nz"
+    return "dontusethisrobot.canterbury.ac.nz";
     return undefined;
   }
 
