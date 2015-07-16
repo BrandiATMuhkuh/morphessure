@@ -41,6 +41,8 @@ class Master{
     this.currentLevel = null;
     this.naoComm = new NaoComm(this.robotAddress, this.robotPort);
 
+    this.lastMoves = [];
+
     //this.db.populatePlayers();
   }
 
@@ -56,7 +58,7 @@ class Master{
       }
     }
 
-    console.log("logIn", playerName, this.players);
+    console.log("logIn", playerName);
   }
 
   /**
@@ -66,6 +68,8 @@ class Master{
    */
   clientMovePlayer(name, hintNr){
     console.log("client:movePlayer", name, hintNr);
+
+    this.lastMoves.push({name:name, hintNr:hintNr});
 
     //update players on the server
     this.updatePlayerPosition(name, hintNr);
@@ -264,6 +268,12 @@ class Master{
    */
   serverGetLevel(level){
     console.log("please give me my level", level);
+    if(this.currentLevel !== level){
+      this.lastMoves = [];
+      this.lastMoves.push({name:"player1", hintNr:"1"});
+      this.lastMoves.push({name:"player2", hintNr:"1"});
+    }
+
     this.currentLevel = level;
     this.network.resetNetwork(this.currentLevel);
     //Reset players position and who is playing
@@ -286,6 +296,29 @@ class Master{
     this.communicator.serverLevelChange(this.players, this.currentLevel);
 
   }
+
+  /**
+   * The client asks for initialization
+   */
+  clientInit(){
+    //this.clientMovePlayer(this.lastMove.name, this.lastMove.hintNr);
+    console.log("client init");
+    console.log(this.lastMoves);
+    var beforeLast = this.lastMoves.length -2;
+    var last = this.lastMoves.length -1;
+
+    if(last>=0 && beforeLast>=0){
+      this.clientMovePlayer(this.lastMoves[beforeLast].name, this.lastMoves[beforeLast].hintNr);
+      setTimeout(function() {
+        this.clientMovePlayer(this.lastMoves[last].name, this.lastMoves[last].hintNr);
+      }.bind(this), 1000);
+    }
+
+
+    console.log(beforeLast, last);
+    //this.tellClientswhoIsNext();
+  }
+
 
 
   clientGenerateMultiPlayerConditionDictionary(){

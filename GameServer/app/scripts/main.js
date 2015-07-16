@@ -20,13 +20,10 @@ class Main{
     //loads player list, trapList and hintList exactly ONE TIME!
     comm.getServerPlayerList((function(data){
 
-      console.groupCollapsed("Load player related things");
       myData = data;
       this.uiMaster.drawPlayerDropDown(data);
-      console.groupEnd();
+
     }).bind(this));
-
-
 
     comm.clientPlayerList();//request player list
   }

@@ -20,20 +20,22 @@ function generate(dataString){
   survey.SurveyEntry.SurveyName = "baseline_gen";
 
   var choices = [];
-  var orders = survey.SurveyElements[9].Payload.ChoiceOrder = [];
+  var orderId = getIdOfName(survey.SurveyElements, "Q51");
+  var orders = survey.SurveyElements[orderId].Payload.ChoiceOrder = [];
+  choices.push(survey.SurveyElements[orderId].Payload.Choices);
+  choices.push(survey.SurveyElements[orderId].Payload.AdditionalQuestions["1"].Choices);
+  //choices.push(survey.SurveyElements[9].Payload.AdditionalQuestions["2"].Choices);
 
-  choices.push(survey.SurveyElements[9].Payload.Choices);
-  choices.push(survey.SurveyElements[9].Payload.AdditionalQuestions["1"].Choices);
-  choices.push(survey.SurveyElements[9].Payload.AdditionalQuestions["2"].Choices);
-
+/*
   var imgChoices = [];
-  var imgOrders = survey.SurveyElements[7].Payload.ChoiceOrder = [];
+  var imgOrderId = getIdOfName(survey.SurveyElements, "Q50");
+  var imgOrders = survey.SurveyElements[imgOrderId].Payload.ChoiceOrder = [];
 
-  imgChoices.push(survey.SurveyElements[7].Payload.Choices);
-  imgChoices.push(survey.SurveyElements[7].Payload.AdditionalQuestions["1"].Choices);
-  imgChoices.push(survey.SurveyElements[7].Payload.AdditionalQuestions["2"].Choices);
-  imgChoices.push(survey.SurveyElements[7].Payload.AdditionalQuestions["3"].Choices);
-
+  imgChoices.push(survey.SurveyElements[imgOrderId].Payload.Choices);
+  imgChoices.push(survey.SurveyElements[imgOrderId].Payload.AdditionalQuestions["1"].Choices);
+  //imgChoices.push(survey.SurveyElements[7].Payload.AdditionalQuestions["2"].Choices);
+  //imgChoices.push(survey.SurveyElements[7].Payload.AdditionalQuestions["3"].Choices);
+*/
 
 
 
@@ -58,6 +60,7 @@ function generate(dataString){
       synCount = synCount + 1;
     }
 
+    /*
     if (row.word === 0) {
       for (var c in imgChoices) {
         imgChoices[c]["" + imgCount] = {
@@ -75,6 +78,7 @@ function generate(dataString){
       imgOrders.push(imgCount);
       imgCount = imgCount + 1;
     }
+    */
 
 
     //console.log(choices);
@@ -85,7 +89,7 @@ function generate(dataString){
     qaulLink.finalize(function(){
       console.log("Time to finalize: ", (new Date() - startTime)/1000);
     });
-    
+
     fs.writeFile("baseline_gen.qsf", JSON.stringify(survey), function(err) {
       if (err) {
         return console.log(err);
@@ -104,3 +108,17 @@ fs.readFile(__dirname + '/baseline_template.qsf', function(err, data) {
   }
   generate(data);
 });*/
+
+function getIdOfName(arr, name){
+	for (var i=0;i<arr.length; i = i + 1){
+		if(arr[i].Payload !== undefined && arr[i].Payload !== null){
+			if(arr[i].Payload.DataExportTag !== undefined && arr[i].Payload.DataExportTag !== null){
+				if(arr[i].Payload.DataExportTag === name){
+					console.log(i,arr[i].Payload.DataExportTag);
+					return i;
+				}
+			}
+		}
+	}
+
+}

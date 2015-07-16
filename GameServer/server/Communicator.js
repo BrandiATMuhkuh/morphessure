@@ -67,6 +67,7 @@ class Communicator{
     this.socket.on("client:playerList", (function(){
       console.log("ask for player list");
       this.socket.emit("server:playerList", this.master.players); //will send message to the connector
+
     }).bind(this));
 
     /**
@@ -106,6 +107,10 @@ class Communicator{
      */
     this.socket.on("client:generateMultiPlayerConditionDictionary", (function(data){
       this.master.clientGenerateMultiPlayerConditionDictionary();
+    }).bind(this));
+
+    this.socket.on("client:init",(function(data){
+      this.master.clientInit();
     }).bind(this));
 
   }

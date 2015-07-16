@@ -77,7 +77,7 @@ class Game {
     // scale, input etc..
 
     this.game.stage.backgroundColor = '#ca9a6c';
-    console.log("game is created");
+
 
     this.game.world.setBounds(-100, -100, 2000, 6000);
 
@@ -120,6 +120,8 @@ class Game {
     this.text.visible = false;
 
     this.cursors = this.game.input.keyboard.createCursorKeys();
+
+    console.log("game is created");
 
   }
 

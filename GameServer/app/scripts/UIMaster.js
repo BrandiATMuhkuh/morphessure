@@ -64,6 +64,10 @@ class UIMaster{
       comm.clientChangeLevel(sText);
     }.bind(this));
 
+    $( "#justStart" ).click(function() {
+      comm.clientInit();
+    }.bind(this));
+
     //Generate Multi Player Condition button clicked
     $('#generaetMultiPlayerCondition').click(function(){
       comm.clientGenerateMultiPlayerConditionDictionary();
@@ -85,8 +89,8 @@ class UIMaster{
       this.populateSingePartSaid(["hallo","your"]);
     }.bind(this));
 
-    this.displayMultiPartShouldSay(true);
-    this.displayMultiWizardSays(true);
+    this.displayMultiPartShouldSay(false);
+    this.displayMultiWizardSays(false);
     //this.displaySingePartSaid(true);
 
 

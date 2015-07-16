@@ -92,6 +92,13 @@ class Communicator{
   }
 
   /**
+   * tell server to send the initial position or last position
+   */
+  clientInit(){
+    this.socket.emit("client:init");
+  }
+
+  /**
    * Server sends player list in case it changed or
    * was required.
    * And undefined number of function can listen to
