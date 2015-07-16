@@ -180,7 +180,6 @@ class Player{
     for (var hint in this.hintList) {
       var _hint = this.grid[this.hintList[hint][0]][this.hintList[hint][1]].hint;
       //console.log(hint);
-      //TODO activate only next possible option
       if(_hint !== undefined){
         _hint.inputEnabled = false;
       }
@@ -191,21 +190,16 @@ class Player{
       this.hintNr = parseInt(this.hintNr);
     }
 
-    var _hint = this.grid[this.hintList[this.hintNr+1][0]][this.hintList[this.hintNr+1][1]].hint;
-    //console.log(this, _hint);
-    if(_hint !== undefined){
-      _hint.inputEnabled = playing;
-    }
-
-    /*
-    for (var hint in this.hintList) {
-      var _hint = this.grid[this.hintList[hint][0]][this.hintList[hint][1]].hint;
-      //console.log(hint);
-      //TODO activate only next possible option
+    if(this.hintList[this.hintNr+1]){
+      var _hint = this.grid[this.hintList[this.hintNr+1][0]][this.hintList[this.hintNr+1][1]].hint;
+      //console.log(this, _hint);
       if(_hint !== undefined){
         _hint.inputEnabled = playing;
       }
-    }*/
+    }
+
+
+
   }
 
   /**
