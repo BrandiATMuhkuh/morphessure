@@ -260,8 +260,11 @@ class Player{
    */
   serverMovePlayer(data){
     if(data.name == this.getName()){
-      this.hintNr = data.hintNr; //This will save the current hint
-      this.clientMovePlayer(this.hintList[data.hintNr][0],this.hintList[data.hintNr][1]);
+      this.hintNr = parseInt(data.hintNr); //This will save the current hint
+      if(this.hintList[data.hintNr]){
+        this.clientMovePlayer(this.hintList[data.hintNr][0],this.hintList[data.hintNr][1]);
+      }
+
     }
   }
 
