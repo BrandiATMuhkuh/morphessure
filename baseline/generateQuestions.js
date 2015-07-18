@@ -53,7 +53,7 @@ function generate(dataString){
           "Display": row.name
         };
 
-        qaulLink.run("Q5_1_" + synCount, row.id);
+        qaulLink.run("Q51_1_" + synCount, row.id);
       }
 
       orders.push(synCount);
