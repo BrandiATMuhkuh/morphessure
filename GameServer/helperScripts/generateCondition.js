@@ -1,4 +1,5 @@
 require('./../app/assets/Assets.js');
+var template = require("./condition_template.js");
 var fs = require('fs');
 var x = 10; //The maximul number of columns
 var y = 80; //The number of rows
@@ -6,7 +7,7 @@ var traps = Assets.traps; // all traps
 var field2 = new Array(y);
 
 var configObject = {
-   playerNames: [{name: "player1", map:[], gap:0, field : new Array(y)}, {name: "player2", map:[], gap:0, field : new Array(y)}],
+   playerNames: [{name: "player1", map:[], gap:0, field : new Array(y), hints:[]}, {name: "player2", map:[], gap:0, field : new Array(y), hints:[]}],
    symbolPatterns: [
       {name: "belly", pos:0, gap: 10, pattern: [{name:"player1", pos:null}, {name:"player1", pos:null}, {name:"player2", pos:null}, {name:"player1", pos:null}]},
       {name: "car", pos:0, gap: 10, pattern: [{name:"player1", pos:null}, {name:"player1", pos:null}, {name:"player2", pos:null}, {name:"player1", pos:null}]},
@@ -24,12 +25,19 @@ genManipulationMap();
 for(var i = 0; i < configObject.playerNames.length; i++){
    var fi = configObject.playerNames[i].field;
    generateEmptyField(fi);
+
    fillMapWithPreTrap(fi, configObject.playerNames[i]);
+   //console.log(fi);
    fillField(fi);
    //console.log(formatToCondition(fi));
+   //console.log(template.levels.multiPlayer);
+   var mp = getPlayerFromTemplater(configObject.playerNames[i].name, "multiPlayer");
+   mp.hintList = configObject.playerNames[i].hints;
+   mp.trapList = formatToCondition(fi);
+   //console.log(mp.trapList);
 }
-console.log(formatToCondition(configObject.playerNames[1].field));
-
+//console.log(formatToCondition(configObject.playerNames[1].field));
+saveCondition("condition_test.json", JSON.stringify(template, null, '\t'));
 
 function genManipulationMap(){
    for(var i=0; i<configObject.maxMapLength*configObject.playerNames.length; i = i + 1){
@@ -47,6 +55,16 @@ function genManipulationMap(){
       }
 
    }
+}
+
+function getPlayerFromTemplater(playerName, conditionName){
+  //console.log("me",playerName, conditionName);
+  //console.log(template.levels[conditionName].fields);
+  for(var i = 0; i<template.levels[conditionName].fields.length; i++){
+    if(template.levels[conditionName].fields[i].playerName === playerName){
+      return template.levels[conditionName].fields[i];
+    }
+  }
 }
 
 function getSymbol(playerName){
@@ -124,31 +142,40 @@ function fillMapWithPreTrap(field, playerName){
          }
       }else{
          if(forward){
-            for(var b=1; b<9;b=b+1){
+            for(var b=1; b<8;b=b+1){
                field[i][b] = ""+n;
                n++;
             }
          }else{
-            for(var b=1; b<9;b=b+1){
-               field[i][9-b] = ""+n;
+            for(var b=1; b<8;b=b+1){
+               field[i][8-b] = ""+n;
                n++;
             }
          }
       }
    }
 
+   //console.log(field);
    //add read VALUES
    for(var i = 0; i < field.length; i = i + 1){
      for(var k = 0; k < field[i].length; k = k + 1){
         if(field[i][k]){
-           if(playerName.map[parseInt(field[i][k])]){
-             field[i][k] = playerName.map[parseInt(field[i][k])];
+          // add hints
+          if(parseInt(field[i][k]) > -1){
+            playerName.hints.push([i,k]);
+            console.log(parseInt(field[i][k]));
+          }
+          
+          if(playerName.map[parseInt(field[i][k])]){            
+            field[i][k] = playerName.map[parseInt(field[i][k])];
           }else{
              field[i][k] = -1;
           }
         }
      }
   }
+
+
 }
 
 function fillField(field){
@@ -201,7 +228,7 @@ function formatToCondition(field){
   var formArray = new Array();
   for(var i = 0; i < field.length; i = i + 1){
     for(var k = 0; k < field[i].length; k = k + 1){
-      console.log(i,k,field[i][k]);
+      //console.log(i,k,field[i][k]);
       formArray.push({
         position: [i,k],
         name: field[i][k]
@@ -210,4 +237,12 @@ function formatToCondition(field){
   }
 
   return formArray;
+}
+
+function saveCondition(filename, data){
+  fs.writeFile(filename, data, function(err) {
+    if(err) {
+        return console.log(err);
+    }
+  });
 }
