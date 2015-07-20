@@ -45,8 +45,9 @@ for(var i = 0; i < configObject.playerNames.length; i++){
   fillField(si);
   console.log(si);
   var sp = getPlayerFromTemplater(configObject.playerNames[i].name, "singlePlayer");
-  sp.hintList = configObject.playerNames[i].singleHints;
-  sp.trapList = formatToCondition(si);
+  var ssp = getPlayerFromTemplater(configObject.playerNames[i].name, "secSinglePlayer");
+  ssp.hintList = sp.hintList = configObject.playerNames[i].singleHints;
+  ssp.trapList = sp.trapList = formatToCondition(si);
 
 }
 //console.log(formatToCondition(configObject.playerNames[1].field));
