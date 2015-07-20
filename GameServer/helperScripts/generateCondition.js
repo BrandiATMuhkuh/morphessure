@@ -1,10 +1,20 @@
 require('./../app/assets/Assets.js');
 var template = require("./condition_template.js");
+var dbfile = "../../baseline/baseline.db";
 var fs = require('fs');
+var exists = fs.existsSync(dbfile);
+if (!exists) {
+  console.log("DB not existing");
+  return null;
+}
+var sqlite3 = require("sqlite3").verbose();
+var db = new sqlite3.Database(dbfile);
 var x = 10; //The maximul number of columns
 var y = 10; //The number of rows
 var ysingle = 10;
-var traps = Assets.traps; // all traps
+//var traps = Assets.traps; // all traps
+var traps = [];
+var dict = {};
 var field2 = new Array(y);
 
 var configObject = {
@@ -19,44 +29,79 @@ var configObject = {
    maxMapLength: 60
 };
 
+generateDictionaryFromDB();
+//startGenerating();
 
+function generateDictionaryFromDB(){
+  console.log("generateDictionaryFromDB");
+  var myTraps = [];
+  db.all("SELECT * FROM synonyms WHERE word = 1 ORDER BY name ASC", function(err, rows) {  
+        rows.forEach(function (row) {  
+            //console.log(row.ref, row.name);
+            //Add to traps
+            if(myTraps.indexOf(row.ref) === -1){
+              myTraps.push(row.ref);
+            }
 
-//console.log(traps);
-genManipulationMap();
-for(var i = 0; i < configObject.playerNames.length; i++){
+            //add to dictionary
+            if(dict[row.ref]){
+              dict[row.ref].push(row.name);
+            }else{
+              dict[row.ref] = [];
+            }
 
-  //multiPlayer
-  var fi = configObject.playerNames[i].field;
-  generateEmptyField(fi);
-  //fillMapWithPreTrap(fi, configObject.playerNames[i]);
-  
-  fillMapWithPreTrapNumber(fi, configObject.playerNames[i], y);
-  //console.log(fi);
-
-  fillMapWithPreTrapName(fi, configObject.playerNames[i]);
-  fillField(fi);
-  var mp = getPlayerFromTemplater(configObject.playerNames[i].name, "multiPlayer");
-  mp.hintList = configObject.playerNames[i].hints;
-  mp.trapList = formatToCondition(fi);
-  mp.hintWord = geneHintWords(mp.hintList, mp.trapList);
-
-  
-  //singlePlayer
-  var si = configObject.playerNames[i].singleField;
-  generateEmptyField(si);
-  fillMapWithPreTrapNumber(si, configObject.playerNames[i],ysingle);
-  fillSingleMapWithPreTrapName(si, configObject.playerNames[i]);
-  fillField(si);
-  //console.log(si);
-  var sp = getPlayerFromTemplater(configObject.playerNames[i].name, "singlePlayer");
-  var ssp = getPlayerFromTemplater(configObject.playerNames[i].name, "secSinglePlayer");
-  ssp.hintList = sp.hintList = configObject.playerNames[i].singleHints;
-  ssp.trapList = sp.trapList = formatToCondition(si);
-  ssp.hintWord = geneHintWords(ssp.hintList, ssp.trapList);
-
+        });
+        //console.log("end");
+        //console.log(dict);
+        traps = myTraps;
+        startGenerating();
+    });   
+  db.close();
 }
-//console.log(formatToCondition(configObject.playerNames[1].field));
-saveCondition("condition_test.json", JSON.stringify(template, null, '\t'));
+
+
+function startGenerating(){
+  //console.log(traps);
+  genManipulationMap();
+  for(var i = 0; i < configObject.playerNames.length; i++){
+
+    
+    //multiPlayer
+    var fi = configObject.playerNames[i].field;
+    generateEmptyField(fi);
+    //fillMapWithPreTrap(fi, configObject.playerNames[i]);
+    
+    fillMapWithPreTrapNumber(fi, configObject.playerNames[i], y);
+    //console.log(fi);
+
+    fillMapWithPreTrapName(fi, configObject.playerNames[i]);
+    fillField(fi);
+    var mp = getPlayerFromTemplater(configObject.playerNames[i].name, "multiPlayer");
+    mp.hintList = configObject.playerNames[i].hints;
+    mp.trapList = formatToCondition(fi);
+    mp.hintWord = geneHintWords(mp.hintList, mp.trapList);
+
+    
+    //singlePlayer
+    var si = configObject.playerNames[i].singleField;
+    generateEmptyField(si);
+    fillMapWithPreTrapNumber(si, configObject.playerNames[i],ysingle);
+    fillSingleMapWithPreTrapName(si, configObject.playerNames[i]);
+    fillField(si);
+    //console.log(si);
+    var sp = getPlayerFromTemplater(configObject.playerNames[i].name, "singlePlayer");
+    var ssp = getPlayerFromTemplater(configObject.playerNames[i].name, "secSinglePlayer");
+    ssp.hintList = sp.hintList = configObject.playerNames[i].singleHints;
+    ssp.trapList = sp.trapList = formatToCondition(si);
+    sp.hintWord = ssp.hintWord = geneHintWords(ssp.hintList, ssp.trapList);
+    //console.log(ssp.hintWord);
+
+  }
+  //console.log(formatToCondition(configObject.playerNames[1].field));
+  saveCondition("condition_generated.js", "module.exports = "+JSON.stringify(template, null, '\t')+";");
+}
+
+
 
 function genManipulationMap(){
    for(var i=0; i<configObject.maxMapLength*configObject.playerNames.length; i = i + 1){
@@ -84,8 +129,8 @@ function geneHintWords(hintList, trapList){
     var f = true;
     for(var k = 0; k < trapList.length && f; k++){
       if(trapList[k].position[0] === hintList[i][0] && trapList[k].position[1] === hintList[i][1]){
-        //console.log("found", trapList[k].name);
-        hintWord.push([""+trapList[k].name]);
+        console.log("found", trapList[k].name, dict[trapList[k].name]);
+        hintWord.push(dict[trapList[k].name]);
         f=false;
       }
     }
