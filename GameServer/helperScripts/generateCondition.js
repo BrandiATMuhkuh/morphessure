@@ -2,7 +2,7 @@ require('./../app/assets/Assets.js');
 var template = require("./condition_template.js");
 var fs = require('fs');
 var x = 10; //The maximul number of columns
-var y = 80; //The number of rows
+var y = 10; //The number of rows
 var ysingle = 10;
 var traps = Assets.traps; // all traps
 var field2 = new Array(y);
@@ -29,25 +29,30 @@ for(var i = 0; i < configObject.playerNames.length; i++){
   var fi = configObject.playerNames[i].field;
   generateEmptyField(fi);
   //fillMapWithPreTrap(fi, configObject.playerNames[i]);
+  
   fillMapWithPreTrapNumber(fi, configObject.playerNames[i], y);
+  //console.log(fi);
+
   fillMapWithPreTrapName(fi, configObject.playerNames[i]);
   fillField(fi);
   var mp = getPlayerFromTemplater(configObject.playerNames[i].name, "multiPlayer");
   mp.hintList = configObject.playerNames[i].hints;
   mp.trapList = formatToCondition(fi);
+  mp.hintWord = geneHintWords(mp.hintList, mp.trapList);
 
-
+  
   //singlePlayer
   var si = configObject.playerNames[i].singleField;
   generateEmptyField(si);
   fillMapWithPreTrapNumber(si, configObject.playerNames[i],ysingle);
   fillSingleMapWithPreTrapName(si, configObject.playerNames[i]);
   fillField(si);
-  console.log(si);
+  //console.log(si);
   var sp = getPlayerFromTemplater(configObject.playerNames[i].name, "singlePlayer");
   var ssp = getPlayerFromTemplater(configObject.playerNames[i].name, "secSinglePlayer");
   ssp.hintList = sp.hintList = configObject.playerNames[i].singleHints;
   ssp.trapList = sp.trapList = formatToCondition(si);
+  ssp.hintWord = geneHintWords(ssp.hintList, ssp.trapList);
 
 }
 //console.log(formatToCondition(configObject.playerNames[1].field));
@@ -69,6 +74,25 @@ function genManipulationMap(){
       }
 
    }
+}
+
+function geneHintWords(hintList, trapList){
+  var hintWord = [];
+
+  for(var i = 0; i < hintList.length; i++){
+    //console.log(hintList[i]);
+    var f = true;
+    for(var k = 0; k < trapList.length && f; k++){
+      if(trapList[k].position[0] === hintList[i][0] && trapList[k].position[1] === hintList[i][1]){
+        //console.log("found", trapList[k].name);
+        hintWord.push([""+trapList[k].name]);
+        f=false;
+      }
+    }
+  }
+
+  return hintWord;
+
 }
 
 function getPlayerFromTemplater(playerName, conditionName){
@@ -149,20 +173,28 @@ function fillMapWithPreTrapNumber(field, playerName, y){
          forward = !forward;
          if(forward){
             field[i][1] = ""+n;
+            //console.log(i,1,n);
+            playerName.hints.push([i,1]);
             n++;
          }else{
             field[i][8] = ""+n;
+            //console.log(i,8,n);
+            playerName.hints.push([i,8]);
             n++;
          }
       }else{
          if(forward){
             for(var b=1; b<8;b=b+1){
                field[i][b] = ""+n;
+               //console.log(i,b,n);
+               playerName.hints.push([i,b]);
                n++;
             }
          }else{
             for(var b=1; b<8;b=b+1){
                field[i][8-b] = ""+n;
+               //console.log(i,8-b,n);
+               playerName.hints.push([i,8-b]);
                n++;
             }
          }
@@ -178,7 +210,7 @@ function fillMapWithPreTrapName(field, playerName){
         if(field[i][k]){
           // add hints
           if(parseInt(field[i][k]) > -1){
-            playerName.hints.push([i,k]);
+            //playerName.hints.push([i,k]);
             //console.log(parseInt(field[i][k]));
           }
           
@@ -202,7 +234,7 @@ function fillSingleMapWithPreTrapName(field, playerName){
             
 
             if(configObject.symbolPatterns[parseInt(field[i][k])]){
-              console.log(parseInt(field[i][k]), configObject.symbolPatterns[parseInt(field[i][k])].name );
+              //console.log(parseInt(field[i][k]), configObject.symbolPatterns[parseInt(field[i][k])].name );
               field[i][k] = ''+configObject.symbolPatterns[parseInt(field[i][k])].name;
               playerName.singleHints.push([i,k]);
             }else{
