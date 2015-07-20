@@ -3,11 +3,12 @@ var template = require("./condition_template.js");
 var fs = require('fs');
 var x = 10; //The maximul number of columns
 var y = 80; //The number of rows
+var ysingle = 10;
 var traps = Assets.traps; // all traps
 var field2 = new Array(y);
 
 var configObject = {
-   playerNames: [{name: "player1", map:[], gap:0, field : new Array(y), hints:[]}, {name: "player2", map:[], gap:0, field : new Array(y), hints:[]}],
+   playerNames: [{name: "player1", map:[], gap:0, field : new Array(y), hints:[], singleField: new Array(ysingle), singleHints:[]}, {name: "player2", map:[], gap:0, field : new Array(y), hints:[], singleField: new Array(ysingle), singleHints:[]}],
    symbolPatterns: [
       {name: "belly", pos:0, gap: 10, pattern: [{name:"player1", pos:null}, {name:"player1", pos:null}, {name:"player2", pos:null}, {name:"player1", pos:null}]},
       {name: "car", pos:0, gap: 10, pattern: [{name:"player1", pos:null}, {name:"player1", pos:null}, {name:"player2", pos:null}, {name:"player1", pos:null}]},
@@ -23,18 +24,30 @@ var configObject = {
 //console.log(traps);
 genManipulationMap();
 for(var i = 0; i < configObject.playerNames.length; i++){
-   var fi = configObject.playerNames[i].field;
-   generateEmptyField(fi);
 
-   fillMapWithPreTrap(fi, configObject.playerNames[i]);
-   //console.log(fi);
-   fillField(fi);
-   //console.log(formatToCondition(fi));
-   //console.log(template.levels.multiPlayer);
-   var mp = getPlayerFromTemplater(configObject.playerNames[i].name, "multiPlayer");
-   mp.hintList = configObject.playerNames[i].hints;
-   mp.trapList = formatToCondition(fi);
-   //console.log(mp.trapList);
+  //multiPlayer
+  var fi = configObject.playerNames[i].field;
+  generateEmptyField(fi);
+  //fillMapWithPreTrap(fi, configObject.playerNames[i]);
+  fillMapWithPreTrapNumber(fi, configObject.playerNames[i], y);
+  fillMapWithPreTrapName(fi, configObject.playerNames[i]);
+  fillField(fi);
+  var mp = getPlayerFromTemplater(configObject.playerNames[i].name, "multiPlayer");
+  mp.hintList = configObject.playerNames[i].hints;
+  mp.trapList = formatToCondition(fi);
+
+
+  //singlePlayer
+  var si = configObject.playerNames[i].singleField;
+  generateEmptyField(si);
+  fillMapWithPreTrapNumber(si, configObject.playerNames[i],ysingle);
+  fillSingleMapWithPreTrapName(si, configObject.playerNames[i]);
+  fillField(si);
+  console.log(si);
+  var sp = getPlayerFromTemplater(configObject.playerNames[i].name, "singlePlayer");
+  sp.hintList = configObject.playerNames[i].singleHints;
+  sp.trapList = formatToCondition(si);
+
 }
 //console.log(formatToCondition(configObject.playerNames[1].field));
 saveCondition("condition_test.json", JSON.stringify(template, null, '\t'));
@@ -126,8 +139,8 @@ function randomTrapElement(){
   return traps[Math.floor(Math.random()*traps.length)];
 }
 
-function fillMapWithPreTrap(field, playerName){
-   var forward = false;
+function fillMapWithPreTrapNumber(field, playerName, y){
+  var forward = false;
    var n = 0
    for(var i=1;i < y;i = i + 1){
 
@@ -154,8 +167,10 @@ function fillMapWithPreTrap(field, playerName){
          }
       }
    }
+}
 
-   //console.log(field);
+function fillMapWithPreTrapName(field, playerName){
+  //console.log(field);
    //add read VALUES
    for(var i = 0; i < field.length; i = i + 1){
      for(var k = 0; k < field[i].length; k = k + 1){
@@ -163,7 +178,7 @@ function fillMapWithPreTrap(field, playerName){
           // add hints
           if(parseInt(field[i][k]) > -1){
             playerName.hints.push([i,k]);
-            console.log(parseInt(field[i][k]));
+            //console.log(parseInt(field[i][k]));
           }
           
           if(playerName.map[parseInt(field[i][k])]){            
@@ -174,9 +189,32 @@ function fillMapWithPreTrap(field, playerName){
         }
      }
   }
-
-
 }
+
+function fillSingleMapWithPreTrapName(field, playerName){
+  var found = 0;
+  for(var i = 0; i < field.length; i = i + 1){
+     for(var k = 0; k < field[i].length; k = k + 1){
+        if(field[i][k]){
+          // add hints
+          if(parseInt(field[i][k]) > -1){
+            
+
+            if(configObject.symbolPatterns[parseInt(field[i][k])]){
+              console.log(parseInt(field[i][k]), configObject.symbolPatterns[parseInt(field[i][k])].name );
+              field[i][k] = ''+configObject.symbolPatterns[parseInt(field[i][k])].name;
+              playerName.singleHints.push([i,k]);
+            }else{
+              field[i][k] = -1;
+            }
+            found++;
+          }
+          
+        }
+     }
+  }
+}
+
 
 function fillField(field){
   for(var i = 0; i < field.length; i = i + 1){
