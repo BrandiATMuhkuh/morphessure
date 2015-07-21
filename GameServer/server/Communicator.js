@@ -58,6 +58,7 @@ class Communicator{
      * on a object
      */
     this.socket.on("client:movePlayer", (function(data){
+      console.log("clientMovePlayer -- E");
       this.master.clientMovePlayer(data.name, data.hintNr);
     }).bind(this));
 

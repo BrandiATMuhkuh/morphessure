@@ -150,7 +150,8 @@ class Master{
 
 
     }else{
-      console.log("game is over")
+
+      console.log("game is over", player.position+1);
     }
   }
 
@@ -264,9 +265,11 @@ class Master{
         this.naoComm.finish().send();
 
         setTimeout(function() {
+          console.log("clientMovePlayer -- A");
           this.clientMovePlayer(player.name, player.position+1);
         }.bind(this), 1000);
       }else{
+        console.log("clientMovePlayer -- B");
         this.clientMovePlayer(player.name, player.position+1);
       }
 
@@ -331,8 +334,10 @@ class Master{
     var last = this.lastMoves.length -1;
 
     if(last>=0 && beforeLast>=0){
+      console.log("clientMovePlayer -- C");
       this.clientMovePlayer(this.lastMoves[beforeLast].name, this.lastMoves[beforeLast].hintNr);
       setTimeout(function() {
+        console.log("clientMovePlayer -- D");
         this.clientMovePlayer(this.lastMoves[last].name, this.lastMoves[last].hintNr);
       }.bind(this), 1000);
     }

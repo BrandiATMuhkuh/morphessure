@@ -114,6 +114,7 @@ Assets = {
     'cart',
     'axe',
     'parking_spot',
+    'parking_sp',
     'cleaner',
     'athlete',
     'shoe',

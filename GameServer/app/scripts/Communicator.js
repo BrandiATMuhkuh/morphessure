@@ -153,6 +153,7 @@ class Communicator{
    * @param hintNr new position according to hintList
    */
   clientMovePlayer(name, hintNr){
+    //debugger;
     this.socket.emit("client:movePlayer", {name:name, hintNr:hintNr});
   }
 

@@ -360,7 +360,7 @@ class UIMaster{
     phaser.state.add("splash",{
       create: function() {
       var style = { font: "65px Arial", fill: "#ff0044", align: "center" };
-      var text = phaser.add.text(phaser.world.centerX, phaser.world.centerY, "- HELLO -\nWe start soon\nJust a second!", style);
+      var text = phaser.add.text(phaser.world.centerX, phaser.world.centerY, "PLEASE WAIT!", style);
       text.anchor.set(0.5);
       }
     });

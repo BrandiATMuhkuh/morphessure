@@ -26,7 +26,7 @@ var configObject = {
       {name: "snack", pos:0, gap: 10, pattern: [{name:"player2", pos:null}, {name:"player2", pos:null}, {name:"player2", pos:null}, {name:"player2", pos:null}]}
    ],
    gap: 3,
-   maxMapLength: 60
+   maxMapLength: 10
 };
 
 generateDictionaryFromDB();
@@ -39,6 +39,7 @@ function generateDictionaryFromDB(){
         rows.forEach(function (row) {  
             //console.log(row.ref, row.name);
             //Add to traps
+            row.ref = row.ref.replace(" ", "_");
             if(myTraps.indexOf(row.ref) === -1){
               myTraps.push(row.ref);
             }
@@ -71,13 +72,14 @@ function startGenerating(){
     generateEmptyField(fi);
     //fillMapWithPreTrap(fi, configObject.playerNames[i]);
     
-    fillMapWithPreTrapNumber(fi, configObject.playerNames[i], y);
+    fillMapWithPreTrapNumber(fi, configObject.playerNames[i], y, true);
     //console.log(fi);
 
     fillMapWithPreTrapName(fi, configObject.playerNames[i]);
     fillField(fi);
     var mp = getPlayerFromTemplater(configObject.playerNames[i].name, "multiPlayer");
     mp.hintList = configObject.playerNames[i].hints;
+    console.log(mp.hintList);
     mp.trapList = formatToCondition(fi);
     mp.hintWord = geneHintWords(mp.hintList, mp.trapList);
 
@@ -85,7 +87,7 @@ function startGenerating(){
     //singlePlayer
     var si = configObject.playerNames[i].singleField;
     generateEmptyField(si);
-    fillMapWithPreTrapNumber(si, configObject.playerNames[i],ysingle);
+    fillMapWithPreTrapNumber(si, configObject.playerNames[i], ysingle);
     fillSingleMapWithPreTrapName(si, configObject.playerNames[i]);
     fillField(si);
     //console.log(si);
@@ -95,7 +97,7 @@ function startGenerating(){
     ssp.trapList = sp.trapList = formatToCondition(si);
     sp.hintWord = ssp.hintWord = geneHintWords(ssp.hintList, ssp.trapList);
     //console.log(ssp.hintWord);
-
+    
   }
   //console.log(formatToCondition(configObject.playerNames[1].field));
   saveCondition("condition_generated.js", "module.exports = "+JSON.stringify(template, null, '\t')+";");
@@ -129,7 +131,7 @@ function geneHintWords(hintList, trapList){
     var f = true;
     for(var k = 0; k < trapList.length && f; k++){
       if(trapList[k].position[0] === hintList[i][0] && trapList[k].position[1] === hintList[i][1]){
-        console.log("found", trapList[k].name, dict[trapList[k].name]);
+        //console.log("found", trapList[k].name, dict[trapList[k].name]);
         hintWord.push(dict[trapList[k].name]);
         f=false;
       }
@@ -209,7 +211,7 @@ function randomTrapElement(){
   return traps[Math.floor(Math.random()*traps.length)];
 }
 
-function fillMapWithPreTrapNumber(field, playerName, y){
+function fillMapWithPreTrapNumber(field, playerName, y, multi){
   var forward = false;
    var n = 0
    for(var i=1;i < y;i = i + 1){
@@ -219,27 +221,35 @@ function fillMapWithPreTrapNumber(field, playerName, y){
          if(forward){
             field[i][1] = ""+n;
             //console.log(i,1,n);
-            playerName.hints.push([i,1]);
+            if(multi){
+              playerName.hints.push([i,1]);
+            }
             n++;
          }else{
             field[i][8] = ""+n;
             //console.log(i,8,n);
-            playerName.hints.push([i,8]);
+            if(multi){
+              playerName.hints.push([i,8]);
+            }
             n++;
          }
       }else{
          if(forward){
             for(var b=1; b<8;b=b+1){
-               field[i][b] = ""+n;
-               //console.log(i,b,n);
-               playerName.hints.push([i,b]);
-               n++;
+              field[i][b] = ""+n;
+              //console.log(i,b,n);
+              if(multi){
+                playerName.hints.push([i,b]);
+              }
+              n++;
             }
          }else{
             for(var b=1; b<8;b=b+1){
-               field[i][8-b] = ""+n;
-               //console.log(i,8-b,n);
-               playerName.hints.push([i,8-b]);
+              field[i][8-b] = ""+n;
+              //console.log(i,8-b,n);
+              if(multi){
+                playerName.hints.push([i,8-b]);
+              }
                n++;
             }
          }
