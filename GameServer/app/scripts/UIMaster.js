@@ -15,18 +15,29 @@ class UIMaster{
 
     //Get players
     $("#selectPlayerButton").on("click", function(){
+      /*
       var sText = $('#listOfPlayers').find(":selected").text();
       if(sText !== "notSelected"){
         localPlayer.name = sText;
         comm.clientSignOn(sText);
       }else{
         alert("Please select a player");
-      }
+      }*/
     });
 
     $("#repeadButton").on("click", function(){
       console.log("Repeate previouse item again. ");
       comm.clientRepeatWord();
+    });
+
+    $("#clientTrustGame").on("click", function(){
+      console.log("clientTrustGame ");
+      comm.clientTrustGame();
+    });
+
+    $("#initPosition").on("click", function(){
+      console.log("clientTrustGame ");
+      comm.clientInitPosition();
     });
 
 
@@ -314,11 +325,12 @@ class UIMaster{
    */
   drawPlayerDropDown(playerList){
     console.log("drawPlayerDropDown",playerList);
+    /*
     var listOfPlayers = $('#listOfPlayers');
     for(var player in playerList){
       listOfPlayers.append(new Option(playerList[player].name, playerList[player].name, false, false));
     }
-    listOfPlayers.selectpicker('refresh');
+    listOfPlayers.selectpicker('refresh');*/
   }
 
   /**

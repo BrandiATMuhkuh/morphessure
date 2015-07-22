@@ -63,6 +63,15 @@ module.exports = class NaoComm {
     return this;
   }
 
+  /**
+  * Robot start the trust me behavior
+  */
+  trustgame(){
+    this.sendCommand = this.sendCommand + 'trustgame=' + true + '&';
+    console.log("Robot trustgame");
+    return this;
+  }
+
   start(){
     this.sendCommand = "";
     return this;

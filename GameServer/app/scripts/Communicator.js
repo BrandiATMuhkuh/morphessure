@@ -99,6 +99,13 @@ class Communicator{
   }
 
   /**
+  * Sit client down. Into init position
+  */
+  clientInitPosition(){
+    this.socket.emit("client:initPosition");
+  }
+
+  /**
    * Server sends player list in case it changed or
    * was required.
    * And undefined number of function can listen to
@@ -159,6 +166,10 @@ class Communicator{
 
   clientGenerateMultiPlayerConditionDictionary(){
     this.socket.emit("client:generateMultiPlayerConditionDictionary");
+  }
+
+  clientTrustGame(){
+    this.socket.emit("client:trustgame");
   }
 
   /**

@@ -114,6 +114,14 @@ class Communicator{
       this.master.clientInit();
     }).bind(this));
 
+    this.socket.on("client:trustgame",(function(data){
+      this.master.naoComm.start().trustgame().finish().send();
+    }).bind(this));
+
+    this.socket.on("client:initPosition",(function(data){
+      this.master.naoComm.start().initSit().finish().send();
+    }).bind(this));
+
   }
 
 
