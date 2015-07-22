@@ -31,8 +31,7 @@ module.exports = {
       hintWord : [],
       talk:{
         acknowledge: [
-          "Ok, I'll go to the ?word?!",
-          "The ?word? it is!"
+          "Ok, I'll go to the ?word?!"
         ],
         goTo: "Go to the ?word?!",
         handMovement: true,
@@ -560,7 +559,7 @@ module.exports = {
                             1
                         ]
                     ],
-                    "hintWord": []
+                    "hintWord": [['next'],['next'],['next'],['next'],['next'],['next'],['next'],['next'],['next'],['next'],['next'],['next']['next']]
                 },
                 {
                     "playerName": "player2",
@@ -1060,12 +1059,13 @@ module.exports = {
                             1
                         ]
                     ],
-                    "hintWord": []
+                    "hintWord": [['next'],['next'],['next'],['next'],['next'],['next'],['next'],['next'],['next'],['next'],['next'],['next']['next']]
                 }
             ]
     },
 
     singlePlayer : {
+        type: "single",
       network: [
         {next: 0, transmitter: "player1", receiver: "player2"}
       ],
@@ -1589,7 +1589,7 @@ module.exports = {
                             1
                         ]
                     ],
-                    "hintWord": []
+                    "hintWord": [['next'],['next'],['next'],['next'],['next'],['next'],['next'],['next'],['next'],['next'],['next'],['next']['next']]
                 },
                 {
                     "playerName": "player2",
@@ -2089,7 +2089,7 @@ module.exports = {
                             1
                         ]
                     ],
-                    "hintWord": []
+                    "hintWord": [['next'],['next'],['next'],['next'],['next'],['next'],['next'],['next'],['next'],['next'],['next'],['next']['next']]
                 }
       ]
     },
@@ -2116,6 +2116,7 @@ module.exports = {
     ] },
 
     secSinglePlayer : {
+        type: "single",
       network: [
         {next: 0, transmitter: "player1", receiver: "player2"}
       ],

@@ -25,8 +25,7 @@ module.exports = {
             "hintWord": [],
             "talk": {
                 "acknowledge": [
-                    "Ok, I'll go to the ?word?!",
-                    "The ?word? it is!"
+                    "Ok, I'll go to the ?word?!"
                 ],
                 "goTo": "Go to the ?word?!",
                 "handMovement": true,
@@ -553,7 +552,42 @@ module.exports = {
                             1
                         ]
                     ],
-                    "hintWord": []
+                    "hintWord": [
+                        [
+                            "next"
+                        ],
+                        [
+                            "next"
+                        ],
+                        [
+                            "next"
+                        ],
+                        [
+                            "next"
+                        ],
+                        [
+                            "next"
+                        ],
+                        [
+                            "next"
+                        ],
+                        [
+                            "next"
+                        ],
+                        [
+                            "next"
+                        ],
+                        [
+                            "next"
+                        ],
+                        [
+                            "next"
+                        ],
+                        [
+                            "next"
+                        ],
+                        null
+                    ]
                 },
                 {
                     "playerName": "player2",
@@ -1053,11 +1087,47 @@ module.exports = {
                             1
                         ]
                     ],
-                    "hintWord": []
+                    "hintWord": [
+                        [
+                            "next"
+                        ],
+                        [
+                            "next"
+                        ],
+                        [
+                            "next"
+                        ],
+                        [
+                            "next"
+                        ],
+                        [
+                            "next"
+                        ],
+                        [
+                            "next"
+                        ],
+                        [
+                            "next"
+                        ],
+                        [
+                            "next"
+                        ],
+                        [
+                            "next"
+                        ],
+                        [
+                            "next"
+                        ],
+                        [
+                            "next"
+                        ],
+                        null
+                    ]
                 }
             ]
         },
         "singlePlayer": {
+            "type": "single",
             "network": [
                 {
                     "next": 0,
@@ -1074,77 +1144,77 @@ module.exports = {
                                 0,
                                 0
                             ],
-                            "name": "cook"
+                            "name": "pipe"
                         },
                         {
                             "position": [
                                 0,
                                 1
                             ],
-                            "name": "drink"
+                            "name": "man"
                         },
                         {
                             "position": [
                                 0,
                                 2
                             ],
-                            "name": "microbes"
+                            "name": "router"
                         },
                         {
                             "position": [
                                 0,
                                 3
                             ],
-                            "name": "money"
+                            "name": "drink"
                         },
                         {
                             "position": [
                                 0,
                                 4
                             ],
-                            "name": "mouse"
+                            "name": "videogame"
                         },
                         {
                             "position": [
                                 0,
                                 5
                             ],
-                            "name": "axe"
+                            "name": "sphere"
                         },
                         {
                             "position": [
                                 0,
                                 6
                             ],
-                            "name": "man"
+                            "name": "Q45"
                         },
                         {
                             "position": [
                                 0,
                                 7
                             ],
-                            "name": "beans"
+                            "name": "floppy"
                         },
                         {
                             "position": [
                                 0,
                                 8
                             ],
-                            "name": "rocks"
+                            "name": "beans"
                         },
                         {
                             "position": [
                                 0,
                                 9
                             ],
-                            "name": "ocean"
+                            "name": "teacher"
                         },
                         {
                             "position": [
                                 1,
                                 0
                             ],
-                            "name": "money"
+                            "name": "fireplace"
                         },
                         {
                             "position": [
@@ -1158,63 +1228,63 @@ module.exports = {
                                 1,
                                 2
                             ],
-                            "name": "ocean"
+                            "name": "beans"
                         },
                         {
                             "position": [
                                 1,
                                 3
                             ],
-                            "name": "plate"
+                            "name": "money"
                         },
                         {
                             "position": [
                                 1,
                                 4
                             ],
-                            "name": "USB"
+                            "name": "man"
                         },
                         {
                             "position": [
                                 1,
                                 5
                             ],
-                            "name": "moth"
+                            "name": "cart"
                         },
                         {
                             "position": [
                                 1,
                                 6
                             ],
-                            "name": "cross"
+                            "name": "rave"
                         },
                         {
                             "position": [
                                 1,
                                 7
                             ],
-                            "name": "cattle"
+                            "name": "king"
                         },
                         {
                             "position": [
                                 1,
                                 8
                             ],
-                            "name": "RAM"
+                            "name": "couch"
                         },
                         {
                             "position": [
                                 1,
                                 9
                             ],
-                            "name": "door"
+                            "name": "bench"
                         },
                         {
                             "position": [
                                 2,
                                 0
                             ],
-                            "name": "canoe"
+                            "name": "sink"
                         },
                         {
                             "position": [
@@ -1242,532 +1312,532 @@ module.exports = {
                                 2,
                                 4
                             ],
-                            "name": "road"
+                            "name": "clothes"
                         },
                         {
                             "position": [
                                 2,
                                 5
                             ],
-                            "name": "dog"
+                            "name": "barrels"
                         },
                         {
                             "position": [
                                 2,
                                 6
                             ],
-                            "name": "flower"
+                            "name": "frog"
                         },
                         {
                             "position": [
                                 2,
                                 7
                             ],
-                            "name": "boot"
+                            "name": "laptop"
                         },
                         {
                             "position": [
                                 2,
                                 8
                             ],
-                            "name": "dog"
+                            "name": "bee"
                         },
                         {
                             "position": [
                                 2,
                                 9
                             ],
-                            "name": "bench"
+                            "name": "violin"
                         },
                         {
                             "position": [
                                 3,
                                 0
                             ],
-                            "name": "recycling"
+                            "name": "canoe"
                         },
                         {
                             "position": [
                                 3,
                                 1
                             ],
-                            "name": "flower"
+                            "name": "pigeon"
                         },
                         {
                             "position": [
                                 3,
                                 2
                             ],
-                            "name": "bench"
+                            "name": "branch"
                         },
                         {
                             "position": [
                                 3,
                                 3
                             ],
-                            "name": "parking_sp"
+                            "name": "money"
                         },
                         {
                             "position": [
                                 3,
                                 4
                             ],
-                            "name": "runners"
+                            "name": "flower"
                         },
                         {
                             "position": [
                                 3,
                                 5
                             ],
-                            "name": "jacket"
+                            "name": "couch"
                         },
                         {
                             "position": [
                                 3,
                                 6
                             ],
-                            "name": "sphere"
+                            "name": "axe"
                         },
                         {
                             "position": [
                                 3,
                                 7
                             ],
-                            "name": "alligator"
+                            "name": "cup"
                         },
                         {
                             "position": [
                                 3,
                                 8
                             ],
-                            "name": "socket"
+                            "name": "referee"
                         },
                         {
                             "position": [
                                 3,
                                 9
                             ],
-                            "name": "people"
+                            "name": "door"
                         },
                         {
                             "position": [
                                 4,
                                 0
-                            ],
-                            "name": "road"
-                        },
-                        {
-                            "position": [
-                                4,
-                                1
-                            ],
-                            "name": "alligator"
-                        },
-                        {
-                            "position": [
-                                4,
-                                2
-                            ],
-                            "name": "cart"
-                        },
-                        {
-                            "position": [
-                                4,
-                                3
-                            ],
-                            "name": "RAM"
-                        },
-                        {
-                            "position": [
-                                4,
-                                4
                             ],
                             "name": "cave"
                         },
                         {
                             "position": [
                                 4,
-                                5
+                                1
                             ],
-                            "name": "moth"
+                            "name": "jacket"
                         },
                         {
                             "position": [
                                 4,
-                                6
+                                2
+                            ],
+                            "name": "bee"
+                        },
+                        {
+                            "position": [
+                                4,
+                                3
+                            ],
+                            "name": "eraser"
+                        },
+                        {
+                            "position": [
+                                4,
+                                4
                             ],
                             "name": "violin"
                         },
                         {
                             "position": [
                                 4,
+                                5
+                            ],
+                            "name": "nuke_plant"
+                        },
+                        {
+                            "position": [
+                                4,
+                                6
+                            ],
+                            "name": "boot"
+                        },
+                        {
+                            "position": [
+                                4,
                                 7
                             ],
-                            "name": "artist"
+                            "name": "priest"
                         },
                         {
                             "position": [
                                 4,
                                 8
                             ],
-                            "name": "floppy"
+                            "name": "drugs"
                         },
                         {
                             "position": [
                                 4,
                                 9
                             ],
-                            "name": "canoe"
+                            "name": "dunes"
                         },
                         {
                             "position": [
                                 5,
                                 0
                             ],
-                            "name": "drugs"
+                            "name": "recycling"
                         },
                         {
                             "position": [
                                 5,
                                 1
-                            ],
-                            "name": "socket"
-                        },
-                        {
-                            "position": [
-                                5,
-                                2
                             ],
                             "name": "doctor"
                         },
                         {
                             "position": [
                                 5,
-                                3
-                            ],
-                            "name": "soldier"
-                        },
-                        {
-                            "position": [
-                                5,
-                                4
-                            ],
-                            "name": "barrels"
-                        },
-                        {
-                            "position": [
-                                5,
-                                5
-                            ],
-                            "name": "branch"
-                        },
-                        {
-                            "position": [
-                                5,
-                                6
-                            ],
-                            "name": "marijuana"
-                        },
-                        {
-                            "position": [
-                                5,
-                                7
-                            ],
-                            "name": "clothes"
-                        },
-                        {
-                            "position": [
-                                5,
-                                8
-                            ],
-                            "name": "city"
-                        },
-                        {
-                            "position": [
-                                5,
-                                9
-                            ],
-                            "name": "beach"
-                        },
-                        {
-                            "position": [
-                                6,
-                                0
-                            ],
-                            "name": "robot"
-                        },
-                        {
-                            "position": [
-                                6,
-                                1
-                            ],
-                            "name": "cook"
-                        },
-                        {
-                            "position": [
-                                6,
                                 2
-                            ],
-                            "name": "bench"
-                        },
-                        {
-                            "position": [
-                                6,
-                                3
-                            ],
-                            "name": "road"
-                        },
-                        {
-                            "position": [
-                                6,
-                                4
-                            ],
-                            "name": "tree"
-                        },
-                        {
-                            "position": [
-                                6,
-                                5
-                            ],
-                            "name": "road"
-                        },
-                        {
-                            "position": [
-                                6,
-                                6
-                            ],
-                            "name": "rave"
-                        },
-                        {
-                            "position": [
-                                6,
-                                7
-                            ],
-                            "name": "pipe"
-                        },
-                        {
-                            "position": [
-                                6,
-                                8
-                            ],
-                            "name": "mouse"
-                        },
-                        {
-                            "position": [
-                                6,
-                                9
-                            ],
-                            "name": "cup"
-                        },
-                        {
-                            "position": [
-                                7,
-                                0
-                            ],
-                            "name": "ocean"
-                        },
-                        {
-                            "position": [
-                                7,
-                                1
-                            ],
-                            "name": "sink"
-                        },
-                        {
-                            "position": [
-                                7,
-                                2
-                            ],
-                            "name": "rave"
-                        },
-                        {
-                            "position": [
-                                7,
-                                3
-                            ],
-                            "name": "house"
-                        },
-                        {
-                            "position": [
-                                7,
-                                4
-                            ],
-                            "name": "rocks"
-                        },
-                        {
-                            "position": [
-                                7,
-                                5
-                            ],
-                            "name": "rabbit"
-                        },
-                        {
-                            "position": [
-                                7,
-                                6
-                            ],
-                            "name": "Q60"
-                        },
-                        {
-                            "position": [
-                                7,
-                                7
-                            ],
-                            "name": "sphere"
-                        },
-                        {
-                            "position": [
-                                7,
-                                8
-                            ],
-                            "name": "factory"
-                        },
-                        {
-                            "position": [
-                                7,
-                                9
-                            ],
-                            "name": "rave"
-                        },
-                        {
-                            "position": [
-                                8,
-                                0
-                            ],
-                            "name": "beach"
-                        },
-                        {
-                            "position": [
-                                8,
-                                1
-                            ],
-                            "name": "branch"
-                        },
-                        {
-                            "position": [
-                                8,
-                                2
-                            ],
-                            "name": "cross"
-                        },
-                        {
-                            "position": [
-                                8,
-                                3
-                            ],
-                            "name": "boot"
-                        },
-                        {
-                            "position": [
-                                8,
-                                4
-                            ],
-                            "name": "king"
-                        },
-                        {
-                            "position": [
-                                8,
-                                5
-                            ],
-                            "name": "ship"
-                        },
-                        {
-                            "position": [
-                                8,
-                                6
-                            ],
-                            "name": "ocean"
-                        },
-                        {
-                            "position": [
-                                8,
-                                7
-                            ],
-                            "name": "flag"
-                        },
-                        {
-                            "position": [
-                                8,
-                                8
-                            ],
-                            "name": "alligator"
-                        },
-                        {
-                            "position": [
-                                8,
-                                9
-                            ],
-                            "name": "rocks"
-                        },
-                        {
-                            "position": [
-                                9,
-                                0
-                            ],
-                            "name": "bee"
-                        },
-                        {
-                            "position": [
-                                9,
-                                1
                             ],
                             "name": "dirt"
                         },
                         {
                             "position": [
-                                9,
-                                2
-                            ],
-                            "name": "drink"
-                        },
-                        {
-                            "position": [
-                                9,
+                                5,
                                 3
                             ],
                             "name": "flower"
                         },
                         {
                             "position": [
-                                9,
+                                5,
                                 4
                             ],
-                            "name": "city"
+                            "name": "woman"
                         },
                         {
                             "position": [
-                                9,
+                                5,
+                                5
+                            ],
+                            "name": "eraser"
+                        },
+                        {
+                            "position": [
+                                5,
+                                6
+                            ],
+                            "name": "woman"
+                        },
+                        {
+                            "position": [
+                                5,
+                                7
+                            ],
+                            "name": "flower"
+                        },
+                        {
+                            "position": [
+                                5,
+                                8
+                            ],
+                            "name": "sphere"
+                        },
+                        {
+                            "position": [
+                                5,
+                                9
+                            ],
+                            "name": "kids"
+                        },
+                        {
+                            "position": [
+                                6,
+                                0
+                            ],
+                            "name": "priest"
+                        },
+                        {
+                            "position": [
+                                6,
+                                1
+                            ],
+                            "name": "road"
+                        },
+                        {
+                            "position": [
+                                6,
+                                2
+                            ],
+                            "name": "baby"
+                        },
+                        {
+                            "position": [
+                                6,
+                                3
+                            ],
+                            "name": "door"
+                        },
+                        {
+                            "position": [
+                                6,
+                                4
+                            ],
+                            "name": "fireplace"
+                        },
+                        {
+                            "position": [
+                                6,
+                                5
+                            ],
+                            "name": "bench"
+                        },
+                        {
+                            "position": [
+                                6,
+                                6
+                            ],
+                            "name": "violin"
+                        },
+                        {
+                            "position": [
+                                6,
+                                7
+                            ],
+                            "name": "sink"
+                        },
+                        {
+                            "position": [
+                                6,
+                                8
+                            ],
+                            "name": "pipe"
+                        },
+                        {
+                            "position": [
+                                6,
+                                9
+                            ],
+                            "name": "flag"
+                        },
+                        {
+                            "position": [
+                                7,
+                                0
+                            ],
+                            "name": "bat"
+                        },
+                        {
+                            "position": [
+                                7,
+                                1
+                            ],
+                            "name": "parking_sp"
+                        },
+                        {
+                            "position": [
+                                7,
+                                2
+                            ],
+                            "name": "tree"
+                        },
+                        {
+                            "position": [
+                                7,
+                                3
+                            ],
+                            "name": "dirt"
+                        },
+                        {
+                            "position": [
+                                7,
+                                4
+                            ],
+                            "name": "branch"
+                        },
+                        {
+                            "position": [
+                                7,
+                                5
+                            ],
+                            "name": "gun"
+                        },
+                        {
+                            "position": [
+                                7,
+                                6
+                            ],
+                            "name": "parking_sp"
+                        },
+                        {
+                            "position": [
+                                7,
+                                7
+                            ],
+                            "name": "marijuana"
+                        },
+                        {
+                            "position": [
+                                7,
+                                8
+                            ],
+                            "name": "floppy"
+                        },
+                        {
+                            "position": [
+                                7,
+                                9
+                            ],
+                            "name": "cart"
+                        },
+                        {
+                            "position": [
+                                8,
+                                0
+                            ],
+                            "name": "thief"
+                        },
+                        {
+                            "position": [
+                                8,
+                                1
+                            ],
+                            "name": "pipe"
+                        },
+                        {
+                            "position": [
+                                8,
+                                2
+                            ],
+                            "name": "wine"
+                        },
+                        {
+                            "position": [
+                                8,
+                                3
+                            ],
+                            "name": "plate"
+                        },
+                        {
+                            "position": [
+                                8,
+                                4
+                            ],
+                            "name": "sink"
+                        },
+                        {
+                            "position": [
+                                8,
                                 5
                             ],
                             "name": "plate"
                         },
                         {
                             "position": [
+                                8,
+                                6
+                            ],
+                            "name": "rocks"
+                        },
+                        {
+                            "position": [
+                                8,
+                                7
+                            ],
+                            "name": "microbes"
+                        },
+                        {
+                            "position": [
+                                8,
+                                8
+                            ],
+                            "name": "computer"
+                        },
+                        {
+                            "position": [
+                                8,
+                                9
+                            ],
+                            "name": "church"
+                        },
+                        {
+                            "position": [
+                                9,
+                                0
+                            ],
+                            "name": "cook"
+                        },
+                        {
+                            "position": [
+                                9,
+                                1
+                            ],
+                            "name": "doctor"
+                        },
+                        {
+                            "position": [
+                                9,
+                                2
+                            ],
+                            "name": "shoe"
+                        },
+                        {
+                            "position": [
+                                9,
+                                3
+                            ],
+                            "name": "robot"
+                        },
+                        {
+                            "position": [
+                                9,
+                                4
+                            ],
+                            "name": "Q60"
+                        },
+                        {
+                            "position": [
+                                9,
+                                5
+                            ],
+                            "name": "dog"
+                        },
+                        {
+                            "position": [
                                 9,
                                 6
                             ],
-                            "name": "baby"
+                            "name": "kids"
                         },
                         {
                             "position": [
                                 9,
                                 7
                             ],
-                            "name": "cleaner"
+                            "name": "thief"
                         },
                         {
                             "position": [
                                 9,
                                 8
                             ],
-                            "name": "jacket"
+                            "name": "fireplace"
                         },
                         {
                             "position": [
                                 9,
                                 9
                             ],
-                            "name": "sphere"
+                            "name": "bee"
                         }
                     ],
                     "hintList": [
@@ -1786,6 +1856,26 @@ module.exports = {
                         [
                             2,
                             3
+                        ],
+                        [
+                            2,
+                            4
+                        ],
+                        [
+                            2,
+                            5
+                        ],
+                        [
+                            2,
+                            6
+                        ],
+                        [
+                            2,
+                            7
+                        ],
+                        [
+                            3,
+                            8
                         ]
                     ],
                     "hintWord": [
@@ -1815,6 +1905,36 @@ module.exports = {
                             "smoko",
                             "tea",
                             "tea and croissant"
+                        ],
+                        [
+                            "clothing",
+                            "gear",
+                            "outfit"
+                        ],
+                        [
+                            "beehive",
+                            "drum",
+                            "shield"
+                        ],
+                        [
+                            "frog",
+                            "kermit",
+                            "retile",
+                            "toad"
+                        ],
+                        [
+                            "laptop"
+                        ],
+                        [
+                            "icon",
+                            "lottery ticket",
+                            "lotto",
+                            "lucky number",
+                            "person",
+                            "referee",
+                            "ticket",
+                            "winner",
+                            "winning ticket"
                         ]
                     ]
                 },
@@ -1826,77 +1946,77 @@ module.exports = {
                                 0,
                                 0
                             ],
-                            "name": "athlete"
+                            "name": "floppy"
                         },
                         {
                             "position": [
                                 0,
                                 1
                             ],
-                            "name": "beach"
+                            "name": "dunes"
                         },
                         {
                             "position": [
                                 0,
                                 2
                             ],
-                            "name": "hen"
+                            "name": "city"
                         },
                         {
                             "position": [
                                 0,
                                 3
                             ],
-                            "name": "Q45"
+                            "name": "runners"
                         },
                         {
                             "position": [
                                 0,
                                 4
                             ],
-                            "name": "USB"
+                            "name": "bat"
                         },
                         {
                             "position": [
                                 0,
                                 5
                             ],
-                            "name": "kids"
+                            "name": "rabbit"
                         },
                         {
                             "position": [
                                 0,
                                 6
                             ],
-                            "name": "dunes"
+                            "name": "soldier"
                         },
                         {
                             "position": [
                                 0,
                                 7
                             ],
-                            "name": "dirt"
+                            "name": "router"
                         },
                         {
                             "position": [
                                 0,
                                 8
                             ],
-                            "name": "mouse"
+                            "name": "dog"
                         },
                         {
                             "position": [
                                 0,
                                 9
                             ],
-                            "name": "fireplace"
+                            "name": "bee"
                         },
                         {
                             "position": [
                                 1,
                                 0
                             ],
-                            "name": "pipe"
+                            "name": "factory"
                         },
                         {
                             "position": [
@@ -1910,14 +2030,14 @@ module.exports = {
                                 1,
                                 2
                             ],
-                            "name": "house"
+                            "name": "baby"
                         },
                         {
                             "position": [
                                 1,
                                 3
                             ],
-                            "name": "referee"
+                            "name": "router"
                         },
                         {
                             "position": [
@@ -1931,42 +2051,42 @@ module.exports = {
                                 1,
                                 5
                             ],
-                            "name": "floppy"
+                            "name": "hen"
                         },
                         {
                             "position": [
                                 1,
                                 6
                             ],
-                            "name": "frog"
+                            "name": "microbes"
                         },
                         {
                             "position": [
                                 1,
                                 7
                             ],
-                            "name": "door"
+                            "name": "nuke_plant"
                         },
                         {
                             "position": [
                                 1,
                                 8
                             ],
-                            "name": "clothes"
+                            "name": "people"
                         },
                         {
                             "position": [
                                 1,
                                 9
                             ],
-                            "name": "cop"
+                            "name": "socket"
                         },
                         {
                             "position": [
                                 2,
                                 0
                             ],
-                            "name": "couch"
+                            "name": "rabbit"
                         },
                         {
                             "position": [
@@ -1994,532 +2114,532 @@ module.exports = {
                                 2,
                                 4
                             ],
-                            "name": "door"
-                        },
-                        {
-                            "position": [
-                                2,
-                                5
-                            ],
-                            "name": "beach"
-                        },
-                        {
-                            "position": [
-                                2,
-                                6
-                            ],
-                            "name": "dirt"
-                        },
-                        {
-                            "position": [
-                                2,
-                                7
-                            ],
-                            "name": "beans"
-                        },
-                        {
-                            "position": [
-                                2,
-                                8
-                            ],
-                            "name": "shoe"
-                        },
-                        {
-                            "position": [
-                                2,
-                                9
-                            ],
-                            "name": "ocean"
-                        },
-                        {
-                            "position": [
-                                3,
-                                0
-                            ],
-                            "name": "boot"
-                        },
-                        {
-                            "position": [
-                                3,
-                                1
-                            ],
-                            "name": "robot"
-                        },
-                        {
-                            "position": [
-                                3,
-                                2
-                            ],
-                            "name": "mouse"
-                        },
-                        {
-                            "position": [
-                                3,
-                                3
-                            ],
-                            "name": "cup"
-                        },
-                        {
-                            "position": [
-                                3,
-                                4
-                            ],
-                            "name": "beach"
-                        },
-                        {
-                            "position": [
-                                3,
-                                5
-                            ],
-                            "name": "couch"
-                        },
-                        {
-                            "position": [
-                                3,
-                                6
-                            ],
-                            "name": "people"
-                        },
-                        {
-                            "position": [
-                                3,
-                                7
-                            ],
-                            "name": "beetle"
-                        },
-                        {
-                            "position": [
-                                3,
-                                8
-                            ],
-                            "name": "bench"
-                        },
-                        {
-                            "position": [
-                                3,
-                                9
-                            ],
-                            "name": "violin"
-                        },
-                        {
-                            "position": [
-                                4,
-                                0
-                            ],
-                            "name": "bee"
-                        },
-                        {
-                            "position": [
-                                4,
-                                1
-                            ],
                             "name": "clothes"
                         },
                         {
                             "position": [
-                                4,
-                                2
-                            ],
-                            "name": "dirt"
-                        },
-                        {
-                            "position": [
-                                4,
-                                3
-                            ],
-                            "name": "fireplace"
-                        },
-                        {
-                            "position": [
-                                4,
-                                4
-                            ],
-                            "name": "flower"
-                        },
-                        {
-                            "position": [
-                                4,
+                                2,
                                 5
-                            ],
-                            "name": "dirt"
-                        },
-                        {
-                            "position": [
-                                4,
-                                6
                             ],
                             "name": "barrels"
                         },
                         {
                             "position": [
-                                4,
-                                7
-                            ],
-                            "name": "bat"
-                        },
-                        {
-                            "position": [
-                                4,
-                                8
-                            ],
-                            "name": "cup"
-                        },
-                        {
-                            "position": [
-                                4,
-                                9
-                            ],
-                            "name": "recycling"
-                        },
-                        {
-                            "position": [
-                                5,
-                                0
-                            ],
-                            "name": "pigeon"
-                        },
-                        {
-                            "position": [
-                                5,
-                                1
-                            ],
-                            "name": "teacher"
-                        },
-                        {
-                            "position": [
-                                5,
-                                2
-                            ],
-                            "name": "runners"
-                        },
-                        {
-                            "position": [
-                                5,
-                                3
-                            ],
-                            "name": "gun"
-                        },
-                        {
-                            "position": [
-                                5,
-                                4
-                            ],
-                            "name": "router"
-                        },
-                        {
-                            "position": [
-                                5,
-                                5
-                            ],
-                            "name": "money"
-                        },
-                        {
-                            "position": [
-                                5,
+                                2,
                                 6
                             ],
-                            "name": "sink"
+                            "name": "frog"
                         },
                         {
                             "position": [
-                                5,
+                                2,
                                 7
                             ],
-                            "name": "cook"
+                            "name": "laptop"
                         },
                         {
                             "position": [
-                                5,
+                                2,
                                 8
                             ],
-                            "name": "snake"
+                            "name": "socket"
                         },
                         {
                             "position": [
-                                5,
-                                9
-                            ],
-                            "name": "gun"
-                        },
-                        {
-                            "position": [
-                                6,
-                                0
-                            ],
-                            "name": "bench"
-                        },
-                        {
-                            "position": [
-                                6,
-                                1
-                            ],
-                            "name": "cattle"
-                        },
-                        {
-                            "position": [
-                                6,
-                                2
-                            ],
-                            "name": "robot"
-                        },
-                        {
-                            "position": [
-                                6,
-                                3
-                            ],
-                            "name": "church"
-                        },
-                        {
-                            "position": [
-                                6,
-                                4
-                            ],
-                            "name": "nuke_plant"
-                        },
-                        {
-                            "position": [
-                                6,
-                                5
-                            ],
-                            "name": "door"
-                        },
-                        {
-                            "position": [
-                                6,
-                                6
-                            ],
-                            "name": "cart"
-                        },
-                        {
-                            "position": [
-                                6,
-                                7
-                            ],
-                            "name": "dunes"
-                        },
-                        {
-                            "position": [
-                                6,
-                                8
-                            ],
-                            "name": "pigeon"
-                        },
-                        {
-                            "position": [
-                                6,
+                                2,
                                 9
                             ],
                             "name": "road"
                         },
                         {
                             "position": [
-                                7,
+                                3,
                                 0
-                            ],
-                            "name": "rocks"
-                        },
-                        {
-                            "position": [
-                                7,
-                                1
-                            ],
-                            "name": "flower"
-                        },
-                        {
-                            "position": [
-                                7,
-                                2
-                            ],
-                            "name": "Q60"
-                        },
-                        {
-                            "position": [
-                                7,
-                                3
-                            ],
-                            "name": "computer"
-                        },
-                        {
-                            "position": [
-                                7,
-                                4
-                            ],
-                            "name": "rave"
-                        },
-                        {
-                            "position": [
-                                7,
-                                5
-                            ],
-                            "name": "couch"
-                        },
-                        {
-                            "position": [
-                                7,
-                                6
                             ],
                             "name": "baby"
                         },
                         {
                             "position": [
-                                7,
-                                7
-                            ],
-                            "name": "marijuana"
-                        },
-                        {
-                            "position": [
-                                7,
-                                8
-                            ],
-                            "name": "ship"
-                        },
-                        {
-                            "position": [
-                                7,
-                                9
-                            ],
-                            "name": "sphere"
-                        },
-                        {
-                            "position": [
-                                8,
-                                0
-                            ],
-                            "name": "touchpad"
-                        },
-                        {
-                            "position": [
-                                8,
+                                3,
                                 1
                             ],
-                            "name": "bat"
+                            "name": "jacket"
                         },
                         {
                             "position": [
-                                8,
+                                3,
                                 2
                             ],
-                            "name": "man"
+                            "name": "violin"
                         },
                         {
                             "position": [
-                                8,
+                                3,
                                 3
                             ],
-                            "name": "Q45"
+                            "name": "bench"
                         },
                         {
                             "position": [
-                                8,
+                                3,
                                 4
                             ],
-                            "name": "drugs"
+                            "name": "branch"
                         },
                         {
                             "position": [
-                                8,
+                                3,
                                 5
                             ],
-                            "name": "floppy"
+                            "name": "snake"
                         },
                         {
                             "position": [
-                                8,
+                                3,
                                 6
                             ],
                             "name": "jacket"
                         },
                         {
                             "position": [
-                                8,
+                                3,
                                 7
                             ],
-                            "name": "cattle"
+                            "name": "wine"
                         },
                         {
                             "position": [
-                                8,
+                                3,
                                 8
                             ],
-                            "name": "nuke_plant"
+                            "name": "referee"
                         },
                         {
                             "position": [
-                                8,
+                                3,
                                 9
                             ],
-                            "name": "thief"
+                            "name": "programmer"
                         },
                         {
                             "position": [
-                                9,
+                                4,
                                 0
                             ],
-                            "name": "dirt"
+                            "name": "plate"
                         },
                         {
                             "position": [
-                                9,
+                                4,
                                 1
                             ],
-                            "name": "teacher"
+                            "name": "eraser"
                         },
                         {
                             "position": [
-                                9,
+                                4,
                                 2
                             ],
-                            "name": "Q60"
+                            "name": "priest"
                         },
                         {
                             "position": [
-                                9,
+                                4,
                                 3
                             ],
-                            "name": "pigeon"
+                            "name": "cross"
                         },
                         {
                             "position": [
-                                9,
+                                4,
                                 4
-                            ],
-                            "name": "rabbit"
-                        },
-                        {
-                            "position": [
-                                9,
-                                5
-                            ],
-                            "name": "dunes"
-                        },
-                        {
-                            "position": [
-                                9,
-                                6
                             ],
                             "name": "ship"
                         },
                         {
                             "position": [
-                                9,
+                                4,
+                                5
+                            ],
+                            "name": "factory"
+                        },
+                        {
+                            "position": [
+                                4,
+                                6
+                            ],
+                            "name": "ocean"
+                        },
+                        {
+                            "position": [
+                                4,
+                                7
+                            ],
+                            "name": "floppy"
+                        },
+                        {
+                            "position": [
+                                4,
+                                8
+                            ],
+                            "name": "bee"
+                        },
+                        {
+                            "position": [
+                                4,
+                                9
+                            ],
+                            "name": "beach"
+                        },
+                        {
+                            "position": [
+                                5,
+                                0
+                            ],
+                            "name": "sphere"
+                        },
+                        {
+                            "position": [
+                                5,
+                                1
+                            ],
+                            "name": "pigeon"
+                        },
+                        {
+                            "position": [
+                                5,
+                                2
+                            ],
+                            "name": "nuke_plant"
+                        },
+                        {
+                            "position": [
+                                5,
+                                3
+                            ],
+                            "name": "rocks"
+                        },
+                        {
+                            "position": [
+                                5,
+                                4
+                            ],
+                            "name": "recycling"
+                        },
+                        {
+                            "position": [
+                                5,
+                                5
+                            ],
+                            "name": "socket"
+                        },
+                        {
+                            "position": [
+                                5,
+                                6
+                            ],
+                            "name": "city"
+                        },
+                        {
+                            "position": [
+                                5,
+                                7
+                            ],
+                            "name": "drugs"
+                        },
+                        {
+                            "position": [
+                                5,
+                                8
+                            ],
+                            "name": "cross"
+                        },
+                        {
+                            "position": [
+                                5,
+                                9
+                            ],
+                            "name": "violin"
+                        },
+                        {
+                            "position": [
+                                6,
+                                0
+                            ],
+                            "name": "cleaner"
+                        },
+                        {
+                            "position": [
+                                6,
+                                1
+                            ],
+                            "name": "peach"
+                        },
+                        {
+                            "position": [
+                                6,
+                                2
+                            ],
+                            "name": "computer"
+                        },
+                        {
+                            "position": [
+                                6,
+                                3
+                            ],
+                            "name": "mouse"
+                        },
+                        {
+                            "position": [
+                                6,
+                                4
+                            ],
+                            "name": "kids"
+                        },
+                        {
+                            "position": [
+                                6,
+                                5
+                            ],
+                            "name": "ocean"
+                        },
+                        {
+                            "position": [
+                                6,
+                                6
+                            ],
+                            "name": "bee"
+                        },
+                        {
+                            "position": [
+                                6,
                                 7
                             ],
                             "name": "rocks"
                         },
                         {
                             "position": [
-                                9,
+                                6,
                                 8
+                            ],
+                            "name": "bat"
+                        },
+                        {
+                            "position": [
+                                6,
+                                9
+                            ],
+                            "name": "cop"
+                        },
+                        {
+                            "position": [
+                                7,
+                                0
+                            ],
+                            "name": "violin"
+                        },
+                        {
+                            "position": [
+                                7,
+                                1
+                            ],
+                            "name": "alligator"
+                        },
+                        {
+                            "position": [
+                                7,
+                                2
+                            ],
+                            "name": "eraser"
+                        },
+                        {
+                            "position": [
+                                7,
+                                3
+                            ],
+                            "name": "flower"
+                        },
+                        {
+                            "position": [
+                                7,
+                                4
+                            ],
+                            "name": "floppy"
+                        },
+                        {
+                            "position": [
+                                7,
+                                5
+                            ],
+                            "name": "baby"
+                        },
+                        {
+                            "position": [
+                                7,
+                                6
+                            ],
+                            "name": "dog"
+                        },
+                        {
+                            "position": [
+                                7,
+                                7
+                            ],
+                            "name": "router"
+                        },
+                        {
+                            "position": [
+                                7,
+                                8
+                            ],
+                            "name": "church"
+                        },
+                        {
+                            "position": [
+                                7,
+                                9
+                            ],
+                            "name": "rocks"
+                        },
+                        {
+                            "position": [
+                                8,
+                                0
+                            ],
+                            "name": "woman"
+                        },
+                        {
+                            "position": [
+                                8,
+                                1
+                            ],
+                            "name": "peach"
+                        },
+                        {
+                            "position": [
+                                8,
+                                2
+                            ],
+                            "name": "drugs"
+                        },
+                        {
+                            "position": [
+                                8,
+                                3
+                            ],
+                            "name": "cup"
+                        },
+                        {
+                            "position": [
+                                8,
+                                4
+                            ],
+                            "name": "beans"
+                        },
+                        {
+                            "position": [
+                                8,
+                                5
+                            ],
+                            "name": "house"
+                        },
+                        {
+                            "position": [
+                                8,
+                                6
+                            ],
+                            "name": "computer"
+                        },
+                        {
+                            "position": [
+                                8,
+                                7
+                            ],
+                            "name": "teacher"
+                        },
+                        {
+                            "position": [
+                                8,
+                                8
+                            ],
+                            "name": "RAM"
+                        },
+                        {
+                            "position": [
+                                8,
+                                9
+                            ],
+                            "name": "videogame"
+                        },
+                        {
+                            "position": [
+                                9,
+                                0
+                            ],
+                            "name": "videogame"
+                        },
+                        {
+                            "position": [
+                                9,
+                                1
                             ],
                             "name": "bench"
                         },
                         {
                             "position": [
                                 9,
+                                2
+                            ],
+                            "name": "violin"
+                        },
+                        {
+                            "position": [
+                                9,
+                                3
+                            ],
+                            "name": "shoe"
+                        },
+                        {
+                            "position": [
+                                9,
+                                4
+                            ],
+                            "name": "athlete"
+                        },
+                        {
+                            "position": [
+                                9,
+                                5
+                            ],
+                            "name": "cook"
+                        },
+                        {
+                            "position": [
+                                9,
+                                6
+                            ],
+                            "name": "rave"
+                        },
+                        {
+                            "position": [
+                                9,
+                                7
+                            ],
+                            "name": "couch"
+                        },
+                        {
+                            "position": [
+                                9,
+                                8
+                            ],
+                            "name": "beetle"
+                        },
+                        {
+                            "position": [
+                                9,
                                 9
                             ],
-                            "name": "axe"
+                            "name": "woman"
                         }
                     ],
                     "hintList": [
@@ -2538,6 +2658,26 @@ module.exports = {
                         [
                             2,
                             3
+                        ],
+                        [
+                            2,
+                            4
+                        ],
+                        [
+                            2,
+                            5
+                        ],
+                        [
+                            2,
+                            6
+                        ],
+                        [
+                            2,
+                            7
+                        ],
+                        [
+                            3,
+                            8
                         ]
                     ],
                     "hintWord": [
@@ -2567,6 +2707,36 @@ module.exports = {
                             "smoko",
                             "tea",
                             "tea and croissant"
+                        ],
+                        [
+                            "clothing",
+                            "gear",
+                            "outfit"
+                        ],
+                        [
+                            "beehive",
+                            "drum",
+                            "shield"
+                        ],
+                        [
+                            "frog",
+                            "kermit",
+                            "retile",
+                            "toad"
+                        ],
+                        [
+                            "laptop"
+                        ],
+                        [
+                            "icon",
+                            "lottery ticket",
+                            "lotto",
+                            "lucky number",
+                            "person",
+                            "referee",
+                            "ticket",
+                            "winner",
+                            "winning ticket"
                         ]
                     ]
                 }
@@ -3084,7 +3254,42 @@ module.exports = {
                             1
                         ]
                     ],
-                    "hintWord": []
+                    "hintWord": [
+                        [
+                            "next"
+                        ],
+                        [
+                            "next"
+                        ],
+                        [
+                            "next"
+                        ],
+                        [
+                            "next"
+                        ],
+                        [
+                            "next"
+                        ],
+                        [
+                            "next"
+                        ],
+                        [
+                            "next"
+                        ],
+                        [
+                            "next"
+                        ],
+                        [
+                            "next"
+                        ],
+                        [
+                            "next"
+                        ],
+                        [
+                            "next"
+                        ],
+                        null
+                    ]
                 },
                 {
                     "playerName": "player2",
@@ -3584,7 +3789,42 @@ module.exports = {
                             1
                         ]
                     ],
-                    "hintWord": []
+                    "hintWord": [
+                        [
+                            "next"
+                        ],
+                        [
+                            "next"
+                        ],
+                        [
+                            "next"
+                        ],
+                        [
+                            "next"
+                        ],
+                        [
+                            "next"
+                        ],
+                        [
+                            "next"
+                        ],
+                        [
+                            "next"
+                        ],
+                        [
+                            "next"
+                        ],
+                        [
+                            "next"
+                        ],
+                        [
+                            "next"
+                        ],
+                        [
+                            "next"
+                        ],
+                        null
+                    ]
                 }
             ]
         },
@@ -3610,700 +3850,700 @@ module.exports = {
                                 0,
                                 0
                             ],
-                            "name": "nuke_plant"
+                            "name": "rave"
                         },
                         {
                             "position": [
                                 0,
                                 1
                             ],
-                            "name": "boot"
+                            "name": "berries"
                         },
                         {
                             "position": [
                                 0,
                                 2
+                            ],
+                            "name": "soldier"
+                        },
+                        {
+                            "position": [
+                                0,
+                                3
+                            ],
+                            "name": "RAM"
+                        },
+                        {
+                            "position": [
+                                0,
+                                4
+                            ],
+                            "name": "snake"
+                        },
+                        {
+                            "position": [
+                                0,
+                                5
+                            ],
+                            "name": "cart"
+                        },
+                        {
+                            "position": [
+                                0,
+                                6
                             ],
                             "name": "runners"
                         },
                         {
                             "position": [
                                 0,
-                                3
-                            ],
-                            "name": "violin"
-                        },
-                        {
-                            "position": [
-                                0,
-                                4
-                            ],
-                            "name": "socket"
-                        },
-                        {
-                            "position": [
-                                0,
-                                5
-                            ],
-                            "name": "teacher"
-                        },
-                        {
-                            "position": [
-                                0,
-                                6
-                            ],
-                            "name": "axe"
-                        },
-                        {
-                            "position": [
-                                0,
                                 7
-                            ],
-                            "name": "wine"
-                        },
-                        {
-                            "position": [
-                                0,
-                                8
-                            ],
-                            "name": "USB"
-                        },
-                        {
-                            "position": [
-                                0,
-                                9
-                            ],
-                            "name": "eraser"
-                        },
-                        {
-                            "position": [
-                                1,
-                                0
-                            ],
-                            "name": "pigeon"
-                        },
-                        {
-                            "position": [
-                                1,
-                                1
-                            ],
-                            "name": "clothes"
-                        },
-                        {
-                            "position": [
-                                1,
-                                2
-                            ],
-                            "name": "wine"
-                        },
-                        {
-                            "position": [
-                                1,
-                                3
-                            ],
-                            "name": "cook"
-                        },
-                        {
-                            "position": [
-                                1,
-                                4
-                            ],
-                            "name": "dog"
-                        },
-                        {
-                            "position": [
-                                1,
-                                5
-                            ],
-                            "name": "ship"
-                        },
-                        {
-                            "position": [
-                                1,
-                                6
-                            ],
-                            "name": "priest"
-                        },
-                        {
-                            "position": [
-                                1,
-                                7
-                            ],
-                            "name": "violin"
-                        },
-                        {
-                            "position": [
-                                1,
-                                8
-                            ],
-                            "name": "berries"
-                        },
-                        {
-                            "position": [
-                                1,
-                                9
-                            ],
-                            "name": "rabbit"
-                        },
-                        {
-                            "position": [
-                                2,
-                                0
-                            ],
-                            "name": "socket"
-                        },
-                        {
-                            "position": [
-                                2,
-                                1
-                            ],
-                            "name": "car"
-                        },
-                        {
-                            "position": [
-                                2,
-                                2
-                            ],
-                            "name": "car"
-                        },
-                        {
-                            "position": [
-                                2,
-                                3
-                            ],
-                            "name": "belly"
-                        },
-                        {
-                            "position": [
-                                2,
-                                4
-                            ],
-                            "name": "king"
-                        },
-                        {
-                            "position": [
-                                2,
-                                5
-                            ],
-                            "name": "belly"
-                        },
-                        {
-                            "position": [
-                                2,
-                                6
-                            ],
-                            "name": "belly"
-                        },
-                        {
-                            "position": [
-                                2,
-                                7
-                            ],
-                            "name": "king"
-                        },
-                        {
-                            "position": [
-                                2,
-                                8
-                            ],
-                            "name": "baby"
-                        },
-                        {
-                            "position": [
-                                2,
-                                9
-                            ],
-                            "name": "king"
-                        },
-                        {
-                            "position": [
-                                3,
-                                0
-                            ],
-                            "name": "sink"
-                        },
-                        {
-                            "position": [
-                                3,
-                                1
-                            ],
-                            "name": "barrels"
-                        },
-                        {
-                            "position": [
-                                3,
-                                2
-                            ],
-                            "name": "cross"
-                        },
-                        {
-                            "position": [
-                                3,
-                                3
-                            ],
-                            "name": "city"
-                        },
-                        {
-                            "position": [
-                                3,
-                                4
-                            ],
-                            "name": "shoe"
-                        },
-                        {
-                            "position": [
-                                3,
-                                5
-                            ],
-                            "name": "rocks"
-                        },
-                        {
-                            "position": [
-                                3,
-                                6
-                            ],
-                            "name": "wine"
-                        },
-                        {
-                            "position": [
-                                3,
-                                7
-                            ],
-                            "name": "marijuana"
-                        },
-                        {
-                            "position": [
-                                3,
-                                8
-                            ],
-                            "name": "car"
-                        },
-                        {
-                            "position": [
-                                3,
-                                9
-                            ],
-                            "name": "RAM"
-                        },
-                        {
-                            "position": [
-                                4,
-                                0
-                            ],
-                            "name": "cave"
-                        },
-                        {
-                            "position": [
-                                4,
-                                1
-                            ],
-                            "name": "artist"
-                        },
-                        {
-                            "position": [
-                                4,
-                                2
                             ],
                             "name": "computer"
                         },
                         {
                             "position": [
-                                4,
-                                3
-                            ],
-                            "name": "rave"
-                        },
-                        {
-                            "position": [
-                                4,
-                                4
-                            ],
-                            "name": "woman"
-                        },
-                        {
-                            "position": [
-                                4,
-                                5
-                            ],
-                            "name": "kids"
-                        },
-                        {
-                            "position": [
-                                4,
-                                6
-                            ],
-                            "name": "woman"
-                        },
-                        {
-                            "position": [
-                                4,
-                                7
-                            ],
-                            "name": "knife"
-                        },
-                        {
-                            "position": [
-                                4,
+                                0,
                                 8
-                            ],
-                            "name": "socket"
-                        },
-                        {
-                            "position": [
-                                4,
-                                9
-                            ],
-                            "name": "axe"
-                        },
-                        {
-                            "position": [
-                                5,
-                                0
-                            ],
-                            "name": "beetle"
-                        },
-                        {
-                            "position": [
-                                5,
-                                1
-                            ],
-                            "name": "socket"
-                        },
-                        {
-                            "position": [
-                                5,
-                                2
-                            ],
-                            "name": "berries"
-                        },
-                        {
-                            "position": [
-                                5,
-                                3
-                            ],
-                            "name": "shoe"
-                        },
-                        {
-                            "position": [
-                                5,
-                                4
-                            ],
-                            "name": "alligator"
-                        },
-                        {
-                            "position": [
-                                5,
-                                5
-                            ],
-                            "name": "cook"
-                        },
-                        {
-                            "position": [
-                                5,
-                                6
-                            ],
-                            "name": "cup"
-                        },
-                        {
-                            "position": [
-                                5,
-                                7
-                            ],
-                            "name": "factory"
-                        },
-                        {
-                            "position": [
-                                5,
-                                8
-                            ],
-                            "name": "ocean"
-                        },
-                        {
-                            "position": [
-                                5,
-                                9
-                            ],
-                            "name": "drugs"
-                        },
-                        {
-                            "position": [
-                                6,
-                                0
-                            ],
-                            "name": "king"
-                        },
-                        {
-                            "position": [
-                                6,
-                                1
                             ],
                             "name": "gun"
                         },
                         {
                             "position": [
-                                6,
-                                2
+                                0,
+                                9
                             ],
-                            "name": "USB"
+                            "name": "rave"
                         },
                         {
                             "position": [
-                                6,
-                                3
-                            ],
-                            "name": "dog"
-                        },
-                        {
-                            "position": [
-                                6,
-                                4
+                                1,
+                                0
                             ],
                             "name": "cook"
                         },
                         {
                             "position": [
-                                6,
+                                1,
+                                1
+                            ],
+                            "name": "sink"
+                        },
+                        {
+                            "position": [
+                                1,
+                                2
+                            ],
+                            "name": "drugs"
+                        },
+                        {
+                            "position": [
+                                1,
+                                3
+                            ],
+                            "name": "couch"
+                        },
+                        {
+                            "position": [
+                                1,
+                                4
+                            ],
+                            "name": "city"
+                        },
+                        {
+                            "position": [
+                                1,
                                 5
                             ],
-                            "name": "cattle"
+                            "name": "cleaner"
                         },
                         {
                             "position": [
-                                6,
+                                1,
                                 6
                             ],
-                            "name": "RAM"
+                            "name": "cross"
                         },
                         {
                             "position": [
-                                6,
+                                1,
                                 7
                             ],
-                            "name": "beach"
+                            "name": "cook"
                         },
                         {
                             "position": [
-                                6,
+                                1,
                                 8
                             ],
-                            "name": "clothes"
+                            "name": "artist"
                         },
                         {
                             "position": [
-                                6,
+                                1,
                                 9
                             ],
-                            "name": "axe"
+                            "name": "beetle"
                         },
                         {
                             "position": [
-                                7,
+                                2,
+                                0
+                            ],
+                            "name": "fireplace"
+                        },
+                        {
+                            "position": [
+                                2,
+                                1
+                            ],
+                            "name": "parking_sp"
+                        },
+                        {
+                            "position": [
+                                2,
+                                2
+                            ],
+                            "name": "cleaner"
+                        },
+                        {
+                            "position": [
+                                2,
+                                3
+                            ],
+                            "name": "belly"
+                        },
+                        {
+                            "position": [
+                                2,
+                                4
+                            ],
+                            "name": "moth"
+                        },
+                        {
+                            "position": [
+                                2,
+                                5
+                            ],
+                            "name": "boot"
+                        },
+                        {
+                            "position": [
+                                2,
+                                6
+                            ],
+                            "name": "bee"
+                        },
+                        {
+                            "position": [
+                                2,
+                                7
+                            ],
+                            "name": "shoe"
+                        },
+                        {
+                            "position": [
+                                2,
+                                8
+                            ],
+                            "name": "fireplace"
+                        },
+                        {
+                            "position": [
+                                2,
+                                9
+                            ],
+                            "name": "flag"
+                        },
+                        {
+                            "position": [
+                                3,
                                 0
                             ],
                             "name": "dunes"
                         },
                         {
                             "position": [
-                                7,
+                                3,
                                 1
                             ],
-                            "name": "cross"
+                            "name": "priest"
                         },
                         {
                             "position": [
-                                7,
+                                3,
                                 2
+                            ],
+                            "name": "beetle"
+                        },
+                        {
+                            "position": [
+                                3,
+                                3
+                            ],
+                            "name": "plate"
+                        },
+                        {
+                            "position": [
+                                3,
+                                4
+                            ],
+                            "name": "thief"
+                        },
+                        {
+                            "position": [
+                                3,
+                                5
+                            ],
+                            "name": "axe"
+                        },
+                        {
+                            "position": [
+                                3,
+                                6
+                            ],
+                            "name": "drugs"
+                        },
+                        {
+                            "position": [
+                                3,
+                                7
+                            ],
+                            "name": "king"
+                        },
+                        {
+                            "position": [
+                                3,
+                                8
+                            ],
+                            "name": "belly"
+                        },
+                        {
+                            "position": [
+                                3,
+                                9
+                            ],
+                            "name": "axe"
+                        },
+                        {
+                            "position": [
+                                4,
+                                0
                             ],
                             "name": "recycling"
                         },
                         {
                             "position": [
-                                7,
+                                4,
+                                1
+                            ],
+                            "name": "factory"
+                        },
+                        {
+                            "position": [
+                                4,
+                                2
+                            ],
+                            "name": "snake"
+                        },
+                        {
+                            "position": [
+                                4,
                                 3
                             ],
-                            "name": "computer"
+                            "name": "cup"
                         },
                         {
                             "position": [
-                                7,
+                                4,
                                 4
                             ],
-                            "name": "cave"
+                            "name": "road"
                         },
                         {
                             "position": [
-                                7,
+                                4,
+                                5
+                            ],
+                            "name": "floppy"
+                        },
+                        {
+                            "position": [
+                                4,
+                                6
+                            ],
+                            "name": "teacher"
+                        },
+                        {
+                            "position": [
+                                4,
+                                7
+                            ],
+                            "name": "axe"
+                        },
+                        {
+                            "position": [
+                                4,
+                                8
+                            ],
+                            "name": "house"
+                        },
+                        {
+                            "position": [
+                                4,
+                                9
+                            ],
+                            "name": "gun"
+                        },
+                        {
+                            "position": [
+                                5,
+                                0
+                            ],
+                            "name": "flower"
+                        },
+                        {
+                            "position": [
+                                5,
+                                1
+                            ],
+                            "name": "runners"
+                        },
+                        {
+                            "position": [
+                                5,
+                                2
+                            ],
+                            "name": "RAM"
+                        },
+                        {
+                            "position": [
+                                5,
+                                3
+                            ],
+                            "name": "hen"
+                        },
+                        {
+                            "position": [
+                                5,
+                                4
+                            ],
+                            "name": "Q60"
+                        },
+                        {
+                            "position": [
+                                5,
                                 5
                             ],
                             "name": "flag"
                         },
                         {
                             "position": [
-                                7,
+                                5,
                                 6
                             ],
-                            "name": "doctor"
+                            "name": "mouse"
                         },
                         {
                             "position": [
-                                7,
+                                5,
                                 7
                             ],
-                            "name": "flag"
+                            "name": "thief"
                         },
                         {
                             "position": [
-                                7,
+                                5,
                                 8
                             ],
-                            "name": "sink"
+                            "name": "mouse"
                         },
                         {
                             "position": [
-                                7,
+                                5,
                                 9
                             ],
-                            "name": "people"
+                            "name": "beetle"
                         },
                         {
                             "position": [
-                                8,
+                                6,
                                 0
                             ],
-                            "name": "woman"
+                            "name": "factory"
                         },
                         {
                             "position": [
-                                8,
+                                6,
                                 1
                             ],
-                            "name": "violin"
+                            "name": "robot"
                         },
                         {
                             "position": [
-                                8,
+                                6,
                                 2
                             ],
-                            "name": "kids"
+                            "name": "cave"
                         },
                         {
                             "position": [
-                                8,
+                                6,
                                 3
                             ],
-                            "name": "wine"
+                            "name": "jacket"
                         },
                         {
                             "position": [
-                                8,
+                                6,
                                 4
                             ],
-                            "name": "cook"
+                            "name": "plate"
                         },
                         {
                             "position": [
-                                8,
+                                6,
                                 5
                             ],
                             "name": "money"
                         },
                         {
                             "position": [
-                                8,
+                                6,
                                 6
                             ],
-                            "name": "people"
+                            "name": "pigeon"
                         },
                         {
                             "position": [
-                                8,
+                                6,
                                 7
+                            ],
+                            "name": "king"
+                        },
+                        {
+                            "position": [
+                                6,
+                                8
+                            ],
+                            "name": "baby"
+                        },
+                        {
+                            "position": [
+                                6,
+                                9
+                            ],
+                            "name": "road"
+                        },
+                        {
+                            "position": [
+                                7,
+                                0
+                            ],
+                            "name": "bat"
+                        },
+                        {
+                            "position": [
+                                7,
+                                1
+                            ],
+                            "name": "router"
+                        },
+                        {
+                            "position": [
+                                7,
+                                2
+                            ],
+                            "name": "cop"
+                        },
+                        {
+                            "position": [
+                                7,
+                                3
+                            ],
+                            "name": "pigeon"
+                        },
+                        {
+                            "position": [
+                                7,
+                                4
+                            ],
+                            "name": "drink"
+                        },
+                        {
+                            "position": [
+                                7,
+                                5
+                            ],
+                            "name": "cart"
+                        },
+                        {
+                            "position": [
+                                7,
+                                6
+                            ],
+                            "name": "alligator"
+                        },
+                        {
+                            "position": [
+                                7,
+                                7
+                            ],
+                            "name": "cup"
+                        },
+                        {
+                            "position": [
+                                7,
+                                8
+                            ],
+                            "name": "Q45"
+                        },
+                        {
+                            "position": [
+                                7,
+                                9
                             ],
                             "name": "ocean"
                         },
                         {
                             "position": [
                                 8,
+                                0
+                            ],
+                            "name": "house"
+                        },
+                        {
+                            "position": [
+                                8,
+                                1
+                            ],
+                            "name": "doctor"
+                        },
+                        {
+                            "position": [
+                                8,
+                                2
+                            ],
+                            "name": "axe"
+                        },
+                        {
+                            "position": [
+                                8,
+                                3
+                            ],
+                            "name": "couch"
+                        },
+                        {
+                            "position": [
+                                8,
+                                4
+                            ],
+                            "name": "bee"
+                        },
+                        {
+                            "position": [
+                                8,
+                                5
+                            ],
+                            "name": "wine"
+                        },
+                        {
+                            "position": [
+                                8,
+                                6
+                            ],
+                            "name": "ocean"
+                        },
+                        {
+                            "position": [
+                                8,
+                                7
+                            ],
+                            "name": "wine"
+                        },
+                        {
+                            "position": [
+                                8,
                                 8
                             ],
-                            "name": "runners"
+                            "name": "alligator"
                         },
                         {
                             "position": [
                                 8,
                                 9
                             ],
-                            "name": "eraser"
+                            "name": "bench"
                         },
                         {
                             "position": [
                                 9,
                                 0
                             ],
-                            "name": "socket"
+                            "name": "tree"
                         },
                         {
                             "position": [
                                 9,
                                 1
                             ],
-                            "name": "hen"
+                            "name": "boot"
                         },
                         {
                             "position": [
                                 9,
                                 2
                             ],
-                            "name": "beach"
+                            "name": "microbes"
                         },
                         {
                             "position": [
                                 9,
                                 3
                             ],
-                            "name": "barrels"
+                            "name": "flag"
                         },
                         {
                             "position": [
                                 9,
                                 4
                             ],
-                            "name": "router"
+                            "name": "recycling"
                         },
                         {
                             "position": [
                                 9,
                                 5
                             ],
-                            "name": "peach"
+                            "name": "rave"
                         },
                         {
                             "position": [
                                 9,
                                 6
                             ],
-                            "name": "cross"
+                            "name": "violin"
                         },
                         {
                             "position": [
                                 9,
                                 7
                             ],
-                            "name": "RAM"
+                            "name": "woman"
                         },
                         {
                             "position": [
                                 9,
                                 8
                             ],
-                            "name": "eraser"
+                            "name": "peach"
                         },
                         {
                             "position": [
                                 9,
                                 9
                             ],
-                            "name": "sink"
+                            "name": "priest"
                         }
                     ],
                     "hintList": [
@@ -4442,203 +4682,144 @@ module.exports = {
                     ],
                     "hintWord": [
                         [
-                            "clothing",
-                            "gear",
-                            "outfit"
-                        ],
-                        [
-                            "car",
-                            "hatchback",
-                            "old dunger",
-                            "vehicle"
-                        ],
-                        [
-                            "car",
-                            "hatchback",
-                            "old dunger",
-                            "vehicle"
-                        ],
-                        [
-                            "belly",
-                            "bump",
-                            "fetus",
-                            "pregnant",
-                            "pregnant belly",
-                            "stomach",
-                            "tummy"
-                        ],
-                        [
-                            "death sentence",
-                            "electric chair",
-                            "king",
-                            "monarch",
-                            "queen",
-                            "royal",
-                            "ruler",
-                            "throne"
-                        ],
-                        [
-                            "belly",
-                            "bump",
-                            "fetus",
-                            "pregnant",
-                            "pregnant belly",
-                            "stomach",
-                            "tummy"
-                        ],
-                        [
-                            "belly",
-                            "bump",
-                            "fetus",
-                            "pregnant",
-                            "pregnant belly",
-                            "stomach",
-                            "tummy"
-                        ],
-                        [
-                            "death sentence",
-                            "electric chair",
-                            "king",
-                            "monarch",
-                            "queen",
-                            "royal",
-                            "ruler",
-                            "throne"
-                        ],
-                        [
-                            "car",
-                            "hatchback",
-                            "old dunger",
-                            "vehicle"
-                        ],
-                        [
-                            "dagger",
-                            "knife",
-                            "lipstick"
-                        ],
-                        [
-                            "female",
-                            "girl",
-                            "lady",
-                            "woman"
-                        ],
-                        [
-                            "couple",
-                            "family",
-                            "kids",
-                            "siblings",
-                            "unisex"
-                        ],
-                        [
-                            "female",
-                            "girl",
-                            "lady",
-                            "woman"
-                        ],
-                        [
-                            "concert",
-                            "crowd",
-                            "gig",
-                            "moshpit",
-                            "party"
-                        ],
-                        [
-                            "desktop",
-                            "monitor",
-                            "pc",
-                            "remote",
-                            "remote control",
-                            "teelvision",
-                            "tv"
-                        ],
-                        [
-                            "painter",
-                            "painting"
-                        ],
-                        [
-                            "plug",
-                            "powerpoint",
-                            "sad",
-                            "smiley",
-                            "socket",
-                            "tv"
-                        ],
-                        [
-                            "handgun",
-                            "pistol",
-                            "revolver",
-                            "semi-automatic",
-                            "weapon"
-                        ],
-                        [
-                            "memory stick",
-                            "thumb drive",
-                            "usb drive",
-                            "usb stick"
-                        ],
-                        [
-                            "chasing",
-                            "dog",
-                            "hound",
-                            "kangaroo",
-                            "mongrel",
-                            "running",
-                            "wallaby",
-                            "wolf"
-                        ],
-                        [
-                            "chef",
-                            "cook",
-                            "woman"
-                        ],
-                        [
-                            "beef",
-                            "bulls",
-                            "cattle",
-                            "cows",
-                            "dairy farm",
-                            "farm",
-                            "herd",
-                            "livestock",
-                            "stock"
-                        ],
-                        [
-                            "cpu",
-                            "dongle",
-                            "memory",
-                            "memory card",
-                            "memory chip",
-                            "ram"
-                        ],
-                        [
-                            "beach umbrella",
-                            "summer",
-                            "sun",
-                            "sun shade",
-                            "sun umbrella",
-                            "umbrella"
-                        ],
-                        [
                             "sink",
                             "tap"
                         ],
                         [
-                            "landscape",
-                            "scenery",
-                            "sea",
-                            "summer",
-                            "sun",
-                            "sunny",
-                            "weather"
+                            "disabled parking",
+                            "mobility park",
+                            "parking",
+                            "wheelchair park"
                         ],
                         [
-                            "crowd",
-                            "group",
-                            "group of people",
-                            "mob",
-                            "people",
-                            "queue",
-                            "users"
+                            "cleaner",
+                            "dustman",
+                            "janitor"
+                        ],
+                        [
+                            "belly",
+                            "bump",
+                            "fetus",
+                            "pregnant",
+                            "pregnant belly",
+                            "stomach",
+                            "tummy"
+                        ],
+                        [
+                            "butterfly",
+                            "insect",
+                            "moth"
+                        ],
+                        [
+                            "doc martin",
+                            "high top",
+                            "safety boot",
+                            "shoe",
+                            "work boot"
+                        ],
+                        [
+                            "bumble bee",
+                            "buzzy bee",
+                            "honey",
+                            "honeybee",
+                            "insect"
+                        ],
+                        [
+                            "deck shoe",
+                            "karate shoe",
+                            "loafer",
+                            "shoe",
+                            "slip ons",
+                            "slipper",
+                            "vans"
+                        ],
+                        [
+                            "belly",
+                            "bump",
+                            "fetus",
+                            "pregnant",
+                            "pregnant belly",
+                            "stomach",
+                            "tummy"
+                        ],
+                        [
+                            "hatchet",
+                            "wood splitter"
+                        ],
+                        [
+                            "lecturer",
+                            "pointer",
+                            "presenter",
+                            "teach",
+                            "teacher",
+                            "teaching",
+                            "tutor",
+                            "whiteboard"
+                        ],
+                        [
+                            "3.5 inch disc",
+                            "disk",
+                            "file space",
+                            "floppy",
+                            "floppy disk",
+                            "save",
+                            "storage"
+                        ],
+                        [
+                            "bridge",
+                            "highway",
+                            "ladder",
+                            "lane",
+                            "road",
+                            "street",
+                            "train tracks"
+                        ],
+                        [
+                            "coffee",
+                            "coffee cup",
+                            "cup",
+                            "cuppa",
+                            "mug",
+                            "tea",
+                            "tea cup"
+                        ],
+                        [
+                            "reptile",
+                            "serpent",
+                            "snake",
+                            "sperm",
+                            "worm"
+                        ],
+                        [
+                            "factory",
+                            "industry",
+                            "manufacturer",
+                            "pollution",
+                            "workshop"
+                        ],
+                        [
+                            "runners",
+                            "running",
+                            "team"
+                        ],
+                        [
+                            "droid",
+                            "machine",
+                            "metal mickey",
+                            "robot"
+                        ],
+                        [
+                            "cave",
+                            "hole in the rock",
+                            "rock"
+                        ],
+                        [
+                            "leather jacket",
+                            "motorcycle jacket"
+                        ],
+                        [
+                            "dinner plate",
+                            "plate"
                         ],
                         [
                             "coins",
@@ -4648,9 +4829,30 @@ module.exports = {
                             "money"
                         ],
                         [
-                            "chef",
-                            "cook",
-                            "woman"
+                            "eagle",
+                            "hawk",
+                            "pigeon"
+                        ],
+                        [
+                            "death sentence",
+                            "electric chair",
+                            "king",
+                            "monarch",
+                            "queen",
+                            "royal",
+                            "ruler",
+                            "throne"
+                        ],
+                        [
+                            "cement",
+                            "concrete",
+                            "filler",
+                            "grout",
+                            "mortar",
+                            "mud",
+                            "pizza",
+                            "pizza slice",
+                            "plaster"
                         ],
                         [
                             "booze",
@@ -4662,24 +4864,51 @@ module.exports = {
                             "wine glasses"
                         ],
                         [
-                            "couple",
-                            "family",
-                            "kids",
-                            "siblings",
-                            "unisex"
+                            "landscape",
+                            "scenery",
+                            "sea",
+                            "summer",
+                            "sun",
+                            "sunny",
+                            "weather"
                         ],
                         [
-                            "instrument",
-                            "mandolin",
-                            "musical instrument",
-                            "viola",
-                            "violin"
+                            "booze",
+                            "champagne",
+                            "cheers",
+                            "drinks",
+                            "toast",
+                            "wine",
+                            "wine glasses"
                         ],
                         [
-                            "chicken",
-                            "chook",
-                            "hen",
-                            "rooster"
+                            "bumble bee",
+                            "buzzy bee",
+                            "honey",
+                            "honeybee",
+                            "insect"
+                        ],
+                        [
+                            "chair",
+                            "couch",
+                            "easy chair",
+                            "sofa"
+                        ],
+                        [
+                            "hatchet",
+                            "wood splitter"
+                        ],
+                        [
+                            "gp",
+                            "medical professional",
+                            "specialist"
+                        ],
+                        [
+                            "doc martin",
+                            "high top",
+                            "safety boot",
+                            "shoe",
+                            "work boot"
                         ]
                     ]
                 },
@@ -4691,511 +4920,511 @@ module.exports = {
                                 0,
                                 0
                             ],
-                            "name": "cross"
+                            "name": "mouse"
                         },
                         {
                             "position": [
                                 0,
                                 1
                             ],
-                            "name": "snake"
+                            "name": "cook"
                         },
                         {
                             "position": [
                                 0,
                                 2
-                            ],
-                            "name": "church"
-                        },
-                        {
-                            "position": [
-                                0,
-                                3
                             ],
                             "name": "ocean"
                         },
                         {
                             "position": [
                                 0,
+                                3
+                            ],
+                            "name": "gun"
+                        },
+                        {
+                            "position": [
+                                0,
                                 4
-                            ],
-                            "name": "jacket"
-                        },
-                        {
-                            "position": [
-                                0,
-                                5
-                            ],
-                            "name": "frog"
-                        },
-                        {
-                            "position": [
-                                0,
-                                6
-                            ],
-                            "name": "Q45"
-                        },
-                        {
-                            "position": [
-                                0,
-                                7
-                            ],
-                            "name": "hen"
-                        },
-                        {
-                            "position": [
-                                0,
-                                8
-                            ],
-                            "name": "rabbit"
-                        },
-                        {
-                            "position": [
-                                0,
-                                9
-                            ],
-                            "name": "drugs"
-                        },
-                        {
-                            "position": [
-                                1,
-                                0
                             ],
                             "name": "fireplace"
                         },
                         {
                             "position": [
-                                1,
-                                1
-                            ],
-                            "name": "clothes"
-                        },
-                        {
-                            "position": [
-                                1,
-                                2
-                            ],
-                            "name": "beans"
-                        },
-                        {
-                            "position": [
-                                1,
-                                3
-                            ],
-                            "name": "Q45"
-                        },
-                        {
-                            "position": [
-                                1,
-                                4
-                            ],
-                            "name": "man"
-                        },
-                        {
-                            "position": [
-                                1,
+                                0,
                                 5
                             ],
-                            "name": "church"
+                            "name": "violin"
                         },
                         {
                             "position": [
-                                1,
+                                0,
                                 6
                             ],
                             "name": "pipe"
                         },
                         {
                             "position": [
-                                1,
+                                0,
                                 7
-                            ],
-                            "name": "marijuana"
-                        },
-                        {
-                            "position": [
-                                1,
-                                8
-                            ],
-                            "name": "baby"
-                        },
-                        {
-                            "position": [
-                                1,
-                                9
-                            ],
-                            "name": "nuke_plant"
-                        },
-                        {
-                            "position": [
-                                2,
-                                0
-                            ],
-                            "name": "snake"
-                        },
-                        {
-                            "position": [
-                                2,
-                                1
-                            ],
-                            "name": "snack"
-                        },
-                        {
-                            "position": [
-                                2,
-                                2
-                            ],
-                            "name": "sphere"
-                        },
-                        {
-                            "position": [
-                                2,
-                                3
-                            ],
-                            "name": "door"
-                        },
-                        {
-                            "position": [
-                                2,
-                                4
-                            ],
-                            "name": "Q60"
-                        },
-                        {
-                            "position": [
-                                2,
-                                5
-                            ],
-                            "name": "belly"
-                        },
-                        {
-                            "position": [
-                                2,
-                                6
-                            ],
-                            "name": "snack"
-                        },
-                        {
-                            "position": [
-                                2,
-                                7
-                            ],
-                            "name": "car"
-                        },
-                        {
-                            "position": [
-                                2,
-                                8
-                            ],
-                            "name": "barrels"
-                        },
-                        {
-                            "position": [
-                                2,
-                                9
-                            ],
-                            "name": "sphere"
-                        },
-                        {
-                            "position": [
-                                3,
-                                0
-                            ],
-                            "name": "Q45"
-                        },
-                        {
-                            "position": [
-                                3,
-                                1
-                            ],
-                            "name": "ocean"
-                        },
-                        {
-                            "position": [
-                                3,
-                                2
-                            ],
-                            "name": "couch"
-                        },
-                        {
-                            "position": [
-                                3,
-                                3
                             ],
                             "name": "rabbit"
                         },
                         {
                             "position": [
-                                3,
-                                4
-                            ],
-                            "name": "king"
-                        },
-                        {
-                            "position": [
-                                3,
-                                5
-                            ],
-                            "name": "parking_sp"
-                        },
-                        {
-                            "position": [
-                                3,
-                                6
-                            ],
-                            "name": "cook"
-                        },
-                        {
-                            "position": [
-                                3,
-                                7
-                            ],
-                            "name": "hen"
-                        },
-                        {
-                            "position": [
-                                3,
+                                0,
                                 8
                             ],
-                            "name": "nuke_plant"
+                            "name": "alligator"
+                        },
+                        {
+                            "position": [
+                                0,
+                                9
+                            ],
+                            "name": "teacher"
+                        },
+                        {
+                            "position": [
+                                1,
+                                0
+                            ],
+                            "name": "pipe"
+                        },
+                        {
+                            "position": [
+                                1,
+                                1
+                            ],
+                            "name": "athlete"
+                        },
+                        {
+                            "position": [
+                                1,
+                                2
+                            ],
+                            "name": "city"
+                        },
+                        {
+                            "position": [
+                                1,
+                                3
+                            ],
+                            "name": "drugs"
+                        },
+                        {
+                            "position": [
+                                1,
+                                4
+                            ],
+                            "name": "wine"
+                        },
+                        {
+                            "position": [
+                                1,
+                                5
+                            ],
+                            "name": "moth"
+                        },
+                        {
+                            "position": [
+                                1,
+                                6
+                            ],
+                            "name": "cattle"
+                        },
+                        {
+                            "position": [
+                                1,
+                                7
+                            ],
+                            "name": "plate"
+                        },
+                        {
+                            "position": [
+                                1,
+                                8
+                            ],
+                            "name": "shoe"
+                        },
+                        {
+                            "position": [
+                                1,
+                                9
+                            ],
+                            "name": "athlete"
+                        },
+                        {
+                            "position": [
+                                2,
+                                0
+                            ],
+                            "name": "dirt"
+                        },
+                        {
+                            "position": [
+                                2,
+                                1
+                            ],
+                            "name": "clothes"
+                        },
+                        {
+                            "position": [
+                                2,
+                                2
+                            ],
+                            "name": "church"
+                        },
+                        {
+                            "position": [
+                                2,
+                                3
+                            ],
+                            "name": "laptop"
+                        },
+                        {
+                            "position": [
+                                2,
+                                4
+                            ],
+                            "name": "referee"
+                        },
+                        {
+                            "position": [
+                                2,
+                                5
+                            ],
+                            "name": "frog"
+                        },
+                        {
+                            "position": [
+                                2,
+                                6
+                            ],
+                            "name": "frog"
+                        },
+                        {
+                            "position": [
+                                2,
+                                7
+                            ],
+                            "name": "house"
+                        },
+                        {
+                            "position": [
+                                2,
+                                8
+                            ],
+                            "name": "cleaner"
+                        },
+                        {
+                            "position": [
+                                2,
+                                9
+                            ],
+                            "name": "programmer"
                         },
                         {
                             "position": [
                                 3,
-                                9
-                            ],
-                            "name": "flag"
-                        },
-                        {
-                            "position": [
-                                4,
                                 0
                             ],
-                            "name": "USB"
+                            "name": "eraser"
                         },
                         {
                             "position": [
-                                4,
+                                3,
                                 1
                             ],
-                            "name": "priest"
+                            "name": "microbes"
                         },
                         {
                             "position": [
-                                4,
+                                3,
                                 2
                             ],
                             "name": "runners"
                         },
                         {
                             "position": [
-                                4,
+                                3,
                                 3
                             ],
-                            "name": "cave"
+                            "name": "jacket"
                         },
                         {
                             "position": [
-                                4,
+                                3,
                                 4
                             ],
-                            "name": "laptop"
+                            "name": "boot"
                         },
                         {
                             "position": [
-                                4,
+                                3,
                                 5
-                            ],
-                            "name": "Q60"
-                        },
-                        {
-                            "position": [
-                                4,
-                                6
-                            ],
-                            "name": "moth"
-                        },
-                        {
-                            "position": [
-                                4,
-                                7
-                            ],
-                            "name": "beetle"
-                        },
-                        {
-                            "position": [
-                                4,
-                                8
-                            ],
-                            "name": "videogame"
-                        },
-                        {
-                            "position": [
-                                4,
-                                9
-                            ],
-                            "name": "king"
-                        },
-                        {
-                            "position": [
-                                5,
-                                0
-                            ],
-                            "name": "shoe"
-                        },
-                        {
-                            "position": [
-                                5,
-                                1
-                            ],
-                            "name": "ocean"
-                        },
-                        {
-                            "position": [
-                                5,
-                                2
-                            ],
-                            "name": "berries"
-                        },
-                        {
-                            "position": [
-                                5,
-                                3
-                            ],
-                            "name": "shoe"
-                        },
-                        {
-                            "position": [
-                                5,
-                                4
-                            ],
-                            "name": "teacher"
-                        },
-                        {
-                            "position": [
-                                5,
-                                5
-                            ],
-                            "name": "man"
-                        },
-                        {
-                            "position": [
-                                5,
-                                6
-                            ],
-                            "name": "RAM"
-                        },
-                        {
-                            "position": [
-                                5,
-                                7
-                            ],
-                            "name": "Q45"
-                        },
-                        {
-                            "position": [
-                                5,
-                                8
-                            ],
-                            "name": "plate"
-                        },
-                        {
-                            "position": [
-                                5,
-                                9
-                            ],
-                            "name": "recycling"
-                        },
-                        {
-                            "position": [
-                                6,
-                                0
-                            ],
-                            "name": "church"
-                        },
-                        {
-                            "position": [
-                                6,
-                                1
                             ],
                             "name": "rabbit"
                         },
                         {
                             "position": [
-                                6,
-                                2
-                            ],
-                            "name": "ship"
-                        },
-                        {
-                            "position": [
-                                6,
-                                3
-                            ],
-                            "name": "dunes"
-                        },
-                        {
-                            "position": [
-                                6,
-                                4
-                            ],
-                            "name": "church"
-                        },
-                        {
-                            "position": [
-                                6,
-                                5
-                            ],
-                            "name": "robot"
-                        },
-                        {
-                            "position": [
-                                6,
+                                3,
                                 6
                             ],
-                            "name": "router"
+                            "name": "gun"
                         },
                         {
                             "position": [
-                                6,
+                                3,
                                 7
                             ],
-                            "name": "flower"
+                            "name": "tree"
                         },
                         {
                             "position": [
-                                6,
+                                3,
                                 8
                             ],
-                            "name": "road"
+                            "name": "snack"
                         },
                         {
                             "position": [
-                                6,
+                                3,
                                 9
                             ],
-                            "name": "alligator"
+                            "name": "beans"
                         },
                         {
                             "position": [
-                                7,
+                                4,
                                 0
                             ],
-                            "name": "man"
+                            "name": "cup"
                         },
                         {
                             "position": [
-                                7,
+                                4,
                                 1
                             ],
                             "name": "bee"
                         },
                         {
                             "position": [
+                                4,
+                                2
+                            ],
+                            "name": "priest"
+                        },
+                        {
+                            "position": [
+                                4,
+                                3
+                            ],
+                            "name": "recycling"
+                        },
+                        {
+                            "position": [
+                                4,
+                                4
+                            ],
+                            "name": "beetle"
+                        },
+                        {
+                            "position": [
+                                4,
+                                5
+                            ],
+                            "name": "Q45"
+                        },
+                        {
+                            "position": [
+                                4,
+                                6
+                            ],
+                            "name": "videogame"
+                        },
+                        {
+                            "position": [
+                                4,
+                                7
+                            ],
+                            "name": "snack"
+                        },
+                        {
+                            "position": [
+                                4,
+                                8
+                            ],
+                            "name": "runners"
+                        },
+                        {
+                            "position": [
+                                4,
+                                9
+                            ],
+                            "name": "priest"
+                        },
+                        {
+                            "position": [
+                                5,
+                                0
+                            ],
+                            "name": "flag"
+                        },
+                        {
+                            "position": [
+                                5,
+                                1
+                            ],
+                            "name": "sphere"
+                        },
+                        {
+                            "position": [
+                                5,
+                                2
+                            ],
+                            "name": "plate"
+                        },
+                        {
+                            "position": [
+                                5,
+                                3
+                            ],
+                            "name": "beetle"
+                        },
+                        {
+                            "position": [
+                                5,
+                                4
+                            ],
+                            "name": "cook"
+                        },
+                        {
+                            "position": [
+                                5,
+                                5
+                            ],
+                            "name": "router"
+                        },
+                        {
+                            "position": [
+                                5,
+                                6
+                            ],
+                            "name": "ship"
+                        },
+                        {
+                            "position": [
+                                5,
+                                7
+                            ],
+                            "name": "beans"
+                        },
+                        {
+                            "position": [
+                                5,
+                                8
+                            ],
+                            "name": "axe"
+                        },
+                        {
+                            "position": [
+                                5,
+                                9
+                            ],
+                            "name": "tree"
+                        },
+                        {
+                            "position": [
+                                6,
+                                0
+                            ],
+                            "name": "plate"
+                        },
+                        {
+                            "position": [
+                                6,
+                                1
+                            ],
+                            "name": "cart"
+                        },
+                        {
+                            "position": [
+                                6,
+                                2
+                            ],
+                            "name": "Q45"
+                        },
+                        {
+                            "position": [
+                                6,
+                                3
+                            ],
+                            "name": "peach"
+                        },
+                        {
+                            "position": [
+                                6,
+                                4
+                            ],
+                            "name": "mouse"
+                        },
+                        {
+                            "position": [
+                                6,
+                                5
+                            ],
+                            "name": "snake"
+                        },
+                        {
+                            "position": [
+                                6,
+                                6
+                            ],
+                            "name": "athlete"
+                        },
+                        {
+                            "position": [
+                                6,
+                                7
+                            ],
+                            "name": "cop"
+                        },
+                        {
+                            "position": [
+                                6,
+                                8
+                            ],
+                            "name": "ocean"
+                        },
+                        {
+                            "position": [
+                                6,
+                                9
+                            ],
+                            "name": "cave"
+                        },
+                        {
+                            "position": [
+                                7,
+                                0
+                            ],
+                            "name": "house"
+                        },
+                        {
+                            "position": [
+                                7,
+                                1
+                            ],
+                            "name": "runners"
+                        },
+                        {
+                            "position": [
                                 7,
                                 2
                             ],
-                            "name": "microbes"
+                            "name": "cup"
                         },
                         {
                             "position": [
@@ -5209,91 +5438,91 @@ module.exports = {
                                 7,
                                 4
                             ],
-                            "name": "moth"
+                            "name": "kids"
                         },
                         {
                             "position": [
                                 7,
                                 5
                             ],
-                            "name": "wine"
+                            "name": "people"
                         },
                         {
                             "position": [
                                 7,
                                 6
                             ],
-                            "name": "berries"
+                            "name": "baby"
                         },
                         {
                             "position": [
                                 7,
                                 7
                             ],
-                            "name": "laptop"
+                            "name": "rave"
                         },
                         {
                             "position": [
                                 7,
                                 8
                             ],
-                            "name": "teacher"
+                            "name": "drugs"
                         },
                         {
                             "position": [
                                 7,
                                 9
                             ],
-                            "name": "videogame"
+                            "name": "man"
                         },
                         {
                             "position": [
                                 8,
                                 0
                             ],
-                            "name": "fireplace"
+                            "name": "dunes"
                         },
                         {
                             "position": [
                                 8,
                                 1
                             ],
-                            "name": "door"
+                            "name": "ocean"
                         },
                         {
                             "position": [
                                 8,
                                 2
                             ],
-                            "name": "canoe"
+                            "name": "priest"
                         },
                         {
                             "position": [
                                 8,
                                 3
                             ],
-                            "name": "mouse"
+                            "name": "money"
                         },
                         {
                             "position": [
                                 8,
                                 4
                             ],
-                            "name": "shoe"
+                            "name": "floppy"
                         },
                         {
                             "position": [
                                 8,
                                 5
                             ],
-                            "name": "violin"
+                            "name": "dirt"
                         },
                         {
                             "position": [
                                 8,
                                 6
                             ],
-                            "name": "computer"
+                            "name": "king"
                         },
                         {
                             "position": [
@@ -5307,84 +5536,84 @@ module.exports = {
                                 8,
                                 8
                             ],
-                            "name": "beans"
+                            "name": "bee"
                         },
                         {
                             "position": [
                                 8,
                                 9
                             ],
-                            "name": "money"
+                            "name": "socket"
                         },
                         {
                             "position": [
                                 9,
                                 0
                             ],
-                            "name": "mouse"
+                            "name": "ocean"
                         },
                         {
                             "position": [
                                 9,
                                 1
                             ],
-                            "name": "socket"
+                            "name": "pipe"
                         },
                         {
                             "position": [
                                 9,
                                 2
                             ],
-                            "name": "cattle"
+                            "name": "floppy"
                         },
                         {
                             "position": [
                                 9,
                                 3
                             ],
-                            "name": "dog"
+                            "name": "road"
                         },
                         {
                             "position": [
                                 9,
                                 4
                             ],
-                            "name": "moth"
+                            "name": "drugs"
                         },
                         {
                             "position": [
                                 9,
                                 5
                             ],
-                            "name": "doctor"
+                            "name": "RAM"
                         },
                         {
                             "position": [
                                 9,
                                 6
                             ],
-                            "name": "eraser"
+                            "name": "berries"
                         },
                         {
                             "position": [
                                 9,
                                 7
                             ],
-                            "name": "nuke_plant"
+                            "name": "touchpad"
                         },
                         {
                             "position": [
                                 9,
                                 8
                             ],
-                            "name": "programmer"
+                            "name": "kids"
                         },
                         {
                             "position": [
                                 9,
                                 9
                             ],
-                            "name": "Q45"
+                            "name": "floppy"
                         }
                     ],
                     "hintList": [
@@ -5523,9 +5752,54 @@ module.exports = {
                     ],
                     "hintWord": [
                         [
+                            "ball",
+                            "football",
+                            "football player",
+                            "kick",
+                            "play",
+                            "player",
+                            "soccer",
+                            "sportsman"
+                        ],
+                        [
                             "clothing",
                             "gear",
                             "outfit"
+                        ],
+                        [
+                            "church"
+                        ],
+                        [
+                            "laptop"
+                        ],
+                        [
+                            "icon",
+                            "lottery ticket",
+                            "lotto",
+                            "lucky number",
+                            "person",
+                            "referee",
+                            "ticket",
+                            "winner",
+                            "winning ticket"
+                        ],
+                        [
+                            "frog",
+                            "kermit",
+                            "retile",
+                            "toad"
+                        ],
+                        [
+                            "frog",
+                            "kermit",
+                            "retile",
+                            "toad"
+                        ],
+                        [
+                            "domicile",
+                            "habitat",
+                            "home",
+                            "house"
                         ],
                         [
                             "coffee and croissant",
@@ -5533,6 +5807,62 @@ module.exports = {
                             "smoko",
                             "tea",
                             "tea and croissant"
+                        ],
+                        [
+                            "coffee and croissant",
+                            "feed",
+                            "smoko",
+                            "tea",
+                            "tea and croissant"
+                        ],
+                        [
+                            "consoles",
+                            "game",
+                            "gaming",
+                            "ghost",
+                            "nintendo",
+                            "pacman",
+                            "playstation",
+                            "videogames"
+                        ],
+                        [
+                            "cement",
+                            "concrete",
+                            "filler",
+                            "grout",
+                            "mortar",
+                            "mud",
+                            "pizza",
+                            "pizza slice",
+                            "plaster"
+                        ],
+                        [
+                            "insect",
+                            "ladybird",
+                            "ladybug"
+                        ],
+                        [
+                            "recycling bin",
+                            "rubbish bin",
+                            "wheely bin"
+                        ],
+                        [
+                            "cross",
+                            "crucifix",
+                            "god botherer",
+                            "minister",
+                            "necklace",
+                            "nun",
+                            "pastor",
+                            "priest",
+                            "religious"
+                        ],
+                        [
+                            "bumble bee",
+                            "buzzy bee",
+                            "honey",
+                            "honeybee",
+                            "insect"
                         ],
                         [
                             "ball",
@@ -5541,80 +5871,101 @@ module.exports = {
                             "sphere"
                         ],
                         [
-                            "door",
-                            "doorway",
-                            "entrance",
-                            "exit",
-                            "open"
+                            "shopping cart",
+                            "shopping trolley",
+                            "trolley"
                         ],
                         [
-                            "cell phone",
-                            "iphone",
-                            "mobile phone",
-                            "phone",
-                            "smart phone",
-                            "smartphone"
+                            "cement",
+                            "concrete",
+                            "filler",
+                            "grout",
+                            "mortar",
+                            "mud",
+                            "pizza",
+                            "pizza slice",
+                            "plaster"
                         ],
                         [
-                            "belly",
-                            "bump",
-                            "fetus",
-                            "pregnant",
-                            "pregnant belly",
-                            "stomach",
-                            "tummy"
+                            "apple",
+                            "fruit",
+                            "red delicious"
                         ],
                         [
-                            "coffee and croissant",
-                            "feed",
-                            "smoko",
-                            "tea",
-                            "tea and croissant"
+                            "hamster",
+                            "mouse",
+                            "rat",
+                            "rodent"
                         ],
                         [
-                            "car",
-                            "hatchback",
-                            "old dunger",
-                            "vehicle"
+                            "reptile",
+                            "serpent",
+                            "snake",
+                            "sperm",
+                            "worm"
                         ],
                         [
-                            "nuclear generator",
-                            "nuclear power",
-                            "nuclear power plant",
-                            "smoke stack",
-                            "steam",
-                            "towers"
+                            "ball",
+                            "football",
+                            "football player",
+                            "kick",
+                            "play",
+                            "player",
+                            "soccer",
+                            "sportsman"
                         ],
                         [
-                            "insect",
-                            "ladybird",
-                            "ladybug"
+                            "pig",
+                            "police officer",
+                            "policeman",
+                            "security guard",
+                            "sheriff"
                         ],
                         [
-                            "butterfly",
-                            "insect",
-                            "moth"
+                            "medication",
+                            "medicine",
+                            "meds",
+                            "pills",
+                            "tablets"
                         ],
                         [
-                            "cell phone",
-                            "iphone",
-                            "mobile phone",
-                            "phone",
-                            "smart phone",
-                            "smartphone"
+                            "eagle",
+                            "hawk",
+                            "pigeon"
                         ],
                         [
-                            "laptop"
+                            "death sentence",
+                            "electric chair",
+                            "king",
+                            "monarch",
+                            "queen",
+                            "royal",
+                            "ruler",
+                            "throne"
                         ],
                         [
-                            "cave",
-                            "hole in the rock",
-                            "rock"
+                            "dirt",
+                            "gravel",
+                            "heap",
+                            "pile",
+                            "sand",
+                            "soil"
                         ],
                         [
-                            "runners",
-                            "running",
-                            "team"
+                            "3.5 inch disc",
+                            "disk",
+                            "file space",
+                            "floppy",
+                            "floppy disk",
+                            "save",
+                            "storage"
+                        ],
+                        [
+                            "coins",
+                            "dollar coins",
+                            "dollars",
+                            "gold coins",
+                            "money"
                         ],
                         [
                             "cross",
@@ -5637,112 +5988,18 @@ module.exports = {
                             "weather"
                         ],
                         [
-                            "hare",
-                            "rabbit"
-                        ],
-                        [
-                            "cruiseliner",
-                            "ferry",
-                            "sea",
-                            "ship",
-                            "steamer",
-                            "tug boat",
-                            "yatch"
-                        ],
-                        [
-                            "sand dunes",
-                            "sandhills"
-                        ],
-                        [
-                            "church"
-                        ],
-                        [
-                            "droid",
-                            "machine",
-                            "metal mickey",
-                            "robot"
-                        ],
-                        [
-                            "router",
-                            "wifi",
-                            "wireless router"
-                        ],
-                        [
-                            "flower",
-                            "lotus flower",
-                            "petals",
-                            "petunia",
-                            "rafflesi"
-                        ],
-                        [
-                            "lecturer",
-                            "pointer",
-                            "presenter",
-                            "teach",
-                            "teacher",
-                            "teaching",
-                            "tutor",
-                            "whiteboard"
-                        ],
-                        [
-                            "eagle",
-                            "hawk",
-                            "pigeon"
-                        ],
-                        [
-                            "desktop",
-                            "monitor",
-                            "pc",
-                            "remote",
-                            "remote control",
-                            "teelvision",
-                            "tv"
-                        ],
-                        [
-                            "instrument",
-                            "mandolin",
-                            "musical instrument",
-                            "viola",
-                            "violin"
-                        ],
-                        [
-                            "deck shoe",
-                            "karate shoe",
-                            "loafer",
-                            "shoe",
-                            "slip ons",
-                            "slipper",
-                            "vans"
-                        ],
-                        [
-                            "hamster",
-                            "mouse",
-                            "rat",
-                            "rodent"
-                        ],
-                        [
-                            "kayak"
-                        ],
-                        [
-                            "door",
-                            "doorway",
-                            "entrance",
-                            "exit",
-                            "open"
-                        ],
-                        [
-                            "plug",
-                            "powerpoint",
-                            "sad",
-                            "smiley",
-                            "socket",
-                            "tv"
+                            "elbow bend",
+                            "joint",
+                            "pipes",
+                            "plumber",
+                            "plumbing"
                         ]
                     ]
                 }
             ]
         },
         "secSinglePlayer": {
+            "type": "single",
             "network": [
                 {
                     "next": 0,
@@ -5759,77 +6016,77 @@ module.exports = {
                                 0,
                                 0
                             ],
-                            "name": "cook"
+                            "name": "pipe"
                         },
                         {
                             "position": [
                                 0,
                                 1
                             ],
-                            "name": "drink"
+                            "name": "man"
                         },
                         {
                             "position": [
                                 0,
                                 2
                             ],
-                            "name": "microbes"
+                            "name": "router"
                         },
                         {
                             "position": [
                                 0,
                                 3
                             ],
-                            "name": "money"
+                            "name": "drink"
                         },
                         {
                             "position": [
                                 0,
                                 4
                             ],
-                            "name": "mouse"
+                            "name": "videogame"
                         },
                         {
                             "position": [
                                 0,
                                 5
                             ],
-                            "name": "axe"
+                            "name": "sphere"
                         },
                         {
                             "position": [
                                 0,
                                 6
                             ],
-                            "name": "man"
+                            "name": "Q45"
                         },
                         {
                             "position": [
                                 0,
                                 7
                             ],
-                            "name": "beans"
+                            "name": "floppy"
                         },
                         {
                             "position": [
                                 0,
                                 8
                             ],
-                            "name": "rocks"
+                            "name": "beans"
                         },
                         {
                             "position": [
                                 0,
                                 9
                             ],
-                            "name": "ocean"
+                            "name": "teacher"
                         },
                         {
                             "position": [
                                 1,
                                 0
                             ],
-                            "name": "money"
+                            "name": "fireplace"
                         },
                         {
                             "position": [
@@ -5843,63 +6100,63 @@ module.exports = {
                                 1,
                                 2
                             ],
-                            "name": "ocean"
+                            "name": "beans"
                         },
                         {
                             "position": [
                                 1,
                                 3
                             ],
-                            "name": "plate"
+                            "name": "money"
                         },
                         {
                             "position": [
                                 1,
                                 4
                             ],
-                            "name": "USB"
+                            "name": "man"
                         },
                         {
                             "position": [
                                 1,
                                 5
                             ],
-                            "name": "moth"
+                            "name": "cart"
                         },
                         {
                             "position": [
                                 1,
                                 6
                             ],
-                            "name": "cross"
+                            "name": "rave"
                         },
                         {
                             "position": [
                                 1,
                                 7
                             ],
-                            "name": "cattle"
+                            "name": "king"
                         },
                         {
                             "position": [
                                 1,
                                 8
                             ],
-                            "name": "RAM"
+                            "name": "couch"
                         },
                         {
                             "position": [
                                 1,
                                 9
                             ],
-                            "name": "door"
+                            "name": "bench"
                         },
                         {
                             "position": [
                                 2,
                                 0
                             ],
-                            "name": "canoe"
+                            "name": "sink"
                         },
                         {
                             "position": [
@@ -5927,532 +6184,532 @@ module.exports = {
                                 2,
                                 4
                             ],
-                            "name": "road"
+                            "name": "clothes"
                         },
                         {
                             "position": [
                                 2,
                                 5
                             ],
-                            "name": "dog"
+                            "name": "barrels"
                         },
                         {
                             "position": [
                                 2,
                                 6
                             ],
-                            "name": "flower"
+                            "name": "frog"
                         },
                         {
                             "position": [
                                 2,
                                 7
                             ],
-                            "name": "boot"
+                            "name": "laptop"
                         },
                         {
                             "position": [
                                 2,
                                 8
                             ],
-                            "name": "dog"
+                            "name": "bee"
                         },
                         {
                             "position": [
                                 2,
                                 9
                             ],
-                            "name": "bench"
+                            "name": "violin"
                         },
                         {
                             "position": [
                                 3,
                                 0
                             ],
-                            "name": "recycling"
+                            "name": "canoe"
                         },
                         {
                             "position": [
                                 3,
                                 1
                             ],
-                            "name": "flower"
+                            "name": "pigeon"
                         },
                         {
                             "position": [
                                 3,
                                 2
                             ],
-                            "name": "bench"
+                            "name": "branch"
                         },
                         {
                             "position": [
                                 3,
                                 3
                             ],
-                            "name": "parking_sp"
+                            "name": "money"
                         },
                         {
                             "position": [
                                 3,
                                 4
                             ],
-                            "name": "runners"
+                            "name": "flower"
                         },
                         {
                             "position": [
                                 3,
                                 5
                             ],
-                            "name": "jacket"
+                            "name": "couch"
                         },
                         {
                             "position": [
                                 3,
                                 6
                             ],
-                            "name": "sphere"
+                            "name": "axe"
                         },
                         {
                             "position": [
                                 3,
                                 7
                             ],
-                            "name": "alligator"
+                            "name": "cup"
                         },
                         {
                             "position": [
                                 3,
                                 8
                             ],
-                            "name": "socket"
+                            "name": "referee"
                         },
                         {
                             "position": [
                                 3,
                                 9
                             ],
-                            "name": "people"
+                            "name": "door"
                         },
                         {
                             "position": [
                                 4,
                                 0
-                            ],
-                            "name": "road"
-                        },
-                        {
-                            "position": [
-                                4,
-                                1
-                            ],
-                            "name": "alligator"
-                        },
-                        {
-                            "position": [
-                                4,
-                                2
-                            ],
-                            "name": "cart"
-                        },
-                        {
-                            "position": [
-                                4,
-                                3
-                            ],
-                            "name": "RAM"
-                        },
-                        {
-                            "position": [
-                                4,
-                                4
                             ],
                             "name": "cave"
                         },
                         {
                             "position": [
                                 4,
-                                5
+                                1
                             ],
-                            "name": "moth"
+                            "name": "jacket"
                         },
                         {
                             "position": [
                                 4,
-                                6
+                                2
+                            ],
+                            "name": "bee"
+                        },
+                        {
+                            "position": [
+                                4,
+                                3
+                            ],
+                            "name": "eraser"
+                        },
+                        {
+                            "position": [
+                                4,
+                                4
                             ],
                             "name": "violin"
                         },
                         {
                             "position": [
                                 4,
+                                5
+                            ],
+                            "name": "nuke_plant"
+                        },
+                        {
+                            "position": [
+                                4,
+                                6
+                            ],
+                            "name": "boot"
+                        },
+                        {
+                            "position": [
+                                4,
                                 7
                             ],
-                            "name": "artist"
+                            "name": "priest"
                         },
                         {
                             "position": [
                                 4,
                                 8
                             ],
-                            "name": "floppy"
+                            "name": "drugs"
                         },
                         {
                             "position": [
                                 4,
                                 9
                             ],
-                            "name": "canoe"
+                            "name": "dunes"
                         },
                         {
                             "position": [
                                 5,
                                 0
                             ],
-                            "name": "drugs"
+                            "name": "recycling"
                         },
                         {
                             "position": [
                                 5,
                                 1
-                            ],
-                            "name": "socket"
-                        },
-                        {
-                            "position": [
-                                5,
-                                2
                             ],
                             "name": "doctor"
                         },
                         {
                             "position": [
                                 5,
-                                3
-                            ],
-                            "name": "soldier"
-                        },
-                        {
-                            "position": [
-                                5,
-                                4
-                            ],
-                            "name": "barrels"
-                        },
-                        {
-                            "position": [
-                                5,
-                                5
-                            ],
-                            "name": "branch"
-                        },
-                        {
-                            "position": [
-                                5,
-                                6
-                            ],
-                            "name": "marijuana"
-                        },
-                        {
-                            "position": [
-                                5,
-                                7
-                            ],
-                            "name": "clothes"
-                        },
-                        {
-                            "position": [
-                                5,
-                                8
-                            ],
-                            "name": "city"
-                        },
-                        {
-                            "position": [
-                                5,
-                                9
-                            ],
-                            "name": "beach"
-                        },
-                        {
-                            "position": [
-                                6,
-                                0
-                            ],
-                            "name": "robot"
-                        },
-                        {
-                            "position": [
-                                6,
-                                1
-                            ],
-                            "name": "cook"
-                        },
-                        {
-                            "position": [
-                                6,
                                 2
-                            ],
-                            "name": "bench"
-                        },
-                        {
-                            "position": [
-                                6,
-                                3
-                            ],
-                            "name": "road"
-                        },
-                        {
-                            "position": [
-                                6,
-                                4
-                            ],
-                            "name": "tree"
-                        },
-                        {
-                            "position": [
-                                6,
-                                5
-                            ],
-                            "name": "road"
-                        },
-                        {
-                            "position": [
-                                6,
-                                6
-                            ],
-                            "name": "rave"
-                        },
-                        {
-                            "position": [
-                                6,
-                                7
-                            ],
-                            "name": "pipe"
-                        },
-                        {
-                            "position": [
-                                6,
-                                8
-                            ],
-                            "name": "mouse"
-                        },
-                        {
-                            "position": [
-                                6,
-                                9
-                            ],
-                            "name": "cup"
-                        },
-                        {
-                            "position": [
-                                7,
-                                0
-                            ],
-                            "name": "ocean"
-                        },
-                        {
-                            "position": [
-                                7,
-                                1
-                            ],
-                            "name": "sink"
-                        },
-                        {
-                            "position": [
-                                7,
-                                2
-                            ],
-                            "name": "rave"
-                        },
-                        {
-                            "position": [
-                                7,
-                                3
-                            ],
-                            "name": "house"
-                        },
-                        {
-                            "position": [
-                                7,
-                                4
-                            ],
-                            "name": "rocks"
-                        },
-                        {
-                            "position": [
-                                7,
-                                5
-                            ],
-                            "name": "rabbit"
-                        },
-                        {
-                            "position": [
-                                7,
-                                6
-                            ],
-                            "name": "Q60"
-                        },
-                        {
-                            "position": [
-                                7,
-                                7
-                            ],
-                            "name": "sphere"
-                        },
-                        {
-                            "position": [
-                                7,
-                                8
-                            ],
-                            "name": "factory"
-                        },
-                        {
-                            "position": [
-                                7,
-                                9
-                            ],
-                            "name": "rave"
-                        },
-                        {
-                            "position": [
-                                8,
-                                0
-                            ],
-                            "name": "beach"
-                        },
-                        {
-                            "position": [
-                                8,
-                                1
-                            ],
-                            "name": "branch"
-                        },
-                        {
-                            "position": [
-                                8,
-                                2
-                            ],
-                            "name": "cross"
-                        },
-                        {
-                            "position": [
-                                8,
-                                3
-                            ],
-                            "name": "boot"
-                        },
-                        {
-                            "position": [
-                                8,
-                                4
-                            ],
-                            "name": "king"
-                        },
-                        {
-                            "position": [
-                                8,
-                                5
-                            ],
-                            "name": "ship"
-                        },
-                        {
-                            "position": [
-                                8,
-                                6
-                            ],
-                            "name": "ocean"
-                        },
-                        {
-                            "position": [
-                                8,
-                                7
-                            ],
-                            "name": "flag"
-                        },
-                        {
-                            "position": [
-                                8,
-                                8
-                            ],
-                            "name": "alligator"
-                        },
-                        {
-                            "position": [
-                                8,
-                                9
-                            ],
-                            "name": "rocks"
-                        },
-                        {
-                            "position": [
-                                9,
-                                0
-                            ],
-                            "name": "bee"
-                        },
-                        {
-                            "position": [
-                                9,
-                                1
                             ],
                             "name": "dirt"
                         },
                         {
                             "position": [
-                                9,
-                                2
-                            ],
-                            "name": "drink"
-                        },
-                        {
-                            "position": [
-                                9,
+                                5,
                                 3
                             ],
                             "name": "flower"
                         },
                         {
                             "position": [
-                                9,
+                                5,
                                 4
                             ],
-                            "name": "city"
+                            "name": "woman"
                         },
                         {
                             "position": [
-                                9,
+                                5,
+                                5
+                            ],
+                            "name": "eraser"
+                        },
+                        {
+                            "position": [
+                                5,
+                                6
+                            ],
+                            "name": "woman"
+                        },
+                        {
+                            "position": [
+                                5,
+                                7
+                            ],
+                            "name": "flower"
+                        },
+                        {
+                            "position": [
+                                5,
+                                8
+                            ],
+                            "name": "sphere"
+                        },
+                        {
+                            "position": [
+                                5,
+                                9
+                            ],
+                            "name": "kids"
+                        },
+                        {
+                            "position": [
+                                6,
+                                0
+                            ],
+                            "name": "priest"
+                        },
+                        {
+                            "position": [
+                                6,
+                                1
+                            ],
+                            "name": "road"
+                        },
+                        {
+                            "position": [
+                                6,
+                                2
+                            ],
+                            "name": "baby"
+                        },
+                        {
+                            "position": [
+                                6,
+                                3
+                            ],
+                            "name": "door"
+                        },
+                        {
+                            "position": [
+                                6,
+                                4
+                            ],
+                            "name": "fireplace"
+                        },
+                        {
+                            "position": [
+                                6,
+                                5
+                            ],
+                            "name": "bench"
+                        },
+                        {
+                            "position": [
+                                6,
+                                6
+                            ],
+                            "name": "violin"
+                        },
+                        {
+                            "position": [
+                                6,
+                                7
+                            ],
+                            "name": "sink"
+                        },
+                        {
+                            "position": [
+                                6,
+                                8
+                            ],
+                            "name": "pipe"
+                        },
+                        {
+                            "position": [
+                                6,
+                                9
+                            ],
+                            "name": "flag"
+                        },
+                        {
+                            "position": [
+                                7,
+                                0
+                            ],
+                            "name": "bat"
+                        },
+                        {
+                            "position": [
+                                7,
+                                1
+                            ],
+                            "name": "parking_sp"
+                        },
+                        {
+                            "position": [
+                                7,
+                                2
+                            ],
+                            "name": "tree"
+                        },
+                        {
+                            "position": [
+                                7,
+                                3
+                            ],
+                            "name": "dirt"
+                        },
+                        {
+                            "position": [
+                                7,
+                                4
+                            ],
+                            "name": "branch"
+                        },
+                        {
+                            "position": [
+                                7,
+                                5
+                            ],
+                            "name": "gun"
+                        },
+                        {
+                            "position": [
+                                7,
+                                6
+                            ],
+                            "name": "parking_sp"
+                        },
+                        {
+                            "position": [
+                                7,
+                                7
+                            ],
+                            "name": "marijuana"
+                        },
+                        {
+                            "position": [
+                                7,
+                                8
+                            ],
+                            "name": "floppy"
+                        },
+                        {
+                            "position": [
+                                7,
+                                9
+                            ],
+                            "name": "cart"
+                        },
+                        {
+                            "position": [
+                                8,
+                                0
+                            ],
+                            "name": "thief"
+                        },
+                        {
+                            "position": [
+                                8,
+                                1
+                            ],
+                            "name": "pipe"
+                        },
+                        {
+                            "position": [
+                                8,
+                                2
+                            ],
+                            "name": "wine"
+                        },
+                        {
+                            "position": [
+                                8,
+                                3
+                            ],
+                            "name": "plate"
+                        },
+                        {
+                            "position": [
+                                8,
+                                4
+                            ],
+                            "name": "sink"
+                        },
+                        {
+                            "position": [
+                                8,
                                 5
                             ],
                             "name": "plate"
                         },
                         {
                             "position": [
+                                8,
+                                6
+                            ],
+                            "name": "rocks"
+                        },
+                        {
+                            "position": [
+                                8,
+                                7
+                            ],
+                            "name": "microbes"
+                        },
+                        {
+                            "position": [
+                                8,
+                                8
+                            ],
+                            "name": "computer"
+                        },
+                        {
+                            "position": [
+                                8,
+                                9
+                            ],
+                            "name": "church"
+                        },
+                        {
+                            "position": [
+                                9,
+                                0
+                            ],
+                            "name": "cook"
+                        },
+                        {
+                            "position": [
+                                9,
+                                1
+                            ],
+                            "name": "doctor"
+                        },
+                        {
+                            "position": [
+                                9,
+                                2
+                            ],
+                            "name": "shoe"
+                        },
+                        {
+                            "position": [
+                                9,
+                                3
+                            ],
+                            "name": "robot"
+                        },
+                        {
+                            "position": [
+                                9,
+                                4
+                            ],
+                            "name": "Q60"
+                        },
+                        {
+                            "position": [
+                                9,
+                                5
+                            ],
+                            "name": "dog"
+                        },
+                        {
+                            "position": [
                                 9,
                                 6
                             ],
-                            "name": "baby"
+                            "name": "kids"
                         },
                         {
                             "position": [
                                 9,
                                 7
                             ],
-                            "name": "cleaner"
+                            "name": "thief"
                         },
                         {
                             "position": [
                                 9,
                                 8
                             ],
-                            "name": "jacket"
+                            "name": "fireplace"
                         },
                         {
                             "position": [
                                 9,
                                 9
                             ],
-                            "name": "sphere"
+                            "name": "bee"
                         }
                     ],
                     "hintList": [
@@ -6471,6 +6728,26 @@ module.exports = {
                         [
                             2,
                             3
+                        ],
+                        [
+                            2,
+                            4
+                        ],
+                        [
+                            2,
+                            5
+                        ],
+                        [
+                            2,
+                            6
+                        ],
+                        [
+                            2,
+                            7
+                        ],
+                        [
+                            3,
+                            8
                         ]
                     ],
                     "hintWord": [
@@ -6500,6 +6777,36 @@ module.exports = {
                             "smoko",
                             "tea",
                             "tea and croissant"
+                        ],
+                        [
+                            "clothing",
+                            "gear",
+                            "outfit"
+                        ],
+                        [
+                            "beehive",
+                            "drum",
+                            "shield"
+                        ],
+                        [
+                            "frog",
+                            "kermit",
+                            "retile",
+                            "toad"
+                        ],
+                        [
+                            "laptop"
+                        ],
+                        [
+                            "icon",
+                            "lottery ticket",
+                            "lotto",
+                            "lucky number",
+                            "person",
+                            "referee",
+                            "ticket",
+                            "winner",
+                            "winning ticket"
                         ]
                     ]
                 },
@@ -6511,77 +6818,77 @@ module.exports = {
                                 0,
                                 0
                             ],
-                            "name": "athlete"
+                            "name": "floppy"
                         },
                         {
                             "position": [
                                 0,
                                 1
                             ],
-                            "name": "beach"
+                            "name": "dunes"
                         },
                         {
                             "position": [
                                 0,
                                 2
                             ],
-                            "name": "hen"
+                            "name": "city"
                         },
                         {
                             "position": [
                                 0,
                                 3
                             ],
-                            "name": "Q45"
+                            "name": "runners"
                         },
                         {
                             "position": [
                                 0,
                                 4
                             ],
-                            "name": "USB"
+                            "name": "bat"
                         },
                         {
                             "position": [
                                 0,
                                 5
                             ],
-                            "name": "kids"
+                            "name": "rabbit"
                         },
                         {
                             "position": [
                                 0,
                                 6
                             ],
-                            "name": "dunes"
+                            "name": "soldier"
                         },
                         {
                             "position": [
                                 0,
                                 7
                             ],
-                            "name": "dirt"
+                            "name": "router"
                         },
                         {
                             "position": [
                                 0,
                                 8
                             ],
-                            "name": "mouse"
+                            "name": "dog"
                         },
                         {
                             "position": [
                                 0,
                                 9
                             ],
-                            "name": "fireplace"
+                            "name": "bee"
                         },
                         {
                             "position": [
                                 1,
                                 0
                             ],
-                            "name": "pipe"
+                            "name": "factory"
                         },
                         {
                             "position": [
@@ -6595,14 +6902,14 @@ module.exports = {
                                 1,
                                 2
                             ],
-                            "name": "house"
+                            "name": "baby"
                         },
                         {
                             "position": [
                                 1,
                                 3
                             ],
-                            "name": "referee"
+                            "name": "router"
                         },
                         {
                             "position": [
@@ -6616,42 +6923,42 @@ module.exports = {
                                 1,
                                 5
                             ],
-                            "name": "floppy"
+                            "name": "hen"
                         },
                         {
                             "position": [
                                 1,
                                 6
                             ],
-                            "name": "frog"
+                            "name": "microbes"
                         },
                         {
                             "position": [
                                 1,
                                 7
                             ],
-                            "name": "door"
+                            "name": "nuke_plant"
                         },
                         {
                             "position": [
                                 1,
                                 8
                             ],
-                            "name": "clothes"
+                            "name": "people"
                         },
                         {
                             "position": [
                                 1,
                                 9
                             ],
-                            "name": "cop"
+                            "name": "socket"
                         },
                         {
                             "position": [
                                 2,
                                 0
                             ],
-                            "name": "couch"
+                            "name": "rabbit"
                         },
                         {
                             "position": [
@@ -6679,532 +6986,532 @@ module.exports = {
                                 2,
                                 4
                             ],
-                            "name": "door"
-                        },
-                        {
-                            "position": [
-                                2,
-                                5
-                            ],
-                            "name": "beach"
-                        },
-                        {
-                            "position": [
-                                2,
-                                6
-                            ],
-                            "name": "dirt"
-                        },
-                        {
-                            "position": [
-                                2,
-                                7
-                            ],
-                            "name": "beans"
-                        },
-                        {
-                            "position": [
-                                2,
-                                8
-                            ],
-                            "name": "shoe"
-                        },
-                        {
-                            "position": [
-                                2,
-                                9
-                            ],
-                            "name": "ocean"
-                        },
-                        {
-                            "position": [
-                                3,
-                                0
-                            ],
-                            "name": "boot"
-                        },
-                        {
-                            "position": [
-                                3,
-                                1
-                            ],
-                            "name": "robot"
-                        },
-                        {
-                            "position": [
-                                3,
-                                2
-                            ],
-                            "name": "mouse"
-                        },
-                        {
-                            "position": [
-                                3,
-                                3
-                            ],
-                            "name": "cup"
-                        },
-                        {
-                            "position": [
-                                3,
-                                4
-                            ],
-                            "name": "beach"
-                        },
-                        {
-                            "position": [
-                                3,
-                                5
-                            ],
-                            "name": "couch"
-                        },
-                        {
-                            "position": [
-                                3,
-                                6
-                            ],
-                            "name": "people"
-                        },
-                        {
-                            "position": [
-                                3,
-                                7
-                            ],
-                            "name": "beetle"
-                        },
-                        {
-                            "position": [
-                                3,
-                                8
-                            ],
-                            "name": "bench"
-                        },
-                        {
-                            "position": [
-                                3,
-                                9
-                            ],
-                            "name": "violin"
-                        },
-                        {
-                            "position": [
-                                4,
-                                0
-                            ],
-                            "name": "bee"
-                        },
-                        {
-                            "position": [
-                                4,
-                                1
-                            ],
                             "name": "clothes"
                         },
                         {
                             "position": [
-                                4,
-                                2
-                            ],
-                            "name": "dirt"
-                        },
-                        {
-                            "position": [
-                                4,
-                                3
-                            ],
-                            "name": "fireplace"
-                        },
-                        {
-                            "position": [
-                                4,
-                                4
-                            ],
-                            "name": "flower"
-                        },
-                        {
-                            "position": [
-                                4,
+                                2,
                                 5
-                            ],
-                            "name": "dirt"
-                        },
-                        {
-                            "position": [
-                                4,
-                                6
                             ],
                             "name": "barrels"
                         },
                         {
                             "position": [
-                                4,
-                                7
-                            ],
-                            "name": "bat"
-                        },
-                        {
-                            "position": [
-                                4,
-                                8
-                            ],
-                            "name": "cup"
-                        },
-                        {
-                            "position": [
-                                4,
-                                9
-                            ],
-                            "name": "recycling"
-                        },
-                        {
-                            "position": [
-                                5,
-                                0
-                            ],
-                            "name": "pigeon"
-                        },
-                        {
-                            "position": [
-                                5,
-                                1
-                            ],
-                            "name": "teacher"
-                        },
-                        {
-                            "position": [
-                                5,
-                                2
-                            ],
-                            "name": "runners"
-                        },
-                        {
-                            "position": [
-                                5,
-                                3
-                            ],
-                            "name": "gun"
-                        },
-                        {
-                            "position": [
-                                5,
-                                4
-                            ],
-                            "name": "router"
-                        },
-                        {
-                            "position": [
-                                5,
-                                5
-                            ],
-                            "name": "money"
-                        },
-                        {
-                            "position": [
-                                5,
+                                2,
                                 6
                             ],
-                            "name": "sink"
+                            "name": "frog"
                         },
                         {
                             "position": [
-                                5,
+                                2,
                                 7
                             ],
-                            "name": "cook"
+                            "name": "laptop"
                         },
                         {
                             "position": [
-                                5,
+                                2,
                                 8
                             ],
-                            "name": "snake"
+                            "name": "socket"
                         },
                         {
                             "position": [
-                                5,
-                                9
-                            ],
-                            "name": "gun"
-                        },
-                        {
-                            "position": [
-                                6,
-                                0
-                            ],
-                            "name": "bench"
-                        },
-                        {
-                            "position": [
-                                6,
-                                1
-                            ],
-                            "name": "cattle"
-                        },
-                        {
-                            "position": [
-                                6,
-                                2
-                            ],
-                            "name": "robot"
-                        },
-                        {
-                            "position": [
-                                6,
-                                3
-                            ],
-                            "name": "church"
-                        },
-                        {
-                            "position": [
-                                6,
-                                4
-                            ],
-                            "name": "nuke_plant"
-                        },
-                        {
-                            "position": [
-                                6,
-                                5
-                            ],
-                            "name": "door"
-                        },
-                        {
-                            "position": [
-                                6,
-                                6
-                            ],
-                            "name": "cart"
-                        },
-                        {
-                            "position": [
-                                6,
-                                7
-                            ],
-                            "name": "dunes"
-                        },
-                        {
-                            "position": [
-                                6,
-                                8
-                            ],
-                            "name": "pigeon"
-                        },
-                        {
-                            "position": [
-                                6,
+                                2,
                                 9
                             ],
                             "name": "road"
                         },
                         {
                             "position": [
-                                7,
+                                3,
                                 0
-                            ],
-                            "name": "rocks"
-                        },
-                        {
-                            "position": [
-                                7,
-                                1
-                            ],
-                            "name": "flower"
-                        },
-                        {
-                            "position": [
-                                7,
-                                2
-                            ],
-                            "name": "Q60"
-                        },
-                        {
-                            "position": [
-                                7,
-                                3
-                            ],
-                            "name": "computer"
-                        },
-                        {
-                            "position": [
-                                7,
-                                4
-                            ],
-                            "name": "rave"
-                        },
-                        {
-                            "position": [
-                                7,
-                                5
-                            ],
-                            "name": "couch"
-                        },
-                        {
-                            "position": [
-                                7,
-                                6
                             ],
                             "name": "baby"
                         },
                         {
                             "position": [
-                                7,
-                                7
-                            ],
-                            "name": "marijuana"
-                        },
-                        {
-                            "position": [
-                                7,
-                                8
-                            ],
-                            "name": "ship"
-                        },
-                        {
-                            "position": [
-                                7,
-                                9
-                            ],
-                            "name": "sphere"
-                        },
-                        {
-                            "position": [
-                                8,
-                                0
-                            ],
-                            "name": "touchpad"
-                        },
-                        {
-                            "position": [
-                                8,
+                                3,
                                 1
                             ],
-                            "name": "bat"
+                            "name": "jacket"
                         },
                         {
                             "position": [
-                                8,
+                                3,
                                 2
                             ],
-                            "name": "man"
+                            "name": "violin"
                         },
                         {
                             "position": [
-                                8,
+                                3,
                                 3
                             ],
-                            "name": "Q45"
+                            "name": "bench"
                         },
                         {
                             "position": [
-                                8,
+                                3,
                                 4
                             ],
-                            "name": "drugs"
+                            "name": "branch"
                         },
                         {
                             "position": [
-                                8,
+                                3,
                                 5
                             ],
-                            "name": "floppy"
+                            "name": "snake"
                         },
                         {
                             "position": [
-                                8,
+                                3,
                                 6
                             ],
                             "name": "jacket"
                         },
                         {
                             "position": [
-                                8,
+                                3,
                                 7
                             ],
-                            "name": "cattle"
+                            "name": "wine"
                         },
                         {
                             "position": [
-                                8,
+                                3,
                                 8
                             ],
-                            "name": "nuke_plant"
+                            "name": "referee"
                         },
                         {
                             "position": [
-                                8,
+                                3,
                                 9
                             ],
-                            "name": "thief"
+                            "name": "programmer"
                         },
                         {
                             "position": [
-                                9,
+                                4,
                                 0
                             ],
-                            "name": "dirt"
+                            "name": "plate"
                         },
                         {
                             "position": [
-                                9,
+                                4,
                                 1
                             ],
-                            "name": "teacher"
+                            "name": "eraser"
                         },
                         {
                             "position": [
-                                9,
+                                4,
                                 2
                             ],
-                            "name": "Q60"
+                            "name": "priest"
                         },
                         {
                             "position": [
-                                9,
+                                4,
                                 3
                             ],
-                            "name": "pigeon"
+                            "name": "cross"
                         },
                         {
                             "position": [
-                                9,
+                                4,
                                 4
-                            ],
-                            "name": "rabbit"
-                        },
-                        {
-                            "position": [
-                                9,
-                                5
-                            ],
-                            "name": "dunes"
-                        },
-                        {
-                            "position": [
-                                9,
-                                6
                             ],
                             "name": "ship"
                         },
                         {
                             "position": [
-                                9,
+                                4,
+                                5
+                            ],
+                            "name": "factory"
+                        },
+                        {
+                            "position": [
+                                4,
+                                6
+                            ],
+                            "name": "ocean"
+                        },
+                        {
+                            "position": [
+                                4,
+                                7
+                            ],
+                            "name": "floppy"
+                        },
+                        {
+                            "position": [
+                                4,
+                                8
+                            ],
+                            "name": "bee"
+                        },
+                        {
+                            "position": [
+                                4,
+                                9
+                            ],
+                            "name": "beach"
+                        },
+                        {
+                            "position": [
+                                5,
+                                0
+                            ],
+                            "name": "sphere"
+                        },
+                        {
+                            "position": [
+                                5,
+                                1
+                            ],
+                            "name": "pigeon"
+                        },
+                        {
+                            "position": [
+                                5,
+                                2
+                            ],
+                            "name": "nuke_plant"
+                        },
+                        {
+                            "position": [
+                                5,
+                                3
+                            ],
+                            "name": "rocks"
+                        },
+                        {
+                            "position": [
+                                5,
+                                4
+                            ],
+                            "name": "recycling"
+                        },
+                        {
+                            "position": [
+                                5,
+                                5
+                            ],
+                            "name": "socket"
+                        },
+                        {
+                            "position": [
+                                5,
+                                6
+                            ],
+                            "name": "city"
+                        },
+                        {
+                            "position": [
+                                5,
+                                7
+                            ],
+                            "name": "drugs"
+                        },
+                        {
+                            "position": [
+                                5,
+                                8
+                            ],
+                            "name": "cross"
+                        },
+                        {
+                            "position": [
+                                5,
+                                9
+                            ],
+                            "name": "violin"
+                        },
+                        {
+                            "position": [
+                                6,
+                                0
+                            ],
+                            "name": "cleaner"
+                        },
+                        {
+                            "position": [
+                                6,
+                                1
+                            ],
+                            "name": "peach"
+                        },
+                        {
+                            "position": [
+                                6,
+                                2
+                            ],
+                            "name": "computer"
+                        },
+                        {
+                            "position": [
+                                6,
+                                3
+                            ],
+                            "name": "mouse"
+                        },
+                        {
+                            "position": [
+                                6,
+                                4
+                            ],
+                            "name": "kids"
+                        },
+                        {
+                            "position": [
+                                6,
+                                5
+                            ],
+                            "name": "ocean"
+                        },
+                        {
+                            "position": [
+                                6,
+                                6
+                            ],
+                            "name": "bee"
+                        },
+                        {
+                            "position": [
+                                6,
                                 7
                             ],
                             "name": "rocks"
                         },
                         {
                             "position": [
-                                9,
+                                6,
                                 8
+                            ],
+                            "name": "bat"
+                        },
+                        {
+                            "position": [
+                                6,
+                                9
+                            ],
+                            "name": "cop"
+                        },
+                        {
+                            "position": [
+                                7,
+                                0
+                            ],
+                            "name": "violin"
+                        },
+                        {
+                            "position": [
+                                7,
+                                1
+                            ],
+                            "name": "alligator"
+                        },
+                        {
+                            "position": [
+                                7,
+                                2
+                            ],
+                            "name": "eraser"
+                        },
+                        {
+                            "position": [
+                                7,
+                                3
+                            ],
+                            "name": "flower"
+                        },
+                        {
+                            "position": [
+                                7,
+                                4
+                            ],
+                            "name": "floppy"
+                        },
+                        {
+                            "position": [
+                                7,
+                                5
+                            ],
+                            "name": "baby"
+                        },
+                        {
+                            "position": [
+                                7,
+                                6
+                            ],
+                            "name": "dog"
+                        },
+                        {
+                            "position": [
+                                7,
+                                7
+                            ],
+                            "name": "router"
+                        },
+                        {
+                            "position": [
+                                7,
+                                8
+                            ],
+                            "name": "church"
+                        },
+                        {
+                            "position": [
+                                7,
+                                9
+                            ],
+                            "name": "rocks"
+                        },
+                        {
+                            "position": [
+                                8,
+                                0
+                            ],
+                            "name": "woman"
+                        },
+                        {
+                            "position": [
+                                8,
+                                1
+                            ],
+                            "name": "peach"
+                        },
+                        {
+                            "position": [
+                                8,
+                                2
+                            ],
+                            "name": "drugs"
+                        },
+                        {
+                            "position": [
+                                8,
+                                3
+                            ],
+                            "name": "cup"
+                        },
+                        {
+                            "position": [
+                                8,
+                                4
+                            ],
+                            "name": "beans"
+                        },
+                        {
+                            "position": [
+                                8,
+                                5
+                            ],
+                            "name": "house"
+                        },
+                        {
+                            "position": [
+                                8,
+                                6
+                            ],
+                            "name": "computer"
+                        },
+                        {
+                            "position": [
+                                8,
+                                7
+                            ],
+                            "name": "teacher"
+                        },
+                        {
+                            "position": [
+                                8,
+                                8
+                            ],
+                            "name": "RAM"
+                        },
+                        {
+                            "position": [
+                                8,
+                                9
+                            ],
+                            "name": "videogame"
+                        },
+                        {
+                            "position": [
+                                9,
+                                0
+                            ],
+                            "name": "videogame"
+                        },
+                        {
+                            "position": [
+                                9,
+                                1
                             ],
                             "name": "bench"
                         },
                         {
                             "position": [
                                 9,
+                                2
+                            ],
+                            "name": "violin"
+                        },
+                        {
+                            "position": [
+                                9,
+                                3
+                            ],
+                            "name": "shoe"
+                        },
+                        {
+                            "position": [
+                                9,
+                                4
+                            ],
+                            "name": "athlete"
+                        },
+                        {
+                            "position": [
+                                9,
+                                5
+                            ],
+                            "name": "cook"
+                        },
+                        {
+                            "position": [
+                                9,
+                                6
+                            ],
+                            "name": "rave"
+                        },
+                        {
+                            "position": [
+                                9,
+                                7
+                            ],
+                            "name": "couch"
+                        },
+                        {
+                            "position": [
+                                9,
+                                8
+                            ],
+                            "name": "beetle"
+                        },
+                        {
+                            "position": [
+                                9,
                                 9
                             ],
-                            "name": "axe"
+                            "name": "woman"
                         }
                     ],
                     "hintList": [
@@ -7223,6 +7530,26 @@ module.exports = {
                         [
                             2,
                             3
+                        ],
+                        [
+                            2,
+                            4
+                        ],
+                        [
+                            2,
+                            5
+                        ],
+                        [
+                            2,
+                            6
+                        ],
+                        [
+                            2,
+                            7
+                        ],
+                        [
+                            3,
+                            8
                         ]
                     ],
                     "hintWord": [
@@ -7252,6 +7579,36 @@ module.exports = {
                             "smoko",
                             "tea",
                             "tea and croissant"
+                        ],
+                        [
+                            "clothing",
+                            "gear",
+                            "outfit"
+                        ],
+                        [
+                            "beehive",
+                            "drum",
+                            "shield"
+                        ],
+                        [
+                            "frog",
+                            "kermit",
+                            "retile",
+                            "toad"
+                        ],
+                        [
+                            "laptop"
+                        ],
+                        [
+                            "icon",
+                            "lottery ticket",
+                            "lotto",
+                            "lucky number",
+                            "person",
+                            "referee",
+                            "ticket",
+                            "winner",
+                            "winning ticket"
                         ]
                     ]
                 }

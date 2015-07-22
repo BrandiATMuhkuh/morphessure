@@ -23,7 +23,12 @@ var configObject = {
       {name: "belly", pos:0, gap: 10, pattern: [{name:"player1", pos:null}, {name:"player1", pos:null}, {name:"player2", pos:null}, {name:"player1", pos:null}]},
       {name: "car", pos:0, gap: 10, pattern: [{name:"player1", pos:null}, {name:"player1", pos:null}, {name:"player2", pos:null}, {name:"player1", pos:null}]},
       {name: "knife", pos:0, gap: 10, pattern: [{name:"player1", pos:null}, {name:"player1", pos:null}, {name:"player2", pos:null}, {name:"player1", pos:null}]},
-      {name: "snack", pos:0, gap: 10, pattern: [{name:"player2", pos:null}, {name:"player2", pos:null}, {name:"player2", pos:null}, {name:"player2", pos:null}]}
+      {name: "snack", pos:0, gap: 10, pattern: [{name:"player2", pos:null}, {name:"player2", pos:null}, {name:"player2", pos:null}, {name:"player2", pos:null}]},
+      {name: "clothes", pos:0, gap: 10, pattern: [{name:"player2", pos:null}, {name:"player2", pos:null}, {name:"player2", pos:null}, {name:"player2", pos:null}]},
+      {name: "barrels", pos:0, gap: 10, pattern: [{name:"player2", pos:null}, {name:"player2", pos:null}, {name:"player2", pos:null}, {name:"player2", pos:null}]},
+      {name: "frog", pos:0, gap: 10, pattern: [{name:"player2", pos:null}, {name:"player2", pos:null}, {name:"player2", pos:null}, {name:"player2", pos:null}]},
+      {name: "laptop", pos:0, gap: 10, pattern: [{name:"player2", pos:null}, {name:"player2", pos:null}, {name:"player2", pos:null}, {name:"player2", pos:null}]},
+      {name: "referee", pos:0, gap: 10, pattern: [{name:"player2", pos:null}, {name:"player2", pos:null}, {name:"player2", pos:null}, {name:"player2", pos:null}]}
    ],
    gap: 3,
    maxMapLength: 10
@@ -79,7 +84,7 @@ function startGenerating(){
     fillField(fi);
     var mp = getPlayerFromTemplater(configObject.playerNames[i].name, "multiPlayer");
     mp.hintList = configObject.playerNames[i].hints;
-    console.log(mp.hintList);
+    //console.log(mp.hintList);
     mp.trapList = formatToCondition(fi);
     mp.hintWord = geneHintWords(mp.hintList, mp.trapList);
 

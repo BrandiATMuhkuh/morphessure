@@ -115,7 +115,7 @@ class Communicator{
     }).bind(this));
 
     this.socket.on("client:trustgame",(function(data){
-      this.master.naoComm.start().trustgame().finish().send();
+      this.master.naoComm.start().volume(50).trustgame().finish().send();
     }).bind(this));
 
     this.socket.on("client:initPosition",(function(data){

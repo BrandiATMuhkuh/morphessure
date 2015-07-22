@@ -291,8 +291,8 @@ class Master{
     this.naoComm.start().initSit().finish().send();
     if(this.currentLevel !== level){
       this.lastMoves = [];
-      this.lastMoves.push({name:"player1", hintNr:"1"});
-      this.lastMoves.push({name:"player2", hintNr:"1"});
+      this.lastMoves.push({name:"player1", hintNr:"0"});
+      this.lastMoves.push({name:"player2", hintNr:"0"});
     }
 
     this.currentLevel = level;
