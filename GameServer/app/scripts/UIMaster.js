@@ -27,7 +27,11 @@ class UIMaster{
 
     $("#repeadButton").on("click", function(){
       console.log("Repeate previouse item again. ");
-      comm.clientRepeatWord();
+      comm.clientRepeatWord("human");
+    });
+
+    $("#repeadButtonRobot").on("click", function(){
+      comm.clientRepeatWord("robot");
     });
 
     $("#clientTrustGame").on("click", function(){
@@ -57,6 +61,10 @@ class UIMaster{
     comm.addServerLevelChange((function(data){
       this.generateGame(data.playerList, data.levelName);
       this.startGame(data.levelName);
+    }).bind(this));
+
+    comm.addServerGameOver((function(data){
+      phaser.state.start("gameOver");
     }).bind(this));
 
     /**
@@ -120,7 +128,50 @@ class UIMaster{
     }
 
 
-    this.showSplashScreen();
+    //Add screen
+    //spash screen
+    phaser.state.add("splash",{
+      create: function() {
+
+        var text = phaser.add.text(phaser.camera.x+(phaser.world.game.width/2), 200, 'PLEASE WAIT!');
+        text.anchor.set(0.5);
+        text.align = 'center';
+
+        text.font = 'Arial';
+        text.fontSize = 65;
+        text.fontWeight = 'bold';
+        text.fill = '#ec008c';
+
+        text.setShadow(0, 0, 'rgba(0, 0, 0, 0.5)', 0);
+        phaser.stage.backgroundColor = '#000000';
+      }
+    });
+
+    phaser.state.add("gameOver",{
+      create: function() {
+
+        //var style = { font: "65px Arial", fill: "#000000", align: "center" };
+        //var text2 = phaser.add.text(phaser.world.centerX, phaser.world.centerY, "GAME OVER!", style);
+        //text2.anchor.set(1);
+
+
+        var text = phaser.add.text(phaser.camera.x+(phaser.world.game.width/2), 200, 'GAME OVER!');
+        text.anchor.set(0.5);
+        text.align = 'center';
+
+        text.font = 'Arial';
+        text.fontSize = 65;
+        text.fontWeight = 'bold';
+        text.fill = '#ec008c';
+
+        text.setShadow(0, 0, 'rgba(0, 0, 0, 0.5)', 0);
+        phaser.stage.backgroundColor = '#000000';
+
+      }
+    });
+
+
+    phaser.state.start("splash");
   }
 
   /**
@@ -365,19 +416,6 @@ class UIMaster{
 
   }
 
-  /**
-   * This will create a simple splash screen.
-   */
-  showSplashScreen(){
-    phaser.state.add("splash",{
-      create: function() {
-      var style = { font: "65px Arial", fill: "#ff0044", align: "center" };
-      var text = phaser.add.text(phaser.world.centerX, phaser.world.centerY, "PLEASE WAIT!", style);
-      text.anchor.set(0.5);
-      }
-    });
-    phaser.state.start("splash");
-  }
 
   /**
    * Start a level

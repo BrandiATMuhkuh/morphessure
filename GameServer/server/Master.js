@@ -43,7 +43,7 @@ class Master{
 
     this.lastMoves = [];
 
-    
+
   }
 
   /**
@@ -150,7 +150,7 @@ class Master{
 
 
     }else{
-
+      this.communicator.serverGameOver();
       console.log("game is over", player.position+1);
     }
   }

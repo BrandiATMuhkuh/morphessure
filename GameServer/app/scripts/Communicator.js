@@ -15,6 +15,7 @@ class Communicator{
     this.serverPlayerList = [];
     this.serverWhoIsNext = [];
     this.serverLevelChange = [];
+    this.serverGameOver = [];
 
     /**
      * server says a player has moved
@@ -56,6 +57,15 @@ class Communicator{
         this.serverLevelChange[func](data);
       }
     }).bind(this));
+
+
+    this.socket.on("server:gameOver", (function(data){
+      console.log("server:gameOver", data);
+      for (var func in this.serverGameOver){
+        this.serverGameOver[func](data);
+      }
+    }).bind(this));
+
   }
 
   /**
@@ -85,10 +95,11 @@ class Communicator{
   }
 
   /**
-  * tell the server to repeat what it just said!
+  * tell the server to repeat what it just said
+   * @param whoSaidIt robot or human
   */
-  clientRepeatWord(){
-    this.socket.emit("client:repeatWord");
+  clientRepeatWord(whoSaidIt){
+    this.socket.emit("client:repeatWord", whoSaidIt);
   }
 
   /**
@@ -114,6 +125,14 @@ class Communicator{
    */
   addServerPlayerList(resFunc){
     this.serverPlayerList.push(resFunc)
+  }
+
+  /**
+   * Listen if server send game over signal
+   * @param resFunc function that want to listen to game over signal
+   */
+  addServerGameOver(resFunc){
+    this.serverGameOver.push(resFunc);
   }
 
   /**

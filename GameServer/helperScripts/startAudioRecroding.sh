@@ -2,21 +2,31 @@
 # user "apt-get install vorbis-tools" to run this script in ubuntu
 pwd
 
-read -e -p "Enter condition number: " -i "" CONDITION
-read -e -p "Enter participant id: " -i "" PARTICIPANTID
+echo $0
+echo $1
+echo $2
 
-if [[ -z "$CONDITION" ]]; then
-   echo "you did not name the CONDITION"
+#!/bin/sh
+if [[ -z "$1" ]]; then
+   echo "no Condition id given"
    exit
 fi
 
-if [[ -z "$PARTICIPANTID" ]]; then
-   echo "you did not name the PARTICIPANTID"
+CONDITION=$1
+
+if [[ -z "$2" ]]; then
+   echo "no participant id given"
    exit
 fi
 
-file_name="recording_"$PARTICIPANTID"_"$CONDITION".ogg"
+PARTICIPANTID=$2
+
+
+
+file_name="audioRecordings/recording_"$CONDITION"_"$PARTICIPANTID".ogg"
 echo $file_name
+
+
 
 echo
 echo "Recording audio to OGG file $file_name"

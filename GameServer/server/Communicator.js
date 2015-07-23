@@ -47,8 +47,13 @@ class Communicator{
     * Client x tells server to repeat the word it just said
     */
     this.socket.on("client:repeatWord", (function(data){
-      console.log("repeat Word");
-      this.master.naoComm.repeat();
+      console.log("repeat Word", data);
+      if(data === "human"){
+        this.master.naoComm.repeat();
+      }else{
+        this.master.naoComm.start().say("Please repeat!").finish().send();
+      }
+
     }).bind(this));
 
 
@@ -137,6 +142,13 @@ class Communicator{
    */
   serverMovePlayer(name, hintNr){
     this.io.emit("server:movePlayer", {name : name, hintNr : hintNr}); //Will send a broadcast to everyone
+  }
+
+  /**
+   * Send client that game is over
+   */
+  serverGameOver(){
+    this.io.emit("server:gameOver"); //Will send a broadcast to everyone
   }
 
 

@@ -147,7 +147,7 @@ class Game {
     {
       this.game.camera.x += 4;
     }
-    
+
 
     this.text.x = this.game.camera.x+(this.game.world.game.width/2);
     this.text.y = this.game.camera.y+this.game.world.game.height-50;
