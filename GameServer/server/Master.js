@@ -247,37 +247,43 @@ class Master{
 
 
 
+    /*
     if(correctness === 0 || this.levels[this.currentLevel].type === "single"){ // 0 is correct
-
-      var player = this.getPlayer(receiver);
-      if(player.type === "robot"){
-        //Say what you do.
-        this.naoComm.start();
-        if(player.talk.lookUpDown){
-          this.naoComm.lookUp(false);
-        }
-
-        if(player.talk.handMovement){
-          this.naoComm.moveHand();
-        }
-
-        this.naoComm.say(this.selectRandomArrayObject(player.talk.acknowledge).replace("?word?", answer));
-        this.naoComm.finish().send();
-
-        setTimeout(function() {
-          console.log("clientMovePlayer -- A");
-          this.clientMovePlayer(player.name, player.position+1);
-        }.bind(this), 1000);
-      }else{
-        console.log("clientMovePlayer -- B");
-        this.clientMovePlayer(player.name, player.position+1);
-      }
 
 
     }else if(correctness === 1){ // 1 is wrong
 
     }else{// -1 could not be found
 
+    }*/
+
+    var player = this.getPlayer(receiver);
+    if(player.type === "robot"){
+      //Say what you do.
+      this.naoComm.start();
+      if(player.talk.lookUpDown){
+        this.naoComm.lookUp(false);
+      }
+
+      if(player.talk.handMovement){
+        this.naoComm.moveHand();
+      }
+
+      if(correctness === -1){
+        this.naoComm.say("OK");
+      }else{
+        this.naoComm.say(this.selectRandomArrayObject(player.talk.acknowledge).replace("?word?", answer));
+      }
+
+      this.naoComm.finish().send();
+
+      setTimeout(function() {
+        console.log("clientMovePlayer -- A");
+        this.clientMovePlayer(player.name, player.position+1);
+      }.bind(this), 1000);
+    }else{
+      console.log("clientMovePlayer -- B");
+      this.clientMovePlayer(player.name, player.position+1);
     }
 
   }
