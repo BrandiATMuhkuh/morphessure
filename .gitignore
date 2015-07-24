@@ -27,5 +27,9 @@ server/config.json
 
 server/data/journal/*
 GameServer/database/
+GameServer/server/GeneratedDictionaries/
+GameServer/audioRecordings/
+GameServer/server/conditions/
+GameServer/helperScripts/condition_generated.js
 *~
 .Rproj.user
