@@ -155,7 +155,7 @@ class UIMaster{
         //text2.anchor.set(1);
 
 
-        var text = phaser.add.text(phaser.camera.x+(phaser.world.game.width/2), 200, 'GAME OVER!');
+        var text = phaser.add.text(phaser.camera.x+(phaser.world.game.width/2), 200, 'WELL DONE!');
         text.anchor.set(0.5);
         text.align = 'center';
 
