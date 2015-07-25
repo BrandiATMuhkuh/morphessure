@@ -265,7 +265,7 @@ class Master{
         this.naoComm.lookUp(false);
       }
 
-      if(player.talk.handMovement){
+      if(player.talk.handMovement && this.levels[this.currentLevel].type !== "single"){
         this.naoComm.moveHand();
       }
 

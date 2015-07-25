@@ -119,6 +119,11 @@ class Game {
     this.text.anchor.set(0.5);
     this.text.visible = false;
 
+    this.timer = this.game.add.text(this.game.camera.x, 200, "00:00:00", { font: "30px Arial", fill: "black", align: "left"});
+    this.timer.anchor.set(0.5);
+    this.timer.visible = true;
+    this.timer.startTime = new Date();
+
     this.cursors = this.game.input.keyboard.createCursorKeys();
 
     console.log("game is created");
@@ -150,9 +155,16 @@ class Game {
 
 
     this.text.x = this.game.camera.x+(this.game.world.game.width/2);
-    this.text.y = this.game.camera.y+this.game.world.game.height-50;
+    this.text.y = this.game.camera.y+this.game.world.game.height-60;
     this.text.text = this.myTurnText;
     this.text.visible = true;
+
+    this.timer.x = this.game.camera.x+(this.game.world.game.width/2);
+    this.timer.y = this.game.camera.y+this.game.world.game.height-20;
+    var p = new Date(new Date()-this.timer.startTime);
+    this.timer.text = ((p.getMinutes() < 10 ? '0' : '') + p.getMinutes())+":"+((p.getSeconds() < 10 ? '0' : '') + p.getSeconds())+":"+((p.getMilliseconds() < 10 ? '00' : (p.getMilliseconds() < 100 ? '0' : '')) + p.getMilliseconds());
+    this.timer.visible = true;
+
     this.myTurnGraphics.x = this.game.camera.x;
     this.myTurnGraphics.y = this.game.camera.y + this.game.world.game.height-100;
     this.notmyTurnGraphics.x = this.game.camera.x;
