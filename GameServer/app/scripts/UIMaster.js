@@ -25,6 +25,11 @@ class UIMaster{
       }*/
     });
 
+    //The robot will say yes
+    $("#robotSayYes").on("click", function(){
+      comm.clientRobotSay("yes");
+    });
+
     $("#repeadButton").on("click", function(){
       console.log("Repeate previouse item again. ");
       comm.clientRepeatWord("human");

@@ -127,6 +127,10 @@ class Communicator{
       this.master.naoComm.start().initSit().finish().send();
     }).bind(this));
 
+    this.socket.on("client:robotSay",(function(data){
+      this.master.naoComm.start().say(data).finish().send();
+    }).bind(this));
+
   }
 
 

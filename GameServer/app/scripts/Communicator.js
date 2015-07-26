@@ -191,6 +191,10 @@ class Communicator{
     this.socket.emit("client:trustgame");
   }
 
+  clientRobotSay(word){
+    this.socket.emit("client:robotSay",word);
+  }
+
   /**
    * Server sends player movement in case it changed
    * And undefined number of function can listen to
