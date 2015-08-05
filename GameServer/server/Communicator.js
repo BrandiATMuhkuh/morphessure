@@ -155,6 +155,13 @@ class Communicator{
     this.io.emit("server:gameOver"); //Will send a broadcast to everyone
   }
 
+  /**
+  * Send client to try again guessing
+  */
+  serverTryAgain(){
+    this.io.emit("server:tryAgain");
+  }
+
 
   /**
    * Send a broadcast who (transmitter) will talk to whom(receiver)

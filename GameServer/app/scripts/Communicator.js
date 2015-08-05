@@ -16,6 +16,18 @@ class Communicator{
     this.serverWhoIsNext = [];
     this.serverLevelChange = [];
     this.serverGameOver = [];
+    this.serverTryAgain = [];
+
+
+    /**
+     * server says to player to try again moving
+     */
+    this.socket.on("server:tryAgain",(function(data){
+      console.log("server:tryAgain",data);
+      for (var func in this.serverTryAgain){
+        this.serverTryAgain[func](data);
+      }
+    }).bind(this));
 
     /**
      * server says a player has moved
@@ -114,6 +126,13 @@ class Communicator{
   */
   clientInitPosition(){
     this.socket.emit("client:initPosition");
+  }
+
+  /**
+  * Server tells client to try again guessing a word
+  */
+  addServerTryAgain(resFunc){ 
+    this.serverTryAgain.push(resFunc)
   }
 
   /**

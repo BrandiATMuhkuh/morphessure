@@ -144,4 +144,14 @@ body {
   color:orange;
 }
 
+.list-group-item.inCorrectSymbol {
+  background-color: blue;
+  color: white;
+  cursor:pointer;
+}
+.list-group-item.inCorrectSymbol:hover {
+  background-color: lightgrey;
+  color:blue;
+}
+
 

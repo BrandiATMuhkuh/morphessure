@@ -85,7 +85,7 @@ module.exports = class NaoComm {
   send(){
 
     console.log("nao send", this.isClosed, this.sendCommands.length);
-
+    
     if(this.isClosed && this.sendCommands.length > 0){
       this.isClosed = false;
       var client = new net.Socket();

@@ -17,11 +17,14 @@ class Game {
     //add a server whos is next listener to move the camera
     comm.addServerWhoIsNext((function(data){
       this.serverWhoIsNext(data.receiver);
-
       //If this player is receiver change your turn display
       this.myTurn(localPlayer.name === data.receiver);
-
     }).bind(this));
+
+    //Listen to the server to tell client to try again an other word
+    comm.addServerTryAgain(function(){
+      this.showTryAgain();
+    }.bind(this));
   }
 
   /**
@@ -113,6 +116,19 @@ class Game {
     this.notmyTurnGraphics.endFill();
     this.notmyTurnGraphics.visible = false;
 
+    this.wrongTurnGraphics = this.game.add.graphics(0, 0);
+    this.wrongTurnGraphics.beginFill(0xFF0000);
+    this.wrongTurnGraphics.moveTo(0,0);
+    this.wrongTurnGraphics.lineTo(this.game.world.game.width, 0);
+    this.wrongTurnGraphics.lineTo(this.game.world.game.width, 100);
+    this.wrongTurnGraphics.lineTo(0, 100);
+    this.wrongTurnGraphics.endFill();
+    //this.wrongTurnGraphics.visible = true;
+
+    this.wrongtext = this.game.add.text(this.game.camera.x, 200, "Try again!", { font: "65px Arial", fill: "black", align: "center"});
+    this.wrongtext.anchor.set(0.5);
+    this.wrongtext.visible = true;
+
     //Next to indicate who is next
     var style = { font: "65px Arial", fill: "black", align: "center"};
     this.text = this.game.add.text(this.game.camera.x, 200, "please wait", style);
@@ -127,6 +143,9 @@ class Game {
     this.cursors = this.game.input.keyboard.createCursorKeys();
 
     console.log("game is created");
+
+    this.wrongtext.visible = false;
+    this.wrongTurnGraphics.visible = false;
 
   }
 
@@ -169,7 +188,13 @@ class Game {
     this.myTurnGraphics.y = this.game.camera.y + this.game.world.game.height-100;
     this.notmyTurnGraphics.x = this.game.camera.x;
     this.notmyTurnGraphics.y = this.game.camera.y + this.game.world.game.height-100;
+    this.wrongTurnGraphics.x = this.game.camera.x;
+    this.wrongTurnGraphics.y = this.game.camera.y + this.game.world.game.height-400;
 
+    this.wrongtext.x = this.game.camera.x+(this.game.world.game.width/2);
+    this.wrongtext.y = this.game.camera.y+this.game.world.game.height-350;
+    //this.wrongtext.visible = true;
+    //this.wrongTurnGraphics.visible = true;
 
   }
 
@@ -237,5 +262,18 @@ class Game {
       this.notmyTurnGraphics.visible=!this.myTurnGraphics.visible;
       this.myTurnText = "TALK";
     }
+  }
+
+  showTryAgain(){
+    console.log("showTryAgain");
+
+    setTimeout(function () {
+      console.log("reset showTryAgain");
+      this.wrongtext.visible = false;
+      this.wrongTurnGraphics.visible = false;  
+    }.bind(this), 3000);
+
+    this.wrongtext.visible = true;
+    this.wrongTurnGraphics.visible = true;
   }
 }

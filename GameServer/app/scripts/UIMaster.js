@@ -240,7 +240,11 @@ class UIMaster{
 
     var found = dict.indexOf(answer);
     var calcAnswer = 0;
-    if(found === -1 || answer === 'OTHER'){
+    if(found === -1 && answer === 'WRONG'){
+      console.log("this is a new element");
+      calcAnswer = -2;
+    }
+    else if(found === -1 && answer === 'OTHER'){
       console.log("this is a new element");
       calcAnswer = -1;
     }else if(found === 0){
@@ -281,6 +285,11 @@ class UIMaster{
     _type = 'new';
     $("#multi-part-should-say-list").append('<a class="list-group-item multi-part-should-say-item '+_type+' ">'+
     "OTHER"
+    +'</a>');
+
+    _type = 'inCorrectSymbol';
+    $("#multi-part-should-say-list").append('<a class="list-group-item multi-part-should-say-item '+_type+' ">'+
+    "WRONG"
     +'</a>');
   }
 
