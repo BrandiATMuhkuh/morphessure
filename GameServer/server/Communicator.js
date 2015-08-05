@@ -162,6 +162,13 @@ class Communicator{
     this.io.emit("server:tryAgain");
   }
 
+  /**
+  * send a reset counter event to the server
+  */
+  serverResetCounter(){
+    this.io.emit("server:resetCounter");
+  }
+
 
   /**
    * Send a broadcast who (transmitter) will talk to whom(receiver)

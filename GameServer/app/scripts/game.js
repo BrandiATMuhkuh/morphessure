@@ -25,6 +25,14 @@ class Game {
     comm.addServerTryAgain(function(){
       this.showTryAgain();
     }.bind(this));
+
+    //Listen to reset the counter
+    comm.addserverResetCounter(function(){
+      console.log("addserverResetCounter");
+      this.timer.startTime = new Date();
+      this.timer.visible = true;
+
+    }.bind(this));
   }
 
   /**
@@ -137,7 +145,7 @@ class Game {
 
     this.timer = this.game.add.text(this.game.camera.x, 200, "00:00:00", { font: "30px Arial", fill: "black", align: "left"});
     this.timer.anchor.set(0.5);
-    this.timer.visible = true;
+    this.timer.visible = false;
     this.timer.startTime = new Date();
 
     this.cursors = this.game.input.keyboard.createCursorKeys();
@@ -182,7 +190,7 @@ class Game {
     this.timer.y = this.game.camera.y+this.game.world.game.height-20;
     var p = new Date(new Date()-this.timer.startTime);
     this.timer.text = ((p.getMinutes() < 10 ? '0' : '') + p.getMinutes())+":"+((p.getSeconds() < 10 ? '0' : '') + p.getSeconds())+":"+((p.getMilliseconds() < 10 ? '00' : (p.getMilliseconds() < 100 ? '0' : '')) + p.getMilliseconds());
-    this.timer.visible = true;
+    //this.timer.visible = true;
 
     this.myTurnGraphics.x = this.game.camera.x;
     this.myTurnGraphics.y = this.game.camera.y + this.game.world.game.height-100;

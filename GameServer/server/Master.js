@@ -358,6 +358,13 @@ class Master{
       setTimeout(function() {
         console.log("clientMovePlayer -- D");
         this.clientMovePlayer(this.lastMoves[last].name, this.lastMoves[last].hintNr);
+        //Send Start Counter
+        //if client is not single
+        if(this.levels[this.currentLevel].type !== "single"){
+          this.communicator.serverResetCounter();
+        }else{
+          //this.communicator.serverResetCounter()
+        }
       }.bind(this), 1000);
     }
 

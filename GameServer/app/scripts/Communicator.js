@@ -17,7 +17,19 @@ class Communicator{
     this.serverLevelChange = [];
     this.serverGameOver = [];
     this.serverTryAgain = [];
+    this.serverResetCounter = [];
 
+    
+
+    /**
+     * server tells client to reset the counter
+     */
+    this.socket.on("server:resetCounter",(function(data){
+      console.log("server:resetCounter",data);
+      for (var func in this.serverResetCounter){
+        this.serverResetCounter[func](data);
+      }
+    }).bind(this));
 
     /**
      * server says to player to try again moving
@@ -99,6 +111,8 @@ class Communicator{
     return this.socket;
   }
 
+
+
   /**
    * tell server to send the current player list
    */
@@ -126,6 +140,10 @@ class Communicator{
   */
   clientInitPosition(){
     this.socket.emit("client:initPosition");
+  }
+
+  addserverResetCounter(resFunc){ 
+    this.serverResetCounter.push(resFunc)
   }
 
   /**
