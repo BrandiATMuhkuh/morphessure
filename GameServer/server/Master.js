@@ -263,6 +263,11 @@ class Master{
       if(correctness === -2){
         //Participant want to go to a wrong tile
         this.communicator.serverTryAgain();
+
+        this.naoComm.start();
+        this.naoComm.say("I don't want to go their!");
+        this.naoComm.finish().send();
+
       }else{
         //Say what you do.
         this.naoComm.start();
