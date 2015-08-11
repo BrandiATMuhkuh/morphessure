@@ -12,7 +12,7 @@ var LogPlayerSaid = DbClasses.LogPlayerSaid;
 var LogPlayerShouldSay = DbClasses.LogPlayerShouldSay;
 var LogPlayerMoves = DbClasses.LogPlayerMoves;
 var Condition = DbClasses.Condition;
-var condition = new Condition(1, "OneRobotOneHumanNoMirror", "the robot will play without any special extras. eg. no gazing, mirroroing, ...");
+
 
 /**
  * This class will handle all the logic for the game
@@ -34,6 +34,7 @@ class Master{
     this.communicator = new Communicator();
     this.communicator.setMaster(this);
     this.settings = configFiles;
+    this.condition = new Condition(this.settings.identification.conditionId, this.settings.identification.condition, this.settings.identification.description);
 
     this.players = this.settings.players;
     this.levels = this.settings.levels;
@@ -78,8 +79,8 @@ class Master{
 
     this.db.saveLog(new LogPlayerMoves(
       this.pId,
-      condition.conditionId,
-      condition.condition,
+      this.condition.conditionId,
+      this.condition.condition,
       this.currentLevel,
       player.name,
       hintNr,
@@ -121,8 +122,8 @@ class Master{
       var tplayer = this.getPlayer(transmitter);
       this.db.saveLog(new LogPlayerShouldSay(
         this.pId,
-        condition.conditionId,
-        condition.condition,
+        this.condition.conditionId,
+        this.condition.condition,
         this.currentLevel,
         tplayer.name,
         receiver,
@@ -236,8 +237,8 @@ class Master{
     var player = this.getPlayer(transmitter);
     this.db.saveLog(new LogPlayerSaid(
       this.pId,
-      condition.conditionId,
-      condition.condition,
+      this.condition.conditionId,
+      this.condition.condition,
       this.currentLevel,
       player.name,
       receiver,

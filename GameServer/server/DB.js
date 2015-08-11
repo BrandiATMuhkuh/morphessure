@@ -35,7 +35,7 @@ class DB {
 
     var stmt = sqlite.prepare("INSERT INTO `Log`(`timestamp`, `ISOTime`, `type`,`pId`,`condition`, `level`, `transmitter`,`receiver`,`word`,`correct`,`relativePosition`,`absolutePosition`,`symbolName`) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?);");
     //console.log("SQLITE LOG",log);
-    stmt.run(log.time, log.ISOTime, log.type, this.master.pId, log.condition, this.master.currentLevel, log.transmitter, log.receiver, log.word, log.correct, log.relativePosition, log.absolutePosition, log.symbolName);
+    stmt.run(log.time, log.ISOTime, log.type, this.master.pId, log.conditionId, this.master.currentLevel, log.transmitter, log.receiver, log.word, log.correct, log.relativePosition, log.absolutePosition, log.symbolName);
     stmt.finalize();
 
   }

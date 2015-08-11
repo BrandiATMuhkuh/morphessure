@@ -2,8 +2,10 @@ var http = require('http');
 var config = require('./config.json');
 var dbSchema = require('./dbSchema.json');
 var fs = require("fs");
+var csv = require("fast-csv");
 var file = "baseline.db";
 var exists = fs.existsSync(file);
+var randomReplys = {};
 
 /**
 Select *, sum/co AS v from (select wordId, valance, image, SUM(valance) AS sum, COUNT(wordId) AS co from valance GROUP BY wordId)
@@ -12,6 +14,22 @@ Select *, sum/co AS v from (select wordId, valance, image, SUM(valance) AS sum, 
 select *, sumVal*1.0/counts as sVal from (Select ref, sum(valance) as sumVal, count(ref) as counts from valance LEFT JOIN synonyms ON wordId=qualRef where word = 1  GROUP BY ref);
 */
 
+//read CSV
+var count  = 1;
+csv
+ .fromPath("random_baseline.csv", {headers : true, objectMode:true})
+ .on("data", function(data){
+    var json = JSON.parse(JSON.stringify(data));
+    //console.log(count, json.V1, json['V1'], json["'V1'"], json['DO-Q-Q51']);
+      //console.log(json);
+      //console.log(json["﻿V1"], json["DO-Q-Q51"].split("|"));
+      randomReplys[json["﻿V1"]] = json["DO-Q-Q51"].split("|");
+      
+    count++;
+ })
+ .on("end", function(){
+     console.log("done", randomReplys["R_2qDzVBcmslgBFiQ"][5]);
+ });
 
 console.log(dbSchema);
 if(!exists) {
@@ -57,12 +75,12 @@ function addResponse(data){
   var valanceStmt = db.prepare("INSERT OR REPLACE INTO valance (userId, wordId, valance, image) VALUES (?, ?, ?, ?)");
   var tipiStmt = db.prepare("INSERT OR REPLACE INTO TIPI (id, extroversion, agreeableness, conscientiousness, emotionalStability, openness) VALUES (?, ?, ?, ?, ?, ?)");
 
-  var valanceInsert = "INSERT OR REPLACE INTO valance (userId, wordId, valance, image) VALUES "
+  var valanceInsert = "INSERT OR REPLACE INTO valance (userId, wordId, valance, image, randpos) VALUES "
   var valanceInsertArra = [];
   var tipiData = {};
 
   for(var resp in data){
-    console.log(resp, data.length);
+    //console.log(resp, data.length);
     /*
     if(resp.includes('Q2_1')){
       console.log(data.id, resp, data[resp], 1);
@@ -73,9 +91,21 @@ function addResponse(data){
       //console.log(data.id, resp, data[resp], 0);
       //valanceStmt.run(data.id, resp, data[resp], 0);
       if(data[resp]){
-         valanceInsertArra.push("('"+data.id+"', '"+resp+"', "+data[resp]+", 0)");
+
+        //get rand number
+        
+        var mPos = parseInt(resp.replace("Q51_1_","")) - 1;
+        var p = -1;
+        //console.log(mPos);
+        if(randomReplys[data.id][mPos] !== undefined){
+          p = parseInt(randomReplys[data.id][mPos]);
+        }
+        if(p === NaN)
+          console.log("('"+data.id+"', '"+resp+"', 4, 0, "+p+")");
+
+         valanceInsertArra.push("('"+data.id+"', '"+resp+"', "+data[resp]+", 0, "+p+")");
       }else{
-         valanceInsertArra.push("('"+data.id+"', '"+resp+"', 4, 0)");
+        valanceInsertArra.push("('"+data.id+"', '"+resp+"', 4, 0, -1)");
       }
 
 
@@ -93,7 +123,7 @@ function addResponse(data){
     resp.includes('Q4_8') ||
     resp.includes('Q4_9') ||
     resp.includes('Q4_10')){
-      console.log(resp);
+      //console.log(resp);
       tipiData[resp] = data[resp];
     }
   }
@@ -107,7 +137,7 @@ function addResponse(data){
     (tipiData['Q4_4']+tipiData['Q4_9'])/2,
     (tipiData['Q4_5']+tipiData['Q4_10'])/2);
 
-    console.log(valanceInsert + " "+ valanceInsertArra.join());
+    //console.log(valanceInsert + " "+ valanceInsertArra.join());
     db.run(valanceInsert + " "+ valanceInsertArra.join());
   //valanceStmt.finalize();
   tipiStmt.finalize();

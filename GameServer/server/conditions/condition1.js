@@ -1,4 +1,9 @@
 module.exports = {
+    "identification": {
+        "conditionId": 1,
+        "condition": "OneRobotOneHumanNo3TimeRepeat",
+        "description": "The robot will first introduce a word 3 times before the participant will say it."
+    },
     "players": [
         {
             "pNumber": 153,
