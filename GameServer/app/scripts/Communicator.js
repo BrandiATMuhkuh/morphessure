@@ -18,6 +18,7 @@ class Communicator{
     this.serverGameOver = [];
     this.serverTryAgain = [];
     this.serverResetCounter = [];
+    this.serverRAMoveList = [];
 
     
 
@@ -89,6 +90,14 @@ class Communicator{
         this.serverGameOver[func](data);
       }
     }).bind(this));
+
+    this.socket.on("server:RAMove", (function(data){
+      console.log("server:RAMove", data);
+      for (var func in this.serverGameOver){
+        this.serverRAMoveList[func](data);
+      }
+    }).bind(this));
+
 
   }
 
@@ -162,6 +171,13 @@ class Communicator{
    */
   addServerPlayerList(resFunc){
     this.serverPlayerList.push(resFunc)
+  }
+
+  /**
+  * Server sends that RA can move or not
+  */
+  addServerRAMove(resFunc){
+    this.serverRAMoveList.push(resFunc)
   }
 
   /**

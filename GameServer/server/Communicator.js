@@ -169,6 +169,13 @@ class Communicator{
     this.io.emit("server:resetCounter");
   }
 
+  /**
+  * tell RA to move or not
+  */
+  serverRAMove(move){
+    this.io.emit("server:RAMove", move);
+  }
+
 
   /**
    * Send a broadcast who (transmitter) will talk to whom(receiver)

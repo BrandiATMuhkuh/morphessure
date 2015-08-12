@@ -66,38 +66,59 @@ class Master{
    * Client tells server where it wants to move
    * @param name name of person who want to move
    * @param hintNr where to move
+   * @param option 1 == init, 2 == multiPlayer
    */
-  clientMovePlayer(name, hintNr){
-    console.log("client:movePlayer", name, hintNr);
-
-    this.lastMoves.push({name:name, hintNr:hintNr});
-
-    //update players on the server
-    this.updatePlayerPosition(name, hintNr);
+  clientMovePlayer(name, hintNr, option){
+    hintNr = parseInt(hintNr);
+    console.log("client:movePlayer", name, hintNr, option);
 
     var player = this.getPlayer(name);
+    var goNext = player.position+1 === hintNr;
+    console.log(goNext, player.position+1, hintNr, this.levels[this.currentLevel].type !== "single");
 
     this.db.saveLog(new LogPlayerMoves(
-      this.pId,
-      this.condition.conditionId,
-      this.condition.condition,
-      this.currentLevel,
-      player.name,
-      hintNr,
-      [-1,-1], //check this later
-      "symbolName"
-      ));
+        this.pId,
+        this.condition.conditionId,
+        this.condition.condition,
+        this.currentLevel,
+        player.name,
+        hintNr,
+        [-1,-1], //check this later
+        "symbolName"
+        ));
 
+    if((this.levels[this.currentLevel].type === "single" && option === 1) || this.levels[this.currentLevel].type !== "single"){
+      this.communicator.serverRAMove(false);
+      if(goNext || (option == 1)){
+        this.lastMoves.push({name:name, hintNr:hintNr});
 
-    this.communicator.serverMovePlayer(name, hintNr);
+        //update players on the server
+        this.updatePlayerPosition(name, hintNr);
+        this.communicator.serverMovePlayer(name, hintNr);
 
-    //Wait a bit so the player can see that his/her character moved
-    //before the camera will move
-    //this.tellClientswhoIsNext();
+        //Wait a bit so the player can see that his/her character moved
+        //before the camera will move
+        //this.tellClientswhoIsNext();
 
-    setTimeout(function() {
-      this.tellClientswhoIsNext();
-    }.bind(this), 300);
+        setTimeout(function() {
+          this.tellClientswhoIsNext();
+        }.bind(this), 300);
+      }else{
+        //player clicked on the wrong symbol. 
+        this.communicator.serverTryAgain();
+      }
+    }else{
+      //wait for alia
+      console.log("wait for RA");
+      if(!goNext){
+        this.communicator.serverTryAgain();
+      }else{
+        this.communicator.serverRAMove(true);
+      }
+      
+    }
+
+    
   }
 
   /**
@@ -290,7 +311,7 @@ class Master{
 
         setTimeout(function() {
           console.log("clientMovePlayer -- A");
-          this.clientMovePlayer(player.name, player.position+1);
+          this.clientMovePlayer(player.name, player.position+1, 1);
         }.bind(this), 1000);
       }
 
@@ -355,10 +376,10 @@ class Master{
 
     if(last>=0 && beforeLast>=0){
       console.log("clientMovePlayer -- C");
-      this.clientMovePlayer(this.lastMoves[beforeLast].name, this.lastMoves[beforeLast].hintNr);
+      this.clientMovePlayer(this.lastMoves[beforeLast].name, this.lastMoves[beforeLast].hintNr, 1);
       setTimeout(function() {
         console.log("clientMovePlayer -- D");
-        this.clientMovePlayer(this.lastMoves[last].name, this.lastMoves[last].hintNr);
+        this.clientMovePlayer(this.lastMoves[last].name, this.lastMoves[last].hintNr, 1);
         //Send Start Counter
         //if client is not single
         if(this.levels[this.currentLevel].type !== "single"){

@@ -72,6 +72,11 @@ class UIMaster{
       phaser.state.start("gameOver");
     }).bind(this));
 
+    comm.addServerRAMove((function(data){
+      this.raMove(data);
+    }).bind(this));
+    this.raMove(false);
+
     /**
      * Listen to any change on the player list
      * and redraw the player status
@@ -191,6 +196,20 @@ class UIMaster{
       wordList[word]
       +'</a>');
     }
+  }
+
+  /**
+  * Indicate if the RA can already click or still has to wait for participant to click the tile
+  */
+  raMove(move){
+    if(move){
+      document.querySelector("#canRaMove").innerHTML = "RA PLEASE MOVE"
+      document.querySelector("#canRaMove").style.color = "green";
+    }else{
+      document.querySelector("#canRaMove").innerHTML = "RA DON'T MOVE"
+      document.querySelector("#canRaMove").style.color = "red";
+    }
+    
   }
 
   /**
