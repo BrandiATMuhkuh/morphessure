@@ -107,7 +107,10 @@ class Master{
         }.bind(this), 300);
       }else{
         //player clicked on the wrong symbol. 
-        this.communicator.serverTryAgain();
+        if(this.levels[this.currentLevel].type === "single"){
+          this.communicator.serverTryAgain();
+        }
+        
       }
     }else{
       //wait for alia
@@ -286,7 +289,9 @@ class Master{
 
       if(correctness === -2){
         //Participant want to go to a wrong tile
-        this.communicator.serverTryAgain();
+        //this.communicator.serverTryAgain();
+
+        console.log("I donw want");
 
         this.naoComm.start();
         this.naoComm.say("I don't want to go their!");
