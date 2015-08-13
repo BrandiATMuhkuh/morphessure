@@ -107,9 +107,7 @@ class Master{
         }.bind(this), 300);
       }else{
         //player clicked on the wrong symbol. 
-        if(this.levels[this.currentLevel].type === "single"){
-          this.communicator.serverTryAgain();
-        }
+        this.communicator.serverTryAgain();
         
       }
     }else{
@@ -289,7 +287,10 @@ class Master{
 
       if(correctness === -2){
         //Participant want to go to a wrong tile
-        //this.communicator.serverTryAgain();
+        if(this.levels[this.currentLevel].type === "single"){
+          this.communicator.serverTryAgain();
+        }
+        
 
         console.log("I donw want");
 
