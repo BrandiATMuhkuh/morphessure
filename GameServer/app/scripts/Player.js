@@ -9,8 +9,9 @@
  */
 class Player{
 
-  constructor(name){
+  constructor(name, type){
     this.name = name;
+    this.type = type;
     this.grid = [];
     this.game = null;
     this.position = [0,0]; //gid positions
@@ -138,8 +139,8 @@ class Player{
   /**
    * This will render all hints on the map
    */
-  renderHints(isCurrentPlayer){
-
+  renderHints(isCurrentPlayer, playerName){
+    console.log("renderHints: ", isCurrentPlayer, this.type, playerName, (isCurrentPlayer || this.type === "single") && playerName !== "player2");
     
     for (var hint in this.hintList){
 
@@ -148,23 +149,26 @@ class Player{
         hintImg = 'stoneRingNo.png';
       }
 
+      
       var s = this.addSprite(this.hintList[hint][0],this.hintList[hint][1], hintImg);
-      this.grid[this.hintList[hint][0]][this.hintList[hint][1]].hint = s;
+      if((isCurrentPlayer && playerName !== "player2") || (!isCurrentPlayer && this.type === "single")){
+        this.grid[this.hintList[hint][0]][this.hintList[hint][1]].hint = s;
 
 
-      //The goal is to just have always one click listener active so noone can do anything wrong.
-      s.inputEnabled = true;
+        //The goal is to just have always one click listener active so noone can do anything wrong.
+        s.inputEnabled = true;
 
-      //bind function does the trick:
-      //http://stackoverflow.com/questions/20279484/how-to-access-the-correct-this-context-inside-a-callback
-      //In the future i would like to use fat arrows =>
-      s.events.onInputDown.add((function(hint){
-        return function(){
-          this.setIsPlaying(false); //Deactivate the movement of the current player
-          comm.clientMovePlayer(this.getName(), hint);
-        }
-      }(hint)).bind(this));
-      s.inputEnable = true;
+        //bind function does the trick:
+        //http://stackoverflow.com/questions/20279484/how-to-access-the-correct-this-context-inside-a-callback
+        //In the future i would like to use fat arrows =>
+        s.events.onInputDown.add((function(hint){
+          return function(){
+            this.setIsPlaying(false); //Deactivate the movement of the current player
+            comm.clientMovePlayer(this.getName(), hint);
+          }
+        }(hint)).bind(this));
+        s.inputEnable = true;
+      }
     }
 
     
@@ -176,23 +180,24 @@ class Player{
           var s = this.addSprite(outer,inner, hintImg);
           //console.log(this.grid[outer][inner].hint);
           //this.grid[outer][inner].hint = s;
+          if((isCurrentPlayer && playerName !== "player2") || (!isCurrentPlayer && this.type === "single")){
+            var hint = 1;
+            //The goal is to just have always one click listener active so noone can do anything wrong.
+            s.inputEnabled = true;
 
-          var hint = 1;
-          //The goal is to just have always one click listener active so noone can do anything wrong.
-          s.inputEnabled = true;
-
-          //bind function does the trick:
-          //http://stackoverflow.com/questions/20279484/how-to-access-the-correct-this-context-inside-a-callback
-          //In the future i would like to use fat arrows =>
-          s.events.onInputDown.add(function(){
-            comm.clientMovePlayer(this.getName(), -1);
-          }.bind(this));
-          s.inputEnable = true;
+            //bind function does the trick:
+            //http://stackoverflow.com/questions/20279484/how-to-access-the-correct-this-context-inside-a-callback
+            //In the future i would like to use fat arrows =>
+            s.events.onInputDown.add(function(){
+              comm.clientMovePlayer(this.getName(), -1);
+            }.bind(this));
+            s.inputEnable = true;
+          }
         }
         
       }
     }
-
+    
     
 
     //this.setIsPlaying(true);

@@ -134,8 +134,8 @@ class Communicator{
   }
 
 
-  serverLevelChange(playerList, levelName){
-    this.io.emit("server:levelChange", {playerList : playerList, levelName : levelName}); //Will send a broadcast to everyone
+  serverLevelChange(playerList, levelName, type){
+    this.io.emit("server:levelChange", {playerList : playerList, levelName : levelName, type:type}); //Will send a broadcast to everyone
   }
 
 

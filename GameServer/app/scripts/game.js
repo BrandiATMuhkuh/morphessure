@@ -98,7 +98,7 @@ class Game {
     for (var player in this.players){
       console.log("game world player: ", player, localPlayer.name);
       this.players[player].renderWorld(playerNr, 80, 10);
-      this.players[player].renderHints(player == localPlayer.name);
+      this.players[player].renderHints(player == localPlayer.name, player);
       this.players[player].renderTraps();
       this.players[player].renderPlayer();
       playerNr = playerNr + 1;

@@ -66,11 +66,13 @@ class Master{
    * Client tells server where it wants to move
    * @param name name of person who want to move
    * @param hintNr where to move
-   * @param option 1 == init, 2 == multiPlayer
+   * @param option 1 == init, 2 == multiPlayer, 3 == coming from the client
    */
   clientMovePlayer(name, hintNr, option){
     hintNr = parseInt(hintNr);
     console.log("client:movePlayer", name, hintNr, option);
+
+    
 
     var player = this.getPlayer(name);
     var goNext = player.position+1 === hintNr;
@@ -360,7 +362,7 @@ class Master{
       p.hintWord = playerLevel.hintWord;
     }
 
-    this.communicator.serverLevelChange(this.players, this.currentLevel);
+    this.communicator.serverLevelChange(this.players, this.currentLevel, this.levels[this.currentLevel].type);
 
   }
 

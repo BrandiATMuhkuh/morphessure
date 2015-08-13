@@ -64,7 +64,7 @@ class UIMaster{
     }).bind(this));
 
     comm.addServerLevelChange((function(data){
-      this.generateGame(data.playerList, data.levelName);
+      this.generateGame(data.playerList, data.levelName, data.type);
       this.startGame(data.levelName);
     }).bind(this));
 
@@ -424,7 +424,7 @@ class UIMaster{
    * as such.
    * @param playerList list of all players
    */
-  generateGame(playerList, levelName){
+  generateGame(playerList, levelName, type){
     console.log("generateGame", playerList);
     if(this.currentGame !== null){
       this.currentGame.onShutDownCallback();
@@ -438,7 +438,7 @@ class UIMaster{
       //Positive pNumbers are participants
       //Negative pNumber are robots/actors
       if(parseInt(playerList[player].pNumber) !== 0){
-        var p = new Player(playerList[player].name);
+        var p = new Player(playerList[player].name, type);
         p.setTraps(playerList[player].trapList);
         p.setHints(playerList[player].hintList);
         this.currentGame.addPlayer(p);
