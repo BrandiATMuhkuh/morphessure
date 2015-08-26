@@ -63,6 +63,34 @@ class Master{
   }
 
   /**
+  * returns the name of a hint position for a given player and level
+  */
+  getHintName(levelName, player, hintNr){
+    var fields = this.levels[levelName].fields;
+    var playerField = null;
+    for(var i = 0; i < fields.length; i++){
+      if(fields[i].playerName === player){
+        playerField = fields[i];
+      }
+    }
+
+    if(playerField === null){
+      return "NA";
+    }
+
+    var hint = playerField.hintList[hintNr];
+
+    for(var i = 0; i < playerField.trapList.length; i++){
+      var f = playerField.trapList[i];
+      if(f.position[0] === hint[0] && f.position[1] === hint[1]){
+        return f.name;
+      }
+    }
+
+    return "NA";
+  }
+
+  /**
    * Client tells server where it wants to move
    * @param name name of person who want to move
    * @param hintNr where to move
@@ -86,7 +114,7 @@ class Master{
         player.name,
         hintNr,
         [-1,-1], //check this later
-        "symbolName"
+        this.getHintName(this.currentLevel, name, hintNr)
         ));
 
     if((this.levels[this.currentLevel].type === "single" && option === 1) || this.levels[this.currentLevel].type !== "single"){
@@ -151,7 +179,8 @@ class Master{
         this.currentLevel,
         tplayer.name,
         receiver,
-        _nextDict[0]
+        _nextDict[0],
+        this.getHintName(this.currentLevel, receiver, player.position+1)
       ));
 
 
@@ -259,6 +288,7 @@ class Master{
     console.log("clientMultiParticipantSaid", transmitter, receiver, correctness, answer, dictionary);
 
     var player = this.getPlayer(transmitter);
+
     this.db.saveLog(new LogPlayerSaid(
       this.pId,
       this.condition.conditionId,
@@ -267,9 +297,9 @@ class Master{
       player.name,
       receiver,
       answer,
-      correctness
+      correctness,
+      this.getHintName(this.currentLevel, receiver, this.getPlayer(receiver).position+1)
     ));
-
 
 
     /*
@@ -408,11 +438,22 @@ class Master{
   clientGenerateMultiPlayerConditionDictionary(){
     console.log("clientGenerateMultiPlayerConditionDictionary");
     new ConditionDictionaryGenerator(this).generate().then(function(response){
-      console.log("clientGenerateMultiPlayerConditionDictionaryPROMIS", response);
-
+      //console.log("clientGenerateMultiPlayerConditionDictionaryPROMIS", response);
+      console.log("p1", response.player1);
+      //console.log("p2", response.player2);
       //take the
 
-    }).catch(function(response){
+      var f = this.levels["multiPlayer"].fields;
+      for(var i = 0; i < f.length; i++){
+        if(f[i].playerName === "player1"){
+          f[i].hintWord = response.player1;
+        }else if(f[i].playerName === "player2"){
+          //f[i].hintWord = response.player2;
+        }
+      }
+
+
+    }.bind(this)).catch(function(response){
       console.error(response);
     });
 

@@ -35,7 +35,9 @@ class NodeArgs{
         return process.argv[i+1];
       }
     }
+
     return "111";
+    return ''+parseInt(Math.random()*1000);
   }
 
   /**

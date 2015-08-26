@@ -6,11 +6,17 @@ var sqlite3 = require("sqlite3").verbose();
 var fs = require("fs");
 var file = "database/logging.sqlite";
 var sqlite = new sqlite3.Database(file);
+var csv = require("fast-csv");
 
 class ConditionDictionaryGenerator{
 
   constructor(master){
     this.master = master;
+    this.singleSymbolList = {};
+
+    //this.master.condition.conditionId
+
+    
   }
 
   /**
@@ -47,38 +53,69 @@ class ConditionDictionaryGenerator{
 
       //TODO do real calculation here
       var possibleOjb = {
-        player1: [
-          ["Belly","Stomach","Fat Man"],
-          ["Thief","Robberer","Money Transporter"],
-          ["Cup","Mug"],
-          ["marijuana", "Sign", "Golfflag"],
-          ["pipe", "Sign", "Golfflag"],
-          ["dunes", "Sign", "Golfflag"],
-          ["doctor", "Sign", "Golfflag"],
-          ["teacher", "Sign", "Golfflag"],
-          ["drugs", "Sign", "Golfflag"]
-        ],
-
-        player2:[
-          ["Alligator", "Crocogile", "Reptile"],
-          ["Beans", "Seed", "Start"],
-          ["RAM", "Piano", "Memory"],
-          ["Beetle", "Sign", "Golfflag"],
-          ["refeeree", "Sign", "Golfflag"],
-          ["fireplace", "Sign", "Golfflag"],
-          ["moth", "Sign", "Golfflag"],
-          ["pipe", "Sign", "Golfflag"],
-          ["teacher", "Sign", "Golfflag"]
-        ]
+        player1: [],
+        player2: []
       };
 
-      resolve(possibleOjb);
-    });
+      
+
+      sqlite.all("select * from log where type = 'LogPlayerSaid' and word != 'WRONG'", function(err, row) { 
+        
+        for(var i = 0; i < row.length; i++){
+          this.singleSymbolList[row[i].symbolName] = row[i].word;          
+        }
+        console.log(__dirname);
+        console.log(__filename);
+        csv
+        .fromPath(__dirname+"/conditions/condition1.csv", {headers : true, objectMode:true})
+        .on("data", function(data){
+          //csvArray.push(data);
+
+          if(data.presentation !== "pre" && data.presentation !== "post"){
+
+            if(data.navigator === "robot"){
+              console.log(data.change);
+
+              if(data.change === "MATCH"){
+
+                if(this.singleSymbolList[data.item] === data.option1){
+                  possibleOjb.player1.push([data.option1, data.option2]);
+                }else if(this.singleSymbolList[data.item] === data.option2){
+                  possibleOjb.player1.push([data.option2, data.option1]);
+                }else{
+                  possibleOjb.player1.push([data.option1]);
+                }
+
+              }else if(data.change === "CHANGE"){
+                if(this.singleSymbolList[data.item] === data.option1){
+                  possibleOjb.player1.push([data.option2, data.option1]);
+                }else if(this.singleSymbolList[data.item] === data.option2){
+                  possibleOjb.player1.push([data.option1, data.option2]);
+                }else{
+                    possibleOjb.player1.push([data.option1]);
+                }
+              }
+
+              
+            }else{
+              possibleOjb.player2.push([data.option1, data.option2]);
+            }
+          }
+        }.bind(this))
+       .on("end", function(){
+           //console.log("done", possibleOjb);
+           resolve(possibleOjb);
+        });
+      }.bind(this));
+   
+
+      
+    }.bind(this));
   }
 
   _saveFile(pId, obj){
     return new Promise(function(resolve, reject){
-      console.log("_saveFile", pId, obj);
+      //console.log("_saveFile", pId, obj);
       var fs = require("fs");
       fs.writeFile("server/GeneratedDictionaries/condition1_pId_"+pId+".json", JSON.stringify(obj, null, "\t"), function(err) {
         if(err) {
@@ -90,7 +127,7 @@ class ConditionDictionaryGenerator{
       });
 
 
-      resolve("_saveFile"+" "+pId+" "+obj);
+      resolve(obj);
     });
   }
 
