@@ -12561,244 +12561,828 @@ module.exports = {
 					],
 					"hintWord": [
 						[
-							"laptop"
-						],
-						[
-							"laptop"
-						],
-						[
-							"laptop"
-						],
-						[
-							"laptop"
-						],
-						[
-							"laptop"
-						],
-						[
-							"laptop"
-						],
-						[
-							"laptop"
-						],
-						[
-							"laptop"
-						],
-						[
-							"laptop"
-						],
-						[
-							"laptop"
-						],
-						[
-							"laptop"
-						],
-						[
-							"laptop"
-						],
-						[
-							"laptop"
-						],
-						[
-							"laptop"
-						],
-						[
-							"laptop"
-						],
-						[
-							"laptop"
-						],
-						[
-							"laptop"
-						],
-						[
-							"laptop"
-						],
-						[
-							"laptop"
-						],
-						[
-							"laptop"
-						],
-						[
-							"laptop"
-						],
-						[
-							"laptop"
-						],
-						[
-							"laptop"
-						],
-						[
-							"laptop"
-						],
-						[
-							"laptop"
-						],
-						[
-							"laptop"
-						],
-						[
-							"laptop"
-						],
-						[
-							"laptop"
-						],
-						[
-							"laptop"
-						],
-						[
-							"laptop"
-						],
-						[
-							"laptop"
-						],
-						[
-							"laptop"
-						],
-						[
-							"laptop"
-						],
-						[
-							"laptop"
-						],
-						[
-							"laptop"
-						],
-						[
-							"laptop"
-						],
-						[
-							"laptop"
-						],
-						[
-							"laptop"
-						],
-						[
-							"laptop"
-						],
-						[
-							"laptop"
-						],
-						[
-							"laptop"
-						],
-						[
-							"laptop"
-						],
-						[
-							"laptop"
-						],
-						[
-							"laptop"
-						],
-						[
-							"laptop"
-						],
-						[
-							"laptop"
-						],
-						[
-							"laptop"
-						],
-						[
-							"laptop"
-						],
-						[
-							"laptop"
-						],
-						[
-							"laptop"
-						],
-						[
-							"laptop"
-						],
-						[
-							"laptop"
-						],
-						[
-							"laptop"
-						],
-						[
-							"laptop"
-						],
-						[
-							"laptop"
-						],
-						[
-							"laptop"
-						],
-						[
-							"laptop"
-						],
-						[
-							"laptop"
-						],
-						[
-							"laptop"
-						],
-						[
-							"laptop"
-						],
-						[
-							"laptop"
-						],
-						[
-							"laptop"
-						],
-						[
-							"laptop"
-						],
-						[
-							"laptop"
-						],
-						[
-							"laptop"
-						],
-						[
-							"laptop"
-						],
-						[
-							"laptop"
-						],
-						[
-							"laptop"
-						],
-						[
-							"laptop"
-						],
-						[
-							"laptop"
-						],
-						[
-							"laptop"
-						],
-						[
-							"laptop"
-						],
-						[
-							"laptop"
-						],
-						[
-							"laptop"
-						],
-						[
-							"laptop"
-						],
-						[
-							"laptop"
-						],
-						[
-							"laptop"
-						],
-						[
-							"laptop"
-						],
-						[
-							"laptop"
-						],
-						[
-							"laptop"
+							"drugs",
+							"medicine",
+							"drugs",
+							"medication",
+							"medicine",
+							"meds",
+							"pills",
+							"tablets"
+						],
+						[
+							"wolf",
+							"dog",
+							"canine",
+							"chasing",
+							"dog",
+							"hound",
+							"kangaroo",
+							"mongrel",
+							"running",
+							"wallaby",
+							"wolf"
+						],
+						[
+							"pastor",
+							"priest",
+							"christian",
+							"crucifix",
+							"cross",
+							"god botherer",
+							"minister",
+							"necklace",
+							"nun",
+							"pastor",
+							"priest",
+							"religious"
+						],
+						[
+							"pollution",
+							"factory",
+							"castle",
+							"factory",
+							"industry",
+							"manufacturer",
+							"pollution",
+							"workshop"
+						],
+						[
+							"germs",
+							"microorganism",
+							"antibody",
+							"bacteria",
+							"bugs",
+							"cells",
+							"germs",
+							"infection",
+							"microorganism",
+							"virus"
+						],
+						[
+							"gunman",
+							"soldier",
+							"armed",
+							"armed defender",
+							"army",
+							"assasin",
+							"criminal",
+							"gunman",
+							"killer",
+							"militant",
+							"murder",
+							"rifleman",
+							"shooter",
+							"sniper",
+							"soldier",
+							"Terrorist"
+						],
+						[
+							"sprog",
+							"kid",
+							"baby",
+							"child",
+							"crawl",
+							"crawler",
+							"crawling",
+							"infant",
+							"kid",
+							"sprog",
+							"toddler"
+						],
+						[
+							"usb stick",
+							"memory stick",
+							"flash drive",
+							"memory stick",
+							"thumb drive",
+							"usb drive",
+							"usb stick"
+						],
+						[
+							"laptop",
+							"computer",
+							"computer",
+							"laptop"
+						],
+						[
+							"sand",
+							"gravel",
+							"clay",
+							"dirt",
+							"gravel",
+							"heap",
+							"pile",
+							"sand",
+							"soil"
+						],
+						[
+							"buildings",
+							"town",
+							"buildings",
+							"city",
+							"cityscape",
+							"high-rise buildings",
+							"skyscrapers",
+							"town"
+						],
+						[
+							"android",
+							"robot",
+							"android",
+							"droid",
+							"machine",
+							"metal mickey",
+							"robot"
+						],
+						[
+							"pizza slice",
+							"concrete",
+							"bog",
+							"cement",
+							"concrete",
+							"filler",
+							"grout",
+							"mortar",
+							"mud",
+							"pizza",
+							"pizza slice",
+							"plaster"
+						],
+						[
+							"face",
+							"socket",
+							"face",
+							"plug",
+							"powerpoint",
+							"sad",
+							"smiley",
+							"socket",
+							"tv"
+						],
+						[
+							"cook",
+							"chef",
+							"baker",
+							"chef",
+							"cook",
+							"woman"
+						],
+						[
+							"avenue",
+							"highway",
+							"avenue",
+							"bridge",
+							"highway",
+							"ladder",
+							"lane",
+							"road",
+							"street",
+							"train tracks"
+						],
+						[
+							"recycling bin",
+							"rubbish bin",
+							"bin",
+							"recycling bin",
+							"rubbish bin",
+							"wheely bin"
+						],
+						[
+							"shoe",
+							"work boot",
+							"boot",
+							"doc martin",
+							"high top",
+							"safety boot",
+							"shoe",
+							"work boot"
+						],
+						[
+							"sphere",
+							"ball",
+							"at&t",
+							"ball",
+							"circle",
+							"globe",
+							"sphere"
+						],
+						[
+							"people",
+							"crowd",
+							"audience",
+							"crowd",
+							"group",
+							"group of people",
+							"mob",
+							"people",
+							"queue",
+							"users"
+						],
+						[
+							"cathedral",
+							"church",
+							"cathedral",
+							"church"
+						],
+						[
+							"ship",
+							"boat",
+							"boat",
+							"cruiseliner",
+							"ferry",
+							"sea",
+							"ship",
+							"steamer",
+							"tug boat",
+							"yatch"
+						],
+						[
+							"sofa",
+							"couch",
+							"arm chair",
+							"chair",
+							"couch",
+							"easy chair",
+							"sofa"
+						],
+						[
+							"house",
+							"home",
+							"accommodation",
+							"domicile",
+							"habitat",
+							"home",
+							"house"
+						],
+						[
+							"crocodile",
+							"alligator",
+							"alligator",
+							"crocodile",
+							"reptile"
+						],
+						[
+							"artist",
+							"painter",
+							"artist",
+							"painter",
+							"painting"
+						],
+						[
+							"leaf",
+							"weed",
+							"cannibis",
+							"leaf",
+							"marijuana",
+							"plant",
+							"pot",
+							"weed"
+						],
+						[
+							"cattle",
+							"cows",
+							"angus",
+							"beef",
+							"bulls",
+							"cattle",
+							"cows",
+							"dairy farm",
+							"farm",
+							"herd",
+							"livestock",
+							"stock"
+						],
+						[
+							"mouse",
+							"rat",
+							"gerbil",
+							"hamster",
+							"mouse",
+							"rat",
+							"rodent"
+						],
+						[
+							"robber",
+							"thief",
+							"burglar",
+							"cash",
+							"heist",
+							"money",
+							"robber",
+							"thief"
+						],
+						[
+							"bunny",
+							"rabbit",
+							"bunny",
+							"hare",
+							"rabbit"
+						],
+						[
+							"electric chair",
+							"king",
+							"death",
+							"death sentence",
+							"electric chair",
+							"king",
+							"monarch",
+							"queen",
+							"royal",
+							"ruler",
+							"throne"
+						],
+						[
+							"touchscreen",
+							"tablet",
+							"ipad",
+							"phone",
+							"tablet",
+							"touch",
+							"touchpad",
+							"touchscreen"
+						],
+						[
+							"cup",
+							"mug",
+							"breakfast cup",
+							"coffee",
+							"coffee cup",
+							"cup",
+							"cuppa",
+							"mug",
+							"tea",
+							"tea cup"
+						],
+						[
+							"serpent",
+							"snake",
+							"adder",
+							"reptile",
+							"serpent",
+							"snake",
+							"sperm",
+							"worm"
+						],
+						[
+							"insect",
+							"butterfly",
+							"bug",
+							"butterfly",
+							"insect",
+							"moth"
+						],
+						[
+							"knife",
+							"dagger",
+							"broken sword",
+							"dagger",
+							"knife",
+							"lipstick"
+						],
+						[
+							"money",
+							"coins",
+							"cash",
+							"coins",
+							"dollar coins",
+							"dollars",
+							"gold coins",
+							"money"
+						],
+						[
+							"lecturer",
+							"teacher",
+							"instructor",
+							"lecturer",
+							"pointer",
+							"presenter",
+							"teach",
+							"teacher",
+							"teaching",
+							"tutor",
+							"whiteboard"
+						],
+						[
+							"woman",
+							"lady",
+							"chick",
+							"female",
+							"girl",
+							"lady",
+							"woman"
+						],
+						[
+							"knife",
+							"dagger",
+							"broken sword",
+							"dagger",
+							"knife",
+							"lipstick"
+						],
+						[
+							"robber",
+							"thief",
+							"burglar",
+							"cash",
+							"heist",
+							"money",
+							"robber",
+							"thief"
+						],
+						[
+							"laptop",
+							"computer",
+							"computer",
+							"laptop"
+						],
+						[
+							"lecturer",
+							"teacher",
+							"instructor",
+							"lecturer",
+							"pointer",
+							"presenter",
+							"teach",
+							"teacher",
+							"teaching",
+							"tutor",
+							"whiteboard"
+						],
+						[
+							"pizza slice",
+							"concrete",
+							"bog",
+							"cement",
+							"concrete",
+							"filler",
+							"grout",
+							"mortar",
+							"mud",
+							"pizza",
+							"pizza slice",
+							"plaster"
+						],
+						[
+							"money",
+							"coins",
+							"cash",
+							"coins",
+							"dollar coins",
+							"dollars",
+							"gold coins",
+							"money"
+						],
+						[
+							"sofa",
+							"couch",
+							"arm chair",
+							"chair",
+							"couch",
+							"easy chair",
+							"sofa"
+						],
+						[
+							"buildings",
+							"town",
+							"buildings",
+							"city",
+							"cityscape",
+							"high-rise buildings",
+							"skyscrapers",
+							"town"
+						],
+						[
+							"bunny",
+							"rabbit",
+							"bunny",
+							"hare",
+							"rabbit"
+						],
+						[
+							"shoe",
+							"work boot",
+							"boot",
+							"doc martin",
+							"high top",
+							"safety boot",
+							"shoe",
+							"work boot"
+						],
+						[
+							"germs",
+							"microorganism",
+							"antibody",
+							"bacteria",
+							"bugs",
+							"cells",
+							"germs",
+							"infection",
+							"microorganism",
+							"virus"
+						],
+						[
+							"wolf",
+							"dog",
+							"canine",
+							"chasing",
+							"dog",
+							"hound",
+							"kangaroo",
+							"mongrel",
+							"running",
+							"wallaby",
+							"wolf"
+						],
+						[
+							"cathedral",
+							"church",
+							"cathedral",
+							"church"
+						],
+						[
+							"sprog",
+							"kid",
+							"baby",
+							"child",
+							"crawl",
+							"crawler",
+							"crawling",
+							"infant",
+							"kid",
+							"sprog",
+							"toddler"
+						],
+						[
+							"woman",
+							"lady",
+							"chick",
+							"female",
+							"girl",
+							"lady",
+							"woman"
+						],
+						[
+							"cup",
+							"mug",
+							"breakfast cup",
+							"coffee",
+							"coffee cup",
+							"cup",
+							"cuppa",
+							"mug",
+							"tea",
+							"tea cup"
+						],
+						[
+							"leaf",
+							"weed",
+							"cannibis",
+							"leaf",
+							"marijuana",
+							"plant",
+							"pot",
+							"weed"
+						],
+						[
+							"recycling bin",
+							"rubbish bin",
+							"bin",
+							"recycling bin",
+							"rubbish bin",
+							"wheely bin"
+						],
+						[
+							"sand",
+							"gravel",
+							"clay",
+							"dirt",
+							"gravel",
+							"heap",
+							"pile",
+							"sand",
+							"soil"
+						],
+						[
+							"crocodile",
+							"alligator",
+							"alligator",
+							"crocodile",
+							"reptile"
+						],
+						[
+							"gunman",
+							"soldier",
+							"armed",
+							"armed defender",
+							"army",
+							"assasin",
+							"criminal",
+							"gunman",
+							"killer",
+							"militant",
+							"murder",
+							"rifleman",
+							"shooter",
+							"sniper",
+							"soldier",
+							"Terrorist"
+						],
+						[
+							"sphere",
+							"ball",
+							"at&t",
+							"ball",
+							"circle",
+							"globe",
+							"sphere"
+						],
+						[
+							"pollution",
+							"factory",
+							"castle",
+							"factory",
+							"industry",
+							"manufacturer",
+							"pollution",
+							"workshop"
+						],
+						[
+							"touchscreen",
+							"tablet",
+							"ipad",
+							"phone",
+							"tablet",
+							"touch",
+							"touchpad",
+							"touchscreen"
+						],
+						[
+							"people",
+							"crowd",
+							"audience",
+							"crowd",
+							"group",
+							"group of people",
+							"mob",
+							"people",
+							"queue",
+							"users"
+						],
+						[
+							"house",
+							"home",
+							"accommodation",
+							"domicile",
+							"habitat",
+							"home",
+							"house"
+						],
+						[
+							"drugs",
+							"medicine",
+							"drugs",
+							"medication",
+							"medicine",
+							"meds",
+							"pills",
+							"tablets"
+						],
+						[
+							"electric chair",
+							"king",
+							"death",
+							"death sentence",
+							"electric chair",
+							"king",
+							"monarch",
+							"queen",
+							"royal",
+							"ruler",
+							"throne"
+						],
+						[
+							"usb stick",
+							"memory stick",
+							"flash drive",
+							"memory stick",
+							"thumb drive",
+							"usb drive",
+							"usb stick"
+						],
+						[
+							"serpent",
+							"snake",
+							"adder",
+							"reptile",
+							"serpent",
+							"snake",
+							"sperm",
+							"worm"
+						],
+						[
+							"artist",
+							"painter",
+							"artist",
+							"painter",
+							"painting"
+						],
+						[
+							"mouse",
+							"rat",
+							"gerbil",
+							"hamster",
+							"mouse",
+							"rat",
+							"rodent"
+						],
+						[
+							"android",
+							"robot",
+							"android",
+							"droid",
+							"machine",
+							"metal mickey",
+							"robot"
+						],
+						[
+							"ship",
+							"boat",
+							"boat",
+							"cruiseliner",
+							"ferry",
+							"sea",
+							"ship",
+							"steamer",
+							"tug boat",
+							"yatch"
+						],
+						[
+							"face",
+							"socket",
+							"face",
+							"plug",
+							"powerpoint",
+							"sad",
+							"smiley",
+							"socket",
+							"tv"
+						],
+						[
+							"insect",
+							"butterfly",
+							"bug",
+							"butterfly",
+							"insect",
+							"moth"
+						],
+						[
+							"avenue",
+							"highway",
+							"avenue",
+							"bridge",
+							"highway",
+							"ladder",
+							"lane",
+							"road",
+							"street",
+							"train tracks"
+						],
+						[
+							"pastor",
+							"priest",
+							"christian",
+							"crucifix",
+							"cross",
+							"god botherer",
+							"minister",
+							"necklace",
+							"nun",
+							"pastor",
+							"priest",
+							"religious"
+						],
+						[
+							"cattle",
+							"cows",
+							"angus",
+							"beef",
+							"bulls",
+							"cattle",
+							"cows",
+							"dairy farm",
+							"farm",
+							"herd",
+							"livestock",
+							"stock"
+						],
+						[
+							"cook",
+							"chef",
+							"baker",
+							"chef",
+							"cook",
+							"woman"
 						]
 					]
 				},
@@ -15930,20 +16514,30 @@ module.exports = {
 					],
 					"hintWord": [
 						[
-							"drugs",
-							"medicine",
-							"drugs",
-							"medication",
-							"medicine",
-							"meds",
-							"pills",
-							"tablets"
+							"computer geek",
+							"computer guy",
+							"computer scientist",
+							"computer user",
+							"geek",
+							"it worker",
+							"sys admin",
+							"techie"
 						],
 						[
-							"baseball",
-							"baseball bat",
-							"bat",
-							"softball bat"
+							"barbecue",
+							"bbq",
+							"fire",
+							"fireplace",
+							"flammable",
+							"furnace",
+							"hot",
+							"table"
+						],
+						[
+							"arch",
+							"cave",
+							"hole in the rock",
+							"rock"
 						],
 						[
 							"bird",
@@ -15952,22 +16546,28 @@ module.exports = {
 							"pigeon"
 						],
 						[
-							"pollution",
-							"factory",
-							"castle",
-							"factory",
-							"industry",
-							"manufacturer",
-							"pollution",
-							"workshop"
+							"barrels",
+							"beehive",
+							"drum",
+							"shield"
 						],
 						[
-							"ajar",
-							"door",
-							"doorway",
-							"entrance",
-							"exit",
-							"open"
+							"cop",
+							"pig",
+							"police officer",
+							"policeman",
+							"security guard",
+							"sheriff"
+						],
+						[
+							"3.5 floppy",
+							"3.5 inch disc",
+							"disk",
+							"file space",
+							"floppy",
+							"floppy disk",
+							"save",
+							"storage"
 						],
 						[
 							"alcohol",
@@ -15980,49 +16580,44 @@ module.exports = {
 							"wine glasses"
 						],
 						[
-							"cop",
-							"pig",
-							"police officer",
-							"policeman",
-							"security guard",
-							"sheriff"
+							"clothes",
+							"clothing",
+							"gear",
+							"outfit"
 						],
 						[
-							"doctor",
-							"gp",
-							"medical professional",
-							"specialist"
+							"beach",
+							"beach umbrella",
+							"summer",
+							"sun",
+							"sun shade",
+							"sun umbrella",
+							"umbrella"
 						],
 						[
-							"arch",
-							"cave",
-							"hole in the rock",
-							"rock"
+							"flag",
+							"pennant"
 						],
 						[
-							"computer game",
-							"consoles",
-							"game",
-							"gaming",
-							"ghost",
-							"nintendo",
-							"pacman",
-							"playstation",
-							"videogames"
+							"cart",
+							"shopping cart",
+							"shopping trolley",
+							"trolley"
 						],
 						[
-							"knife",
-							"dagger",
-							"broken sword",
-							"dagger",
-							"knife",
-							"lipstick"
+							"berries",
+							"berry fruit",
+							"blackberry",
+							"fruit",
+							"raspberry",
+							"strawberry",
+							"summer fruit"
 						],
 						[
-							"exit",
-							"runners",
-							"running",
-							"team"
+							"cocktail",
+							"drinks",
+							"glass",
+							"straw"
 						],
 						[
 							"aporo",
@@ -16038,186 +16633,7 @@ module.exports = {
 							"toad"
 						],
 						[
-							"crockery",
-							"dinner plate",
-							"plate"
-						],
-						[
-							"bunny",
-							"rabbit",
-							"bunny",
-							"hare",
-							"rabbit"
-						],
-						[
-							"caretaker",
-							"cleaner",
-							"dustman",
-							"janitor"
-						],
-						[
-							"cup",
-							"mug",
-							"breakfast cup",
-							"coffee",
-							"coffee cup",
-							"cup",
-							"cuppa",
-							"mug",
-							"tea",
-							"tea cup"
-						],
-						[
 							"tree"
-						],
-						[
-							"cart",
-							"shopping cart",
-							"shopping trolley",
-							"trolley"
-						],
-						[
-							"avenue",
-							"highway",
-							"avenue",
-							"bridge",
-							"highway",
-							"ladder",
-							"lane",
-							"road",
-							"street",
-							"train tracks"
-						],
-						[
-							"house",
-							"home",
-							"accommodation",
-							"domicile",
-							"habitat",
-							"home",
-							"house"
-						],
-						[
-							"cook",
-							"chef",
-							"baker",
-							"chef",
-							"cook",
-							"woman"
-						],
-						[
-							"money",
-							"coins",
-							"cash",
-							"coins",
-							"dollar coins",
-							"dollars",
-							"gold coins",
-							"money"
-						],
-						[
-							"face",
-							"socket",
-							"face",
-							"plug",
-							"powerpoint",
-							"sad",
-							"smiley",
-							"socket",
-							"tv"
-						],
-						[
-							"cattle",
-							"cows",
-							"angus",
-							"beef",
-							"bulls",
-							"cattle",
-							"cows",
-							"dairy farm",
-							"farm",
-							"herd",
-							"livestock",
-							"stock"
-						],
-						[
-							"automobile",
-							"car",
-							"hatchback",
-							"old dunger",
-							"vehicle"
-						],
-						[
-							"modem",
-							"router",
-							"wifi",
-							"wireless router"
-						],
-						[
-							"cocktail",
-							"drinks",
-							"glass",
-							"straw"
-						],
-						[
-							"android",
-							"robot",
-							"android",
-							"droid",
-							"machine",
-							"metal mickey",
-							"robot"
-						],
-						[
-							"boulders",
-							"cliff",
-							"rocks"
-						],
-						[
-							"wolf",
-							"dog",
-							"canine",
-							"chasing",
-							"dog",
-							"hound",
-							"kangaroo",
-							"mongrel",
-							"running",
-							"wallaby",
-							"wolf"
-						],
-						[
-							"bird",
-							"chicken",
-							"chook",
-							"hen",
-							"rooster"
-						],
-						[
-							"laptop",
-							"computer",
-							"computer",
-							"laptop"
-						],
-						[
-							"mouse",
-							"rat",
-							"gerbil",
-							"hamster",
-							"mouse",
-							"rat",
-							"rodent"
-						],
-						[
-							"sand",
-							"gravel",
-							"clay",
-							"dirt",
-							"gravel",
-							"heap",
-							"pile",
-							"sand",
-							"soil"
 						],
 						[
 							"cello",
@@ -16228,45 +16644,35 @@ module.exports = {
 							"violin"
 						],
 						[
-							"recycling bin",
-							"rubbish bin",
-							"bin",
-							"recycling bin",
-							"rubbish bin",
-							"wheely bin"
+							"modem",
+							"router",
+							"wifi",
+							"wireless router"
 						],
 						[
-							"barbecue",
-							"bbq",
-							"fire",
-							"fireplace",
-							"flammable",
-							"furnace",
-							"hot",
-							"table"
-						],
-						[
-							"pastor",
-							"priest",
-							"christian",
-							"crucifix",
+							"christianity",
 							"cross",
-							"god botherer",
-							"minister",
-							"necklace",
-							"nun",
-							"pastor",
-							"priest",
-							"religious"
+							"fire hydrant"
 						],
 						[
-							"sofa",
-							"couch",
-							"arm chair",
-							"chair",
-							"couch",
-							"easy chair",
-							"sofa"
+							"automobile",
+							"car",
+							"hatchback",
+							"old dunger",
+							"vehicle"
+						],
+						[
+							"bird",
+							"chicken",
+							"chook",
+							"hen",
+							"rooster"
+						],
+						[
+							"baseball",
+							"baseball bat",
+							"bat",
+							"softball bat"
 						],
 						[
 							"accessible parking",
@@ -16274,6 +16680,61 @@ module.exports = {
 							"mobility park",
 							"parking",
 							"wheelchair park"
+						],
+						[
+							"bend",
+							"elbow bend",
+							"joint",
+							"pipes",
+							"plumber",
+							"plumbing"
+						],
+						[
+							"crockery",
+							"dinner plate",
+							"plate"
+						],
+						[
+							"basin",
+							"sink",
+							"tap"
+						],
+						[
+							"boulders",
+							"cliff",
+							"rocks"
+						],
+						[
+							"doctor",
+							"gp",
+							"medical professional",
+							"specialist"
+						],
+						[
+							"desert",
+							"sand dunes",
+							"sandhills"
+						],
+						[
+							"beans",
+							"broad beans",
+							"coffee",
+							"coffee beans",
+							"legumes"
+						],
+						[
+							"bench",
+							"garden bench",
+							"park bench",
+							"seat"
+						],
+						[
+							"flora",
+							"flower",
+							"lotus flower",
+							"petals",
+							"petunia",
+							"rafflesi"
 						],
 						[
 							"cell phone",
@@ -16285,83 +16746,35 @@ module.exports = {
 							"Android"
 						],
 						[
-							"3.5 floppy",
-							"3.5 inch disc",
-							"disk",
-							"file space",
-							"floppy",
-							"floppy disk",
-							"save",
-							"storage"
+							"ajar",
+							"door",
+							"doorway",
+							"entrance",
+							"exit",
+							"open"
 						],
 						[
-							"cathedral",
-							"church",
-							"cathedral",
-							"church"
+							"exit",
+							"runners",
+							"running",
+							"team"
 						],
 						[
-							"serpent",
-							"snake",
-							"adder",
-							"reptile",
-							"serpent",
-							"snake",
-							"sperm",
-							"worm"
+							"blossom",
+							"flowers",
+							"plant",
+							"weed"
 						],
 						[
-							"flora",
-							"flower",
-							"lotus flower",
-							"petals",
-							"petunia",
-							"rafflesi"
-						],
-						[
-							"insect",
-							"butterfly",
-							"bug",
-							"butterfly",
-							"insect",
-							"moth"
-						],
-						[
-							"bend",
-							"elbow bend",
-							"joint",
-							"pipes",
-							"plumber",
-							"plumbing"
-						],
-						[
-							"pizza slice",
-							"concrete",
-							"bog",
-							"cement",
-							"concrete",
-							"filler",
-							"grout",
-							"mortar",
-							"mud",
-							"pizza",
-							"pizza slice",
-							"plaster"
-						],
-						[
-							"clothes",
-							"clothing",
-							"gear",
-							"outfit"
-						],
-						[
-							"sphere",
-							"ball",
-							"at&t",
-							"ball",
-							"circle",
-							"globe",
-							"sphere"
+							"computer game",
+							"consoles",
+							"game",
+							"gaming",
+							"ghost",
+							"nintendo",
+							"pacman",
+							"playstation",
+							"videogames"
 						],
 						[
 							"athlete",
@@ -16375,20 +16788,30 @@ module.exports = {
 							"sportsman"
 						],
 						[
-							"woman",
-							"lady",
-							"chick",
-							"female",
-							"girl",
-							"lady",
-							"woman"
+							"caretaker",
+							"cleaner",
+							"dustman",
+							"janitor"
 						],
 						[
-							"artist",
-							"painter",
-							"artist",
-							"painter",
-							"painting"
+							"flora",
+							"flower",
+							"lotus flower",
+							"petals",
+							"petunia",
+							"rafflesi"
+						],
+						[
+							"caretaker",
+							"cleaner",
+							"dustman",
+							"janitor"
+						],
+						[
+							"cocktail",
+							"drinks",
+							"glass",
+							"straw"
 						],
 						[
 							"blossom",
@@ -16397,23 +16820,88 @@ module.exports = {
 							"weed"
 						],
 						[
-							"christianity",
-							"cross",
-							"fire hydrant"
+							"3.5 floppy",
+							"3.5 inch disc",
+							"disk",
+							"file space",
+							"floppy",
+							"floppy disk",
+							"save",
+							"storage"
 						],
 						[
-							"beans",
-							"broad beans",
-							"coffee",
-							"coffee beans",
-							"legumes"
+							"automobile",
+							"car",
+							"hatchback",
+							"old dunger",
+							"vehicle"
 						],
 						[
-							"crocodile",
-							"alligator",
-							"alligator",
-							"crocodile",
-							"reptile"
+							"aporo",
+							"apple",
+							"fruit",
+							"red delicious"
+						],
+						[
+							"doctor",
+							"gp",
+							"medical professional",
+							"specialist"
+						],
+						[
+							"baseball",
+							"baseball bat",
+							"bat",
+							"softball bat"
+						],
+						[
+							"boulders",
+							"cliff",
+							"rocks"
+						],
+						[
+							"beach",
+							"beach umbrella",
+							"summer",
+							"sun",
+							"sun shade",
+							"sun umbrella",
+							"umbrella"
+						],
+						[
+							"bird",
+							"chicken",
+							"chook",
+							"hen",
+							"rooster"
+						],
+						[
+							"bird",
+							"eagle",
+							"hawk",
+							"pigeon"
+						],
+						[
+							"bench",
+							"garden bench",
+							"park bench",
+							"seat"
+						],
+						[
+							"cop",
+							"pig",
+							"police officer",
+							"policeman",
+							"security guard",
+							"sheriff"
+						],
+						[
+							"tree"
+						],
+						[
+							"desert",
+							"sand dunes",
+							"sandhills"
 						],
 						[
 							"berries",
@@ -16425,14 +16913,51 @@ module.exports = {
 							"summer fruit"
 						],
 						[
-							"touchscreen",
-							"tablet",
-							"ipad",
-							"phone",
-							"tablet",
-							"touch",
-							"touchpad",
-							"touchscreen"
+							"crockery",
+							"dinner plate",
+							"plate"
+						],
+						[
+							"amphibian",
+							"frog",
+							"kermit",
+							"retile",
+							"toad"
+						],
+						[
+							"flag",
+							"pennant"
+						],
+						[
+							"basin",
+							"sink",
+							"tap"
+						],
+						[
+							"bend",
+							"elbow bend",
+							"joint",
+							"pipes",
+							"plumber",
+							"plumbing"
+						],
+						[
+							"barrels",
+							"beehive",
+							"drum",
+							"shield"
+						],
+						[
+							"cart",
+							"shopping cart",
+							"shopping trolley",
+							"trolley"
+						],
+						[
+							"clothes",
+							"clothing",
+							"gear",
+							"outfit"
 						],
 						[
 							"computer geek",
@@ -16445,181 +16970,108 @@ module.exports = {
 							"techie"
 						],
 						[
-							"ship",
-							"boat",
-							"boat",
-							"cruiseliner",
-							"ferry",
-							"sea",
-							"ship",
-							"steamer",
-							"tug boat",
-							"yatch"
+							"christianity",
+							"cross",
+							"fire hydrant"
 						],
 						[
-							"flag",
-							"pennant"
+							"exit",
+							"runners",
+							"running",
+							"team"
 						],
 						[
-							"usb stick",
-							"memory stick",
-							"flash drive",
-							"memory stick",
-							"thumb drive",
-							"usb drive",
-							"usb stick"
+							"accessible parking",
+							"disabled parking",
+							"mobility park",
+							"parking",
+							"wheelchair park"
 						],
 						[
-							"people",
-							"crowd",
-							"audience",
-							"crowd",
-							"group",
-							"group of people",
-							"mob",
-							"people",
-							"queue",
-							"users"
+							"alcohol",
+							"booze",
+							"champagne",
+							"cheers",
+							"drinks",
+							"toast",
+							"wine",
+							"wine glasses"
 						],
 						[
-							"leaf",
-							"weed",
-							"cannibis",
-							"leaf",
-							"marijuana",
-							"plant",
-							"pot",
-							"weed"
+							"beans",
+							"broad beans",
+							"coffee",
+							"coffee beans",
+							"legumes"
 						],
 						[
-							"lecturer",
-							"teacher",
-							"instructor",
-							"lecturer",
-							"pointer",
-							"presenter",
-							"teach",
-							"teacher",
-							"teaching",
-							"tutor",
-							"whiteboard"
+							"cello",
+							"instrument",
+							"mandolin",
+							"musical instrument",
+							"viola",
+							"violin"
 						],
 						[
-							"germs",
-							"microorganism",
-							"antibody",
-							"bacteria",
-							"bugs",
-							"cells",
-							"germs",
-							"infection",
-							"microorganism",
-							"virus"
+							"athlete",
+							"ball",
+							"football",
+							"football player",
+							"kick",
+							"play",
+							"player",
+							"soccer",
+							"sportsman"
 						],
 						[
-							"basin",
-							"sink",
-							"tap"
+							"barbecue",
+							"bbq",
+							"fire",
+							"fireplace",
+							"flammable",
+							"furnace",
+							"hot",
+							"table"
 						],
 						[
-							"gunman",
-							"soldier",
-							"armed",
-							"armed defender",
-							"army",
-							"assasin",
-							"criminal",
-							"gunman",
-							"killer",
-							"militant",
-							"murder",
-							"rifleman",
-							"shooter",
-							"sniper",
-							"soldier",
-							"Terrorist"
+							"arch",
+							"cave",
+							"hole in the rock",
+							"rock"
 						],
 						[
-							"bench",
-							"garden bench",
-							"park bench",
-							"seat"
+							"ajar",
+							"door",
+							"doorway",
+							"entrance",
+							"exit",
+							"open"
 						],
 						[
-							"barrels",
-							"beehive",
-							"drum",
-							"shield"
+							"cell phone",
+							"iphone",
+							"mobile phone",
+							"phone",
+							"smart phone",
+							"smartphone",
+							"Android"
 						],
 						[
-							"desert",
-							"sand dunes",
-							"sandhills"
+							"computer game",
+							"consoles",
+							"game",
+							"gaming",
+							"ghost",
+							"nintendo",
+							"pacman",
+							"playstation",
+							"videogames"
 						],
 						[
-							"electric chair",
-							"king",
-							"death",
-							"death sentence",
-							"electric chair",
-							"king",
-							"monarch",
-							"queen",
-							"royal",
-							"ruler",
-							"throne"
-						],
-						[
-							"beach",
-							"beach umbrella",
-							"summer",
-							"sun",
-							"sun shade",
-							"sun umbrella",
-							"umbrella"
-						],
-						[
-							"robber",
-							"thief",
-							"burglar",
-							"cash",
-							"heist",
-							"money",
-							"robber",
-							"thief"
-						],
-						[
-							"sprog",
-							"kid",
-							"baby",
-							"child",
-							"crawl",
-							"crawler",
-							"crawling",
-							"infant",
-							"kid",
-							"sprog",
-							"toddler"
-						],
-						[
-							"buildings",
-							"town",
-							"buildings",
-							"city",
-							"cityscape",
-							"high-rise buildings",
-							"skyscrapers",
-							"town"
-						],
-						[
-							"shoe",
-							"work boot",
-							"boot",
-							"doc martin",
-							"high top",
-							"safety boot",
-							"shoe",
-							"work boot"
+							"modem",
+							"router",
+							"wifi",
+							"wireless router"
 						]
 					]
 				}
