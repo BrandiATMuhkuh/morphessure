@@ -80,12 +80,19 @@ class Master{
 
     var hint = playerField.hintList[hintNr];
 
-    for(var i = 0; i < playerField.trapList.length; i++){
-      var f = playerField.trapList[i];
-      if(f.position[0] === hint[0] && f.position[1] === hint[1]){
-        return f.name;
+    if(hint){
+      for(var i = 0; i < playerField.trapList.length; i++){
+        var f = playerField.trapList[i];
+        if(f){
+          if(f.position[0] === hint[0] && f.position[1] === hint[1]){
+            return f.name;
+          }
+        }
+        
       }
     }
+
+    
 
     return "NA";
   }
@@ -367,6 +374,20 @@ class Master{
    */
   serverGetLevel(level){
     console.log("please give me my level", level);
+
+    //this._servLevel(level);
+    
+    if(level === "multiPlayer"){
+      this.clientGenerateMultiPlayerConditionDictionary(function(){
+        this._servLevel("multiPlayer");
+      }.bind(this));
+    }else{
+      this._servLevel(level);
+    }
+    
+  }
+
+  _servLevel(level){
     this.naoComm.start().initSit().finish().send();
     if(this.currentLevel !== level){
       this.lastMoves = [];
@@ -435,7 +456,7 @@ class Master{
 
 
 
-  clientGenerateMultiPlayerConditionDictionary(){
+  clientGenerateMultiPlayerConditionDictionary(finish){
     console.log("clientGenerateMultiPlayerConditionDictionary");
     new ConditionDictionaryGenerator(this).generate().then(function(response){
       //console.log("clientGenerateMultiPlayerConditionDictionaryPROMIS", response);
@@ -451,6 +472,8 @@ class Master{
           //f[i].hintWord = response.player2;
         }
       }
+
+      finish();
 
 
     }.bind(this)).catch(function(response){

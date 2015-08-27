@@ -59,7 +59,7 @@ class ConditionDictionaryGenerator{
 
       
 
-      sqlite.all("select * from log where type = 'LogPlayerSaid' and word != 'WRONG'", function(err, row) { 
+      sqlite.all("select * from log where type = 'LogPlayerSaid' and word != 'WRONG' and level = 'singlePlayer' and pId = '"+pId+"'", function(err, row) { 
         
         for(var i = 0; i < row.length; i++){
           this.singleSymbolList[row[i].symbolName] = row[i].word;          
