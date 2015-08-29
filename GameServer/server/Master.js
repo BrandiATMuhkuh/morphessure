@@ -409,7 +409,8 @@ class Master{
 
     //replace players lists
     var clevel = this.levels[this.currentLevel].fields;
-    for(let ole in clevel){
+    for(let ole = 0; ole < clevel.length; ole++){
+    //for(let ole in clevel){
       console.log(clevel[ole].playerName);
       let playerLevel = clevel[ole];
       let p = this.getPlayer(playerLevel.playerName);

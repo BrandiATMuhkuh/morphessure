@@ -397,7 +397,7 @@ module.exports = function (grunt) {
             PORT: '8181'
           },
           cwd: __dirname,
-          ignore: ['node_modules/**'],
+          ignore: ['node_modules/**', 'server/conditions'],
           ext: 'js,coffee',
           watch: ['server'],
           delay: 1000,

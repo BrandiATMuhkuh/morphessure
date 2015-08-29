@@ -3,7 +3,7 @@
  */
 'use strict';
 var Master = require('./Master.js');
-
+var fs = require("fs");
 
 class NodeArgs{
   constructor (args){
@@ -70,9 +70,32 @@ class NodeArgs{
 let nodeArgs = new NodeArgs(process.argv);
 
 
-var config = config = require("./conditions/condition"+nodeArgs.getCondition()+".js");
 var pId = nodeArgs.getpId();
+var conditionId = nodeArgs.getCondition();
+var robotAddress = nodeArgs.getRobotAddress();
+var robotPort = nodeArgs.getRobotPort();
 
-new Master(config, pId, nodeArgs.getRobotAddress(), nodeArgs.getRobotPort());
+//new Master(JSON.parse(fs.readFileSync(__dirname+"/conditions/condition1.js")), pId, robotAddress, robotPort);
 
-console.log('Start Server');
+var CsvConditionGenerator = require('./csvConditionGenerator.js');
+
+
+
+//var config = require(__dirname+"/conditions/condition1.js");
+//var config = JSON.parse(fs.readFileSync(__dirname+"/conditions/condition1.js", 'utf8'));
+//console.log(config);
+
+//var config = JSON.parse(fs.readFileSync(__dirname+"/conditions/condition1.js"));
+//console.log(config);
+
+var con = new CsvConditionGenerator(conditionId, pId, function(e){
+  //console.log("juhu CsvConditionGeneration is done", conditionId, __dirname+"/conditions/condition1.js");
+  var config = JSON.parse(fs.readFileSync(__dirname+"/conditions/condition"+conditionId+".js"));
+  
+
+  new Master(config, pId, robotAddress, robotPort);
+  console.log('Start Server');  
+});
+
+
+

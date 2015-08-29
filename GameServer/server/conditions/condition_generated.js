@@ -1,4 +1,4 @@
-{
+module.exports = {
 	"identification": {
 		"conditionId": 1,
 		"condition": "OneRobotOneHumanNo3TimeRepeat",
@@ -24280,4 +24280,4 @@
 			]
 		}
 	}
-}
+};
