@@ -10,8 +10,8 @@ if (!exists) {
 var sqlite3 = require("sqlite3").verbose();
 var db = new sqlite3.Database(dbfile);
 var x = 10; //The maximul number of columns
-var y = 10; //The number of rows
-var ysingle = 10;
+var y = 40; //The number of rows
+var ysingle = 40;
 //var traps = Assets.traps; // all traps
 var traps = [];
 var dict = {};
@@ -20,18 +20,154 @@ var field2 = new Array(y);
 var configObject = {
    playerNames: [{name: "player1", map:[], gap:0, field : new Array(y), hints:[], singleField: new Array(ysingle), singleHints:[]}, {name: "player2", map:[], gap:0, field : new Array(y), hints:[], singleField: new Array(ysingle), singleHints:[]}],
    symbolPatterns: [
-      {name: "belly", pos:0, gap: 10, pattern: [{name:"player1", pos:null}, {name:"player1", pos:null}, {name:"player2", pos:null}, {name:"player1", pos:null}]},
-      {name: "car", pos:0, gap: 10, pattern: [{name:"player1", pos:null}, {name:"player1", pos:null}, {name:"player2", pos:null}, {name:"player1", pos:null}]},
-      {name: "knife", pos:0, gap: 10, pattern: [{name:"player1", pos:null}, {name:"player1", pos:null}, {name:"player2", pos:null}, {name:"player1", pos:null}]},
-      {name: "snack", pos:0, gap: 10, pattern: [{name:"player2", pos:null}, {name:"player2", pos:null}, {name:"player2", pos:null}, {name:"player2", pos:null}]},
-      {name: "clothes", pos:0, gap: 10, pattern: [{name:"player2", pos:null}, {name:"player2", pos:null}, {name:"player2", pos:null}, {name:"player2", pos:null}]},
-      {name: "barrels", pos:0, gap: 10, pattern: [{name:"player2", pos:null}, {name:"player2", pos:null}, {name:"player2", pos:null}, {name:"player2", pos:null}]},
-      {name: "frog", pos:0, gap: 10, pattern: [{name:"player2", pos:null}, {name:"player2", pos:null}, {name:"player2", pos:null}, {name:"player2", pos:null}]},
       {name: "laptop", pos:0, gap: 10, pattern: [{name:"player2", pos:null}, {name:"player2", pos:null}, {name:"player2", pos:null}, {name:"player2", pos:null}]},
-      {name: "referee", pos:0, gap: 10, pattern: [{name:"player2", pos:null}, {name:"player2", pos:null}, {name:"player2", pos:null}, {name:"player2", pos:null}]}
+      {name: "laptop", pos:0, gap: 10, pattern: [{name:"player2", pos:null}, {name:"player2", pos:null}, {name:"player2", pos:null}, {name:"player2", pos:null}]},
+      {name: "laptop", pos:0, gap: 10, pattern: [{name:"player2", pos:null}, {name:"player2", pos:null}, {name:"player2", pos:null}, {name:"player2", pos:null}]},
+      {name: "laptop", pos:0, gap: 10, pattern: [{name:"player2", pos:null}, {name:"player2", pos:null}, {name:"player2", pos:null}, {name:"player2", pos:null}]},
+      {name: "laptop", pos:0, gap: 10, pattern: [{name:"player2", pos:null}, {name:"player2", pos:null}, {name:"player2", pos:null}, {name:"player2", pos:null}]},
+      {name: "laptop", pos:0, gap: 10, pattern: [{name:"player2", pos:null}, {name:"player2", pos:null}, {name:"player2", pos:null}, {name:"player2", pos:null}]},
+      {name: "laptop", pos:0, gap: 10, pattern: [{name:"player2", pos:null}, {name:"player2", pos:null}, {name:"player2", pos:null}, {name:"player2", pos:null}]},
+      {name: "laptop", pos:0, gap: 10, pattern: [{name:"player2", pos:null}, {name:"player2", pos:null}, {name:"player2", pos:null}, {name:"player2", pos:null}]},
+      {name: "laptop", pos:0, gap: 10, pattern: [{name:"player2", pos:null}, {name:"player2", pos:null}, {name:"player2", pos:null}, {name:"player2", pos:null}]},
+      {name: "laptop", pos:0, gap: 10, pattern: [{name:"player2", pos:null}, {name:"player2", pos:null}, {name:"player2", pos:null}, {name:"player2", pos:null}]},
+      {name: "laptop", pos:0, gap: 10, pattern: [{name:"player2", pos:null}, {name:"player2", pos:null}, {name:"player2", pos:null}, {name:"player2", pos:null}]},
+      {name: "laptop", pos:0, gap: 10, pattern: [{name:"player2", pos:null}, {name:"player2", pos:null}, {name:"player2", pos:null}, {name:"player2", pos:null}]},
+      {name: "laptop", pos:0, gap: 10, pattern: [{name:"player2", pos:null}, {name:"player2", pos:null}, {name:"player2", pos:null}, {name:"player2", pos:null}]},
+      {name: "laptop", pos:0, gap: 10, pattern: [{name:"player2", pos:null}, {name:"player2", pos:null}, {name:"player2", pos:null}, {name:"player2", pos:null}]},
+      {name: "laptop", pos:0, gap: 10, pattern: [{name:"player2", pos:null}, {name:"player2", pos:null}, {name:"player2", pos:null}, {name:"player2", pos:null}]},
+      {name: "laptop", pos:0, gap: 10, pattern: [{name:"player2", pos:null}, {name:"player2", pos:null}, {name:"player2", pos:null}, {name:"player2", pos:null}]},
+      {name: "laptop", pos:0, gap: 10, pattern: [{name:"player2", pos:null}, {name:"player2", pos:null}, {name:"player2", pos:null}, {name:"player2", pos:null}]},
+      {name: "laptop", pos:0, gap: 10, pattern: [{name:"player2", pos:null}, {name:"player2", pos:null}, {name:"player2", pos:null}, {name:"player2", pos:null}]},
+      {name: "laptop", pos:0, gap: 10, pattern: [{name:"player2", pos:null}, {name:"player2", pos:null}, {name:"player2", pos:null}, {name:"player2", pos:null}]},
+      {name: "laptop", pos:0, gap: 10, pattern: [{name:"player2", pos:null}, {name:"player2", pos:null}, {name:"player2", pos:null}, {name:"player2", pos:null}]},
+      {name: "laptop", pos:0, gap: 10, pattern: [{name:"player2", pos:null}, {name:"player2", pos:null}, {name:"player2", pos:null}, {name:"player2", pos:null}]},
+      {name: "laptop", pos:0, gap: 10, pattern: [{name:"player2", pos:null}, {name:"player2", pos:null}, {name:"player2", pos:null}, {name:"player2", pos:null}]},
+      {name: "laptop", pos:0, gap: 10, pattern: [{name:"player2", pos:null}, {name:"player2", pos:null}, {name:"player2", pos:null}, {name:"player2", pos:null}]},
+      {name: "laptop", pos:0, gap: 10, pattern: [{name:"player2", pos:null}, {name:"player2", pos:null}, {name:"player2", pos:null}, {name:"player2", pos:null}]},
+      {name: "laptop", pos:0, gap: 10, pattern: [{name:"player2", pos:null}, {name:"player2", pos:null}, {name:"player2", pos:null}, {name:"player2", pos:null}]},
+      {name: "laptop", pos:0, gap: 10, pattern: [{name:"player2", pos:null}, {name:"player2", pos:null}, {name:"player2", pos:null}, {name:"player2", pos:null}]},
+      {name: "laptop", pos:0, gap: 10, pattern: [{name:"player2", pos:null}, {name:"player2", pos:null}, {name:"player2", pos:null}, {name:"player2", pos:null}]},
+      {name: "laptop", pos:0, gap: 10, pattern: [{name:"player2", pos:null}, {name:"player2", pos:null}, {name:"player2", pos:null}, {name:"player2", pos:null}]},
+      {name: "laptop", pos:0, gap: 10, pattern: [{name:"player2", pos:null}, {name:"player2", pos:null}, {name:"player2", pos:null}, {name:"player2", pos:null}]},
+      {name: "laptop", pos:0, gap: 10, pattern: [{name:"player2", pos:null}, {name:"player2", pos:null}, {name:"player2", pos:null}, {name:"player2", pos:null}]},
+      {name: "laptop", pos:0, gap: 10, pattern: [{name:"player2", pos:null}, {name:"player2", pos:null}, {name:"player2", pos:null}, {name:"player2", pos:null}]},
+      {name: "laptop", pos:0, gap: 10, pattern: [{name:"player2", pos:null}, {name:"player2", pos:null}, {name:"player2", pos:null}, {name:"player2", pos:null}]},
+      {name: "laptop", pos:0, gap: 10, pattern: [{name:"player2", pos:null}, {name:"player2", pos:null}, {name:"player2", pos:null}, {name:"player2", pos:null}]},
+      {name: "laptop", pos:0, gap: 10, pattern: [{name:"player2", pos:null}, {name:"player2", pos:null}, {name:"player2", pos:null}, {name:"player2", pos:null}]},
+      {name: "laptop", pos:0, gap: 10, pattern: [{name:"player2", pos:null}, {name:"player2", pos:null}, {name:"player2", pos:null}, {name:"player2", pos:null}]},
+      {name: "laptop", pos:0, gap: 10, pattern: [{name:"player2", pos:null}, {name:"player2", pos:null}, {name:"player2", pos:null}, {name:"player2", pos:null}]},
+      {name: "laptop", pos:0, gap: 10, pattern: [{name:"player2", pos:null}, {name:"player2", pos:null}, {name:"player2", pos:null}, {name:"player2", pos:null}]},
+      {name: "laptop", pos:0, gap: 10, pattern: [{name:"player2", pos:null}, {name:"player2", pos:null}, {name:"player2", pos:null}, {name:"player2", pos:null}]},
+      {name: "laptop", pos:0, gap: 10, pattern: [{name:"player2", pos:null}, {name:"player2", pos:null}, {name:"player2", pos:null}, {name:"player2", pos:null}]},
+      {name: "laptop", pos:0, gap: 10, pattern: [{name:"player2", pos:null}, {name:"player2", pos:null}, {name:"player2", pos:null}, {name:"player2", pos:null}]},
+      {name: "laptop", pos:0, gap: 10, pattern: [{name:"player2", pos:null}, {name:"player2", pos:null}, {name:"player2", pos:null}, {name:"player2", pos:null}]},
+      {name: "laptop", pos:0, gap: 10, pattern: [{name:"player2", pos:null}, {name:"player2", pos:null}, {name:"player2", pos:null}, {name:"player2", pos:null}]},
+      {name: "laptop", pos:0, gap: 10, pattern: [{name:"player2", pos:null}, {name:"player2", pos:null}, {name:"player2", pos:null}, {name:"player2", pos:null}]},
+      {name: "laptop", pos:0, gap: 10, pattern: [{name:"player2", pos:null}, {name:"player2", pos:null}, {name:"player2", pos:null}, {name:"player2", pos:null}]},
+      {name: "laptop", pos:0, gap: 10, pattern: [{name:"player2", pos:null}, {name:"player2", pos:null}, {name:"player2", pos:null}, {name:"player2", pos:null}]},
+      {name: "laptop", pos:0, gap: 10, pattern: [{name:"player2", pos:null}, {name:"player2", pos:null}, {name:"player2", pos:null}, {name:"player2", pos:null}]},
+      {name: "laptop", pos:0, gap: 10, pattern: [{name:"player2", pos:null}, {name:"player2", pos:null}, {name:"player2", pos:null}, {name:"player2", pos:null}]},
+      {name: "laptop", pos:0, gap: 10, pattern: [{name:"player2", pos:null}, {name:"player2", pos:null}, {name:"player2", pos:null}, {name:"player2", pos:null}]},
+            {name: "laptop", pos:0, gap: 10, pattern: [{name:"player2", pos:null}, {name:"player2", pos:null}, {name:"player2", pos:null}, {name:"player2", pos:null}]},
+      {name: "laptop", pos:0, gap: 10, pattern: [{name:"player2", pos:null}, {name:"player2", pos:null}, {name:"player2", pos:null}, {name:"player2", pos:null}]},
+      {name: "laptop", pos:0, gap: 10, pattern: [{name:"player2", pos:null}, {name:"player2", pos:null}, {name:"player2", pos:null}, {name:"player2", pos:null}]},
+      {name: "laptop", pos:0, gap: 10, pattern: [{name:"player2", pos:null}, {name:"player2", pos:null}, {name:"player2", pos:null}, {name:"player2", pos:null}]},
+      {name: "laptop", pos:0, gap: 10, pattern: [{name:"player2", pos:null}, {name:"player2", pos:null}, {name:"player2", pos:null}, {name:"player2", pos:null}]},
+      {name: "laptop", pos:0, gap: 10, pattern: [{name:"player2", pos:null}, {name:"player2", pos:null}, {name:"player2", pos:null}, {name:"player2", pos:null}]},
+      {name: "laptop", pos:0, gap: 10, pattern: [{name:"player2", pos:null}, {name:"player2", pos:null}, {name:"player2", pos:null}, {name:"player2", pos:null}]},
+      {name: "laptop", pos:0, gap: 10, pattern: [{name:"player2", pos:null}, {name:"player2", pos:null}, {name:"player2", pos:null}, {name:"player2", pos:null}]},
+      {name: "laptop", pos:0, gap: 10, pattern: [{name:"player2", pos:null}, {name:"player2", pos:null}, {name:"player2", pos:null}, {name:"player2", pos:null}]},
+      {name: "laptop", pos:0, gap: 10, pattern: [{name:"player2", pos:null}, {name:"player2", pos:null}, {name:"player2", pos:null}, {name:"player2", pos:null}]},
+      {name: "laptop", pos:0, gap: 10, pattern: [{name:"player2", pos:null}, {name:"player2", pos:null}, {name:"player2", pos:null}, {name:"player2", pos:null}]},
+      {name: "laptop", pos:0, gap: 10, pattern: [{name:"player2", pos:null}, {name:"player2", pos:null}, {name:"player2", pos:null}, {name:"player2", pos:null}]},
+      {name: "laptop", pos:0, gap: 10, pattern: [{name:"player2", pos:null}, {name:"player2", pos:null}, {name:"player2", pos:null}, {name:"player2", pos:null}]},
+      {name: "laptop", pos:0, gap: 10, pattern: [{name:"player2", pos:null}, {name:"player2", pos:null}, {name:"player2", pos:null}, {name:"player2", pos:null}]},
+      {name: "laptop", pos:0, gap: 10, pattern: [{name:"player2", pos:null}, {name:"player2", pos:null}, {name:"player2", pos:null}, {name:"player2", pos:null}]},
+      {name: "laptop", pos:0, gap: 10, pattern: [{name:"player2", pos:null}, {name:"player2", pos:null}, {name:"player2", pos:null}, {name:"player2", pos:null}]},
+      {name: "laptop", pos:0, gap: 10, pattern: [{name:"player2", pos:null}, {name:"player2", pos:null}, {name:"player2", pos:null}, {name:"player2", pos:null}]},
+      {name: "laptop", pos:0, gap: 10, pattern: [{name:"player2", pos:null}, {name:"player2", pos:null}, {name:"player2", pos:null}, {name:"player2", pos:null}]},
+      {name: "laptop", pos:0, gap: 10, pattern: [{name:"player2", pos:null}, {name:"player2", pos:null}, {name:"player2", pos:null}, {name:"player2", pos:null}]},
+      {name: "laptop", pos:0, gap: 10, pattern: [{name:"player2", pos:null}, {name:"player2", pos:null}, {name:"player2", pos:null}, {name:"player2", pos:null}]},
+      {name: "laptop", pos:0, gap: 10, pattern: [{name:"player2", pos:null}, {name:"player2", pos:null}, {name:"player2", pos:null}, {name:"player2", pos:null}]},
+      {name: "laptop", pos:0, gap: 10, pattern: [{name:"player2", pos:null}, {name:"player2", pos:null}, {name:"player2", pos:null}, {name:"player2", pos:null}]},
+      {name: "laptop", pos:0, gap: 10, pattern: [{name:"player2", pos:null}, {name:"player2", pos:null}, {name:"player2", pos:null}, {name:"player2", pos:null}]},
+      {name: "laptop", pos:0, gap: 10, pattern: [{name:"player2", pos:null}, {name:"player2", pos:null}, {name:"player2", pos:null}, {name:"player2", pos:null}]},
+      {name: "laptop", pos:0, gap: 10, pattern: [{name:"player2", pos:null}, {name:"player2", pos:null}, {name:"player2", pos:null}, {name:"player2", pos:null}]},
+      {name: "laptop", pos:0, gap: 10, pattern: [{name:"player2", pos:null}, {name:"player2", pos:null}, {name:"player2", pos:null}, {name:"player2", pos:null}]},
+      {name: "laptop", pos:0, gap: 10, pattern: [{name:"player2", pos:null}, {name:"player2", pos:null}, {name:"player2", pos:null}, {name:"player2", pos:null}]},
+      {name: "laptop", pos:0, gap: 10, pattern: [{name:"player2", pos:null}, {name:"player2", pos:null}, {name:"player2", pos:null}, {name:"player2", pos:null}]},
+      {name: "laptop", pos:0, gap: 10, pattern: [{name:"player2", pos:null}, {name:"player2", pos:null}, {name:"player2", pos:null}, {name:"player2", pos:null}]},
+      {name: "laptop", pos:0, gap: 10, pattern: [{name:"player2", pos:null}, {name:"player2", pos:null}, {name:"player2", pos:null}, {name:"player2", pos:null}]},
+      {name: "laptop", pos:0, gap: 10, pattern: [{name:"player2", pos:null}, {name:"player2", pos:null}, {name:"player2", pos:null}, {name:"player2", pos:null}]},
+      {name: "laptop", pos:0, gap: 10, pattern: [{name:"player2", pos:null}, {name:"player2", pos:null}, {name:"player2", pos:null}, {name:"player2", pos:null}]},
+      {name: "laptop", pos:0, gap: 10, pattern: [{name:"player2", pos:null}, {name:"player2", pos:null}, {name:"player2", pos:null}, {name:"player2", pos:null}]},
+      {name: "laptop", pos:0, gap: 10, pattern: [{name:"player2", pos:null}, {name:"player2", pos:null}, {name:"player2", pos:null}, {name:"player2", pos:null}]},
+      {name: "laptop", pos:0, gap: 10, pattern: [{name:"player2", pos:null}, {name:"player2", pos:null}, {name:"player2", pos:null}, {name:"player2", pos:null}]},
+      {name: "laptop", pos:0, gap: 10, pattern: [{name:"player2", pos:null}, {name:"player2", pos:null}, {name:"player2", pos:null}, {name:"player2", pos:null}]},
+      {name: "laptop", pos:0, gap: 10, pattern: [{name:"player2", pos:null}, {name:"player2", pos:null}, {name:"player2", pos:null}, {name:"player2", pos:null}]},
+      {name: "laptop", pos:0, gap: 10, pattern: [{name:"player2", pos:null}, {name:"player2", pos:null}, {name:"player2", pos:null}, {name:"player2", pos:null}]},
+      {name: "laptop", pos:0, gap: 10, pattern: [{name:"player2", pos:null}, {name:"player2", pos:null}, {name:"player2", pos:null}, {name:"player2", pos:null}]},
+      {name: "laptop", pos:0, gap: 10, pattern: [{name:"player2", pos:null}, {name:"player2", pos:null}, {name:"player2", pos:null}, {name:"player2", pos:null}]},
+      {name: "laptop", pos:0, gap: 10, pattern: [{name:"player2", pos:null}, {name:"player2", pos:null}, {name:"player2", pos:null}, {name:"player2", pos:null}]},
+      {name: "laptop", pos:0, gap: 10, pattern: [{name:"player2", pos:null}, {name:"player2", pos:null}, {name:"player2", pos:null}, {name:"player2", pos:null}]},
+      {name: "laptop", pos:0, gap: 10, pattern: [{name:"player2", pos:null}, {name:"player2", pos:null}, {name:"player2", pos:null}, {name:"player2", pos:null}]},
+      {name: "laptop", pos:0, gap: 10, pattern: [{name:"player2", pos:null}, {name:"player2", pos:null}, {name:"player2", pos:null}, {name:"player2", pos:null}]},
+      {name: "laptop", pos:0, gap: 10, pattern: [{name:"player2", pos:null}, {name:"player2", pos:null}, {name:"player2", pos:null}, {name:"player2", pos:null}]},
+      {name: "laptop", pos:0, gap: 10, pattern: [{name:"player2", pos:null}, {name:"player2", pos:null}, {name:"player2", pos:null}, {name:"player2", pos:null}]},
+      {name: "laptop", pos:0, gap: 10, pattern: [{name:"player2", pos:null}, {name:"player2", pos:null}, {name:"player2", pos:null}, {name:"player2", pos:null}]},
+      {name: "laptop", pos:0, gap: 10, pattern: [{name:"player2", pos:null}, {name:"player2", pos:null}, {name:"player2", pos:null}, {name:"player2", pos:null}]},
+            {name: "laptop", pos:0, gap: 10, pattern: [{name:"player2", pos:null}, {name:"player2", pos:null}, {name:"player2", pos:null}, {name:"player2", pos:null}]},
+      {name: "laptop", pos:0, gap: 10, pattern: [{name:"player2", pos:null}, {name:"player2", pos:null}, {name:"player2", pos:null}, {name:"player2", pos:null}]},
+      {name: "laptop", pos:0, gap: 10, pattern: [{name:"player2", pos:null}, {name:"player2", pos:null}, {name:"player2", pos:null}, {name:"player2", pos:null}]},
+      {name: "laptop", pos:0, gap: 10, pattern: [{name:"player2", pos:null}, {name:"player2", pos:null}, {name:"player2", pos:null}, {name:"player2", pos:null}]},
+      {name: "laptop", pos:0, gap: 10, pattern: [{name:"player2", pos:null}, {name:"player2", pos:null}, {name:"player2", pos:null}, {name:"player2", pos:null}]},
+      {name: "laptop", pos:0, gap: 10, pattern: [{name:"player2", pos:null}, {name:"player2", pos:null}, {name:"player2", pos:null}, {name:"player2", pos:null}]},
+      {name: "laptop", pos:0, gap: 10, pattern: [{name:"player2", pos:null}, {name:"player2", pos:null}, {name:"player2", pos:null}, {name:"player2", pos:null}]},
+      {name: "laptop", pos:0, gap: 10, pattern: [{name:"player2", pos:null}, {name:"player2", pos:null}, {name:"player2", pos:null}, {name:"player2", pos:null}]},
+      {name: "laptop", pos:0, gap: 10, pattern: [{name:"player2", pos:null}, {name:"player2", pos:null}, {name:"player2", pos:null}, {name:"player2", pos:null}]},
+      {name: "laptop", pos:0, gap: 10, pattern: [{name:"player2", pos:null}, {name:"player2", pos:null}, {name:"player2", pos:null}, {name:"player2", pos:null}]},
+      {name: "laptop", pos:0, gap: 10, pattern: [{name:"player2", pos:null}, {name:"player2", pos:null}, {name:"player2", pos:null}, {name:"player2", pos:null}]},
+      {name: "laptop", pos:0, gap: 10, pattern: [{name:"player2", pos:null}, {name:"player2", pos:null}, {name:"player2", pos:null}, {name:"player2", pos:null}]},
+      {name: "laptop", pos:0, gap: 10, pattern: [{name:"player2", pos:null}, {name:"player2", pos:null}, {name:"player2", pos:null}, {name:"player2", pos:null}]},
+      {name: "laptop", pos:0, gap: 10, pattern: [{name:"player2", pos:null}, {name:"player2", pos:null}, {name:"player2", pos:null}, {name:"player2", pos:null}]},
+      {name: "laptop", pos:0, gap: 10, pattern: [{name:"player2", pos:null}, {name:"player2", pos:null}, {name:"player2", pos:null}, {name:"player2", pos:null}]},
+      {name: "laptop", pos:0, gap: 10, pattern: [{name:"player2", pos:null}, {name:"player2", pos:null}, {name:"player2", pos:null}, {name:"player2", pos:null}]},
+      {name: "laptop", pos:0, gap: 10, pattern: [{name:"player2", pos:null}, {name:"player2", pos:null}, {name:"player2", pos:null}, {name:"player2", pos:null}]},
+      {name: "laptop", pos:0, gap: 10, pattern: [{name:"player2", pos:null}, {name:"player2", pos:null}, {name:"player2", pos:null}, {name:"player2", pos:null}]},
+      {name: "laptop", pos:0, gap: 10, pattern: [{name:"player2", pos:null}, {name:"player2", pos:null}, {name:"player2", pos:null}, {name:"player2", pos:null}]},
+      {name: "laptop", pos:0, gap: 10, pattern: [{name:"player2", pos:null}, {name:"player2", pos:null}, {name:"player2", pos:null}, {name:"player2", pos:null}]},
+      {name: "laptop", pos:0, gap: 10, pattern: [{name:"player2", pos:null}, {name:"player2", pos:null}, {name:"player2", pos:null}, {name:"player2", pos:null}]},
+      {name: "laptop", pos:0, gap: 10, pattern: [{name:"player2", pos:null}, {name:"player2", pos:null}, {name:"player2", pos:null}, {name:"player2", pos:null}]},
+      {name: "laptop", pos:0, gap: 10, pattern: [{name:"player2", pos:null}, {name:"player2", pos:null}, {name:"player2", pos:null}, {name:"player2", pos:null}]},
+      {name: "laptop", pos:0, gap: 10, pattern: [{name:"player2", pos:null}, {name:"player2", pos:null}, {name:"player2", pos:null}, {name:"player2", pos:null}]},
+      {name: "laptop", pos:0, gap: 10, pattern: [{name:"player2", pos:null}, {name:"player2", pos:null}, {name:"player2", pos:null}, {name:"player2", pos:null}]},
+      {name: "laptop", pos:0, gap: 10, pattern: [{name:"player2", pos:null}, {name:"player2", pos:null}, {name:"player2", pos:null}, {name:"player2", pos:null}]},
+      {name: "laptop", pos:0, gap: 10, pattern: [{name:"player2", pos:null}, {name:"player2", pos:null}, {name:"player2", pos:null}, {name:"player2", pos:null}]},
+      {name: "laptop", pos:0, gap: 10, pattern: [{name:"player2", pos:null}, {name:"player2", pos:null}, {name:"player2", pos:null}, {name:"player2", pos:null}]},
+      {name: "laptop", pos:0, gap: 10, pattern: [{name:"player2", pos:null}, {name:"player2", pos:null}, {name:"player2", pos:null}, {name:"player2", pos:null}]},
+      {name: "laptop", pos:0, gap: 10, pattern: [{name:"player2", pos:null}, {name:"player2", pos:null}, {name:"player2", pos:null}, {name:"player2", pos:null}]},
+      {name: "laptop", pos:0, gap: 10, pattern: [{name:"player2", pos:null}, {name:"player2", pos:null}, {name:"player2", pos:null}, {name:"player2", pos:null}]},
+      {name: "laptop", pos:0, gap: 10, pattern: [{name:"player2", pos:null}, {name:"player2", pos:null}, {name:"player2", pos:null}, {name:"player2", pos:null}]},
+      {name: "laptop", pos:0, gap: 10, pattern: [{name:"player2", pos:null}, {name:"player2", pos:null}, {name:"player2", pos:null}, {name:"player2", pos:null}]},
+      {name: "laptop", pos:0, gap: 10, pattern: [{name:"player2", pos:null}, {name:"player2", pos:null}, {name:"player2", pos:null}, {name:"player2", pos:null}]},
+      {name: "laptop", pos:0, gap: 10, pattern: [{name:"player2", pos:null}, {name:"player2", pos:null}, {name:"player2", pos:null}, {name:"player2", pos:null}]},
+      {name: "laptop", pos:0, gap: 10, pattern: [{name:"player2", pos:null}, {name:"player2", pos:null}, {name:"player2", pos:null}, {name:"player2", pos:null}]},
+      {name: "laptop", pos:0, gap: 10, pattern: [{name:"player2", pos:null}, {name:"player2", pos:null}, {name:"player2", pos:null}, {name:"player2", pos:null}]},
+      {name: "laptop", pos:0, gap: 10, pattern: [{name:"player2", pos:null}, {name:"player2", pos:null}, {name:"player2", pos:null}, {name:"player2", pos:null}]},
+      {name: "laptop", pos:0, gap: 10, pattern: [{name:"player2", pos:null}, {name:"player2", pos:null}, {name:"player2", pos:null}, {name:"player2", pos:null}]},
+      {name: "laptop", pos:0, gap: 10, pattern: [{name:"player2", pos:null}, {name:"player2", pos:null}, {name:"player2", pos:null}, {name:"player2", pos:null}]},
+      {name: "laptop", pos:0, gap: 10, pattern: [{name:"player2", pos:null}, {name:"player2", pos:null}, {name:"player2", pos:null}, {name:"player2", pos:null}]},
+      {name: "laptop", pos:0, gap: 10, pattern: [{name:"player2", pos:null}, {name:"player2", pos:null}, {name:"player2", pos:null}, {name:"player2", pos:null}]},
+      {name: "laptop", pos:0, gap: 10, pattern: [{name:"player2", pos:null}, {name:"player2", pos:null}, {name:"player2", pos:null}, {name:"player2", pos:null}]},
+      {name: "laptop", pos:0, gap: 10, pattern: [{name:"player2", pos:null}, {name:"player2", pos:null}, {name:"player2", pos:null}, {name:"player2", pos:null}]},
+      {name: "laptop", pos:0, gap: 10, pattern: [{name:"player2", pos:null}, {name:"player2", pos:null}, {name:"player2", pos:null}, {name:"player2", pos:null}]},
+      {name: "laptop", pos:0, gap: 10, pattern: [{name:"player2", pos:null}, {name:"player2", pos:null}, {name:"player2", pos:null}, {name:"player2", pos:null}]},
+      {name: "laptop", pos:0, gap: 10, pattern: [{name:"player2", pos:null}, {name:"player2", pos:null}, {name:"player2", pos:null}, {name:"player2", pos:null}]},
+      {name: "laptop", pos:0, gap: 10, pattern: [{name:"player2", pos:null}, {name:"player2", pos:null}, {name:"player2", pos:null}, {name:"player2", pos:null}]},
+
    ],
    gap: 3,
-   maxMapLength: 10
+   maxMapLength: 40
 };
 
 generateDictionaryFromDB();
@@ -106,6 +242,7 @@ function startGenerating(){
   }
   //console.log(formatToCondition(configObject.playerNames[1].field));
   saveCondition("condition_generated.js", "module.exports = "+JSON.stringify(template, null, '\t')+";");
+  saveCondition("condition1.js", "module.exports = "+JSON.stringify(template, null, '\t')+";");
 }
 
 
@@ -228,6 +365,8 @@ function fillMapWithPreTrapNumber(field, playerName, y, multi){
             //console.log(i,1,n);
             if(multi){
               playerName.hints.push([i,1]);
+            }else{
+              playerName.singleHints.push([i,1]);
             }
             n++;
          }else{
@@ -235,6 +374,8 @@ function fillMapWithPreTrapNumber(field, playerName, y, multi){
             //console.log(i,8,n);
             if(multi){
               playerName.hints.push([i,8]);
+            }else{
+              playerName.singleHints.push([i,8]);
             }
             n++;
          }
@@ -245,6 +386,8 @@ function fillMapWithPreTrapNumber(field, playerName, y, multi){
               //console.log(i,b,n);
               if(multi){
                 playerName.hints.push([i,b]);
+              }else{
+                playerName.singleHints.push([i,b]);
               }
               n++;
             }
@@ -254,6 +397,9 @@ function fillMapWithPreTrapNumber(field, playerName, y, multi){
               //console.log(i,8-b,n);
               if(multi){
                 playerName.hints.push([i,8-b]);
+              }
+              else{
+                playerName.singleHints.push([i,8-b]);
               }
                n++;
             }
@@ -286,7 +432,11 @@ function fillMapWithPreTrapName(field, playerName){
 
 function fillSingleMapWithPreTrapName(field, playerName){
   var found = 0;
+  var forward = false;
+  var n = 0
+  var multi = true;
   for(var i = 0; i < field.length; i = i + 1){
+    
      for(var k = 0; k < field[i].length; k = k + 1){
         if(field[i][k]){
           // add hints
@@ -296,7 +446,13 @@ function fillSingleMapWithPreTrapName(field, playerName){
             if(configObject.symbolPatterns[parseInt(field[i][k])]){
               //console.log(parseInt(field[i][k]), configObject.symbolPatterns[parseInt(field[i][k])].name );
               field[i][k] = ''+configObject.symbolPatterns[parseInt(field[i][k])].name;
-              playerName.singleHints.push([i,k]);
+              //playerName.singleHints.push([i,k]);
+
+              //Do coole jumps
+              //playerName.singleHints.push([1,1]);
+          
+              
+
             }else{
               field[i][k] = -1;
             }
@@ -305,6 +461,7 @@ function fillSingleMapWithPreTrapName(field, playerName){
           
         }
      }
+     
   }
 }
 

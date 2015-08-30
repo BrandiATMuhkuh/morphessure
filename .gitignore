@@ -30,5 +30,6 @@ GameServer/database/
 GameServer/server/GeneratedDictionaries/
 GameServer/audioRecordings/
 GameServer/helperScripts/condition_generated.js
+GameServer/server/conditions/condition*.js
 *~
 .Rproj.user
