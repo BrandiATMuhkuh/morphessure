@@ -173,7 +173,7 @@ class CsvConditionGenerator {
 
                 var mCount = 0;
                 var rCount = 0;
-                dbMem.each("select * from test2 where presentation != 'pre' AND presentation != 'post' order by mindex ASC", function(err, row) {
+                dbMem.each("select * from test2 where phase = 'collaboration' order by mindex ASC", function(err, row) {
                         //dbMem.each("select * from test2 where presentation = 'post' and phase = 'naming_test' order by mindex ASC limit 40", function(err, row) {
 
                         //console.log(row.navigator);
@@ -197,7 +197,7 @@ class CsvConditionGenerator {
                         //setHintImage("secSinglePlayer", "player1", mCount, row.item);
 
                     },
-                    function(d) {
+                    function() {
 
                         cleanData("multiPlayer", "player1");
                         cleanData("multiPlayer", "player2");
@@ -209,8 +209,102 @@ class CsvConditionGenerator {
                         getFields("multiPlayer", "player2").hintWord = getFields("multiPlayer", "player2").hintWord.slice(0, mCount);
 
                         console.log("I'm done here");
+                        d();
+                    });
+
+                    //select * from test2 where phase = 'naming_test' AND presentation = 'tutorial' order by mindex ASC
+                    //select * from test2 where phase = 'collaboration' AND presentation = 'tutorial' order by mindex ASC
+
+
+            }
+
+            function d() {
+                console.log("create tutorial");
+                var mCount = 0;
+                dbMem.each("select * from test2 where phase = 'naming_test' AND presentation = 'tutorial' order by mindex ASC", function(err, row) {
+                        //console.log(row, theDict[row.item]);
+
+
+                        var dict = [];
+                        if (row.option1 !== 'NA') {
+                            dict.push(row.option1);
+                        }
+
+                        if (row.option2 !== 'NA') {
+                            dict.push(row.option2);
+                        }
+
+                        setHintWord("tutorial", "player2", mCount, dict.concat(theDict[row.item]));
+                        setHintImage("tutorial", "player2", mCount, row.item);
+                        mCount++;
+
+
+                    },
+                    function(d) {
+                        cleanData("tutorial", "player1");
+                        cleanData("tutorial", "player2");
+
+                        getFields("tutorial", "player1").hintList = getFields("tutorial", "player1").hintList.slice(0, mCount);
+                        getFields("tutorial", "player2").hintList = getFields("tutorial", "player2").hintList.slice(0, mCount);
+
+                        getFields("tutorial", "player1").hintWord = getFields("tutorial", "player1").hintWord.slice(0, mCount);
+                        getFields("tutorial", "player2").hintWord = getFields("tutorial", "player2").hintWord.slice(0, mCount);
+
+
+
+                        console.log("I'm done in B");
+                        f();
+                    });
+
+
+            }
+
+            function f() {
+                console.log("create multiPlayerTutorial");
+
+                var mCount = 0;
+                var rCount = 0;
+                dbMem.each("select * from test2 where phase = 'collaboration' AND presentation = 'tutorial' order by mindex ASC", function(err, row) {
+                        //dbMem.each("select * from test2 where presentation = 'post' and phase = 'naming_test' order by mindex ASC limit 40", function(err, row) {
+
+                        //console.log(row.navigator);
+
+                        var dict = [];
+                        dict.push(row.option1);
+                        dict.push(row.option2);
+
+                        if (row.navigator === 'robot') {
+                            setHintWord("multiPlayerTutorial", "player1", rCount, dict.concat(theDict[row.item]));
+                            setHintImage("multiPlayerTutorial", "player1", rCount, row.item);
+                            rCount++;
+                        } else if (row.navigator === 'subject') {
+                            setHintWord("multiPlayerTutorial", "player2", mCount, theDict[row.item]);
+                            setHintImage("multiPlayerTutorial", "player2", mCount, row.item);
+                            mCount++;
+                        }
+
+
+                        //setHintWord("secSinglePlayer", "player1", mCount, [row.option1, row.option2]);
+                        //setHintImage("secSinglePlayer", "player1", mCount, row.item);
+
+                    },
+                    function(d) {
+
+                        cleanData("multiPlayerTutorial", "player1");
+                        cleanData("multiPlayerTutorial", "player2");
+
+                        getFields("multiPlayerTutorial", "player1").hintList = getFields("multiPlayerTutorial", "player1").hintList.slice(0, rCount);
+                        getFields("multiPlayerTutorial", "player2").hintList = getFields("multiPlayerTutorial", "player2").hintList.slice(0, rCount);
+
+                        getFields("multiPlayerTutorial", "player1").hintWord = getFields("multiPlayerTutorial", "player1").hintWord.slice(0, mCount);
+                        getFields("multiPlayerTutorial", "player2").hintWord = getFields("multiPlayerTutorial", "player2").hintWord.slice(0, mCount);
+
+                        console.log("I'm done here");
                         finish();
                     });
+
+                    //select * from test2 where phase = 'naming_test' AND presentation = 'tutorial' order by mindex ASC
+                    //select * from test2 where phase = 'collaboration' AND presentation = 'tutorial' order by mindex ASC
 
 
             }
@@ -295,8 +389,8 @@ class CsvConditionGenerator {
 
             function finish() {
                 console.log("finish");
-                finished();
-                //saveCondition(__dirname + "/conditions/condition" + conditionId + ".js", JSON.stringify(template, null, '\t'),finished);
+                //finished();
+                saveCondition(__dirname + "/conditions/condition" + conditionId + ".js", JSON.stringify(template, null, '\t'),finished);
             }
 
 
