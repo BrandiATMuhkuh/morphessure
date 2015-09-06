@@ -26,7 +26,7 @@ class CsvConditionGenerator {
 
     constructor(conditionId, pId, finished) {
         console.log("CsvConditionGenerator", __dirname);
-
+        template.identification.conditionId = conditionId;
 
         dbMem.serialize(function() {
 
@@ -173,7 +173,11 @@ class CsvConditionGenerator {
 
                 var mCount = 0;
                 var rCount = 0;
-                dbMem.each("select * from test2 where phase = 'collaboration' order by mindex ASC", function(err, row) {
+                //getFields("multiPlayer", "player1").hintList = [];
+                //getFields("multiPlayer", "player2").hintList = [];
+                getFields("multiPlayer", "player1").hintWord = [];
+                getFields("multiPlayer", "player2").hintWord = [];
+                dbMem.each("select * from test2 where phase = 'collaboration' AND (presentation = 'block1' OR presentation = 'block2') order by mindex ASC", function(err, row) {
                         //dbMem.each("select * from test2 where presentation = 'post' and phase = 'naming_test' order by mindex ASC limit 40", function(err, row) {
 
                         //console.log(row.navigator);
@@ -210,6 +214,7 @@ class CsvConditionGenerator {
 
                         console.log("I'm done here");
                         d();
+                        //finish();
                     });
 
                     //select * from test2 where phase = 'naming_test' AND presentation = 'tutorial' order by mindex ASC

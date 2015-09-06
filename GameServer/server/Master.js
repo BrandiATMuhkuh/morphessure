@@ -34,6 +34,7 @@ class Master{
     this.communicator = new Communicator();
     this.communicator.setMaster(this);
     this.settings = configFiles;
+    console.log("my conditon:", this.settings.identification.conditionId);
     this.condition = new Condition(this.settings.identification.conditionId, this.settings.identification.condition, this.settings.identification.description);
 
     this.players = this.settings.players;
@@ -176,7 +177,7 @@ class Master{
 
     var _nextDict = this.getDictAtPosition(player, player.position+1);
     if(_nextDict != null){
-      //console.log(transmitter, receiver, _nextDict[0],_nextDict);
+      //console.log("_ne", player, player.position+1, _nextDict[0],_nextDict);
 
       var tplayer = this.getPlayer(transmitter);
       this.db.saveLog(new LogPlayerShouldSay(

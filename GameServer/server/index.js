@@ -21,7 +21,7 @@ class NodeArgs{
       }
     }
 
-    return 1;
+    return 2;
   }
 
   /**\
@@ -85,8 +85,10 @@ var CsvConditionGenerator = require('./csvConditionGenerator.js');
 //var config = JSON.parse(fs.readFileSync(__dirname+"/conditions/condition1.js", 'utf8'));
 //console.log(config);
 
-//var config = JSON.parse(fs.readFileSync(__dirname+"/conditions/condition1.js"));
+//var config = JSON.parse(fs.readFileSync(__dirname+"/conditions/condition2.js"));
+//new Master(config, pId, robotAddress, robotPort);
 //console.log(config);
+
 
 var con = new CsvConditionGenerator(conditionId, pId, function(e){
   //console.log("juhu CsvConditionGeneration is done", conditionId, __dirname+"/conditions/condition1.js");
@@ -96,6 +98,3 @@ var con = new CsvConditionGenerator(conditionId, pId, function(e){
   new Master(config, pId, robotAddress, robotPort);
   console.log('Start Server');  
 });
-
-
-

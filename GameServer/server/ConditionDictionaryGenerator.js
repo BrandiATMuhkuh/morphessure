@@ -66,12 +66,14 @@ class ConditionDictionaryGenerator{
         }
         console.log(__dirname);
         console.log(__filename);
+        //dbMem.each("select * from test2 where phase = 'collaboration' AND (presentation = 'block1' OR presentation = 'block2') order by mindex ASC", function(err, row) {
+
         csv
-        .fromPath(__dirname+"/conditions/condition1.csv", {headers : true, objectMode:true})
+        .fromPath(__dirname+"/conditions/condition"+this.master.condition.conditionId+".csv", {headers : true, objectMode:true})
         .on("data", function(data){
           //csvArray.push(data);
 
-          if(data.presentation !== "pre" && data.presentation !== "post"){
+          if(data.phase === 'collaboration' && (data.presentation === "block1" || data.presentation === "block2")){
 
             if(data.navigator === "robot"){
               console.log(data.change);
@@ -94,6 +96,8 @@ class ConditionDictionaryGenerator{
                 }else{
                     possibleOjb.player1.push([data.option1]);
                 }
+              }else{
+                possibleOjb.player1.push(["NEXT"]);
               }
 
               
@@ -117,7 +121,7 @@ class ConditionDictionaryGenerator{
     return new Promise(function(resolve, reject){
       //console.log("_saveFile", pId, obj);
       var fs = require("fs");
-      fs.writeFile("server/GeneratedDictionaries/condition1_pId_"+pId+".json", JSON.stringify(obj, null, "\t"), function(err) {
+      fs.writeFile("server/GeneratedDictionaries/condition"+this.master.condition.conditionId+"_pId_"+pId+".json", JSON.stringify(obj, null, "\t"), function(err) {
         if(err) {
           return console.log(err);
           reject(err);
@@ -128,7 +132,7 @@ class ConditionDictionaryGenerator{
 
 
       resolve(obj);
-    });
+    }.bind(this));
   }
 
 }
