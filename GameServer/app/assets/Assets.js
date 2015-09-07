@@ -134,6 +134,7 @@ Assets = {
     'programmer',
     'videogame',
     'dirt',
-    'Q45'
+    'Q45',
+    'NA'
   ]
 };
