@@ -21,7 +21,7 @@ class NodeArgs{
       }
     }
 
-    return 2;
+    return "1";
   }
 
   /**\

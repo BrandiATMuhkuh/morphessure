@@ -22,13 +22,20 @@ var after_orderId = getIdOfName(after_survey.SurveyElements, "Q24");
 var after_orders = after_survey.SurveyElements[after_orderId].Payload.ChoiceOrder = [];
 var after_choices = after_survey.SurveyElements[after_orderId].Payload.Choices = {};
 
+var csvStream = csv.format({headers: true});
+var writableStream = fs.createWriteStream("qualtToRef.csv");
+
+csvStream.pipe(writableStream);
+
+
 
 function addChoice(cho, ord, index, imageText){
-	//console.log('addChoice', index, imageText);
+	//console.log(cho);
 	var i = ''+index;
 	ord.push(i);
 	var a = {};
 	//a[i]={"Display": imageText};
+	//console.log(i, {"Display": imageText});
 	cho[i] = {"Display": imageText};
 }
 
@@ -41,7 +48,7 @@ dbMem.serialize(function() {
 
 	
 	csv
-	 .fromPath("expanded_config2.csv", {headers : true, objectMode:true})
+	 .fromPath("condition1.csv", {headers : true, objectMode:true})
 	 .on("data", function(data){
 		//console.log(data);    
 	    stmt.run(data.item, data.stimulusType, data.option1, data.option2, data.change, data.navigator, data.phase, data.presentation, data.index);
@@ -79,8 +86,9 @@ dbMem.serialize(function() {
 	 function a (){
 	 	console.log("create SinglePlayer");
 	 	var mCount = 1;
-		dbMem.each("select img from test2 LEFT JOIN wordToImage on test2.item = wordToImage.imgword where presentation = 'pre' and phase = 'valence_test' order by mindex ASC", function(err, row) {
-			//console.log(mCount, row.item);
+		dbMem.each("select img, imgword from test2 LEFT JOIN wordToImage on test2.item = wordToImage.imgword where presentation = 'pre' and phase = 'valence_test' order by mindex ASC", function(err, row) {
+			//console.log(mCount, row.img, row.imgword);
+			csvStream.write({position: "pre", qualRef: mCount, ref: row.imgword});
 			addChoice(choices, orders, mCount, row.img);
 			mCount++;
 		}, 
@@ -93,14 +101,16 @@ dbMem.serialize(function() {
 	 function b (){
 	 	console.log("create SinglePlayer");
 	 	var mCount = 1;
-		dbMem.each("select img from test2 LEFT JOIN wordToImage on test2.item = wordToImage.imgword where presentation = 'post' and phase = 'valence_test' order by mindex ASC", function(err, row) {
+		dbMem.each("select img, imgword from test2 LEFT JOIN wordToImage on test2.item = wordToImage.imgword where presentation = 'post' and phase = 'valence_test' order by mindex ASC", function(err, row) {
 			//console.log(mCount, row.item);
+			csvStream.write({position: "post", qualRef: mCount, ref: row.imgword});
 			addChoice(after_choices, after_orders, mCount, row.img);
 			mCount++;
 		}, 
 		function(d){
 			console.log("i'm done in A");
 			finish();
+			csvStream.end();
 		});
 	 }
 
