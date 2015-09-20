@@ -7683,6 +7683,7 @@ module.exports = {
 							"champagne",
 							"cheers",
 							"drinks",
+							"drink",
 							"toast",
 							"wine",
 							"wine glasses"
@@ -7864,6 +7865,7 @@ module.exports = {
 						[
 							"cocktail",
 							"drinks",
+							"drink",
 							"glass",
 							"straw"
 						],
@@ -8076,6 +8078,7 @@ module.exports = {
 							"ball",
 							"football",
 							"football player",
+							"soccer player",
 							"kick",
 							"play",
 							"player",
@@ -8125,6 +8128,8 @@ module.exports = {
 						],
 						[
 							"berries",
+							"raspberries",
+							"strawberries",
 							"berry fruit",
 							"blackberry",
 							"fruit",
@@ -8222,6 +8227,7 @@ module.exports = {
 							"germs",
 							"infection",
 							"microorganism",
+							"microorganisms",
 							"virus"
 						],
 						[
@@ -12617,6 +12623,7 @@ module.exports = {
 							"germs",
 							"infection",
 							"microorganism",
+							"microorganisms",
 							"virus"
 						],
 						[
@@ -13079,6 +13086,7 @@ module.exports = {
 							"germs",
 							"infection",
 							"microorganism",
+							"microorganisms",
 							"virus"
 						],
 						[
@@ -16575,6 +16583,7 @@ module.exports = {
 							"champagne",
 							"cheers",
 							"drinks",
+							"drink",
 							"toast",
 							"wine",
 							"wine glasses"
@@ -16606,6 +16615,8 @@ module.exports = {
 						],
 						[
 							"berries",
+							"raspberries",
+							"strawberries",
 							"berry fruit",
 							"blackberry",
 							"fruit",
@@ -16616,6 +16627,7 @@ module.exports = {
 						[
 							"cocktail",
 							"drinks",
+							"drink",
 							"glass",
 							"straw"
 						],
@@ -16781,6 +16793,7 @@ module.exports = {
 							"ball",
 							"football",
 							"football player",
+							"soccer player",
 							"kick",
 							"play",
 							"player",
@@ -16810,6 +16823,7 @@ module.exports = {
 						[
 							"cocktail",
 							"drinks",
+							"drink",
 							"glass",
 							"straw"
 						],
@@ -16905,6 +16919,8 @@ module.exports = {
 						],
 						[
 							"berries",
+							"raspberries",
+							"strawberries",
 							"berry fruit",
 							"blackberry",
 							"fruit",
@@ -16993,6 +17009,7 @@ module.exports = {
 							"champagne",
 							"cheers",
 							"drinks",
+							"drink",
 							"toast",
 							"wine",
 							"wine glasses"
@@ -17017,6 +17034,7 @@ module.exports = {
 							"ball",
 							"football",
 							"football player",
+							"soccer player",
 							"kick",
 							"play",
 							"player",
@@ -23629,6 +23647,7 @@ module.exports = {
 							"champagne",
 							"cheers",
 							"drinks",
+							"drink",
 							"toast",
 							"wine",
 							"wine glasses"
@@ -23810,6 +23829,7 @@ module.exports = {
 						[
 							"cocktail",
 							"drinks",
+							"drink",
 							"glass",
 							"straw"
 						],
@@ -24022,6 +24042,7 @@ module.exports = {
 							"ball",
 							"football",
 							"football player",
+							"soccer player",
 							"kick",
 							"play",
 							"player",
@@ -24071,6 +24092,8 @@ module.exports = {
 						],
 						[
 							"berries",
+							"raspberries",
+							"strawberries",
 							"berry fruit",
 							"blackberry",
 							"fruit",
@@ -24168,6 +24191,7 @@ module.exports = {
 							"germs",
 							"infection",
 							"microorganism",
+							"microorganisms",
 							"virus"
 						],
 						[
