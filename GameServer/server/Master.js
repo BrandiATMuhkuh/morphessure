@@ -175,8 +175,11 @@ class Master{
 
     var player = this.getPlayer(receiver);
 
+    console.log("Player Position: ", player.position+1, player.hintList.length);
+
+
     var _nextDict = this.getDictAtPosition(player, player.position+1);
-    if(_nextDict != null){
+    if(_nextDict != null && (player.position+1 < player.hintList.length)){
       //console.log("_ne", player, player.position+1, _nextDict[0],_nextDict);
 
       var tplayer = this.getPlayer(transmitter);
