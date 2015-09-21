@@ -30,6 +30,11 @@ class UIMaster{
       comm.clientRobotSay("yes");
     });
 
+    $("#tellNaoSend").on("click", function(){
+      console.log(document.querySelector("#tellNao").value);
+      comm.clientRobotSay(document.querySelector("#tellNao").value);
+    });
+
     $("#repeadButton").on("click", function(){
       console.log("Repeate previouse item again. ");
       comm.clientRepeatWord("human");
