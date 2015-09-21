@@ -31,7 +31,6 @@ class UIMaster{
     });
 
     $("#tellNaoSend").on("click", function(){
-      console.log(document.querySelector("#tellNao").value);
       comm.clientRobotSay(document.querySelector("#tellNao").value);
     });
 
