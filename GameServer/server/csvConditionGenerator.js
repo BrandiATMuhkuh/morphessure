@@ -13,14 +13,14 @@ var imageList = [];
 
 
 //give array some extra power
-
+/*
 Array.prototype.containsArray = function(val) {
     var hash = {};
     for(var i=0; i<this.length; i++) {
         hash[this[i]] = i;
     }
     return hash.hasOwnProperty(val);
-};
+};*/
 
 class CsvConditionGenerator {
 
@@ -315,7 +315,6 @@ class CsvConditionGenerator {
             }
 
             function cleanData(level, player) {
-                return;
                 //console.log("---------- cleanData -------------");
                 var field = getFields(level, player);
                 var hintList = field.hintList;
@@ -345,12 +344,14 @@ class CsvConditionGenerator {
                     neibors.push([hint[0]-1, hint[1]+2]);
                     neibors.push([hint[0]-0, hint[1]-2]);
                     neibors.push([hint[0]-0, hint[1]-1]);
+                    neibors.push([hint[0]-0, hint[1]-0]);
                     neibors.push([hint[0]-0, hint[1]+1]);
                     neibors.push([hint[0]-0, hint[1]+2]);
                     neibors.push([hint[0]+1, hint[1]-2]);
                     neibors.push([hint[0]+1, hint[1]-1]);
                     neibors.push([hint[0]+1, hint[1]+0]);
                     neibors.push([hint[0]+1, hint[1]+1]);
+                    neibors.push([hint[0]+1, hint[1]+2]);
                     neibors.push([hint[0]+2, hint[1]-2]);
                     neibors.push([hint[0]+2, hint[1]-1]);
                     neibors.push([hint[0]+2, hint[1]+0]);
@@ -364,7 +365,8 @@ class CsvConditionGenerator {
 
                         //check if element is in test list neibors[m]
                         //console.log(hintList.containsArray(neibors[m]));
-                        var isTestElement = hintList.containsArray(neibors[m]);
+                        //var isTestElement = hintList.containsArray(neibors[m]);
+                        var isTestElement = containsArray(neibors[m], hintList, t);
                         if(t && !isTestElement){
                             //console.log(t.name)
                             neiborsNames.push(t.name);
@@ -379,7 +381,7 @@ class CsvConditionGenerator {
 
                                 //console.log(newElem, theTrap.name, "found NEW THING");
                                 
-                                theTrap.name = newElem;
+                                t.name = newElem;
 
 
                                 //imageList neiborsNames
@@ -427,7 +429,7 @@ function setHintImage(level, player, index, image) {
     var mtrap = getTrap(f.trapList, f.hintList[index]);
     if (mtrap) {
         mtrap.name = image;
-        //console.log(mtrap);	
+        //console.log(mtrap);   
     }
 
 }
@@ -469,6 +471,22 @@ function saveCondition(filename, data, fdone) {
         }
         fdone();
     });
+}
+
+function containsArray(needles, haystack, t){
+
+    //console.log("containsArray", needles);
+
+    for(var i = 0; i < haystack.length; i++){
+
+        if(haystack[i][0] === needles[0] && haystack[i][1] === needles[1]){
+            //console.log(haystack[i], needles, t.name);
+            return true;
+        }
+    }
+        
+
+    return false;
 }
 
 module.exports = CsvConditionGenerator;
