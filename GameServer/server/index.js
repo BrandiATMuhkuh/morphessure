@@ -66,14 +66,30 @@ class NodeArgs{
     }
     return undefined;
   }
+
+
+  getDebug(){
+    for(let i=0; i < this.args.length; i = i +1){
+      if(this.args[i] === "--debug"){
+        return JSON.parse(process.argv[i+1]);
+      }
+    }
+
+    return false;
+  }
 }
 let nodeArgs = new NodeArgs(process.argv);
+
+
 
 
 var pId = nodeArgs.getpId();
 var conditionId = nodeArgs.getCondition();
 var robotAddress = nodeArgs.getRobotAddress();
 var robotPort = nodeArgs.getRobotPort();
+var debugFlag = nodeArgs.getDebug();
+
+//console.log("DEBUG? ",debugFlag);
 
 //new Master(JSON.parse(fs.readFileSync(__dirname+"/conditions/condition1.js")), pId, robotAddress, robotPort);
 
@@ -95,6 +111,6 @@ var con = new CsvConditionGenerator(conditionId, pId, function(e){
   var config = JSON.parse(fs.readFileSync(__dirname+"/conditions/condition"+conditionId+".js"));
   
 
-  new Master(config, pId, robotAddress, robotPort);
+  new Master(config, pId, robotAddress, robotPort, debugFlag);
   console.log('Start Server');  
 });

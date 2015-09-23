@@ -26,7 +26,8 @@ class Master{
    * @param robotAddress
    * @param robotPort
    */
-  constructor(configFiles, pId, robotAddress, robotPort){
+  constructor(configFiles, pId, robotAddress, robotPort, debugFlag){
+    this.debugFlag = debugFlag;
     this.pId = pId;
     this.robotAddress = robotAddress;
     this.robotPort = robotPort;
