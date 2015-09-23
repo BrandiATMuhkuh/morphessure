@@ -1,7 +1,7 @@
 import socket
 
 
-host = 'cookie'
+host = 'dontusethisrobot'
 port = 50016
 size = 1024
 s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
