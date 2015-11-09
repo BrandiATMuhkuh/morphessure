@@ -1,6 +1,6 @@
 #This file will download the analysis data from a given sqlite database
 DATABASE='/home/brandiatmuhkuh/pCloudDrive/Shared/morphessorSingleFiles/logging.sqlite'
-showeffect=1 #set this to 1 if you want the overall effect
+showeffect=0 #set this to 1 if you want the overall effect
 
 #Get all user with pId from database
 TS=`sqlite3 $DATABASE "select DISTINCT pId, condition from log where timestamp > 1443056621939 AND pId NOT GLOB '*[A-Za-z]*'"`
@@ -8,7 +8,7 @@ TS=`sqlite3 $DATABASE "select DISTINCT pId, condition from log where timestamp >
 #header on Off
 header='pId,cId,preWord,robotWord,symbolName,correct,change,word,symbolName,correct,effect'
 
-if [$showeffect -eq 1]
+if [ $showeffect -eq 1 ]
 	then
 	header='pId,cId,effect, count'
 fi
