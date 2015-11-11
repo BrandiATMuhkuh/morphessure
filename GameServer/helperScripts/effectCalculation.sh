@@ -6,7 +6,7 @@ showeffect=0 #set this to 1 if you want the overall effect
 TS=`sqlite3 $DATABASE "select DISTINCT pId, condition from log where timestamp > 1443056621939 AND pId NOT GLOB '*[A-Za-z]*'"`
 
 #header on Off
-header='pId,cId,preWord,robotWord,symbolName,correct,change,word,symbolName,correct,effect'
+header='pId,cId,preWord,robotWord,postWord,symbolName,strategy,effect'
 
 if [ $showeffect -eq 1 ]
 	then
@@ -22,7 +22,7 @@ IFS='|' read -ra ADDR <<< "$T"
 #echo ${ADDR[0]}
 #echo ${ADDR[1]}
 
-STATEMENT="select '${ADDR[0]}' as pId, '${ADDR[1]}' as cId, *,
+STATEMENT="select '${ADDR[1]}' as pId, '${ADDR[0]}' as cId, preWord, quote(robotWord), word as postWord, post.symbolName as symbolName, change as strategy, 
 	CASE WHEN preWord != word and change = 'NA'
 	THEN 'NRCHANGE' 
 	ELSE 
@@ -48,11 +48,11 @@ select pre.word as preWord, robot.word as robotWord, pre.symbolName, correct ,
 		END
 	END AS change
 from (
-select word, symbolName, correct from log where condition = '${ADDR[1]}' and pId = '${ADDR[0]}' and level = 'singlePlayer' and type = 'LogPlayerSaid' ORDER by ISOTime
+select word, symbolName, correct from log where condition = '1A' and pId = '149771' and level = 'singlePlayer' and type = 'LogPlayerSaid' ORDER by ISOTime
 ) as pre 
-LEFT JOIN (select DISTINCT word, symbolName from log where condition = '${ADDR[1]}' and pId = '${ADDR[0]}'  and transmitter = 'player2' and level = 'multiPlayer' and type = 'LogPlayerShouldSay' ORDER by ISOTime) as robot 
+LEFT JOIN (select DISTINCT word, symbolName from log where condition = '1A' and pId = '149771'  and transmitter = 'player2' and level = 'multiPlayer' and type = 'LogPlayerShouldSay' ORDER by ISOTime) as robot 
 on pre.symbolName = robot.symbolName) as preRobot 
-LEFT JOIN (select word, symbolName, correct from log where condition = '${ADDR[1]}' and pId = '${ADDR[0]}' and level = 'secSinglePlayer' and type = 'LogPlayerSaid' ORDER by ISOTime) as post 
+LEFT JOIN (select word, symbolName, correct from log where condition = '1A' and pId = '149771' and level = 'secSinglePlayer' and type = 'LogPlayerSaid' ORDER by ISOTime) as post 
 on preRobot.symbolName = post.symbolName"
 
 #echo $STATEMENT
