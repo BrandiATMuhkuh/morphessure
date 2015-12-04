@@ -178,6 +178,23 @@ function individualValanceShift(){
 				
 				dbMem.all(j, function(err, rows){
 					//console.log(rows[0]);
+					var vertField = ["pId", "item", "pre_score", "post_score", "calc"];
+					var vertRows = [];
+					
+					for(var mr of rows){
+						for(var r of qualRef){
+							vertRows.push({
+								pId:mr["pId"],
+								item:mr[r.ar],
+								pre_score:mr[r.ar+"_pre"],
+								post_score: mr[r.ar+"_post"],
+								calc: mr[r.ar+"_calc"]
+							});
+						}
+					}
+					
+					
+					
 					
 					//time to save data
 					var fields = Object.keys(rows[0]);
@@ -187,7 +204,15 @@ function individualValanceShift(){
 						fs.writeFile('individualValanceShift.csv', csv, function(err) {
 							if (err) throw err;
 							console.log('saved individualValanceShift.csv file');
-							resolve(true);
+							//saver vertically
+							json2csv({ data: vertRows, fields: vertField }, function(err, csv) {
+								if (err) console.log(err);
+								fs.writeFile('individualVerticalValanceShift.csv', csv, function(err) {
+									if (err) throw err;
+									console.log('saved individualVerticalValanceShift.csv file');
+									resolve(true);
+								});
+							});
 						});
 					});
 					
@@ -222,7 +247,7 @@ function valanceShift(){
 			sqlReq+=' from "individualValanceShift.csv"'
 			
 			dbMem.all(sqlReq, function(err, mrows){
-				console.log(err, mrows);
+				//console.log(err, mrows);
 				
 				var fields = Object.keys(mrows[0]);
 				//console.log(fields);
@@ -237,7 +262,7 @@ function valanceShift(){
 				resolve(true);
 			});
 			
-			console.log(sqlReq);
+			//console.log(sqlReq);
 			
 		});
 		
