@@ -86,17 +86,50 @@ function addToDb(csvData, tableName, callback){
 
 }
 
-function calcTIPI(extroverted, critical, deprendable, anxious, open, reserved, sympathetic, disorganized, calm, conventional){
-	extroverted = parseInt(extroverted);
-	reserved = parseInt(reserved);
-	critical = parseInt(critical);
-	sympathetic = parseInt(sympathetic);
-	deprendable = parseInt(deprendable);
-	disorganized = parseInt(disorganized);
-	anxious = parseInt(anxious);
-	calm = parseInt(calm);
-	open = parseInt(open);
-	conventional = parseInt(conventional);
+/**
+ * Overwrites obj1's values with obj2's and adds obj2's if non existent in obj1
+ * @param obj1
+ * @param obj2
+ * @returns obj3 a new object based on obj1 and obj2
+ */
+function merge_options(obj1,obj2){
+    var obj3 = {};
+    for (var attrname in obj1) { obj3[attrname] = obj1[attrname]; }
+    for (var attrname in obj2) { obj3[attrname] = obj2[attrname]; }
+    return obj3;
+}
+
+/**
+ * 
+ * full = true:  if full tipi is not caluated and all values are given back direclty
+ **/
+function calcTIPI(full, row){
+	
+	var extroverted = parseInt(row['Q4_1']);
+	var reserved = parseInt(row['Q4_6']);
+	var critical = parseInt(row['Q4_2']);
+	var sympathetic = parseInt(row['Q4_7']);
+	var deprendable = parseInt(row['Q4_3']);
+	var disorganized = parseInt(row['Q4_8']);
+	var anxious = parseInt(row['Q4_4']);
+	var calm = parseInt(row['Q4_9']);
+	var open = parseInt(row['Q4_5']);
+	var conventional = parseInt(row['Q4_10']);
+	
+	if(full === true){
+		return {
+			extroverted:extroverted, 
+			critical:critical, 
+			deprendable:deprendable, 
+			anxious:anxious, 
+			open:open, 
+			reserved:reserved, 
+			sympathetic:sympathetic, 
+			disorganized:disorganized, 
+			calm:calm, 
+			conventional:conventional
+		}
+	}
 	
 	
 	return {
@@ -105,6 +138,19 @@ function calcTIPI(extroverted, critical, deprendable, anxious, open, reserved, s
     conscientiousness: (deprendable+8-disorganized)/2,
     emotionalStable: (anxious+8-calm)/2,
     openness: (open+8-conventional)/2};
+}
+
+function getDemographics(row){
+	
+	return {
+		interactedWithRobot: row['Q10'], 
+		gender: row['Q12'],
+		age: row['Q16_1'],
+		englishFirst: row['Q20'], 
+		education: row['Q19'],
+		study: row['Q14'],
+	}
+	
 }
 
 function getAllTIPIs(){
@@ -117,11 +163,18 @@ function getAllTIPIs(){
 				
 				var tipiDate = [];
 				for(var row of rows){
-					var t = calcTIPI(row['Q4_1'], row['Q4_2'], row['Q4_3'], row['Q4_4'], row['Q4_5'], row['Q4_6'], row['Q4_7'], row['Q4_8'], row['Q4_9'], row['Q4_10']);
+					console.log(row);
+					var t = calcTIPI(true, row);
 					t.pId = row['Q21'];
+					//t.push(getDemographics(row));
+					t = merge_options(t, getDemographics(row));
 					tipiDate.push(t);
 				}
 				var fields = Object.keys(tipiDate[0]);
+				
+				//Tipi pure
+				
+				
 				json2csv({ data: tipiDate, fields: fields }, function(err, csv) {
 					if (err) console.log(err);
 					fs.writeFile('tipi.csv', csv, function(err) {
@@ -275,7 +328,7 @@ function valanceShift(){
 csv2Json("mainAfter_gen.csv")
 .then(function(){return csv2Json("mainBefore_gen.csv")})
 .then(function(){return csv2Json("qualtToRef.csv")})
-//.then(function(){return getAllTIPIs();})
+.then(function(){return getAllTIPIs();})
 .then(function(){return individualValanceShift();})
 .then(function(){return csv2Json("individualValanceShift.csv")})
 .then(function(){return valanceShift();})
