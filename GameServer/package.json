@@ -3,6 +3,7 @@
   "devDependencies": {
     "apache-server-configs": "^2.7.1",
     "babel": "latest",
+    "feathers": "latest",
     "grunt": "^0.4.5",
     "grunt-autoprefixer": "^1.0.0",
     "grunt-babel": "^4.0.0",
@@ -16,7 +17,7 @@
     "grunt-contrib-htmlmin": "^0.3.0",
     "grunt-contrib-imagemin": "^0.8.0",
     "grunt-contrib-jshint": "^0.10.0",
-    "grunt-contrib-sass": "^0.7.3",
+    "grunt-contrib-sass": "^0.9.2",
     "grunt-contrib-uglify": "^0.5.1",
     "grunt-contrib-watch": "^0.6.1",
     "grunt-jsdoc": "^0.6.3",
@@ -34,8 +35,7 @@
     "load-grunt-tasks": "^0.4.0",
     "node-inspector": "latest",
     "socket.io": "latest",
-    "time-grunt": "^0.4.0",
-    "feathers": "latest"
+    "time-grunt": "^0.4.0"
   },
   "engines": {
     "node": ">=0.11.15"

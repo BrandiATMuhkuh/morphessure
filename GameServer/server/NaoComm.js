@@ -7,7 +7,8 @@ var net = require('net');
 module.exports = class NaoComm {
 
   constructor(address, port){
-    this.address = (typeof address === 'undefined')? "localhost":address;
+    //this.address = (typeof address === 'undefined')? "localhost":address;
+    this.address = address;
     this.port = (typeof port === 'undefined')? 50016:port;
     this.sendCommand = 'say=' + "Nothing to say" + '&';
     this.isClosed = true;
@@ -85,8 +86,8 @@ module.exports = class NaoComm {
   send(){
 
     console.log("nao send", this.isClosed, this.sendCommands.length);
-    
-    if(this.isClosed && this.sendCommands.length > 0){
+
+    if(this.isClosed && this.sendCommands.length > 0 && this.address !== undefined){
       this.isClosed = false;
       var client = new net.Socket();
       client.on('error', function(e){
