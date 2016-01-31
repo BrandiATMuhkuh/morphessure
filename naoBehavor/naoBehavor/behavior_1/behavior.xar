@@ -2957,12 +2957,6 @@ class MyClass(GeneratedClass):
                                     <ActuatorCurve name="value" actuator="HeadYaw" recordable="0" mute="0" unit="0">
                                         <Key frame="25" value="-2.1997" />
                                     </ActuatorCurve>
-                                    <ActuatorCurve name="value" actuator="LAnklePitch" recordable="0" mute="0" unit="0">
-                                        <Key frame="25" value="-68.15" />
-                                    </ActuatorCurve>
-                                    <ActuatorCurve name="value" actuator="LAnkleRoll" recordable="0" mute="0" unit="0">
-                                        <Key frame="25" value="4.13332" />
-                                    </ActuatorCurve>
                                     <ActuatorCurve name="value" actuator="LElbowRoll" recordable="0" mute="0" unit="0">
                                         <Key frame="25" value="-50.3596" />
                                     </ActuatorCurve>
@@ -2971,18 +2965,6 @@ class MyClass(GeneratedClass):
                                     </ActuatorCurve>
                                     <ActuatorCurve name="value" actuator="LHand" recordable="0" mute="0" unit="1">
                                         <Key frame="25" value="0.8472" />
-                                    </ActuatorCurve>
-                                    <ActuatorCurve name="value" actuator="LHipPitch" recordable="0" mute="0" unit="0">
-                                        <Key frame="25" value="-34.0996" />
-                                    </ActuatorCurve>
-                                    <ActuatorCurve name="value" actuator="LHipRoll" recordable="0" mute="0" unit="0">
-                                        <Key frame="25" value="-3.60116" />
-                                    </ActuatorCurve>
-                                    <ActuatorCurve name="value" actuator="LHipYawPitch" recordable="0" mute="0" unit="0">
-                                        <Key frame="25" value="1.93602" />
-                                    </ActuatorCurve>
-                                    <ActuatorCurve name="value" actuator="LKneePitch" recordable="0" mute="0" unit="0">
-                                        <Key frame="25" value="121.04" />
                                     </ActuatorCurve>
                                     <ActuatorCurve name="value" actuator="LShoulderPitch" recordable="0" mute="0" unit="0">
                                         <Key frame="25" value="78.0454" />
@@ -2993,12 +2975,6 @@ class MyClass(GeneratedClass):
                                     <ActuatorCurve name="value" actuator="LWristYaw" recordable="0" mute="0" unit="0">
                                         <Key frame="25" value="-27.6004" />
                                     </ActuatorCurve>
-                                    <ActuatorCurve name="value" actuator="RAnklePitch" recordable="0" mute="0" unit="0">
-                                        <Key frame="25" value="-67.97" />
-                                    </ActuatorCurve>
-                                    <ActuatorCurve name="value" actuator="RAnkleRoll" recordable="0" mute="0" unit="0">
-                                        <Key frame="25" value="-4.34702" />
-                                    </ActuatorCurve>
                                     <ActuatorCurve name="value" actuator="RElbowRoll" recordable="0" mute="0" unit="0">
                                         <Key frame="25" value="60.9114" />
                                     </ActuatorCurve>
@@ -3007,18 +2983,6 @@ class MyClass(GeneratedClass):
                                     </ActuatorCurve>
                                     <ActuatorCurve name="value" actuator="RHand" recordable="0" mute="0" unit="1">
                                         <Key frame="25" value="0.8" />
-                                    </ActuatorCurve>
-                                    <ActuatorCurve name="value" actuator="RHipPitch" recordable="0" mute="0" unit="0">
-                                        <Key frame="25" value="-31.995" />
-                                    </ActuatorCurve>
-                                    <ActuatorCurve name="value" actuator="RHipRoll" recordable="0" mute="0" unit="0">
-                                        <Key frame="25" value="4.92435" />
-                                    </ActuatorCurve>
-                                    <ActuatorCurve name="value" actuator="RHipYawPitch" recordable="0" mute="0" unit="0">
-                                        <Key frame="25" value="1.93602" />
-                                    </ActuatorCurve>
-                                    <ActuatorCurve name="value" actuator="RKneePitch" recordable="0" mute="0" unit="0">
-                                        <Key frame="25" value="121.04" />
                                     </ActuatorCurve>
                                     <ActuatorCurve name="value" actuator="RShoulderPitch" recordable="0" mute="0" unit="0">
                                         <Key frame="25" value="86.2242" />
