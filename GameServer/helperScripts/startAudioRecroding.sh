@@ -1,5 +1,5 @@
 #!/bin/bash
-# user "apt-get install vorbis-tools" to run this script in ubuntu
+# user "apt-get install vorbis-tools sox" to run this script in ubuntu
 pwd
 
 echo $0

@@ -8,8 +8,9 @@ read -e -p "Enter condition number: " -i "" CONDITION
 read -e -p "Enter participant id: " -i "" PARTICIPANTID
 #echo $PARTICIPANTID
 
-read -e -p "Enter robot address: " -i "" ROBOTADDRESS
+#read -e -p "Enter robot address: " -i "" ROBOTADDRESS
 #echo $ROBOTADDRESS
+ROBOTADDRESS='dontusethisrobot.canterbury.ac.nz'
 
 if [[ -z "$CONDITION" ]]; then
    echo "you did not name the CONDITION"
