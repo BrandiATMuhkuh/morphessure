@@ -90,11 +90,11 @@ class Master{
             return f.name;
           }
         }
-        
+
       }
     }
 
-    
+
 
     return "NA";
   }
@@ -109,7 +109,7 @@ class Master{
     hintNr = parseInt(hintNr);
     console.log("client:movePlayer", name, hintNr, option);
 
-    
+
 
     var player = this.getPlayer(name);
     var goNext = player.position+1 === hintNr;
@@ -143,9 +143,9 @@ class Master{
           this.tellClientswhoIsNext();
         }.bind(this), 300);
       }else{
-        //player clicked on the wrong symbol. 
+        //player clicked on the wrong symbol.
         this.communicator.serverTryAgain();
-        
+
       }
     }else{
       //wait for alia
@@ -155,10 +155,10 @@ class Master{
       }else{
         this.communicator.serverRAMove(true);
       }
-      
+
     }
 
-    
+
   }
 
   /**
@@ -332,7 +332,7 @@ class Master{
         if(this.levels[this.currentLevel].type === "single"){
           this.communicator.serverTryAgain();
         }
-        
+
 
         console.log("I donw want");
 
@@ -365,7 +365,7 @@ class Master{
         }.bind(this), 1000);
       }
 
-      
+
     }else{
       console.log("clientMovePlayer -- B");
       this.clientMovePlayer(player.name, player.position+1);
@@ -381,7 +381,7 @@ class Master{
     console.log("please give me my level", level);
 
     //this._servLevel(level);
-    
+
     if(level === "multiPlayer"){
       this.clientGenerateMultiPlayerConditionDictionary(function(){
         this._servLevel("multiPlayer");
@@ -389,7 +389,7 @@ class Master{
     }else{
       this._servLevel(level);
     }
-    
+
   }
 
   _servLevel(level){
@@ -409,7 +409,7 @@ class Master{
     if(this.levels[this.currentLevel].type === "single"){
       this.naoComm.start().volume(0).finish().send();
     }else{
-      this.naoComm.start().volume(50).finish().send();
+      this.naoComm.start().volume(70).finish().send();
     }
 
     //replace players lists

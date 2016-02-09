@@ -120,7 +120,8 @@ class Communicator{
     }).bind(this));
 
     this.socket.on("client:trustgame",(function(data){
-      this.master.naoComm.start().volume(50).trustgame().finish().send();
+      //this.master.naoComm.start().volume(70).trustgame().finish().send();
+      this.master.naoComm.start().volume(0).finish().send();
     }).bind(this));
 
     this.socket.on("client:initPosition",(function(data){
@@ -128,7 +129,7 @@ class Communicator{
     }).bind(this));
 
     this.socket.on("client:robotSay",(function(data){
-      this.master.naoComm.start().say(data).finish().send();
+      this.master.naoComm.start().volume(70).say(data).finish().send();
     }).bind(this));
 
   }
