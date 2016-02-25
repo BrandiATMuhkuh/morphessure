@@ -112,7 +112,9 @@ module.exports = class NaoComm {
       }
     }else{
       //send the request via HTTP-rest
-      request(this.address+":"+this.port+"?"+this.sendCommands.pop(), function (error, response, body) {
+      var _req = 'http://'+this.address+":"+this.port+"?"+this.sendCommands.pop();
+      console.log("The request", _req);
+      request(_req, function (error, response, body) {
         if (!error && response.statusCode == 200) {
           console.log(body) // Show the HTML for the Google homepage.
         }
