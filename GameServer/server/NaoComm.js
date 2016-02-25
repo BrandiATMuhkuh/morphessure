@@ -87,25 +87,39 @@ module.exports = class NaoComm {
 
     console.log("nao send", this.isClosed, this.sendCommands.length);
 
-    if(this.isClosed && this.sendCommands.length > 0 && this.address !== undefined){
-      this.isClosed = false;
-      var client = new net.Socket();
-      client.on('error', function(e){
-        console.error("I could not connect to NAO. I guess the behavior is not running or NAO is not durned on!");
-      });
+    var useSocket = false; //define if we use socket of http to send a request to nao
 
-      client.connect(this.port, this.address, function () {
-        console.log('Connected');
+    //If socket is true we send the request via socket
+    if(useSocket === true){
+      if(this.isClosed && this.sendCommands.length > 0 && this.address !== undefined){
+        this.isClosed = false;
+        var client = new net.Socket();
+        client.on('error', function(e){
+          console.error("I could not connect to NAO. I guess the behavior is not running or NAO is not durned on!");
+        });
 
-        client.write(this.sendCommands.pop());
-      }.bind(this));
+        client.connect(this.port, this.address, function () {
+          console.log('Connected');
 
-      client.on('close', function () {
-        this.isClosed = true;
-        console.log('Connection closed');
-        this.send();
-      }.bind(this));
+          client.write(this.sendCommands.pop());
+        }.bind(this));
+
+        client.on('close', function () {
+          this.isClosed = true;
+          console.log('Connection closed');
+          this.send();
+        }.bind(this));
+      }
+    }else{
+      //send the request via HTTP-rest
+      request(this.address+":"+this.port+"?"+this.sendCommands.pop(), function (error, response, body) {
+        if (!error && response.statusCode == 200) {
+          console.log(body) // Show the HTML for the Google homepage.
+        }
+      })
     }
+
+
 
   }
 
