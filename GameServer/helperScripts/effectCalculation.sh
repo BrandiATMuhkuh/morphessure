@@ -59,7 +59,7 @@ select word, symbolName, correct from log where condition = '${ADDR[1]}' and pId
 ) as pre
 LEFT JOIN (select DISTINCT word, symbolName from log where condition = '${ADDR[1]}' and pId = '${ADDR[0]}'  and transmitter = 'player2' and level = 'multiPlayer' and type = 'LogPlayerShouldSay' ORDER by ISOTime) as robot
 on pre.symbolName = robot.symbolName) as preRobot
-LEFT JOIN (select word, symbolName, correct from log where condition = '${ADDR[1]}' and pId = '${ADDR[0]}' and level = 'secSinglePlayer' and type = 'LogPlayerSaid' ORDER by ISOTime) as post
+INNER JOIN (select word, symbolName, correct from log where condition = '${ADDR[1]}' and pId = '${ADDR[0]}' and level = 'secSinglePlayer' and type = 'LogPlayerSaid' ORDER by ISOTime) as post
 on preRobot.symbolName = post.symbolName"
 
 #echo $STATEMENT
