@@ -28,82 +28,61 @@ IFS='|' read -ra ADDR <<< "$T"
 
 #echo ${ADDR[0]}
 #echo ${ADDR[1]}
+#select  '${ADDR[0]}' as pId, '${ADDR[1]}' as cId, 
 
-STATEMENT="select  '${ADDR[0]}' as pId, '${ADDR[1]}' as cId, preWord, quote(robotWord), word as postWord, post.symbolName as symbolName, change as strategy,
-	CASE WHEN preWord != word and change = 'NA'
+STATEMENT="select pId, cId, preWord, quote(robotWord), postWord, symbolName, change as strategy,
+	CASE WHEN preWord != postWord and change = 'NA'
 	THEN 'NRCHANGE'
 	ELSE
-		CASE WHEN preWord = word and change = 'NA'
+		CASE WHEN preWord = postWord and change = 'NA'
 		THEN 'NRMATCH'
 		ELSE
-			CASE WHEN preWord != word and change != 'NA'
+			CASE WHEN preWord != postWord and change != 'NA'
 			THEN 'CHANGE'
 			ELSE  'MATCH'
 			END
 		END
 	END as effect
-
- from (
-select pre.word as preWord, robot.word as robotWord, pre.symbolName, correct ,
-	CASE WHEN pre.word = robot.word
+from (
+select post.pId as pId, post.cId as cId,  preWord, robotWord, postWord, post.symbolName as symbolName,  
+	CASE WHEN preWord = robotWord
 	THEN 'MATCH'
 	ELSE
 		CASE
-		WHEN robot.word is null
+		WHEN robotWord is null
 		THEN 'NA'
 		ELSE 'CHANGE'
 		END
 	END AS change
-from (
-select word, symbolName, correct from log where condition = '${ADDR[1]}' and pId = '${ADDR[0]}' and level = 'singlePlayer' and type = 'LogPlayerSaid' ORDER by ISOTime
-) as pre
-LEFT JOIN (select DISTINCT word, symbolName from log where condition = '${ADDR[1]}' and pId = '${ADDR[0]}'  and transmitter = 'player2' and level = 'multiPlayer' and type = 'LogPlayerShouldSay' ORDER by ISOTime) as robot
-on pre.symbolName = robot.symbolName) as preRobot
-INNER JOIN (select word, symbolName, correct from log where condition = '${ADDR[1]}' and pId = '${ADDR[0]}' and level = 'secSinglePlayer' and type = 'LogPlayerSaid' ORDER by ISOTime) as post
-on preRobot.symbolName = post.symbolName"
 
-#echo $STATEMENT
+from 
+(select pId, condition as cId,  word as preWord, log.symbolName, correct as preCorrect from log
+INNER JOIN (select  multi.symbolName as symbolName from (select * from (select Distinct symbolName  from log where condition = '${ADDR[1]}' and pId = '${ADDR[0]}' and level = 'singlePlayer' and type = 'LogPlayerSaid') as pre
+INNER JOIN (select Distinct symbolName from log where condition = '${ADDR[1]}' and pId = '${ADDR[0]}' and level = 'secSinglePlayer' and type = 'LogPlayerSaid' ) as post 
+ON pre.symbolName = post.symbolName) as prePost
+INNER JOIN (select Distinct symbolName from log where condition = '${ADDR[1]}' and pId = '${ADDR[0]}' and level = 'multiPlayer' and type = 'LogPlayerShouldSay' ) as multi 
+ON prePost.symbolName = multi.symbolName) as allowedSymbols on allowedSymbols.symbolName = log.symbolName
+where condition = '${ADDR[1]}' and pId = '${ADDR[0]}' and level = 'singlePlayer' and type = 'LogPlayerSaid') as pre
 
-if [ $showeffect -eq 1 ]
-	then
+INNER JOIN
+(select pId, condition as cId,  word as postWord, log.symbolName, correct  as postCorrect from log
+INNER JOIN  (select  multi.symbolName as symbolName from (select * from (select Distinct symbolName  from log where condition = '${ADDR[1]}' and pId = '${ADDR[0]}' and level = 'singlePlayer' and type = 'LogPlayerSaid') as pre
+INNER JOIN (select Distinct symbolName from log where condition = '${ADDR[1]}' and pId = '${ADDR[0]}' and level = 'secSinglePlayer' and type = 'LogPlayerSaid' ) as post 
+ON pre.symbolName = post.symbolName) as prePost
+INNER JOIN (select Distinct symbolName from log where condition = '${ADDR[1]}' and pId = '${ADDR[0]}' and level = 'multiPlayer' and type = 'LogPlayerShouldSay' ) as multi 
+ON prePost.symbolName = multi.symbolName) as allowedSymbols on allowedSymbols.symbolName = log.symbolName
+where condition = '${ADDR[1]}' and pId = '${ADDR[0]}' and level = 'secSinglePlayer' and type = 'LogPlayerSaid') as post
+on pre.symbolName = post.symbolName
 
-
-	STATEMENT="select '${ADDR[0]}' as pId, '${ADDR[1]}' as cId, effect, count(effect) from (
-
-select *,
-	CASE WHEN preWord != word and change = 'NA'
-	THEN 'NRCHANGE'
-	ELSE
-		CASE WHEN preWord = word and change = 'NA'
-		THEN 'NRMATCH'
-		ELSE
-			CASE WHEN preWord != word and change != 'NA'
-			THEN 'CHANGE'
-			ELSE  'MATCH'
-			END
-		END
-	END as effect
-
- from (
-select pre.word as preWord, robot.word as robotWord, pre.symbolName, correct ,
-	CASE WHEN pre.word = robot.word
-	THEN 'MATCH'
-	ELSE
-		CASE
-		WHEN robot.word is null
-		THEN 'NA'
-		ELSE 'CHANGE'
-		END
-	END AS change
-from (
-select word, symbolName, correct from log where condition = '${ADDR[1]}' and pId = '${ADDR[0]}' and level = 'singlePlayer' and type = 'LogPlayerSaid' ORDER by ISOTime
-) as pre
-LEFT JOIN (select DISTINCT word, symbolName from log where condition = '${ADDR[1]}' and pId = '${ADDR[0]}'  and transmitter = 'player2' and level = 'multiPlayer' and type = 'LogPlayerShouldSay' ORDER by ISOTime) as robot
-on pre.symbolName = robot.symbolName) as preRobot
-LEFT JOIN (select word, symbolName, correct from log where condition = '${ADDR[1]}' and pId = '${ADDR[0]}' and level = 'secSinglePlayer' and type = 'LogPlayerSaid' ORDER by ISOTime) as post
-on preRobot.symbolName = post.symbolName
-) group by effect"
-fi
+LEFT JOIN 
+(select DISTINCT  log.symbolName,  word as robotWord from log 
+INNER JOIN  (select  multi.symbolName as symbolName from (select * from (select Distinct symbolName  from log where condition = '${ADDR[1]}' and pId = '${ADDR[0]}' and level = 'singlePlayer' and type = 'LogPlayerSaid') as pre
+INNER JOIN (select Distinct symbolName from log where condition = '${ADDR[1]}' and pId = '${ADDR[0]}' and level = 'secSinglePlayer' and type = 'LogPlayerSaid' ) as post 
+ON pre.symbolName = post.symbolName) as prePost
+INNER JOIN (select Distinct symbolName from log where condition = '${ADDR[1]}' and pId = '${ADDR[0]}' and level = 'multiPlayer' and type = 'LogPlayerShouldSay' ) as multi 
+ON prePost.symbolName = multi.symbolName) as allowedSymbols on allowedSymbols.symbolName = log.symbolName
+where condition = '${ADDR[1]}' and pId = '${ADDR[0]}'  and transmitter = 'player2' and level = 'multiPlayer' and type = 'LogPlayerShouldSay' order by log.symbolName) as multi 
+on pre.symbolName = multi.symbolName)"
 
 
 
