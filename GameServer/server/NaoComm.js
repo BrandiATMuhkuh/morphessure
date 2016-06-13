@@ -9,7 +9,9 @@ module.exports = class NaoComm {
   constructor(address, port){
     //this.address = (typeof address === 'undefined')? "localhost":address;
     this.address = address;
+    //this.address = "dontusethisrobot.canterbury.ac.nz";
     this.port = (typeof port === 'undefined')? 50016:port;
+    //this.port = 40010;
     this.sendCommand = 'say=' + "Nothing to say" + '&';
     this.isClosed = true;
     this.sendCommands = [];

@@ -153,18 +153,18 @@ function getDemographics(row){
 	
 }
 
-function getAllTIPIs(){
+function getAllTIPIs(tableName){
 	return new Promise(function(resolve, reject){
 		console.log("calcuationTiPi");
 		
 		dbMem.serialize(function() {
 		
-			dbMem.all('select * from "mainBefore_gen.csv" where V1 != "R_31shGdBgwNaheeX" and Q21 != "999999"', function(err, rows){
+			dbMem.all('select * from "'+tableName+'" where V1 != "R_31shGdBgwNaheeX" and Q21 != "999999"', function(err, rows){
 				
 				var tipiDate = [];
 				for(var row of rows){
 					console.log(row);
-					var t = calcTIPI(true, row);
+					var t = calcTIPI(false, row);
 					t.pId = row['Q21'];
 					//t.push(getDemographics(row));
 					t = merge_options(t, getDemographics(row));
@@ -177,7 +177,7 @@ function getAllTIPIs(){
 				
 				json2csv({ data: tipiDate, fields: fields }, function(err, csv) {
 					if (err) console.log(err);
-					fs.writeFile('tipi.csv', csv, function(err) {
+					fs.writeFile('tipi.'+tableName, csv, function(err) {
 						if (err) throw err;
 						console.log('saved tipi.csv file');
 						resolve(true);
@@ -324,14 +324,37 @@ function valanceShift(){
 }
 
 
-
+/*
 csv2Json("mainAfter_gen.csv")
 .then(function(){return csv2Json("mainBefore_gen.csv")})
 .then(function(){return csv2Json("qualtToRef.csv")})
-.then(function(){return getAllTIPIs();})
+.then(function(){return getAllTIPIs("mainBefore_gen.csv");})
 .then(function(){return individualValanceShift();})
 .then(function(){return csv2Json("individualValanceShift.csv")})
 .then(function(){return valanceShift();})
 .then(function(){console.log("all done")});
+*/
 
+//only TIPI
+// tipi.mainBefore_gen_experiment1_answer_is_number.csv
+// tipi.mainBefore_gen_no_catch_human_is_numbers.csv
+// tipi.mainBefore_gen_no_catch_is_number.csv
+
+var conditions = [
+'mainBefore_gen_experiment1_answer_is_number.csv',
+'mainBefore_gen_no_catch_human_is_numbers.csv',
+'mainBefore_gen_no_catch_is_number.csv'];
+
+/*
+csv2Json(conditions[0])
+.then(function(){return getAllTIPIs(conditions[0]);})
+.then(function(){console.log("all done")});
+*/
+csv2Json(conditions[1])
+.then(function(){return getAllTIPIs(conditions[1]);})
+.then(function(){console.log("all done")});
+
+csv2Json(conditions[2])
+.then(function(){return getAllTIPIs(conditions[2]);})
+.then(function(){console.log("all done")});
 

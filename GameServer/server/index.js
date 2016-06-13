@@ -21,7 +21,7 @@ class NodeArgs{
       }
     }
 
-    return "1Z";
+    return "0A";
   }
 
   /**\

@@ -6,7 +6,7 @@
 #sudo apt-get install sqlite3 libsqlite3-dev
 
 #This file will download the analysis data from a given sqlite database
-DATABASE='/home/jbr134/pCloudDrive/morphessorSingleFiles/logging.sqlite'
+DATABASE='/home/jbr134/Documents/Development/morphessure/GameServer/database/logging.sqlite'
 showeffect=0 #set this to 1 if you want the overall effect
 
 #Get all user with pId from database
@@ -30,7 +30,7 @@ IFS='|' read -ra ADDR <<< "$T"
 #echo ${ADDR[1]}
 #select  '${ADDR[0]}' as pId, '${ADDR[1]}' as cId, 
 
-STATEMENT="select pId, cId, preWord, quote(robotWord), postWord, symbolName, change as strategy,
+STATEMENT="select DISTINCT pId, cId, preWord, quote(robotWord), postWord, symbolName, change as strategy,
 	CASE WHEN preWord != postWord and change = 'NA'
 	THEN 'NRCHANGE'
 	ELSE
